@@ -14,4 +14,4 @@
 .Rproj.user
 
 # Raw data directory, as it might get pretty big.
-/data-raw/coded_text_mex
+#/data-raw/coded_text_mex
