@@ -8,7 +8,7 @@ library(compare)
 
 # read in all article index files from individual reviewers
 
-files <- dir(path = here('data-raw', 'art_index_csv'), pattern = "*.csv", full.names = TRUE)
+files <- dir(path = here('data-raw', 'art_index_csvs'), pattern = "*.csv", full.names = TRUE)
 art <- map(files, ~read_csv(.x, col_types = cols("STUDY_ID" = col_integer(),
                                                  "year" = col_integer(), 
                                                  "pmid" = col_integer(),
