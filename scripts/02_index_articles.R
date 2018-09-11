@@ -7,16 +7,32 @@ library(compare)
 # Clean Article Index Data -------------------
 
 # read in all article index files from individual reviewers
+read_csv_art <- function(fileloc, filename){
+  ret <- read_csv(paste0(fileloc, filename), col_types = cols("STUDY_ID" = col_integer(),
+                                             "year" = col_integer(), 
+                                             "pmid" = col_integer(),
+                                             .default = "c"), local = locale(encoding = "latin1"))
+  ret$csv_name <- gsub("\\.csv", "", filename)
+  ret
+}
 
-files <- dir(path = here('data-raw', 'art_index_csvs'), pattern = "*.csv", full.names = TRUE)
-art <- map(files, ~read_csv(.x, col_types = cols("STUDY_ID" = col_integer(),
-                                                 "year" = col_integer(), 
-                                                 "pmid" = col_integer(),
-                                                 .default = "c"), local = locale(encoding = "latin1"))) %>%
+fileloc <- "data-raw/art_index_csvs/"
+files <- list.files(fileloc)
+art <- map(files, ~read_csv_art(fileloc, .x))%>%
   map_df(function(x) {
     names(x) %<>% tolower
     x }) %>%
   rename("author_year" = x1)
+
+# files <- dir(path = here('data-raw', 'art_index_csvs'), pattern = "*.csv", full.names = TRUE)
+# art <- map(files, ~read_csv(.x, col_types = cols("STUDY_ID" = col_integer(),
+#                                                  "year" = col_integer(), 
+#                                                  "pmid" = col_integer(),
+#                                                  .default = "c"), local = locale(encoding = "latin1"))) %>%
+#   map_df(function(x) {
+#     names(x) %<>% tolower
+#     x }) %>%
+#   rename("author_year" = x1)
 
 # check if there are any missing study ID's from original RData assignent dataframe
 
