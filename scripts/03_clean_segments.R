@@ -46,7 +46,8 @@ segments_grp <- segments %>%
          matches = map(range, ~return_matches(.x, range)), 
          matches_str = as.character(matches)) %>% # I don't think dplyr can group_by list columns, so created a string to group by for now 
   group_by(study_id, matches_str) %>%
-  summarise(codes = paste(code, collapse = ","), 
+  summarise(codes = paste(code, collapse = ","),
+            codes_ls = list(code), 
             length_codes = n(), 
             seg_ls = list(segment), 
             segment = segment[1], 
@@ -60,11 +61,11 @@ save(segments_grp, file = here("data", "int_segments_grp.RData"))
 
 # extract code identifiers from main codes and code categories (A-A and AA-ZZ)
 code_id_letters <- map2(LETTERS, LETTERS, ~paste0(.x, .y)) %>%
-  c(., LETTERS)
+  c(., LETTERS) %>% unlist
 
 codes <- segments_grp %>%
-  mutate(code_identifiers = map(codes, function(x) x[x %in% code_id_letters]), 
-         code_main =  map(codes, function(x) x[!x %in% code_id_letters])) %>%
+  mutate(code_identifiers = map(codes_ls, function(x) x[x %in% code_id_letters]), 
+         code_main =  map(codes_ls, function(x) x[!x %in% code_id_letters])) %>%
   select(-length_codes, -codes)
 
 # identify which code identifiers don't have corresponding main codes
