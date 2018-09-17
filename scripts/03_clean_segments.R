@@ -18,6 +18,7 @@ segments <- map_dfr(files, ~read_xlsx(.x)) %>%
             begin_off = stringr::str_split(begin, ":", 2, simplify = TRUE)[, 2], 
             end_off =  stringr::str_split(end, ":", 2, simplify = TRUE)[, 2])
 
+save(segments, file = here("data", "segments.RData"))
 # these are all excluded articles or notes on articles. usually due to annotating the title of the article in the PDF. All have strange offsets
 na.seg <- segments %>% filter(is.na(segment))
 map(segments, ~sum(is.na(.x)))
@@ -95,6 +96,7 @@ codes %<>%
   filter(code_identifiers != "problem") %>%
   unnest(code_main, code_identifiers) %>%
   separate(code_main, into = c("code_main_cat", "code_main"), sep = ":", fill = "left")
+
 
 save(codes, file = here("data", "coded_annotations.RData"))
 
