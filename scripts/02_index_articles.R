@@ -55,7 +55,7 @@ art <- art %>%
 
 # check status of downloaded column (spoiler alert...it needs cleaning)
 art %>% group_by(downloaded) %>%
-  summarise(n = n()) 
+  summarise(n = n()) ##Note article 23579 - NA for downloaded - not in mex but not clear why
 
 #clean downloaded column, and write to master index csv
 art <- art %>%
