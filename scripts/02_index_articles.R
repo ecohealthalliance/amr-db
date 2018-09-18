@@ -11,8 +11,9 @@ read_csv_art <- function(fileloc, filename){
   ret <- read_csv(paste0(fileloc, filename), col_types = cols("STUDY_ID" = col_integer(),
                                              "year" = col_integer(), 
                                              "pmid" = col_integer(),
-                                             .default = "c"), local = locale(encoding = "latin1"))
-  ret$csv_name <- gsub("\\.csv", "", filename)
+                                             .default = "c"), local = locale(encoding = "latin1")) %>%
+    filter(!is.na(STUDY_ID)) #remove rows that are all NA
+  ret$csv_name <- filename
   ret
 }
 
@@ -24,13 +25,31 @@ art <- map(files, ~read_csv_art(fileloc, .x))%>%
     x }) %>%
   rename("author_year" = x1)
 
-# check if there are any missing study ID's from original RData assignent dataframe
+# read in mex files to link document names
+src_sqlite_mex <- function(fileloc, filename){
+  ret <- src_sqlite(paste0(fileloc, filename))
+  ret <- tbl(ret, "Texts") %>% collect()
+  ret$mex_name <-  filename
+  ret
+}
 
+fileloc <- "data-raw/coded_text_mex/"
+files <- list.files("data-raw/coded_text_mex/", pattern = "*.mex")
+mex <- map(files, ~src_sqlite_mex(fileloc, .x))%>%
+  map_df(function(x) {
+    names(x) %<>% tolower
+    x }) %>%
+  select(name, mex_name) %>%
+  mutate(name  = as.numeric(name)) %>%
+  rename("study_id" = name)
+
+art <- left_join(art, mex)
+
+# check if there are any missing study ID's from original RData assignent dataframe
 original_art <- readRDS(here("data", "original_full_text.rds"))
 compare(art, original_art, allowAll = TRUE) # longer character columns are not identical but this is likely due to going back and forth in excel and character encodings
 
 # clean up article index dataframe
-
 art <- art %>%
   mutate_at(vars(-abstract, - author, -journal, -title, -keywords), funs(str_to_lower))
 
