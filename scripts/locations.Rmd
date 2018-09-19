@@ -1,0 +1,206 @@
+---
+title: "Locations AMR"
+author: "Emma Mendelsohn"
+date: "9/19/2018"
+output:
+      html_document:
+        keep_md: true
+---
+Setup
+```{r setup, include=TRUE, echo=TRUE, eval=FALSE}
+library(stringi)
+library(tidyverse)
+library(ggmap)
+library(sf)
+library(mapview)
+
+
+#Function for data manipulation
+paste_collapse <- function(x){
+  x <- x[!is.na(x) & x!=""]
+  paste(x, collapse = ", ")
+}
+
+wd <- gsub("scripts", "data", getwd())
+load(paste0(wd, "/coded_annotations.RData"))
+
+```
+Temp fix to mislabeled locations 
+```{r, include=TRUE, echo=TRUE, eval=FALSE}
+codes %<>%
+  mutate(code_main=ifelse(study_id==3095 & segment=="Rome", "City", code_main)) %>% #see issue 3095 below 
+  mutate(code_main=ifelse(study_id==14740 & segment=="Kanto", "State/Province/District", code_main)) %>%
+  mutate(code_main=ifelse(study_id==22437 & segment=="France", "Country", code_main)) %>%
+  mutate(code_main=ifelse(study_id==9075 & segment=="Sichuan", "State/Province/District", code_main)) %>%
+  filter(segment != "Shim-Anzim")
+```
+Manual Subsitutions
+```{r, include=TRUE, echo=TRUE, eval=FALSE}
+sub_names <- tribble(
+  ~old,                    ~new,
+  "\r\n",                  "",
+  "the",                   "",
+  "2",                     "",
+  "republic of korea",     "south korea", 
+  "greece, greece",        "greece",
+  "uk",                    "united kingdom",
+  "^ndia$",                "india", 
+  "colombian",             "colombia",
+  "usa",                   "united states", 
+  "nerlands",              "netherlands",
+  "austria, austria",      "austria",
+  "united statesb",        "united states",
+  "norwegian",             "norway",
+  "japanese",              "japan",
+  "^korea$",               "south korea",
+  "athens, athens",        "",
+  "cardiff, liverpool",    "liverpool", #TMP fix - see 3799 below
+  "a corun˜ a",            "a coruña",
+  "a corun˜a",             "a coruña",
+  "vancouver, vancouver",   "vancouver",
+  "la havana",             "havana"
+  "logron˜o",              "vogroño",
+  "o¨ rebro",              "orebro",
+  "que´bec",               "quebec",
+  "^mo$",                  "missouri",
+  "^ca$",                  "california",
+  "rio de janeiro city",   "rio de janeiro",
+  "- ",                    "",
+  ",",                     "",
+  "university hospital (tertiary hospital in bratislava slovakia), bratislava, slovakia", "university hospital bratislava"
+)
+
+city_names  <- tribble( #add countries to cities missing country or state
+  ~City,             ~Country,
+  "toronto",         "canada",
+  "rio de janeiro",  "brazil",
+  "santo domingo",   "dominican republic",
+  "calgary",         "canada",
+  "liverpool",       "united kingdom",
+  "rome",            "italy"
+)
+
+state_names  <- tribble( #add countries to cities missing country or state
+  ~"State/Province/District",  ~Country,
+  "california",         "united states",
+  "kanto",              "japan",
+  "georgia",            "united states",
+  "new york",           "united states"
+)
+
+```
+Clean data
+```{r, include=TRUE, echo=TRUE, eval=FALSE}
+dat <- codes %>%
+  filter(code_main_cat=="Location") %>%
+  spread(key = code_main, value = segment) %>%
+  group_by(code_main_cat, study_id, code_identifiers) %>%
+  summarise_all(funs(paste_collapse)) %>%
+  rename("Hospital"= `Hospital name`) %>%
+  mutate_all(funs(tolower)) %>%
+  mutate_at(vars(Country, City, Hospital, `State/Province/District`), funs(stri_replace_all_regex(.,  sub_names$old, sub_names$new, vectorize_all = FALSE))) %>%
+  mutate_all(funs(trimws(., "both"))) %>%
+  ungroup() 
+
+dat <- left_join(dat, city_names, by="City") %>% 
+  mutate(Country= ifelse(is.na(Country.y), Country.x, Country.y)) %>%
+  select(-Country.y, -Country.x) %>%
+  left_join(., state_names, by="State/Province/District") %>%
+  mutate(Country= ifelse(is.na(Country.y), Country.x, Country.y)) %>%
+  select(-Country.y, -Country.x) 
+
+```
+Evaluate data available
+```{r, include=TRUE, echo=TRUE, eval=FALSE}
+pref <- c( #Order from most preferable to least
+  "Hospital_City_Country",
+  "Hospital_City_State/Province/District",
+  "Hospital_State/Province/District_Country",
+  "Hospital_City",
+  "Hospital_State/Province/District",
+  "Hospital_Country",
+  "Hospital",
+  "City_Country", 
+  "City_State/Province/District", 
+  "State/Province/District_Country", 
+  "City", 
+  "State/Province/District", 
+  "Country") #TODO"Place traveled to" 
+
+dat <- as.data.frame(dat)
+dat$geoloc_basis <- ""
+dat$geoloc_value <- ""
+
+#based on above preference order, assign basis for geocode (geoloc_basis) and extract location name (geoloc_value)
+for (i in rev(seq_along(pref))){
+  cnames <- strsplit(pref[i], "_") %>% unlist
+  dat_avail <- apply(dat[,c("study_id", cnames)]!="", 1, all) #if all relevant columns have values
+  dat$geoloc_basis <- ifelse(dat_avail, 
+                             pref[i], 
+                             dat$geoloc_basis)
+  if(length(cnames)>1){
+    dat$geoloc_value <- ifelse(dat_avail, 
+                               apply(dat[, c(cnames)], 1 , paste, collapse = ", "),
+                               dat$geoloc_value)
+  }else{
+    dat$geoloc_value <- ifelse(dat_avail, 
+                               dat[, c(cnames)],
+                               dat$geoloc_value)
+  }
+}
+
+```
+Geocode - everything but hospitals or place traveled to
+```{r}
+
+dat1 <- dat %>%
+  filter(!grepl("Hospital", geoloc_basis)) %>%
+  mutate_geocode(geoloc_value, source = "dsk") %>%
+  as.tibble()
+
+dat1_sf <- st_as_sf(dat1 %>% filter(!is.na(lat)), coords = c("lon", "lat"), crs = 4326)
+mapview(dat1_sf, zcol="geoloc_basis")
+```
+```{r, include=FALSE}
+# world <- map_data("world")
+# worldmap <- ggplot() +
+#   geom_path(data=world, aes(x=long, y=lat, group=group)) +
+#   scale_y_continuous(breaks=(-2:2) * 30) +
+#   scale_x_continuous(breaks=(-4:4) * 45) +
+#   geom_point(data=dat1 %>% filter(!is.na(lat)), aes(x=lon, y=lat, color=geoloc_basis)) +
+#   theme(legend.position = "top")
+# worldmap
+```
+
+Geocode - hospitals
+```{r}
+dat2 <- dat %>%
+  filter(grepl("Hospital", geoloc_basis))
+
+test <- select(dat2, study_id, geoloc_basis, geoloc_value)
+
+# test <- dat2[1:2,] %>%
+#   mutate_geocode(geoloc_value, source = "google") 
+# 
+# test <- as_tibble(test)
+# test_sf <- st_as_sf(test %>% filter(!is.na(lat)), coords = c("lon", "lat"), crs = 4326)
+# mapview(test_sf)
+```
+Notes
+```{r}
+#TODO Continue cleaning hospital names
+#TODO include location participant traveled to
+#TODO handle locations with A, B etc identifiers
+
+#TODO follow up on following
+# 10248, 23314, 14571 cty/country listed twice 
+# 3095 Rome was coded as country
+# 3799 both cardiff and liverpool are listed as city
+# 22437 france was coded as state
+# 14740 city = kanto, is that kanto region japan?
+# 9 city = "Shim-Anzim", which is not a location...maybe a lab?  It's possible the country is wrong here too
+# 9075 sichuan was coded as city
+# 10248 city = ans in greece not found
+# Should "Country of Residence"   be included with location?  it's with patient now
+
+```
