@@ -9,12 +9,13 @@ output:
 Setup
 ```{r setup, include=TRUE, echo=TRUE, eval=FALSE}
 library(tidyverse)
+library(magrittr)
 library(stringi)
-library(ggmap)
 library(sf)
 library(mapview)
 library(opencage)
-
+library(googlesheets)
+#gs_auth(new_user = TRUE)
 
 #Function for data manipulation
 paste_collapse <- function(x){
@@ -23,53 +24,32 @@ paste_collapse <- function(x){
 }
 
 wd <- gsub("scripts", "data", getwd())
-load(paste0(wd, "/coded_annotations.RData"))
+load(paste0(wd, "/coded_annotations.RData")) #data compiled in 03_clean_segments.r
+field_corrections <- gs_read(gs_title("amr_db_field_corrections")) %>% as.tibble() #google spreadsheet tracking field corrections
+sub_names <- gs_read(gs_title("amr_db_clean_locs")) %>% as.tibble() #google spreadsheet with field cleanup
 
 ```
-Temp fix to mislabeled locations 
+Fix to mislabeled locations 
 ```{r, include=TRUE, echo=TRUE, eval=FALSE}
+field_corrections %<>%
+  mutate(study_id=as.character(study_id)) %>%
+  filter(requires_followup=="No") %>%
+  select(-requires_followup, -notes)
 codes %<>%
-  mutate(code_main=ifelse(study_id==3095 & segment=="Rome", "City", code_main)) %>% #see issue 3095 below 
-  mutate(code_main=ifelse(study_id==14740 & segment=="Kanto", "State/Province/District", code_main)) %>%
-  mutate(code_main=ifelse(study_id==22437 & segment=="France", "Country", code_main)) %>%
-  mutate(code_main=ifelse(study_id==9075 & segment=="Sichuan", "State/Province/District", code_main)) %>%
-  filter(segment != "Shim-Anzim")
+  left_join(.,field_corrections) %>%
+  mutate(code_main = ifelse(is.na(code_main_new), code_main, code_main_new)) %>%
+  select(-code_main_new)
 ```
 Manual Subsitutions
 ```{r, include=TRUE, echo=TRUE, eval=FALSE}
-sub_names <- tribble(
+sub_names2 <- tribble( #not handled well by google spreadsheet
   ~old,                    ~new,
   "\r\n",                  "",
-  "the",                   "",
-  "2",                     "",
-  "republic of korea",     "south korea", 
-  "greece, greece",        "greece",
-  "uk",                    "united kingdom",
-  "^ndia$",                "india", 
-  "colombian",             "colombia",
-  "usa",                   "united states", 
-  "nerlands",              "netherlands",
-  "austria, austria",      "austria",
-  "united statesb",        "united states",
-  "norwegian",             "norway",
-  "japanese",              "japan",
-  "^korea$",               "south korea",
-  "athens, athens",        "",
-  "cardiff, liverpool",    "liverpool", #TMP fix - see 3799 below
-  "a corun˜ a",            "a coruña",
-  "a corun˜a",             "a coruña",
-  "vancouver, vancouver",   "vancouver",
-  "la havana",             "havana",
-  "logron˜o",              "vogroño",
-  "o¨ rebro",              "orebro",
-  "que´bec",               "quebec",
-  "^mo$",                  "missouri",
-  "^ca$",                  "california",
-  "rio de janeiro city",   "rio de janeiro",
   "- ",                    "",
   ",",                     "",
-  "university hospital (tertiary hospital in bratislava slovakia), bratislava, slovakia", "university hospital bratislava"
+  "2",                     ""
 )
+sub_names <- bind_rows(sub_names2, sub_names) #combine with google doc
 
 city_names  <- tribble( #add countries to cities missing country or state
   ~City,             ~Country,
@@ -92,9 +72,11 @@ state_names  <- tribble( #add countries to cities missing country or state
 ```
 Clean data
 ```{r, include=TRUE, echo=TRUE, eval=FALSE}
-dat <- codes %>%
+dat <- codes %>% #reshape and clean names
   filter(code_main_cat=="Location") %>%
   spread(key = code_main, value = segment) %>%
+  select(-matches_str) %>%
+  unique() %>%
   group_by(code_main_cat, study_id, code_identifiers) %>%
   summarise_all(funs(paste_collapse)) %>%
   rename("Hospital"= `Hospital name`) %>%
@@ -103,7 +85,7 @@ dat <- codes %>%
   mutate_all(funs(trimws(., "both"))) %>%
   ungroup() 
 
-dat <- left_join(dat, city_names, by="City") %>% 
+dat <- left_join(dat, city_names, by="City") %>% #assign countried to cities and states without countries
   mutate(Country= ifelse(is.na(Country.y), Country.x, Country.y)) %>%
   select(-Country.y, -Country.x) %>%
   left_join(., state_names, by="State/Province/District") %>%
@@ -151,22 +133,34 @@ for (i in rev(seq_along(pref))){
 }
 
 ```
+
+```{r, include=FALSE}
+#testing
+# hosp <- unique(dat$geoloc_value[grepl("Hospital", dat$geoloc_basis)])
+# 
+# for (i in 1:length(hosp)){
+#   out <- opencage_forward( hosp[i], limit = 1)
+#   lat <- out$results$geometry.lat
+#   lon <- out$results$geometry.lng
+#   stopifnot(lat%%1!=0)
+# }
+```
 Geocode function for batch processing in opencage
 ```{r}
-opencase_forward_mutate <- function(data, location){
+opencage_forward_mutate <- function(data, location){
   
   #TODO test for NA in location
   
   locs <- data[, location, drop = TRUE] #extract location
   
-  out <- map(locs, opencage_forward, limit=1) #map opencage_forward function to locations
+  out <- map(locs, opencage::opencage_forward, limit=1) #map opencage_forward function to locations
   
   #TODO - find better way to iterate list
   gcdf <- data.frame() 
-  for(i in seq_along(locs)){
-    #if(is.null(out[[i]]$results$geometry.lat)){stop()}
+  for(i in seq_along(out)){
     tmp <- data.frame(lat = out[[i]]$results$geometry.lat,
                       lon = out[[i]]$results$geometry.lng)
+    if(nrow(tmp)==0){stop()}
     gcdf <- rbind(gcdf, tmp)
   }
   cbind(data, gcdf)
@@ -174,20 +168,15 @@ opencase_forward_mutate <- function(data, location){
 ```
 Geocode
 ```{r}
-dat1 <- dat %>%
-  filter(!grepl("Hospital", geoloc_basis)) %>%
-  as.tibble()
-
-dat2 <- dat %>%
-  filter(grepl("Hospital", geoloc_basis)) %>%
-  slice(1:2)
-
-cdat <- rbind(dat1, dat2) %>%
- filter(geoloc_basis!="") %>%
-  opencase_forward_mutate(location = "geoloc_value")
+cdat <- dat %>%
+  filter(geoloc_basis!="") %>% #follow up on these (place traveled to is only field)
+  filter(!geoloc_value%in%c("i.r.c.c.s. “s. matteo” “casa sollievo della sofferenza” hospital) i.r.c.c.s. “s. maugeri”, italy", #tmp until issue 15289 resolved
+         "air force general hospital pla", #where is this? - NEED TO ADD TO FIX FEATURE LIST
+         "cf centre of the paediatric department of dijon's hospital: the crcm (centre de ressources et de compétences pour la mucoviscidose), dijon, france")) %>% #ESM to follow up
+  opencage_forward_mutate(location = "geoloc_value")
 
 cdat_sf <- st_as_sf(cdat, coords = c("lon", "lat"), crs = 4326)
-mapview(cdat_sf, zcol="geoloc_basis")
+mapview(cdat_sf, zcol="geoloc_basis", col.regions = colorRampPalette(RColorBrewer::brewer.pal(7, "Set1")), alpha.regions=1)
 
 ```
 
@@ -197,21 +186,9 @@ dat %>% group_by(geoloc_basis) %>% summarize(n=n())
 
 dat[!is.na(dat$code_identifiers),]
 
-#TODO Continue cleaning hospital names
-#TODO include location participant traveled to
+#TODO Continue troubleshooling hospital names 
+#TODO include location participant traveled to (addition to geoloc_value)
+#TODO include residence (addition to geoloc_value)
 #TODO handle locations with A, B etc identifiers
-
-#TODO follow up on following
-# 10248, 23314, 14571 cty/country listed twice 
-# 3095 Rome was coded as country
-# 3799 both cardiff and liverpool are listed as city
-# 22437 france was coded as state
-# 14740 city = kanto, is that kanto region japan?
-# 9 city = "Shim-Anzim", which is not a location...maybe a lab?  It's possible the country is wrong here too
-# 9075 sichuan was coded as city
-# 10248 city = ans in greece not found
-
-# Should "Country of Residence" be included with location?  it's with patient now
-# Google cloud $
 
 ```
