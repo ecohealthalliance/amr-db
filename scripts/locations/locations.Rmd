@@ -40,7 +40,8 @@ field_corrections %<>%
 codes %<>%
   left_join(.,field_corrections) %>%
   mutate(code_main = ifelse(is.na(code_main_new), code_main, code_main_new)) %>%
-  select(-code_main_new)
+  select(-code_main_new) %>%
+  filter(!study_id %in% unique(codes$study_id[codes$code_main_cat=="Exclusion"])) 
 ```
 Manual Subsitutions
 ```{r}
@@ -211,6 +212,10 @@ codes %>%
   summarize(segs = paste(unique(code_main_cat), collapse=", ")) %>%
   filter(!grepl("Location", segs)) %>%
   ungroup() %>% nrow()
+
+#RESIDENCE
+codes %>%
+  filter(code_main=="Country of Residence")
 
 #TODO issues
 #TODO include residence (addition to geoloc_value)
