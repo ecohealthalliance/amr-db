@@ -1,0 +1,57 @@
+---
+title: "Locations_crosstalk"
+author: "Emma Mendelsohn"
+date: "9/21/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, include = TRUE, message=FALSE)
+
+library(crosstalk)
+library(leaflet)
+library(DT)
+library(tidyverse)
+
+locs <- read_csv("location_coords.csv")
+
+```
+
+STUDY LOCATIONS
+```{r}
+# Wrap data frame in SharedData
+sl_locs <- locs %>%
+  select(geoloc_lat, geoloc_lon, geoloc_value, study_id) %>%
+  rename(latitude = geoloc_lat, longitude = geoloc_lon) %>%
+  filter(!is.na(latitude)) %>%
+  unique() #some dups for travel locs
+
+sd <- SharedData$new(sl_locs)
+
+# Use SharedData like a dataframe with Crosstalk-enabled widgets
+bscols(
+  leaflet(sd) %>% addTiles() %>% addMarkers(),
+  datatable(sd, extensions="Scroller", style="bootstrap", class="compact", width="100%",
+            options=list(deferRender=TRUE, scrollY=300, scroller=TRUE))
+)
+```
+TRAVEL LOCATIONS
+```{r}
+# Wrap data frame in SharedData
+sl_locs <- locs %>%
+  select(travel_lat, travel_lon, travel_location, study_id) %>%
+  rename(latitude = travel_lat, longitude = travel_lon) %>%
+  filter(!is.na(latitude)) %>%
+  unique() #some dups for travel locs
+
+sd <- SharedData$new(sl_locs)
+
+# Use SharedData like a dataframe with Crosstalk-enabled widgets
+bscols(
+  leaflet(sd) %>% addTiles() %>% addMarkers(),
+  datatable(sd, extensions="Scroller", style="bootstrap", class="compact", width="100%",
+            options=list(deferRender=TRUE, scrollY=300, scroller=TRUE))
+)
+
+```
+
