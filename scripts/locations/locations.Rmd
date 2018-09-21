@@ -7,14 +7,17 @@ output:
         keep_md: true
 ---
 Setup
-```{r setup, include=TRUE, echo=TRUE, eval=FALSE}
+```{r setup}
+knitr::opts_chunk$set(include=TRUE, echo=TRUE, message=FALSE)
+
 library(tidyverse)
 library(magrittr)
 library(stringi)
-library(sf)
 library(mapview)
 library(opencage)
 library(googlesheets)
+library(sf)
+library(here)
 #gs_auth(new_user = TRUE)
 
 #Function for data manipulation
@@ -23,13 +26,13 @@ paste_collapse <- function(x){
   paste(x, collapse = ", ")
 }
 
-wd <- gsub("scripts/locations", "data", getwd())
-load(paste0(wd, "/coded_annotations.RData")) #data compiled in 03_clean_segments.r
+#wd <- gsub("scripts/locations", "data", getwd())
+load(here("data", "coded_annotations.RData")) #data compiled in 03_clean_segments.r
 field_corrections <- gs_read(gs_title("amr_db_field_corrections")) %>% as.tibble() #google spreadsheet tracking field corrections
 sub_names1 <- gs_read(gs_title("amr_db_clean_locs")) %>% as.tibble() #google spreadsheet with field cleanup
 ```
 Fix to mislabeled locations 
-```{r, include=TRUE, echo=TRUE, eval=FALSE}
+```{r}
 field_corrections %<>%
   mutate(study_id=as.character(study_id)) %>%
   filter(requires_followup=="No") %>%
@@ -40,7 +43,7 @@ codes %<>%
   select(-code_main_new)
 ```
 Manual Subsitutions
-```{r, include=TRUE, echo=TRUE, eval=FALSE}
+```{r}
 sub_names2 <- tribble( #not handled well by google spreadsheet
   ~old,                    ~new,
   "\r\n",                  "",
@@ -70,7 +73,7 @@ state_names  <- tribble( #add countries to cities missing country or state
 
 ```
 Clean data
-```{r, include=TRUE, echo=TRUE, eval=FALSE}
+```{r}
 dat <- codes %>% #reshape and clean names
   filter(code_main_cat=="Location") %>%
   spread(key = code_main, value = segment) %>%
@@ -95,7 +98,7 @@ dat <- left_join(dat, city_names, by="city") %>% #assign countried to cities and
 
 ```
 Evaluate data available
-```{r, include=TRUE, echo=TRUE, eval=FALSE}
+```{r}
 pref <- c( #Order from most preferable to least
   "hospital_city_country",
   "hospital_city_state/province/district",
