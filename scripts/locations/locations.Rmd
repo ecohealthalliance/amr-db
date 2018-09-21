@@ -184,7 +184,7 @@ gdat <- gdat %>%
   mutate(cat_split = str_trim(cat_split)) %>%
   select(-travel_location) %>%
   group_by(study_id) %>%
-  mutate(travel_location_id = paste0("loc_", row_number()),) %>%
+  mutate(travel_location_id = paste0("loc_", row_number())) %>%
   rename(travel_location = cat_split) %>%
   ungroup() %>%
   opencage_forward_mutate(location = "travel_location") %>%
