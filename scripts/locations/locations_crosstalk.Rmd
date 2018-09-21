@@ -12,9 +12,9 @@ library(crosstalk)
 library(leaflet)
 library(DT)
 library(tidyverse)
+library(here)
 
-locs <- read_csv("location_coords.csv")
-
+locs <- read_csv(here("scripts", "locations", "location_coords.csv"))
 ```
 
 STUDY LOCATIONS
