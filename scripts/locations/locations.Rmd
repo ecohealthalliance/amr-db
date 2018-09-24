@@ -6,10 +6,12 @@ output:
       html_document:
         keep_md: true
 ---
-Setup
-```{r setup}
-knitr::opts_chunk$set(include=TRUE, echo=FALSE, message=FALSE)
+```{r}
+knitr::opts_chunk$set(include=TRUE, echo=TRUE, message=FALSE, warning=FALSE)
+```
 
+Setup
+```{r}
 library(tidyverse)
 library(magrittr)
 library(stringi)
@@ -69,7 +71,7 @@ sub_names2 <- tribble( #these values are handled well by google spreadsheet
 )
 
 sub_names <- bind_rows(sub_names2, sub_names1) #combine with google doc for complete correction list
-                       
+
 city_names  <- tribble( #add countries to cities missing country or state
   ~city,             ~country,
   "toronto",         "canada",
@@ -132,10 +134,7 @@ dat %<>%
   group_by(study_id) %>%
   mutate(travel_location_id = paste0("loc_", row_number())) %>%
   rename(travel_location = cat_split) %>%
-  ungroup() #%>%
-  #opencage_forward_mutate(location = "travel_location") %>%
-  #rename(travel_lat = lat, travel_lon=lon)
-
+  ungroup()
 ```
 Evaluate data available for study locations
 ```{r}
@@ -163,22 +162,36 @@ for (i in rev(seq_along(pref))){
   cnames <- strsplit(pref[i], "_") %>% unlist
   dat_avail <- apply(dat[,c("study_id", cnames)]!="", 1, all) #if all relevant columns have values
   dat$study_location_basis <- ifelse(dat_avail, 
-                             pref[i], 
-                             dat$study_location_basis)
+                                     pref[i], 
+                                     dat$study_location_basis)
   if(length(cnames)>1){
     dat$study_location <- ifelse(dat_avail, 
-                               apply(dat[, c(cnames)], 1 , paste, collapse = ", "),
-                               dat$study_location)
+                                 apply(dat[, c(cnames)], 1 , paste, collapse = ", "),
+                                 dat$study_location)
   }else{
     dat$study_location <- ifelse(dat_avail, 
-                               dat[, c(cnames)],
-                               dat$study_location)
+                                 dat[, c(cnames)],
+                                 dat$study_location)
   }
 }
 
-dat %<>% rename(study_country=country, study_city=city, study_hospital=hospital, `study_state/province/district`= `state/province/district`) %>%
+
+#final data clean up + assign basis for travel and residence locations
+travel_city_country <- do_not_split
+travel_city <- c("kolkata", "mecca", "medina", "perth", "new york city", "vancouver", "honolulu")
+travel_state <- c("shandong")
+travel_region <- c("southeast asia", "persian gulf", "equatorial africa")
+
+dat %<>%
+  rename(study_country=country, study_city=city, study_hospital=hospital, `study_state/province/district`= `state/province/district`) %>%
+  mutate(residence_location_basis = "country", 
+         travel_location_basis = ifelse(travel_location=="", "", 
+                                        ifelse(travel_location %in% travel_city_country, "city_country", 
+                                               ifelse(travel_location %in% travel_city, "city", 
+                                                      ifelse(travel_location %in% travel_state, "state/province/district",
+                                                             ifelse(travel_location %in% travel_region, "region", "country")))))) %>%
   select(study_id, code_identifiers, study_hospital, study_city, `study_state/province/district`, study_country, 
-         study_location_basis, study_location, travel_location, travel_location_id, residence_location)
+         study_location_basis, study_location, travel_location_basis, travel_location, travel_location_id, residence_location_basis, residence_location)
 ```
 
 Geocode
@@ -201,10 +214,10 @@ dat_sf_loc <- st_as_sf(dat %>% filter(!is.na(study_location_lat)) %>% unique(), 
 mapview(dat_sf_loc, zcol="study_location_basis", col.regions = colorRampPalette(RColorBrewer::brewer.pal(9, "Set1")), alpha.regions=1, layer.name="Study Location Spatial Resolution")
 
 dat_sf_trav <- st_as_sf(dat %>% filter(!is.na(travel_location_lat)), coords = c("travel_location_lon", "travel_location_lat"), crs = 4326)
-mapview(dat_sf_trav, col.regions = colorRampPalette(RColorBrewer::brewer.pal(9, "Set1")), alpha.regions=1, layer.name = "Travel Locations")
+mapview(dat_sf_trav, zcol="travel_location_basis", col.regions = colorRampPalette(RColorBrewer::brewer.pal(9, "Set1")), alpha.regions=1, layer.name = "Travel Locations Spatial Resolution")
 
 dat_sf_res <- st_as_sf(dat %>% filter(!is.na(residence_location_lat)) %>% unique, coords = c("residence_location_lon", "residence_location_lat"), crs = 4326)
-mapview(dat_sf_res, col.regions = colorRampPalette(RColorBrewer::brewer.pal(9, "Set1")), alpha.regions=1, layer.name = "Residence Locations")
+mapview(dat_sf_res, zcol="residence_location_basis", col.regions = colorRampPalette(RColorBrewer::brewer.pal(9, "Set1")), alpha.regions=1, layer.name = "Residence Locations Spatial Resolution")
 ```
 
 Notes
@@ -212,21 +225,43 @@ Notes
 #For QA:
 write.csv(dat, "location_coords.csv",row.names = F)
 
-#STUDIES THAT HAVE CODE IDENTIFIERS
-dat[!is.na(dat$code_identifiers),]
+#Studies without locs
+missing_locs <- unique(codes$study_id[!codes$study_id %in% unique(dat$study_id)])
+length(missing_locs)
 
-#HOW MANY STUDIES DO NOT HAVE LOCS
-codes %>% 
-  group_by(study_id) %>% 
-  summarize(segs = paste(unique(code_main_cat), collapse=", ")) %>%
-  filter(!grepl("Location", segs)) %>%
-  ungroup() %>% nrow()
+#Summary info - what information is available from all studies?
+sum_dat <- dat %>%
+  full_join(., tibble(study_id = missing_locs)) %>%
+  mutate(study_location_den = ifelse(study_location=="", "", "study"),
+         travel_location_den = ifelse(travel_location=="", "", "travel"),
+         residence_location_den = ifelse(residence_location=="", "", "residence"))%>%
+  rowwise()%>%
+  mutate(locations = paste_collapse(c(study_location_den, travel_location_den, residence_location_den))) %>%
+  group_by(locations) %>%
+  summarize(count = n(), percent = signif(100*n()/nrow(.), 2)) %>%
+  mutate(locations = factor(locations, 
+                            levels = c("", "study", "residence", "travel", "study, residence", "study, travel", "study, travel, residence", "travel, residence"), labels = c("none", "study only", "residence only", "travel only", "study & residence", "study & travel", "study & travel & residence", "travel & residence")))
+sum_dat_total <- tibble(locations = "TOTAL", count=sum(sum_dat$count), percent=round(sum(sum_dat$percent)))
+sum_dat <- bind_rows(sum_dat, sum_dat_total)
+sum_dat #note there are obly 303 studies...we have some studies with duplicate locations
 
-#RESIDENCE
-codes %>%
-  filter(code_main=="Country of Residence")
+#Plot - of the studies that have locations, what is the breakdown?
+cdat <- dat %>%
+  #full_join(., tibble(study_id = missing_locs)) %>%
+  select(study_id, study_location_basis, travel_location_basis, residence_location_basis) %>%
+  gather(key = location_class, value = basis, -study_id) %>%
+  mutate(location_class = gsub("_location_basis", "", location_class)) %>%
+  filter(basis != "") %>%
+  mutate(basis_cat = gsub('_.*','',basis))
 
-#TODO include residence (addition to study_location)
-#TODO handle locations with A, B etc identifiers
+ggplot(cdat, aes(x = location_class, fill=basis))  +
+  geom_bar() +
+  labs(x="", y = "Study Count", fill = "")
+
+ggplot(cdat, aes(x = location_class, fill=basis_cat))  +
+  geom_bar() +
+  labs(x="", y = "Study Count", fill = "")
+
+
 
 ```

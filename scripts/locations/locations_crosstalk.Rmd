@@ -21,8 +21,8 @@ STUDY LOCATIONS
 ```{r}
 # Wrap data frame in SharedData
 sl_locs <- locs %>%
-  select(geoloc_lat, geoloc_lon, geoloc_value, study_id) %>%
-  rename(latitude = geoloc_lat, longitude = geoloc_lon) %>%
+  select(study_location_lat, study_location_lon, study_location, study_id) %>%
+  rename(latitude = study_location_lat, longitude = study_location_lon) %>%
   filter(!is.na(latitude)) %>%
   unique() #some dups for travel locs
 
@@ -39,8 +39,26 @@ TRAVEL LOCATIONS
 ```{r}
 # Wrap data frame in SharedData
 sl_locs <- locs %>%
-  select(travel_lat, travel_lon, travel_location, study_id) %>%
-  rename(latitude = travel_lat, longitude = travel_lon) %>%
+  select(travel_location_lat, travel_location_lon, travel_location, study_id) %>%
+  rename(latitude = travel_location_lat, longitude = travel_location_lon) %>%
+  filter(!is.na(latitude)) 
+
+sd <- SharedData$new(sl_locs)
+
+# Use SharedData like a dataframe with Crosstalk-enabled widgets
+bscols(
+  leaflet(sd) %>% addTiles() %>% addMarkers(),
+  datatable(sd, extensions="Scroller", style="bootstrap", class="compact", width="100%",
+            options=list(deferRender=TRUE, scrollY=300, scroller=TRUE))
+)
+
+```
+RESIDENCE LOCATIONS
+```{r}
+# Wrap data frame in SharedData
+sl_locs <- locs %>%
+  select(residence_location_lat, residence_location_lon, residence_location, study_id) %>%
+  rename(latitude = residence_location_lat, longitude = residence_location_lon) %>%
   filter(!is.na(latitude)) %>%
   unique() #some dups for travel locs
 
