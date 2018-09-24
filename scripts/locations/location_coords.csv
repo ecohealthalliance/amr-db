@@ -1,272 +1,274 @@
-"code_main_cat","study_id","code_identifiers","geoloc_basis","geoloc_value","geoloc_lat","geoloc_lon","travel_location","travel_location_id","travel_lat","travel_lon"
-"Location","10020",NA,"city_country","new delhi, india",28.6141793,77.2022662,"india","loc_1",22.3511148,78.6677428
-"Location","10081",NA,"state/province/district_country","california, united states",36.7014631,-118.7559974,"","loc_1",NA,NA
-"Location","10083",NA,"hospital_city_country","samsung medical center, seoul, south korea",37.4884583,127.0853161,"","loc_1",NA,NA
-"Location","10209",NA,"country","nigeria",9.6000359,7.9999721,"","loc_1",NA,NA
-"Location","10221",NA,"hospital_country","paul brousse hospital, france",48.7960877,2.3683672,"greece","loc_1",38.9953683,21.9877132
-"Location","10248",NA,"hospital_city_country","laiko general hospital, athens, greece",37.9820916,23.7640844,"","loc_1",NA,NA
-"Location","10259",NA,"country","united states",39.7837304,-100.4458825,"","loc_1",NA,NA
-"Location","10260",NA,"city_country","honolulu, united states",21.304547,-157.8556764,"california, san francisco","loc_1",37.7647993,-122.4629897
-"Location","10300",NA,"country","japan",36.5748441,139.2394179,"","loc_1",NA,NA
-"Location","10443",NA,"country","india",22.3511148,78.6677428,"","loc_1",NA,NA
-"Location","10445",NA,"city_country","pune, india",18.5203062,73.8543185,"","loc_1",NA,NA
-"Location","10450",NA,"hospital_city_country","public hospital, kafr el-sheikh city, egypt",31.1143,30.94012,"","loc_1",NA,NA
-"Location","10634",NA,"city_country","seoul, south korea",37.5666791,126.9782914,"","loc_1",NA,NA
-"Location","11176",NA,"country","japan",36.5748441,139.2394179,"","loc_1",NA,NA
-"Location","11201",NA,"hospital_city_country","university hospital bratislava, bratislava, slovakia",48.1402969,17.1158258,"","loc_1",NA,NA
-"Location","11303","aa","city_country","toronto, canada",46.4524682,-63.3799629,"","loc_1",NA,NA
-"Location","11303","bb","","",NA,NA,"india","loc_2",22.3511148,78.6677428
-"Location","11384",NA,"country","canada",61.0666922,-107.9917071,"","loc_1",NA,NA
-"Location","11395",NA,"country","tunisia",33.8439408,9.400138,"","loc_1",NA,NA
-"Location","11406",NA,"country","taiwan",23.5982979,120.8353631,"china","loc_1",35.000074,104.999927
-"Location","11413",NA,"country","taiwan",23.5982979,120.8353631,"","loc_1",NA,NA
-"Location","1151",NA,"country","congo",-0.7264327,15.6419155,"","loc_1",NA,NA
-"Location","11510",NA,"city_country","quebec, canada",52.4760892,-71.8258668,"","loc_1",NA,NA
-"Location","11797",NA,"city_country","seoul, south korea",37.5666791,126.9782914,"","loc_1",NA,NA
-"Location","1198",NA,"hospital_city_country","s. maria degli angeli regional hospital, pordenone, italy",45.96171,12.65532,"","loc_1",NA,NA
-"Location","11983",NA,"city_country","johannesburg, south africa",-26.205,28.049722,"","loc_1",NA,NA
-"Location","12065",NA,"city_country","hangzhou, china",30.2489634,120.2052342,"","loc_1",NA,NA
-"Location","12188",NA,"country","japan",36.5748441,139.2394179,"","loc_1",NA,NA
-"Location","12344",NA,"country","china",35.000074,104.999927,"","loc_1",NA,NA
-"Location","12359",NA,"city_country","beijing, china",39.9059631,116.391248,"","loc_1",NA,NA
-"Location","12403",NA,"city_country","saint louis, senegal",16.187637,-15.2954315,"","loc_1",NA,NA
-"Location","12482",NA,"hospital_city_country","houston methodist hospital, houston, united states",29.7108167,-95.399264,"","loc_1",NA,NA
-"Location","1288",NA,"hospital_city_country","hospital pasteur of montevideo, montevideo, uruguay",-34.8751994,-56.1384593,"","loc_1",NA,NA
-"Location","12887",NA,"country","tunisia",33.8439408,9.400138,"","loc_1",NA,NA
-"Location","12905",NA,"hospital_city_country","medical university of bialystok, bialystok, poland",53.13333,23.16433,"","loc_1",NA,NA
-"Location","13015",NA,"hospital_city_country","jawaharlal institute of postgraduate  medical education and research jipmer, puducherry, india",11.93381,79.82979,"","loc_1",NA,NA
-"Location","13129",NA,"hospital_city_country","hospital de niños ―j.m de los ríos‖, caracas, venezuela",10.48801,-66.87919,"","loc_1",NA,NA
-"Location","13223",NA,"hospital_city_country","the ‘sanatorio mautone’, punta del este, uruguay",-34.96667,-54.95,"","loc_1",NA,NA
-"Location","13308",NA,"city_country","são paulo, brazil",-21.9549806,-49.0232348,"","loc_1",NA,NA
-"Location","13370",NA,"city_country","calgary, canada",51.0253267,-114.0498685,"new delhi, india","loc_1",28.6141793,77.2022662
-"Location","13376",NA,"hospital_city_country","university of virginia medical center uvamc, charlottesville, united states",38.037459,-78.497805,"riyadh, saudi arabia","loc_1",24.6319692,46.7150648
-"Location","13399",NA,"hospital_city_country","vmmc and associated safdarjung hospital, delhi, india",28.65381,77.22897,"","loc_1",NA,NA
-"Location","13465",NA,"city_country","manali, india",32.2454608,77.1872926,"china","loc_1",35.000074,104.999927
-"Location","13465",NA,"city_country","manali, india",32.2454608,77.1872926,"india","loc_2",22.3511148,78.6677428
-"Location","13465",NA,"city_country","manali, india",32.2454608,77.1872926,"myanmar","loc_3",17.1750495,95.9999652
-"Location","13465",NA,"city_country","manali, india",32.2454608,77.1872926,"thailand","loc_4",14.8971921,100.83273
-"Location","13465",NA,"city_country","manali, india",32.2454608,77.1872926,"nepal","loc_5",28.1083929,84.0917139
-"Location","13490",NA,"country","france",46.603354,1.8883335,"","loc_1",NA,NA
-"Location","13548",NA,"country","ireland",52.865196,-7.9794599,"kolkata","loc_1",22.5677459,88.3476023
-"Location","13557",NA,"city_state/province/district","st. louis, missouri",38.6337716,-90.2416548,"","loc_1",NA,NA
-"Location","13592",NA,"state/province/district_country","western province, papua new guinea",-7.5,142,"","loc_1",NA,NA
-"Location","13741",NA,"hospital_city_country","universidade federal, são paulo, brazil",-23.6446564,-46.5284149,"","loc_1",NA,NA
-"Location","13772",NA,"hospital_city_country","hôpital timone, marseille, france",43.2897729,5.4034414,"","loc_1",NA,NA
-"Location","13794",NA,"hospital_city_country","university hospital a coruña, a coruña, spain",42.98446,-9.0763,"portugal","loc_1",40.033265,-7.8896263
-"Location","13804",NA,"city_country","rio de janeiro, brazil",-22.2752762,-42.419415,"","loc_1",NA,NA
-"Location","13994",NA,"country","canada",61.0666922,-107.9917071,"india","loc_1",22.3511148,78.6677428
-"Location","14082",NA,"hospital_city_country","lihir medical center, lihir island, papua new guinea",-3.11927,152.5982,"","loc_1",NA,NA
-"Location","14126",NA,"hospital_city_country","sfax habib bourguiba hospital, sfax, tunisia",34.74056,10.76028,"","loc_1",NA,NA
-"Location","14130",NA,"country","united states",39.7837304,-100.4458825,"pakistan","loc_1",30.3308401,71.247499
-"Location","14233",NA,"city_country","islamabad, pakistan",33.6938118,73.0651511,"","loc_1",NA,NA
-"Location","14287",NA,"country","italy",42.6384261,12.674297,"","loc_1",NA,NA
-"Location","14404",NA,"city_country","osaka, japan",34.6937569,135.5014539,"","loc_1",NA,NA
-"Location","14571",NA,"city_country","vancouver, canada",49.2608724,-123.1139529,"","loc_1",NA,NA
-"Location","14616",NA,"city_country","buenaventura, colombia",3.8899335,-77.0786047,"","loc_1",NA,NA
-"Location","14740",NA,"city","kanto",35.9574767,139.8670582,"southeast asia","loc_1",56.0000002,103.9999998
-"Location","14751",NA,"hospital_city_country","american university of beirut medical center, beirut, lebanon",33.8986681,35.4848172,"","loc_1",NA,NA
-"Location","14823",NA,"hospital_city_country","jikei university hospital, tokyo, japan",35.6895,139.69171,"india","loc_1",22.3511148,78.6677428
-"Location","14906",NA,"hospital_country","tel aviv medical center, israel",31.5,34.75,"","loc_1",NA,NA
-"Location","1495",NA,"hospital_city_country","saint michael’s medical center, newark, united states",40.7440691,-74.1741437,"","loc_1",NA,NA
-"Location","15",NA,"hospital_city_country","casamance hospital, marseille, france",43.275848,5.5311655,"","loc_1",NA,NA
-"Location","15256",NA,"hospital_city_country","university hospital centre split, split, croatia",43.50891,16.43915,"","loc_1",NA,NA
-"Location","15268",NA,"hospital_city_country","institute for mother and child healthcare, belgrade, serbia",44.80401,20.46513,"","loc_1",NA,NA
-"Location","15331",NA,"hospital_city_country","university hospital limerick uhl, limerick, ireland",52.66472,-8.62306,"","loc_1",NA,NA
-"Location","15337",NA,"country","ireland",52.865196,-7.9794599,"","loc_1",NA,NA
-"Location","15378",NA,"hospital_city_country","hospital infantil de méxico federico gómez himfg, mexico city, méxico",19.42847,-99.12766,"","loc_1",NA,NA
-"Location","15475",NA,"country","france",46.603354,1.8883335,"mecca","loc_1",21.4209763,39.8270873
-"Location","15475",NA,"country","france",46.603354,1.8883335,"medina","loc_2",24.471153,39.6111216
-"Location","15632",NA,"hospital_country","hus, finland",60.1882578,24.9080827,"greece","loc_1",38.9953683,21.9877132
-"Location","15632",NA,"hospital_country","hus, finland",60.1882578,24.9080827,"italy","loc_2",42.6384261,12.674297
-"Location","15654",NA,"country","denmark",55.670249,10.3333283,"","loc_1",NA,NA
-"Location","1566",NA,"country","italy",42.6384261,12.674297,"","loc_1",NA,NA
-"Location","15936",NA,"hospital_city","aglaia kyriakou pediatric hospital, athens",37.97945,23.71622,"","loc_1",NA,NA
-"Location","15946",NA,"hospital_city_country","“iatrikon athinon” medical center, athens, greece",37.97945,23.71622,"","loc_1",NA,NA
-"Location","16248",NA,"city_country","alberta mysore, india",14.66667,75.83333,"india","loc_1",22.3511148,78.6677428
-"Location","16251",NA,"city_country","pretoria, south africa",-25.7459374,28.1879444,"","loc_1",NA,NA
-"Location","16267",NA,"hospital_city_country","university of pittsburgh medical center, pittsburgh, united states",40.445394,-79.959578,"","loc_1",NA,NA
-"Location","1652",NA,"city_country","havana, cuba",23.135305,-82.3589631,"cuba","loc_1",23.0131338,-80.8328748
-"Location","16713",NA,"hospital_country","kuala lumpur hospital, malaysia",3.1516636,101.6943028,"","loc_1",NA,NA
-"Location","16715",NA,"city_country","rabat, morocco",34.022405,-6.834543,"","loc_1",NA,NA
-"Location","16726",NA,"hospital_city_country","aga khan university hospital, nairobi, kenya",-1.261807,36.8241269,"","loc_1",NA,NA
-"Location","16801",NA,"city_country","vogroño, spain",40,-4,"","loc_1",NA,NA
-"Location","16837",NA,"country","iran",32.9407495,52.9471344,"","loc_1",NA,NA
-"Location","17121",NA,"hospital_city_country","government hospital of kobbe, tripoli, lebanon",34.43667,35.84972,"syria","loc_1",34.6401861,39.0494106
-"Location","17169",NA,"hospital_city_country","jss medical college, mysore, india",12.3443528,76.6526544,"","loc_1",NA,NA
-"Location","17611",NA,"country","australia",-24.7761086,134.755,"perth","loc_1",-31.9527121,115.8604796
-"Location","17611",NA,"country","australia",-24.7761086,134.755,"new york city","loc_2",40.7308619,-73.9871558
-"Location","17611",NA,"country","australia",-24.7761086,134.755,"hawaii","loc_3",21.2160437,-157.975203
-"Location","17611",NA,"country","australia",-24.7761086,134.755,"vancouver","loc_4",49.2608724,-123.1139529
-"Location","17611",NA,"country","australia",-24.7761086,134.755,"honolulu","loc_5",21.304547,-157.8556764
-"Location","17649",NA,"hospital_city_country","jawaharlal nehru medical college, aligarh, india",27.88334,78.07475,"","loc_1",NA,NA
-"Location","17819",NA,"country","spain",39.3262345,-4.8380649,"","loc_1",NA,NA
-"Location","1786",NA,"hospital_country","clinical hospital center zagreb, croatia",45.81444,15.97798,"","loc_1",NA,NA
-"Location","17942",NA,"city_country","rio de janeiro, brazil",-22.2752762,-42.419415,"","loc_1",NA,NA
-"Location","1806",NA,"city_country","rajamundry, india",22,79,"","loc_1",NA,NA
-"Location","18073",NA,"city_state/province/district","rochester, minnesota",44.0234387,-92.4630182,"","loc_1",NA,NA
-"Location","18158",NA,"hospital_country","medical hospital of tokyo medical and dental university, japan",35.70155,139.76446,"brazil","loc_1",-10.3333333,-53.2
-"Location","18184",NA,"","",NA,NA,"india","loc_1",22.3511148,78.6677428
-"Location","18265",NA,"country","norway",64.5731537,11.5280364,"greece","loc_1",38.9953683,21.9877132
-"Location","183",NA,"hospital_city_country","military hospital of constantine, constantine, algeria",36.365,6.61472,"tunisia","loc_1",33.8439408,9.400138
-"Location","18418",NA,"hospital_city_country","university hospital of annaba, annaba, algeria",36.8134223,7.7107411,"","loc_1",NA,NA
-"Location","18438",NA,"hospital_city_country","children ward of the military hospital, rawalpindi, pakistan",33.6007,73.0679,"","loc_1",NA,NA
-"Location","18470",NA,"country","italy",42.6384261,12.674297,"","loc_1",NA,NA
-"Location","18527",NA,"","",NA,NA,"iraq","loc_1",33.0955793,44.1749775
-"Location","18631",NA,"country","germany",51.0834196,10.4234469,"","loc_1",NA,NA
-"Location","18674",NA,"hospital_city_country","hospital nossa  senhora da conceição, tubarão, brazil",-28.4801995,-49.0025361,"","loc_1",NA,NA
-"Location","1874",NA,"country","israel",30.8760272,35.0015196,"","loc_1",NA,NA
-"Location","18778",NA,"hospital_country","alexandra hospital, united kingdom",52.2803106,-1.9127299,"","loc_1",NA,NA
-"Location","18818",NA,"hospital_city_country","bournemouth hospital, bournemouth, united kingdom",50.747444,-1.8218523,"","loc_1",NA,NA
-"Location","18852",NA,"hospital_city_country","the hospital clínico ‘lozano blesa’, zaragoza, spain",41.65606,-0.87734,"","loc_1",NA,NA
-"Location","1887",NA,"hospital_city_state/province/district","university hospital, san antonio, texas",29.5078264,-98.5780943,"","loc_1",NA,NA
-"Location","18946",NA,"city_country","tehran, iran",35.7006177,51.4013785,"india","loc_1",22.3511148,78.6677428
-"Location","18946",NA,"city_country","tehran, iran",35.7006177,51.4013785,"pakistan","loc_2",30.3308401,71.247499
-"Location","18947",NA,"city_country","tehran, iran",35.7006177,51.4013785,"","loc_1",NA,NA
-"Location","18963",NA,"state/province/district_country","georgia, united states",32.3293809,-83.1137366,"","loc_1",NA,NA
-"Location","19093",NA,"hospital_state/province/district_country","walter reed army medical center wramc, washington dc, united states",38.886804,-76.990243,"germany","loc_1",51.0834196,10.4234469
-"Location","19093",NA,"hospital_state/province/district_country","walter reed army medical center wramc, washington dc, united states",38.886804,-76.990243,"afghanistan","loc_2",33.7680065,66.2385139
-"Location","19152",NA,"hospital_city_country","chonbuk national university hospital, jeonju, south korea",35.8465888,127.1350133,"","loc_1",NA,NA
-"Location","19196",NA,"country","iran",32.9407495,52.9471344,"","loc_1",NA,NA
-"Location","19267",NA,"state/province/district_country","michigan, united states",43.6211955,-84.6824346,"","loc_1",NA,NA
-"Location","19568",NA,"city_country","manerbio, italy",45.355777,10.13517,"","loc_1",NA,NA
-"Location","19607",NA,"hospital_city_country","the hospital clinic of barcelona, barcelona, spain",41.3880618,2.1506393,"india","loc_1",22.3511148,78.6677428
-"Location","19609",NA,"hospital_city_country","hospital clinic of barcelona, barcelona, spain",41.3880618,2.1506393,"india","loc_1",22.3511148,78.6677428
-"Location","19615",NA,"city_country","kafr el-sheikh, egypt",31.3827023,30.8516791,"","loc_1",NA,NA
-"Location","202",NA,"hospital_city_country","hoˆpital central de l’arme´e of algiers, algiers, algeria",36.7525,3.04197,"","loc_1",NA,NA
-"Location","20331",NA,"hospital_city_country","tribhuvan university teaching hospital, kathmandu, nepal",27.736112,85.3302137,"","loc_1",NA,NA
-"Location","20332",NA,"hospital_city_country","tribhuvan university teaching hospital, kathmandu, nepal",27.736112,85.3302137,"","loc_1",NA,NA
-"Location","20350",NA,"city_country","bushehr, iran",28.9685469,50.8403297,"persian gulf","loc_1",27.0000001,50.9999999
-"Location","20553",NA,"country","spain",39.3262345,-4.8380649,"","loc_1",NA,NA
-"Location","2067",NA,"state/province/district_country","andaman islands, india",11.7880925,92.9409183,"","loc_1",NA,NA
-"Location","20841",NA,"city_country","brampton, canada",43.6858146,-79.7599337,"mumbai, india","loc_1",18.9387544,72.8352382
-"Location","20899",NA,"city_country","sofia, bulgaria",42.6978634,23.3221789,"","loc_1",NA,NA
-"Location","21029",NA,"country","japan",36.5748441,139.2394179,"","loc_1",NA,NA
-"Location","21083",NA,"hospital_city_country","university hospital complex of santiago de compostela, santiago de compostela, spain",42.88052,-8.54569,"","loc_1",NA,NA
-"Location","21149",NA,"hospital_city_country","serres general hospital, serres, greece",41.0910711,23.5498031,"","loc_1",NA,NA
-"Location","21347",NA,"country","austria",47.2000338,13.199959,"germany","loc_1",51.0834196,10.4234469
-"Location","21348",NA,"country","norway",64.5731537,11.5280364,"","loc_1",NA,NA
-"Location","21464",NA,"city_country","veldhoven, the netherlands",51.4077063,5.3927311,"","loc_1",NA,NA
-"Location","21479",NA,"city_country","amsterdam, netherlands",52.3745403,4.8979755,"","loc_1",NA,NA
-"Location","21824",NA,"hospital_city_country","besançon hospital, besançon, france",47.237953,6.0243246,"","loc_1",NA,NA
-"Location","21838",NA,"city_country","charleston, united states",32.7876012,-79.9402728,"","loc_1",NA,NA
-"Location","22167",NA,"hospital_city_country","public hospital, beijing, china",39.9899279,116.1907859,"","loc_1",NA,NA
-"Location","22199",NA,"city_country","beijing, china",39.9059631,116.391248,"","loc_1",NA,NA
-"Location","22437",NA,"hospital_city_country","dron hospita, tourcoing, france",50.72391,3.16117,"","loc_1",NA,NA
-"Location","22668",NA,"country","china",35.000074,104.999927,"","loc_1",NA,NA
-"Location","22703",NA,"state/province/district_country","new york, united states",40.7308619,-73.9871558,"","loc_1",NA,NA
-"Location","2302",NA,"city_country","brussels, belgium",50.8465573,4.351697,"","loc_1",NA,NA
-"Location","2303",NA,"city_country","brussels, belgium",50.8465573,4.351697,"pakistan","loc_1",30.3308401,71.247499
-"Location","23039",NA,"hospital_country","the first affiliated hospital of anhui medical university, china",31.8492406,117.2627129,"","loc_1",NA,NA
-"Location","23107",NA,"city_country","orebro, sweden",59.2747378,15.2149988,"india","loc_1",22.3511148,78.6677428
-"Location","23248",NA,"hospital_city_country","kasr al aini hospita, cairo, egypt",30.06263,31.24967,"","loc_1",NA,NA
-"Location","23251",NA,"city_country","maringa´, brazil",-23.425269,-51.9382078,"","loc_1",NA,NA
-"Location","23314",NA,"hospital_city_country","university hospital university hospita, graz pristina, austria",47.33333,13.33333,"india","loc_1",22.3511148,78.6677428
-"Location","23314",NA,"hospital_city_country","university hospital university hospita, graz pristina, austria",47.33333,13.33333,"pakistan","loc_2",30.3308401,71.247499
-"Location","23408",NA,"hospital_country","peking university first hospital, china",39.9311357,116.3749506,"shandong","loc_1",36.0000001,118.9999999
-"Location","23491",NA,"country","china",35.000074,104.999927,"","loc_1",NA,NA
-"Location","23549",NA,"hospital_city_country","guangzhou women and children’s, guangzhou, china",23.1255513,113.3191121,"","loc_1",NA,NA
-"Location","23647",NA,"hospital_city_country","kuala lumpur hospital, kuala lumpur, malaysia",2.7243827,101.7381037,"","loc_1",NA,NA
-"Location","2372",NA,"city_country","paris, france",48.8566101,2.3514992,"algeria","loc_1",28.0000272,2.9999825
-"Location","2389",NA,"hospital_city_country","mid-western regional hospital, limerick, ireland",52.634123,-8.6534639,"france","loc_1",46.603354,1.8883335
-"Location","2389",NA,"hospital_city_country","mid-western regional hospital, limerick, ireland",52.634123,-8.6534639,"italy","loc_2",42.6384261,12.674297
-"Location","2389",NA,"hospital_city_country","mid-western regional hospital, limerick, ireland",52.634123,-8.6534639,"israel","loc_3",30.8760272,35.0015196
-"Location","2418",NA,"hospital_city_country","department of infection control and prevention tokyo medical university hospital, tokyo, japan",35.6895,139.69171,"","loc_1",NA,NA
-"Location","2419",NA,"hospital_city_country","brampton civic hospital campus bch, brampton, canada",43.68341,-79.76633,"","loc_1",NA,NA
-"Location","2487",NA,"hospital_city_country","trousseau hospital, paris, france",48.8504267,2.3771149,"","loc_1",NA,NA
-"Location","2512",NA,"country","bulgaria",42.6073975,25.4856617,"","loc_1",NA,NA
-"Location","261",NA,"city_country","edmonton, canada",53.535411,-113.507996,"india","loc_1",22.3511148,78.6677428
-"Location","2628",NA,"city_country","johannesburg, south africa",-26.205,28.049722,"","loc_1",NA,NA
-"Location","267",NA,"country","palestine",31.649741,35.162072,"","loc_1",NA,NA
-"Location","2791",NA,"city_country","atlanta, united states",33.7490987,-84.3901849,"","loc_1",NA,NA
-"Location","281",NA,"country","south korea",36.5581914,127.9408564,"","loc_1",NA,NA
-"Location","2889",NA,"hospital_city_country","hospital universitario ramón y cajal, madrid, spain",40.487358,-3.6938527,"korea","loc_1",36.5581914,127.9408564
-"Location","2889",NA,"hospital_city_country","hospital universitario ramón y cajal, madrid, spain",40.487358,-3.6938527,"china","loc_2",35.000074,104.999927
-"Location","2963",NA,"hospital_city_country","i.r.c.c.s. fondazione s. maugeri in pavia, pavia, italy",45.19205,9.15917,"","loc_1",NA,NA
-"Location","3060",NA,"hospital","chinese people's liberation army air force general hospital beijing",39.9075,116.39723,"","loc_1",NA,NA
-"Location","3095",NA,"city_country","rome, italy",41.894802,12.4853384,"","loc_1",NA,NA
-"Location","3235",NA,"city_country","ohio, united states",40.2253569,-82.6881395,"","loc_1",NA,NA
-"Location","345",NA,"city_country","mount hope, trinidad and tobago",10.6543136,-61.4351657,"","loc_1",NA,NA
-"Location","3461",NA,"state/province/district_country","mato grosso do sul, brazil",-19.5852564,-54.4794731,"","loc_1",NA,NA
-"Location","3557",NA,"","",NA,NA,"congo","loc_1",-0.7264327,15.6419155
-"Location","3596",NA,"city_country","guangzhou, china",23.1301964,113.2592945,"","loc_1",NA,NA
-"Location","360",NA,"city_country","tripoli, lebanon",34.4453581,35.8225116,"","loc_1",NA,NA
-"Location","3613",NA,"hospital_city_country","peking university first hospital, beijing, china",39.9311357,116.3749506,"","loc_1",NA,NA
-"Location","3622",NA,"hospital_state/province/district_country","al-shifa hospital, gaza, palestine",31.52414,34.4442,"","loc_1",NA,NA
-"Location","3799",NA,"city","cardiff liverpool",53.3560488,-2.9063261,"","loc_1",NA,NA
-"Location","3872",NA,"hospital_country","st. luke’s medical center global city, philippines",14.5551064,121.0484247,"","loc_1",NA,NA
-"Location","3882",NA,"country","tunisia",33.8439408,9.400138,"","loc_1",NA,NA
-"Location","404",NA,"hospital_country","riyadh military hospital, saudi arabia",24.6924187,46.7140726,"","loc_1",NA,NA
-"Location","4167",NA,"city_country","massa, italy",44.0359323,10.1395519,"","loc_1",NA,NA
-"Location","4379",NA,"hospital_country","christchurch hospital, new zealand",-43.5336618,172.6252485,"","loc_1",NA,NA
-"Location","4489",NA,"hospital_city_country","ramo´n y cajal university hospital, madrid, spain",40.42526,-3.69063,"","loc_1",NA,NA
-"Location","4519",NA,"hospital_city_country","modena university hospital, modena, italy",44.64783,10.92539,"india","loc_1",22.3511148,78.6677428
-"Location","4581",NA,"hospital_city_country","new york hospital queens, new york, united states",40.7372329,-73.862477,"","loc_1",NA,NA
-"Location","4641",NA,"hospital_city_country","saint joseph hospital-raymond and aida najjar polyclinic, beirut, lebanon",33.88894,35.49442,"","loc_1",NA,NA
-"Location","4642",NA,"hospital_city_country","saint joseph hospital-raymond and aida najjar polyclinic, beirut, lebanon",33.88894,35.49442,"","loc_1",NA,NA
-"Location","5005",NA,"city_country","sakarya, turkey",40.7731834,30.481606,"","loc_1",NA,NA
-"Location","5091",NA,"city_country","belgrade, serbia",44.8178131,20.4568974,"","loc_1",NA,NA
-"Location","5183",NA,"city_country","mangalore, india",12.8698101,74.8430082,"","loc_1",NA,NA
-"Location","5251",NA,"hospital_country","al-sabah hospital, kuwait",29.3260998,47.9040688,"","loc_1",NA,NA
-"Location","5265",NA,"hospital","new york hospital queens",40.6524927,-73.7914214,"","loc_1",NA,NA
-"Location","5449",NA,"hospital_city_country","evangelismos hospital, athens, greece",37.9778485,23.7477463,"","loc_1",NA,NA
-"Location","5451",NA,"hospital_city_country","children’s hospital at montefiore albert einstein college of medicine, bronx, united states",34.659168,-85.327672,"","loc_1",NA,NA
-"Location","5553",NA,"hospital_country","glocal medical college and super speciality hospital, uttar pradesh, india",27.25,80.75,"","loc_1",NA,NA
-"Location","5560",NA,"hospital_city_country","the cleveland clinic, cleveland, united states",41.5026252,-81.6198545,"","loc_1",NA,NA
-"Location","5774",NA,"hospital_city_country","american  university of beirut medical center aub-mc, beirut, lebanon",33.88894,35.49442,"","loc_1",NA,NA
-"Location","579",NA,"hospital_city_country","university hospital oswaldo cruz, recife, brazil",-8.05389,-34.88111,"","loc_1",NA,NA
-"Location","580",NA,"hospital_city_country","university hospital oswaldo cruz, recife, brazil",-8.05389,-34.88111,"","loc_1",NA,NA
-"Location","591",NA,"hospital_city_country","hospital de clínicas josé de san martín, buenos aires, argentina",-34.5988953,-58.3999899,"","loc_1",NA,NA
-"Location","592",NA,"hospital","hospital de clínicas josé de san martín",-34.5988953,-58.3999899,"","loc_1",NA,NA
-"Location","5934",NA,"country","colombia",2.8894434,-73.783892,"","loc_1",NA,NA
-"Location","5961",NA,"hospital_city_country","son espases hospital, mallorca, spain",39.6100069,2.6431014,"portugal","loc_1",40.033265,-7.8896263
-"Location","5961",NA,"hospital_city_country","son espases hospital, mallorca, spain",39.6100069,2.6431014,"france","loc_2",46.603354,1.8883335
-"Location","6314",NA,"hospital_city_country","a coruña university hospital, a coruña, spain",42.98446,-9.0763,"","loc_1",NA,NA
-"Location","6350",NA,"city_country","aveiro, portugal",40.640496,-8.6537841,"","loc_1",NA,NA
-"Location","6375",NA,"city_country","warsaw, poland",52.2319237,21.0067265,"congo","loc_1",-0.7264327,15.6419155
-"Location","6375",NA,"city_country","warsaw, poland",52.2319237,21.0067265,"equatorial africa","loc_2",0.3183229,32.5740767
-"Location","6454",NA,"hospital_city_country","university hospital of leicester nhs trust, leicester, united kingdom",52.6386,-1.13169,"ethiopia","loc_1",10.2116702,38.6521203
-"Location","6467",NA,"hospital_city_country","military  hospital bégin, saint-mandé, france",48.83864,2.41579,"serbia","loc_1",44.1534121,20.55144
-"Location","6492",NA,"hospital_city_country","the andes university hospital in mérida, mérida, venezuela",8.59524,-71.1434,"","loc_1",NA,NA
-"Location","6505",NA,"hospital_city_country","cook county hospital, chicago, united states",41.8729343,-87.6738024,"syria","loc_1",34.6401861,39.0494106
-"Location","6655",NA,"state/province/district_country","florence province, italy",42.83333,12.83333,"","loc_1",NA,NA
-"Location","6842",NA,"country","brazil",-10.3333333,-53.2,"","loc_1",NA,NA
-"Location","708",NA,"hospital_city","new york methodist hospital, new york",40.6678255,-73.9791437,"","loc_1",NA,NA
-"Location","7090",NA,"hospital_city_country","udayana university sanglah hospital, bali, indonesia",-8.5,115,"","loc_1",NA,NA
-"Location","7108",NA,"country","denmark",55.670249,10.3333283,"egypt","loc_1",26.2540493,29.2675469
-"Location","7108",NA,"country","denmark",55.670249,10.3333283,"turkey","loc_2",38.9597594,34.9249653
-"Location","7369",NA,"city_country","rome, italy",41.894802,12.4853384,"","loc_1",NA,NA
-"Location","737",NA,"hospital_city_country","hospital center regional university of dijon bourgogne, dijon, france",47.31667,5.01667,"","loc_1",NA,NA
-"Location","7437",NA,"city_country","otago, new zealand",-45.1299859,169.5248818,"","loc_1",NA,NA
-"Location","7440",NA,"hospital_country","split university hospital, croatia",45.16667,15.5,"","loc_1",NA,NA
-"Location","7494",NA,"city_country","buenos aires, argentina",-34.6075616,-58.437076,"","loc_1",NA,NA
-"Location","7585",NA,"hospital_city_country","frankfurt university hospital, frankfurt, germany",50.11552,8.68417,"mumbai, india","loc_1",18.9387544,72.8352382
-"Location","7620",NA,"city_country","port elizabeth, south africa",-33.9617051,25.6207519,"","loc_1",NA,NA
-"Location","7904",NA,"country","south africa",-28.8166236,24.991639,"","loc_1",NA,NA
-"Location","7945",NA,"city_country","chandigarh, india",30.7194022,76.7646552,"","loc_1",NA,NA
-"Location","7968",NA,"city_country","yamunanagar, india",30.1231349,77.286329,"","loc_1",NA,NA
-"Location","8089",NA,"hospital_city_country","robert debré hospital, paris, france",48.8447475,2.3163033,"","loc_1",NA,NA
-"Location","8174",NA,"hospital_city_country","aalborg university hospital, aalborg, denmark",57.0159028,9.9753283,"","loc_1",NA,NA
-"Location","8181",NA,"hospital_city_country","university hospital of cologne, cologne, germany",50.93333,6.95,"","loc_1",NA,NA
-"Location","8515",NA,"country","norway",64.5731537,11.5280364,"philippines","loc_1",12.7503486,122.7312101
-"Location","8591",NA,"hospital_city_country","the teaching hospital school of medicine cukurova university, adana, turkey",37.00167,35.32889,"","loc_1",NA,NA
-"Location","8653",NA,"country","japan",36.5748441,139.2394179,"","loc_1",NA,NA
-"Location","869",NA,"hospital_city_country","university general hospital ‘attikon’, athens, greece",37.97945,23.71622,"","loc_1",NA,NA
-"Location","8842",NA,"city_state/province/district","hackensack, new jersey",40.8859326,-74.0434736,"","loc_1",NA,NA
-"Location","8862",NA,"country","united kingdom",54.7023545,-3.2765753,"thailand","loc_1",14.8971921,100.83273
-"Location","8862",NA,"country","united kingdom",54.7023545,-3.2765753,"malaysia","loc_2",2.3923759,112.8471939
-"Location","8948",NA,"state/province/district_country","north bohemian region, czech republic",49.75,15,"","loc_1",NA,NA
-"Location","8950",NA,"state/province/district_country","north moravian region, czech republic",49.75,15,"greece","loc_1",38.9953683,21.9877132
-"Location","9",NA,"city_country","shim-anzim, iran",32,53,"","loc_1",NA,NA
-"Location","9010","a","hospital","second affiliated hospital of nanchang university",34.36594,-89.52536,"","loc_1",NA,NA
-"Location","9010","b","hospital","first affiliated hospital of nanchang university",34.36594,-89.52536,"","loc_2",NA,NA
-"Location","9010",NA,"city_country","nanchang, china",28.6792695,115.8885987,"","loc_3",NA,NA
-"Location","9045",NA,"hospital","chinese hospital",52.4708084,-1.8617604,"","loc_1",NA,NA
-"Location","9075",NA,"state/province/district_country","sichuan, china",30.5000001,102.4999999,"karachi, pakistan","loc_1",24.8667795,67.0311286
-"Location","9081",NA,"state/province/district_country","jiangsu province, china",33.0000001,119.9999999,"","loc_1",NA,NA
-"Location","9126",NA,"hospital_city_country","e ronald reagan ucla medical center, los angeles, united states",34.0664646,-118.4465068,"","loc_1",NA,NA
-"Location","9456",NA,"city_country","karachi, pakistan",24.8667795,67.0311286,"","loc_1",NA,NA
-"Location","9727",NA,"hospital_city_country","hospital universitario san vicente  fundación, medellín, colombia",6.25184,-75.56359,"","loc_1",NA,NA
-"Location","9733",NA,"hospital_city_country","new territories east cluster hospital, hong kong, china",22.28552,114.15769,"","loc_1",NA,NA
-"Location","9885",NA,"state/province/district_country","balkan region, serbia",44.81892,20.45998,"","loc_1",NA,NA
-"Location","9937",NA,"city_country","cairo, egypt",30.048819,31.243666,"cairo, egypt","loc_1",30.048819,31.243666
-"Location","9989",NA,"hospital_city_country","national bone marrow transplant centre nbmtc of tunisia, tunis, tunisia",36.81897,10.16579,"","loc_1",NA,NA
+"study_id","code_identifiers","study_hospital","study_city","study_state/province/district","study_country","study_location_basis","study_location","travel_location","travel_location_id","residence_location","study_location_lat","study_location_lon","travel_location_lat","travel_location_lon","residence_location_lat","residence_location_lon"
+"10020",NA,"","new delhi","","india","city_country","new delhi, india","india","loc_1","the netherlands",28.6141793,77.2022662,22.3511148,78.6677428,52.2379891,5.5346074
+"10081",NA,"","","california","united states","state/province/district_country","california, united states","","loc_1","mexico",36.7014631,-118.7559974,NA,NA,19.4326009,-99.1333416
+"10083",NA,"samsung medical center,","seoul","","south korea","hospital_city_country","samsung medical center,, seoul, south korea","","loc_1","",37.4884583,127.0853161,NA,NA,NA,NA
+"10209",NA,"","","","nigeria","country","nigeria","","loc_1","",9.6000359,7.9999721,NA,NA,NA,NA
+"10221",NA,"paul brousse hospital","","","france","hospital_country","paul brousse hospital, france","greece","loc_1","",48.7960877,2.3683672,38.9953683,21.9877132,NA,NA
+"10248",NA,"laiko general hospital","athens","","greece","hospital_city_country","laiko general hospital, athens, greece","","loc_1","",37.9820916,23.7640844,NA,NA,NA,NA
+"10259",NA,"","","","united states","country","united states","","loc_1","",39.7837304,-100.4458825,NA,NA,NA,NA
+"10260",NA,"","honolulu","hawaii","united states","city_country","honolulu, united states","california, san francisco","loc_1","",21.304547,-157.8556764,37.7647993,-122.4629897,NA,NA
+"10300",NA,"","","","japan","country","japan","","loc_1","",36.5748441,139.2394179,NA,NA,NA,NA
+"10443",NA,"","","","india","country","india","","loc_1","",22.3511148,78.6677428,NA,NA,NA,NA
+"10445",NA,"","pune","","india","city_country","pune, india","","loc_1","",18.5203062,73.8543185,NA,NA,NA,NA
+"10450",NA,"public hospital","kafr el-sheikh city","","egypt","hospital_city_country","public hospital, kafr el-sheikh city, egypt","","loc_1","",31.1143,30.94012,NA,NA,NA,NA
+"10634",NA,"","seoul","","south korea","city_country","seoul, south korea","","loc_1","",37.5666791,126.9782914,NA,NA,NA,NA
+"11176",NA,"","","","japan","country","japan","","loc_1","japan",36.5748441,139.2394179,NA,NA,36.5748441,139.2394179
+"11201",NA,"university hospital bratislava","bratislava","","slovakia","hospital_city_country","university hospital bratislava, bratislava, slovakia","","loc_1","",48.1402969,17.1158258,NA,NA,NA,NA
+"11303","aa","","toronto","","canada","city_country","toronto, canada","","loc_1","",43.653963,-79.387207,NA,NA,NA,NA
+"11303","bb","","","","","","","india","loc_2","",NA,NA,22.3511148,78.6677428,NA,NA
+"11384",NA,"","","","canada","country","canada","","loc_1","",61.0666922,-107.9917071,NA,NA,NA,NA
+"11395",NA,"","","","tunisia","country","tunisia","","loc_1","",33.8439408,9.400138,NA,NA,NA,NA
+"11406",NA,"","","","taiwan","country","taiwan","china","loc_1","",23.5982979,120.8353631,35.000074,104.999927,NA,NA
+"11413",NA,"","","","taiwan","country","taiwan","","loc_1","",23.5982979,120.8353631,NA,NA,NA,NA
+"1151",NA,"","","","congo","country","congo","","loc_1","",-0.7264327,15.6419155,NA,NA,NA,NA
+"11510",NA,"","quebec","","canada","city_country","quebec, canada","","loc_1","",52.4760892,-71.8258668,NA,NA,NA,NA
+"11797",NA,"","seoul","","south korea","city_country","seoul, south korea","","loc_1","",37.5666791,126.9782914,NA,NA,NA,NA
+"1198",NA,"s. maria degli angeli regional hospital","pordenone","","italy","hospital_city_country","s. maria degli angeli regional hospital, pordenone, italy","","loc_1","",45.96171,12.65532,NA,NA,NA,NA
+"11983",NA,"","johannesburg","","south africa","city_country","johannesburg, south africa","","loc_1","",-26.205,28.049722,NA,NA,NA,NA
+"12065",NA,"","hangzhou","","china","city_country","hangzhou, china","","loc_1","",30.2489634,120.2052342,NA,NA,NA,NA
+"12188",NA,"","","","japan","country","japan","","loc_1","",36.5748441,139.2394179,NA,NA,NA,NA
+"12344",NA,"","","","china","country","china","","loc_1","",35.000074,104.999927,NA,NA,NA,NA
+"12359",NA,"","beijing","","china","city_country","beijing, china","","loc_1","china",39.9059631,116.391248,NA,NA,35.000074,104.999927
+"12403",NA,"","saint louis,","","senegal","city_country","saint louis,, senegal","","loc_1","",16.187637,-15.2954315,NA,NA,NA,NA
+"12482",NA,"houston methodist hospital","houston","texas","united states","hospital_city_country","houston methodist hospital, houston, united states","","loc_1","",29.7108167,-95.399264,NA,NA,NA,NA
+"1288",NA,"hospital pasteur of montevideo","montevideo","","uruguay","hospital_city_country","hospital pasteur of montevideo, montevideo, uruguay","","loc_1","",-34.8751994,-56.1384593,NA,NA,NA,NA
+"12887",NA,"","","","tunisia","country","tunisia","","loc_1","",33.8439408,9.400138,NA,NA,NA,NA
+"12905",NA,"medical university of bialystok","bialystok","","poland","hospital_city_country","medical university of bialystok, bialystok, poland","","loc_1","",53.13333,23.16433,NA,NA,NA,NA
+"13015",NA,"jawaharlal institute of postgraduate  medical education and research jipmer","puducherry","","india","hospital_city_country","jawaharlal institute of postgraduate  medical education and research jipmer, puducherry, india","","loc_1","",11.93381,79.82979,NA,NA,NA,NA
+"13129",NA,"hospital de niños ―j.m de los ríos‖","caracas","","venezuela","hospital_city_country","hospital de niños ―j.m de los ríos‖, caracas, venezuela","","loc_1","",10.48801,-66.87919,NA,NA,NA,NA
+"13223",NA,"the ‘sanatorio mautone’","punta del este","","uruguay","hospital_city_country","the ‘sanatorio mautone’, punta del este, uruguay","","loc_1","",-34.96667,-54.95,NA,NA,NA,NA
+"13308",NA,"","são paulo","","brazil","city_country","são paulo, brazil","","loc_1","",-21.9549806,-49.0232348,NA,NA,NA,NA
+"13370",NA,"","calgary","alberta","canada","city_country","calgary, canada","new delhi, india","loc_1","canada",51.0253267,-114.0498685,28.6141793,77.2022662,61.0666922,-107.9917071
+"13376",NA,"university of virginia medical center uvamc","charlottesville","virginia","united states","hospital_city_country","university of virginia medical center uvamc, charlottesville, united states","riyadh, saudi arabia","loc_1","",38.037459,-78.497805,24.6319692,46.7150648,NA,NA
+"13399",NA,"vmmc and associated safdarjung hospital,","delhi","","india","hospital_city_country","vmmc and associated safdarjung hospital,, delhi, india","","loc_1","",28.65381,77.22897,NA,NA,NA,NA
+"13465",NA,"","manali","","india","city_country","manali, india","china","loc_1","japan",32.2454608,77.1872926,35.000074,104.999927,36.5748441,139.2394179
+"13465",NA,"","manali","","india","city_country","manali, india","india","loc_2","japan",32.2454608,77.1872926,22.3511148,78.6677428,36.5748441,139.2394179
+"13465",NA,"","manali","","india","city_country","manali, india","myanmar","loc_3","japan",32.2454608,77.1872926,17.1750495,95.9999652,36.5748441,139.2394179
+"13465",NA,"","manali","","india","city_country","manali, india","thailand","loc_4","japan",32.2454608,77.1872926,14.8971921,100.83273,36.5748441,139.2394179
+"13465",NA,"","manali","","india","city_country","manali, india","nepal","loc_5","japan",32.2454608,77.1872926,28.1083929,84.0917139,36.5748441,139.2394179
+"13490",NA,"","","","france","country","france","","loc_1","",46.603354,1.8883335,NA,NA,NA,NA
+"13548",NA,"","","","ireland","country","ireland","kolkata","loc_1","",52.865196,-7.9794599,22.5677459,88.3476023,NA,NA
+"13557",NA,"","st. louis","missouri","","city_state/province/district","st. louis, missouri","","loc_1","",38.6337716,-90.2416548,NA,NA,NA,NA
+"13592",NA,"","","western province","papua new guinea","state/province/district_country","western province, papua new guinea","","loc_1","",-7.5,142,NA,NA,NA,NA
+"13741",NA,"universidade federal","são paulo","","brazil","hospital_city_country","universidade federal, são paulo, brazil","","loc_1","",-23.6446564,-46.5284149,NA,NA,NA,NA
+"13772",NA,"hôpital timone","marseille","","france","hospital_city_country","hôpital timone, marseille, france","","loc_1","",43.2897729,5.4034414,NA,NA,NA,NA
+"13794",NA,"university hospital a coruña","a coruña","","spain","hospital_city_country","university hospital a coruña, a coruña, spain","portugal","loc_1","",42.98446,-9.0763,40.033265,-7.8896263,NA,NA
+"13804",NA,"","rio de janeiro","","brazil","city_country","rio de janeiro, brazil","","loc_1","",-22.2752762,-42.419415,NA,NA,NA,NA
+"13994",NA,"","","","canada","country","canada","india","loc_1","",61.0666922,-107.9917071,22.3511148,78.6677428,NA,NA
+"14082",NA,"lihir medical center","lihir island","","papua new guinea","hospital_city_country","lihir medical center, lihir island, papua new guinea","","loc_1","",-3.11927,152.5982,NA,NA,NA,NA
+"14126",NA,"sfax habib bourguiba hospital","sfax","","tunisia","hospital_city_country","sfax habib bourguiba hospital, sfax, tunisia","","loc_1","",34.74056,10.76028,NA,NA,NA,NA
+"14130",NA,"","","","united states","country","united states","pakistan","loc_1","",39.7837304,-100.4458825,30.3308401,71.247499,NA,NA
+"14233",NA,"","islamabad","","pakistan","city_country","islamabad, pakistan","","loc_1","",33.6938118,73.0651511,NA,NA,NA,NA
+"14287",NA,"","","","italy","country","italy","","loc_1","",42.6384261,12.674297,NA,NA,NA,NA
+"14404",NA,"","osaka","","japan","city_country","osaka, japan","","loc_1","",34.6937569,135.5014539,NA,NA,NA,NA
+"14571",NA,"","vancouver","british  columbia","canada","city_country","vancouver, canada","","loc_1","",49.2608724,-123.1139529,NA,NA,NA,NA
+"14616",NA,"","buenaventura","","colombia","city_country","buenaventura, colombia","","loc_1","",3.8899335,-77.0786047,NA,NA,NA,NA
+"14740",NA,"","kanto","","","city","kanto","southeast asia","loc_1","",35.9574767,139.8670582,56.0000002,103.9999998,NA,NA
+"14751",NA,"american university of beirut medical center","beirut","","lebanon","hospital_city_country","american university of beirut medical center, beirut, lebanon","","loc_1","",33.8986681,35.4848172,NA,NA,NA,NA
+"14823",NA,"jikei university hospital","tokyo","","japan","hospital_city_country","jikei university hospital, tokyo, japan","india","loc_1","japan",35.6895,139.69171,22.3511148,78.6677428,36.5748441,139.2394179
+"14906",NA,"tel aviv medical center","","","israel","hospital_country","tel aviv medical center, israel","","loc_1","",31.5,34.75,NA,NA,NA,NA
+"1495",NA,"saint michael’s medical center","newark","new jersey","united states","hospital_city_country","saint michael’s medical center, newark, united states","","loc_1","united states",40.7440691,-74.1741437,NA,NA,39.7837304,-100.4458825
+"15",NA,"casamance hospital","marseille","","france","hospital_city_country","casamance hospital, marseille, france","","loc_1","",43.275848,5.5311655,NA,NA,NA,NA
+"15256",NA,"university hospital centre split","split","","croatia","hospital_city_country","university hospital centre split, split, croatia","","loc_1","",43.50891,16.43915,NA,NA,NA,NA
+"15268",NA,"institute for mother and child healthcare","belgrade","","serbia","hospital_city_country","institute for mother and child healthcare, belgrade, serbia","","loc_1","",44.80401,20.46513,NA,NA,NA,NA
+"15331",NA,"university hospital limerick uhl","limerick","","ireland","hospital_city_country","university hospital limerick uhl, limerick, ireland","","loc_1","",52.66472,-8.62306,NA,NA,NA,NA
+"15337",NA,"","","","ireland","country","ireland","","loc_1","",52.865196,-7.9794599,NA,NA,NA,NA
+"15378",NA,"hospital infantil de méxico federico gómez himfg","mexico city","","méxico","hospital_city_country","hospital infantil de méxico federico gómez himfg, mexico city, méxico","","loc_1","",19.42847,-99.12766,NA,NA,NA,NA
+"15475",NA,"","","","france","country","france","mecca","loc_1","france",46.603354,1.8883335,21.4209763,39.8270873,46.603354,1.8883335
+"15475",NA,"","","","france","country","france","medina","loc_2","france",46.603354,1.8883335,24.471153,39.6111216,46.603354,1.8883335
+"15632",NA,"hus","","","finland","hospital_country","hus, finland","greece","loc_1","",60.1882578,24.9080827,38.9953683,21.9877132,NA,NA
+"15632",NA,"hus","","","finland","hospital_country","hus, finland","italy","loc_2","",60.1882578,24.9080827,42.6384261,12.674297,NA,NA
+"15654",NA,"","","","denmark","country","denmark","","loc_1","denmark",55.670249,10.3333283,NA,NA,55.670249,10.3333283
+"1566",NA,"","","","italy","country","italy","","loc_1","",42.6384261,12.674297,NA,NA,NA,NA
+"15936",NA,"aglaia kyriakou pediatric hospital","athens","","","hospital_city","aglaia kyriakou pediatric hospital, athens","","loc_1","",37.97945,23.71622,NA,NA,NA,NA
+"15946",NA,"“iatrikon athinon” medical center","athens","","greece","hospital_city_country","“iatrikon athinon” medical center, athens, greece","","loc_1","",37.97945,23.71622,NA,NA,NA,NA
+"16248",NA,"","alberta, mysore","","india","city_country","alberta, mysore, india","india","loc_1","canada",14.66667,75.83333,22.3511148,78.6677428,61.0666922,-107.9917071
+"16251",NA,"","pretoria","gauteng","south africa","city_country","pretoria, south africa","","loc_1","",-25.7459374,28.1879444,NA,NA,NA,NA
+"16267",NA,"university of pittsburgh medical center","pittsburgh","pennsylvania","united states","hospital_city_country","university of pittsburgh medical center, pittsburgh, united states","","loc_1","",40.445394,-79.959578,NA,NA,NA,NA
+"1652",NA,"","havana","","cuba","city_country","havana, cuba","cuba","loc_1","germany",23.135305,-82.3589631,23.0131338,-80.8328748,51.0834196,10.4234469
+"16713",NA,"kuala lumpur hospital","","","malaysia","hospital_country","kuala lumpur hospital, malaysia","","loc_1","",3.1516636,101.6943028,NA,NA,NA,NA
+"16715",NA,"","rabat","","morocco","city_country","rabat, morocco","","loc_1","",34.022405,-6.834543,NA,NA,NA,NA
+"16726",NA,"aga khan university hospital","nairobi","","kenya","hospital_city_country","aga khan university hospital, nairobi, kenya","","loc_1","",-1.261807,36.8241269,NA,NA,NA,NA
+"16801",NA,"","vogroño","","spain","city_country","vogroño, spain","","loc_1","spain",40,-4,NA,NA,39.3262345,-4.8380649
+"16837",NA,"","","","iran","country","iran","","loc_1","",32.9407495,52.9471344,NA,NA,NA,NA
+"17121",NA,"government hospital of kobbe","tripoli","","lebanon","hospital_city_country","government hospital of kobbe, tripoli, lebanon","syria","loc_1","syria",34.43667,35.84972,34.6401861,39.0494106,34.6401861,39.0494106
+"17169",NA,"jss medical college","mysore","","india","hospital_city_country","jss medical college, mysore, india","","loc_1","",12.3443528,76.6526544,NA,NA,NA,NA
+"17611",NA,"","","","australia","country","australia","perth","loc_1","",-24.7761086,134.755,-31.9527121,115.8604796,NA,NA
+"17611",NA,"","","","australia","country","australia","new york city","loc_2","",-24.7761086,134.755,40.7308619,-73.9871558,NA,NA
+"17611",NA,"","","","australia","country","australia","hawaii","loc_3","",-24.7761086,134.755,21.2160437,-157.975203,NA,NA
+"17611",NA,"","","","australia","country","australia","vancouver","loc_4","",-24.7761086,134.755,49.2608724,-123.1139529,NA,NA
+"17611",NA,"","","","australia","country","australia","honolulu","loc_5","",-24.7761086,134.755,21.304547,-157.8556764,NA,NA
+"17649",NA,"jawaharlal nehru medical college","aligarh","","india","hospital_city_country","jawaharlal nehru medical college, aligarh, india","","loc_1","",27.88334,78.07475,NA,NA,NA,NA
+"17819",NA,"","","","spain","country","spain","","loc_1","",39.3262345,-4.8380649,NA,NA,NA,NA
+"1786",NA,"clinical hospital center zagreb","","","croatia","hospital_country","clinical hospital center zagreb, croatia","","loc_1","",45.81444,15.97798,NA,NA,NA,NA
+"17942",NA,"","rio de janeiro","","brazil","city_country","rio de janeiro, brazil","","loc_1","",-22.2752762,-42.419415,NA,NA,NA,NA
+"1806",NA,"","rajamundry","andhra pradesh","india","city_country","rajamundry, india","","loc_1","",22,79,NA,NA,NA,NA
+"18073",NA,"","rochester","minnesota","","city_state/province/district","rochester, minnesota","","loc_1","",44.0234387,-92.4630182,NA,NA,NA,NA
+"18158",NA,"medical hospital of tokyo medical and dental university","","","japan","hospital_country","medical hospital of tokyo medical and dental university, japan","brazil","loc_1","",35.70155,139.76446,-10.3333333,-53.2,NA,NA
+"18184",NA,"","","","","","","india","loc_1","united states",NA,NA,22.3511148,78.6677428,39.7837304,-100.4458825
+"18265",NA,"","","","norway","country","norway","greece","loc_1","",64.5731537,11.5280364,38.9953683,21.9877132,NA,NA
+"183",NA,"military hospital of constantine","constantine","","algeria","hospital_city_country","military hospital of constantine, constantine, algeria","tunisia","loc_1","",36.365,6.61472,33.8439408,9.400138,NA,NA
+"18418",NA,"university hospital of annaba","annaba","","algeria","hospital_city_country","university hospital of annaba, annaba, algeria","","loc_1","",36.8134223,7.7107411,NA,NA,NA,NA
+"18438",NA,"children ward of the military hospital","rawalpindi","","pakistan","hospital_city_country","children ward of the military hospital, rawalpindi, pakistan","","loc_1","",33.6007,73.0679,NA,NA,NA,NA
+"18470",NA,"","","","italy","country","italy","","loc_1","",42.6384261,12.674297,NA,NA,NA,NA
+"18527",NA,"","","","","","","iraq","loc_1","",NA,NA,33.0955793,44.1749775,NA,NA
+"18631",NA,"","","","germany","country","germany","","loc_1","",51.0834196,10.4234469,NA,NA,NA,NA
+"18674",NA,"hospital nossa  senhora da conceição","tubarão","santa catarina","brazil","hospital_city_country","hospital nossa  senhora da conceição, tubarão, brazil","","loc_1","",-28.4801995,-49.0025361,NA,NA,NA,NA
+"1874",NA,"","","","israel","country","israel","","loc_1","",30.8760272,35.0015196,NA,NA,NA,NA
+"18778",NA,"alexandra hospital,","","","united kingdom","hospital_country","alexandra hospital,, united kingdom","","loc_1","united kingdom",51.327953,0.5274107,NA,NA,54.7023545,-3.2765753
+"18818",NA,"bournemouth hospital","bournemouth","","united kingdom","hospital_city_country","bournemouth hospital, bournemouth, united kingdom","","loc_1","",50.747444,-1.8218523,NA,NA,NA,NA
+"18852",NA,"the hospital clínico ‘lozano blesa’","zaragoza","","spain","hospital_city_country","the hospital clínico ‘lozano blesa’, zaragoza, spain","","loc_1","",41.65606,-0.87734,NA,NA,NA,NA
+"1887",NA,"university hospital","san antonio","texas","","hospital_city_state/province/district","university hospital, san antonio, texas","","loc_1","",29.5078264,-98.5780943,NA,NA,NA,NA
+"18946",NA,"","tehran","","iran","city_country","tehran, iran","india","loc_1","",35.7006177,51.4013785,22.3511148,78.6677428,NA,NA
+"18946",NA,"","tehran","","iran","city_country","tehran, iran","pakistan","loc_2","",35.7006177,51.4013785,30.3308401,71.247499,NA,NA
+"18947",NA,"","tehran","","iran","city_country","tehran, iran","","loc_1","",35.7006177,51.4013785,NA,NA,NA,NA
+"18963",NA,"","","georgia","united states","state/province/district_country","georgia, united states","","loc_1","",32.3293809,-83.1137366,NA,NA,NA,NA
+"19093",NA,"walter reed army medical center wramc","","washington, dc","united states","hospital_state/province/district_country","walter reed army medical center wramc, washington, dc, united states","germany","loc_1","united states",38.886804,-76.990243,51.0834196,10.4234469,39.7837304,-100.4458825
+"19093",NA,"walter reed army medical center wramc","","washington, dc","united states","hospital_state/province/district_country","walter reed army medical center wramc, washington, dc, united states","afghanistan","loc_2","united states",38.886804,-76.990243,33.7680065,66.2385139,39.7837304,-100.4458825
+"19152",NA,"chonbuk national university hospital","jeonju","","south korea","hospital_city_country","chonbuk national university hospital, jeonju, south korea","","loc_1","",35.8465888,127.1350133,NA,NA,NA,NA
+"19196",NA,"","","","iran","country","iran","","loc_1","",32.9407495,52.9471344,NA,NA,NA,NA
+"19267",NA,"","","michigan","united states","state/province/district_country","michigan, united states","","loc_1","",43.6211955,-84.6824346,NA,NA,NA,NA
+"19568",NA,"","manerbio","","italy","city_country","manerbio, italy","","loc_1","",45.355777,10.13517,NA,NA,NA,NA
+"19607",NA,"the hospital clinic of barcelona","barcelona","","spain","hospital_city_country","the hospital clinic of barcelona, barcelona, spain","india","loc_1","spain",41.3880618,2.1506393,22.3511148,78.6677428,39.3262345,-4.8380649
+"19609",NA,"hospital clinic of barcelona","barcelona","","spain","hospital_city_country","hospital clinic of barcelona, barcelona, spain","india","loc_1","spain",41.3880618,2.1506393,22.3511148,78.6677428,39.3262345,-4.8380649
+"19615",NA,"","kafr el-sheikh","","egypt","city_country","kafr el-sheikh, egypt","","loc_1","",31.3827023,30.8516791,NA,NA,NA,NA
+"202",NA,"hoˆpital central de l’arme´e of algiers","algiers","","algeria","hospital_city_country","hoˆpital central de l’arme´e of algiers, algiers, algeria","","loc_1","",36.7525,3.04197,NA,NA,NA,NA
+"20331",NA,"tribhuvan university teaching hospital","kathmandu","","nepal","hospital_city_country","tribhuvan university teaching hospital, kathmandu, nepal","","loc_1","",27.736112,85.3302137,NA,NA,NA,NA
+"20332",NA,"tribhuvan university teaching hospital","kathmandu","","nepal","hospital_city_country","tribhuvan university teaching hospital, kathmandu, nepal","","loc_1","",27.736112,85.3302137,NA,NA,NA,NA
+"20350",NA,"","bushehr","","iran","city_country","bushehr, iran","persian gulf","loc_1","",28.9685469,50.8403297,27.0000001,50.9999999,NA,NA
+"20553",NA,"","","","spain","country","spain","","loc_1","",39.3262345,-4.8380649,NA,NA,NA,NA
+"2067",NA,"","","andaman islands","india","state/province/district_country","andaman islands, india","","loc_1","",11.7880925,92.9409183,NA,NA,NA,NA
+"20841",NA,"","brampton","ontario","canada","city_country","brampton, canada","mumbai, india","loc_1","",43.6858146,-79.7599337,18.9387544,72.8352382,NA,NA
+"20899",NA,"","sofia","","bulgaria","city_country","sofia, bulgaria","","loc_1","",42.6978634,23.3221789,NA,NA,NA,NA
+"21029",NA,"","","","japan","country","japan","","loc_1","japan",36.5748441,139.2394179,NA,NA,36.5748441,139.2394179
+"21083",NA,"university hospital complex of santiago de compostela","santiago de compostela","","spain","hospital_city_country","university hospital complex of santiago de compostela, santiago de compostela, spain","","loc_1","",42.88052,-8.54569,NA,NA,NA,NA
+"21149",NA,"serres general hospital","serres","","greece","hospital_city_country","serres general hospital, serres, greece","","loc_1","",41.0910711,23.5498031,NA,NA,NA,NA
+"21347",NA,"","","","austria","country","austria","germany","loc_1","",47.2000338,13.199959,51.0834196,10.4234469,NA,NA
+"21348",NA,"","","","norway","country","norway","","loc_1","norway",64.5731537,11.5280364,NA,NA,64.5731537,11.5280364
+"21464",NA,"","veldhoven","","the netherlands","city_country","veldhoven, the netherlands","","loc_1","",51.4077063,5.3927311,NA,NA,NA,NA
+"21479",NA,"","amsterdam","","netherlands","city_country","amsterdam, netherlands","","loc_1","",52.3745403,4.8979755,NA,NA,NA,NA
+"21824",NA,"besançon hospital","besançon","","france","hospital_city_country","besançon hospital, besançon, france","","loc_1","",47.237953,6.0243246,NA,NA,NA,NA
+"21838",NA,"","charleston","south carolina","united states","city_country","charleston, united states","","loc_1","",32.7876012,-79.9402728,NA,NA,NA,NA
+"22167",NA,"public hospital","beijing","","china","hospital_city_country","public hospital, beijing, china","","loc_1","",39.9899279,116.1907859,NA,NA,NA,NA
+"22199",NA,"","beijing","","china","city_country","beijing, china","","loc_1","",39.9059631,116.391248,NA,NA,NA,NA
+"22437",NA,"dron hospita","tourcoing","","france","hospital_city_country","dron hospita, tourcoing, france","","loc_1","",50.72391,3.16117,NA,NA,NA,NA
+"22668",NA,"","","","china","country","china","","loc_1","",35.000074,104.999927,NA,NA,NA,NA
+"22703",NA,"","","new york","united states","state/province/district_country","new york, united states","","loc_1","",40.7308619,-73.9871558,NA,NA,NA,NA
+"2302",NA,"","brussels","","belgium","city_country","brussels, belgium","","loc_1","",50.8465573,4.351697,NA,NA,NA,NA
+"2303",NA,"","brussels","","belgium","city_country","brussels, belgium","pakistan","loc_1","",50.8465573,4.351697,30.3308401,71.247499,NA,NA
+"23039",NA,"the first affiliated hospital of anhui medical university","","","china","hospital_country","the first affiliated hospital of anhui medical university, china","","loc_1","",31.8492406,117.2627129,NA,NA,NA,NA
+"23107",NA,"","orebro","","sweden","city_country","orebro, sweden","india","loc_1","sweden",59.2747378,15.2149988,22.3511148,78.6677428,59.6749712,14.5208584
+"23248",NA,"kasr al aini hospita","cairo","","egypt","hospital_city_country","kasr al aini hospita, cairo, egypt","","loc_1","",30.06263,31.24967,NA,NA,NA,NA
+"23251",NA,"","maringa´","parana´","brazil","city_country","maringa´, brazil","","loc_1","",-23.425269,-51.9382078,NA,NA,NA,NA
+"23314",NA,"university hospital, university hospita","graz, pristina","","austria, austria","hospital_city_country","university hospital, university hospita, graz, pristina, austria, austria","india","loc_1","kosovo, austria",47.33333,13.33333,22.3511148,78.6677428,42.2208954,20.7396716
+"23314",NA,"university hospital, university hospita","graz, pristina","","austria, austria","hospital_city_country","university hospital, university hospita, graz, pristina, austria, austria","pakistan","loc_2","kosovo, austria",47.33333,13.33333,30.3308401,71.247499,42.2208954,20.7396716
+"23408",NA,"peking university first hospital","","","china","hospital_country","peking university first hospital, china","shandong","loc_1","",39.9311357,116.3749506,36.0000001,118.9999999,NA,NA
+"23491",NA,"","","","china","country","china","","loc_1","",35.000074,104.999927,NA,NA,NA,NA
+"23549",NA,"guangzhou women and children’s","guangzhou","","china","hospital_city_country","guangzhou women and children’s, guangzhou, china","","loc_1","china",23.1255513,113.3191121,NA,NA,35.000074,104.999927
+"23647",NA,"kuala lumpur hospital","kuala lumpur","","malaysia","hospital_city_country","kuala lumpur hospital, kuala lumpur, malaysia","","loc_1","",2.7243827,101.7381037,NA,NA,NA,NA
+"2372",NA,"","paris","","france","city_country","paris, france","algeria","loc_1","",48.8566101,2.3514992,28.0000272,2.9999825,NA,NA
+"2389",NA,"mid-western regional hospital","limerick","","ireland","hospital_city_country","mid-western regional hospital, limerick, ireland","france","loc_1","",52.634211,-8.6531552,46.603354,1.8883335,NA,NA
+"2389",NA,"mid-western regional hospital","limerick","","ireland","hospital_city_country","mid-western regional hospital, limerick, ireland","italy","loc_2","",52.634211,-8.6531552,42.6384261,12.674297,NA,NA
+"2389",NA,"mid-western regional hospital","limerick","","ireland","hospital_city_country","mid-western regional hospital, limerick, ireland","israel","loc_3","",52.634211,-8.6531552,30.8760272,35.0015196,NA,NA
+"2418",NA,"department of infection control and prevention, tokyo medical university hospital,","tokyo","","japan","hospital_city_country","department of infection control and prevention, tokyo medical university hospital,, tokyo, japan","","loc_1","",35.6895,139.69171,NA,NA,NA,NA
+"2419",NA,"brampton civic hospital campus bch","brampton","ontario","canada","hospital_city_country","brampton civic hospital campus bch, brampton, canada","","loc_1","",43.68341,-79.76633,NA,NA,NA,NA
+"2487",NA,"trousseau hospital","paris","","france","hospital_city_country","trousseau hospital, paris, france","","loc_1","",48.8504267,2.3771149,NA,NA,NA,NA
+"2512",NA,"","","","bulgaria","country","bulgaria","","loc_1","",42.6073975,25.4856617,NA,NA,NA,NA
+"261",NA,"","edmonton","alberta","canada","city_country","edmonton, canada","india","loc_1","canada",53.535411,-113.507996,22.3511148,78.6677428,61.0666922,-107.9917071
+"2628",NA,"","johannesburg","","south africa","city_country","johannesburg, south africa","","loc_1","",-26.205,28.049722,NA,NA,NA,NA
+"267",NA,"","","","palestine","country","palestine","","loc_1","",31.649741,35.162072,NA,NA,NA,NA
+"2791",NA,"","atlanta","georgia","united states","city_country","atlanta, united states","","loc_1","",33.7490987,-84.3901849,NA,NA,NA,NA
+"281",NA,"","","","south korea","country","south korea","","loc_1","",36.5581914,127.9408564,NA,NA,NA,NA
+"2889",NA,"hospital universitario ramón y cajal","madrid","","spain","hospital_city_country","hospital universitario ramón y cajal, madrid, spain","korea","loc_1","china",40.487358,-3.6938527,36.5581914,127.9408564,35.000074,104.999927
+"2889",NA,"hospital universitario ramón y cajal","madrid","","spain","hospital_city_country","hospital universitario ramón y cajal, madrid, spain","china","loc_2","china",40.487358,-3.6938527,35.000074,104.999927,35.000074,104.999927
+"2963",NA,"i.r.c.c.s. fondazione s. maugeri in pavia","pavia","","italy","hospital_city_country","i.r.c.c.s. fondazione s. maugeri in pavia, pavia, italy","","loc_1","",45.19205,9.15917,NA,NA,NA,NA
+"3060",NA,"air force general hospital, pla","","","","hospital","air force general hospital, pla","","loc_1","",NA,NA,NA,NA,NA,NA
+"3095",NA,"","rome","","italy","city_country","rome, italy","","loc_1","",41.894802,12.4853384,NA,NA,NA,NA
+"3235",NA,"","ohio","","united states","city_country","ohio, united states","","loc_1","",40.2253569,-82.6881395,NA,NA,NA,NA
+"345",NA,"","mount hope","","trinidad and tobago","city_country","mount hope, trinidad and tobago","","loc_1","",10.6543136,-61.4351657,NA,NA,NA,NA
+"3461",NA,"","","mato grosso do sul","brazil","state/province/district_country","mato grosso do sul, brazil","","loc_1","",-19.5852564,-54.4794731,NA,NA,NA,NA
+"3557",NA,"","","","","","","congo","loc_1","",NA,NA,-0.7264327,15.6419155,NA,NA
+"3596",NA,"","guangzhou","","china","city_country","guangzhou, china","","loc_1","",23.1301964,113.2592945,NA,NA,NA,NA
+"360",NA,"","tripoli","north lebanon","lebanon","city_country","tripoli, lebanon","","loc_1","",34.4453581,35.8225116,NA,NA,NA,NA
+"3613",NA,"peking university first hospital,","beijing","","china","hospital_city_country","peking university first hospital,, beijing, china","","loc_1","",39.9311357,116.3749506,NA,NA,NA,NA
+"3622",NA,"al-shifa hospital","","gaza","palestine","hospital_state/province/district_country","al-shifa hospital, gaza, palestine","","loc_1","",31.52414,34.4442,NA,NA,NA,NA
+"3799",NA,"","cardiff, liverpool","","","city","cardiff, liverpool","","loc_1","",53.3560488,-2.9063261,NA,NA,NA,NA
+"3872",NA,"st. luke’s medical center global city","","","philippines","hospital_country","st. luke’s medical center global city, philippines","","loc_1","",14.5551064,121.0484247,NA,NA,NA,NA
+"3882",NA,"","","","tunisia","country","tunisia","","loc_1","",33.8439408,9.400138,NA,NA,NA,NA
+"404",NA,"riyadh military hospital","","","saudi arabia","hospital_country","riyadh military hospital, saudi arabia","","loc_1","saudi arabia",24.6924187,46.7140726,NA,NA,25.6242618,42.3528328
+"4167",NA,"","massa","","italy","city_country","massa, italy","","loc_1","",44.0359323,10.1395519,NA,NA,NA,NA
+"4379",NA,"christchurch hospital","","","new zealand","hospital_country","christchurch hospital, new zealand","","loc_1","",-43.5336618,172.6252485,NA,NA,NA,NA
+"4489",NA,"ramo´n y cajal university hospital","madrid","","spain","hospital_city_country","ramo´n y cajal university hospital, madrid, spain","","loc_1","",40.42526,-3.69063,NA,NA,NA,NA
+"4519",NA,"modena university hospital","modena","","italy","hospital_city_country","modena university hospital, modena, italy","india","loc_1","",44.64783,10.92539,22.3511148,78.6677428,NA,NA
+"4581",NA,"new york hospital queens","new york","new york","united states","hospital_city_country","new york hospital queens, new york, united states","","loc_1","",40.7372329,-73.862477,NA,NA,NA,NA
+"4641",NA,"saint joseph hospital-raymond and aida najjar polyclinic","beirut","","lebanon","hospital_city_country","saint joseph hospital-raymond and aida najjar polyclinic, beirut, lebanon","","loc_1","",33.88894,35.49442,NA,NA,NA,NA
+"4642",NA,"saint joseph hospital-raymond and aida najjar polyclinic","beirut","","lebanon","hospital_city_country","saint joseph hospital-raymond and aida najjar polyclinic, beirut, lebanon","","loc_1","",33.88894,35.49442,NA,NA,NA,NA
+"5005",NA,"","sakarya","","turkey","city_country","sakarya, turkey","","loc_1","",40.7731834,30.481606,NA,NA,NA,NA
+"5091",NA,"","belgrade","","serbia","city_country","belgrade, serbia","","loc_1","",44.8178131,20.4568974,NA,NA,NA,NA
+"5183",NA,"","mangalore","","india","city_country","mangalore, india","","loc_1","",12.8698101,74.8430082,NA,NA,NA,NA
+"5251",NA,"al-sabah hospital","","","kuwait","hospital_country","al-sabah hospital, kuwait","","loc_1","bedouin",29.3260998,47.9040688,NA,NA,31.7557814,35.2863183
+"5265",NA,"new york hospital queens","","","","hospital","new york hospital queens","","loc_1","",40.6524927,-73.7914214,NA,NA,NA,NA
+"5449",NA,"evangelismos hospital","athens","","greece","hospital_city_country","evangelismos hospital, athens, greece","","loc_1","",37.9778485,23.7477463,NA,NA,NA,NA
+"5451",NA,"children’s hospital at montefiore, albert einstein college of medicine","bronx,","new york","united states","hospital_city_country","children’s hospital at montefiore, albert einstein college of medicine, bronx,, united states","","loc_1","",34.659168,-85.327672,NA,NA,NA,NA
+"5553",NA,"glocal medical college and super speciality hospital, uttar pradesh","","","india","hospital_country","glocal medical college and super speciality hospital, uttar pradesh, india","","loc_1","",27.25,80.75,NA,NA,NA,NA
+"5560",NA,"the cleveland clinic","cleveland","ohio","united states","hospital_city_country","the cleveland clinic, cleveland, united states","","loc_1","",41.5026252,-81.6198545,NA,NA,NA,NA
+"5774",NA,"american  university of beirut medical center aub-mc","beirut","","lebanon","hospital_city_country","american  university of beirut medical center aub-mc, beirut, lebanon","","loc_1","",33.88894,35.49442,NA,NA,NA,NA
+"579",NA,"university hospital oswaldo cruz","recife","","brazil","hospital_city_country","university hospital oswaldo cruz, recife, brazil","","loc_1","",-8.05389,-34.88111,NA,NA,NA,NA
+"580",NA,"university hospital oswaldo cruz","recife","","brazil","hospital_city_country","university hospital oswaldo cruz, recife, brazil","","loc_1","",-8.05389,-34.88111,NA,NA,NA,NA
+"591",NA,"hospital de clínicas josé de san martín","buenos aires","","argentina","hospital_city_country","hospital de clínicas josé de san martín, buenos aires, argentina","","loc_1","",-34.5988953,-58.3999899,NA,NA,NA,NA
+"592",NA,"hospital de clínicas josé de san martín","","","","hospital","hospital de clínicas josé de san martín","","loc_1","",-34.5988953,-58.3999899,NA,NA,NA,NA
+"5934",NA,"","","","colombia","country","colombia","","loc_1","",2.8894434,-73.783892,NA,NA,NA,NA
+"5961",NA,"son espases hospital","mallorca","","spain","hospital_city_country","son espases hospital, mallorca, spain","portugal","loc_1","",39.6100069,2.6431014,40.033265,-7.8896263,NA,NA
+"5961",NA,"son espases hospital","mallorca","","spain","hospital_city_country","son espases hospital, mallorca, spain","france","loc_2","",39.6100069,2.6431014,46.603354,1.8883335,NA,NA
+"6314",NA,"a coruña university hospital,","a coruña","","spain","hospital_city_country","a coruña university hospital,, a coruña, spain","","loc_1","",42.98446,-9.0763,NA,NA,NA,NA
+"6350",NA,"","aveiro","","portugal","city_country","aveiro, portugal","","loc_1","",40.640496,-8.6537841,NA,NA,NA,NA
+"6375",NA,"","warsaw","","poland","city_country","warsaw, poland","congo","loc_1","poland",52.2319237,21.0067265,-0.7264327,15.6419155,52.0977181,19.0258159
+"6375",NA,"","warsaw","","poland","city_country","warsaw, poland","equatorial africa","loc_2","poland",52.2319237,21.0067265,0.3183229,32.5740767,52.0977181,19.0258159
+"6454",NA,"university hospital of leicester nhs trust","leicester","","united kingdom","hospital_city_country","university hospital of leicester nhs trust, leicester, united kingdom","ethiopia","loc_1","",52.6386,-1.13169,10.2116702,38.6521203,NA,NA
+"6467",NA,"military  hospital bégin","saint-mandé","","france","hospital_city_country","military  hospital bégin, saint-mandé, france","serbia","loc_1","",48.83864,2.41579,44.1534121,20.55144,NA,NA
+"6492",NA,"the andes university hospital in mérida","mérida","","venezuela","hospital_city_country","the andes university hospital in mérida, mérida, venezuela","","loc_1","",8.59524,-71.1434,NA,NA,NA,NA
+"6505",NA,"cook county hospital","chicago","illinois","united states","hospital_city_country","cook county hospital, chicago, united states","syria","loc_1","",41.8729343,-87.6738024,34.6401861,39.0494106,NA,NA
+"6655",NA,"","","florence province","italy","state/province/district_country","florence province, italy","","loc_1","",42.83333,12.83333,NA,NA,NA,NA
+"6842",NA,"","","","brazil","country","brazil","","loc_1","",-10.3333333,-53.2,NA,NA,NA,NA
+"708",NA,"new york methodist hospital","new york","","","hospital_city","new york methodist hospital, new york","","loc_1","united states",40.6678255,-73.9791437,NA,NA,39.7837304,-100.4458825
+"7090",NA,"udayana university sanglah hospital","bali","","indonesia","hospital_city_country","udayana university sanglah hospital, bali, indonesia","","loc_1","",-8.5,115,NA,NA,NA,NA
+"7108",NA,"","","","denmark","country","denmark","egypt","loc_1","",55.670249,10.3333283,26.2540493,29.2675469,NA,NA
+"7108",NA,"","","","denmark","country","denmark","turkey","loc_2","",55.670249,10.3333283,38.9597594,34.9249653,NA,NA
+"7369",NA,"","rome","","italy","city_country","rome, italy","","loc_1","",41.894802,12.4853384,NA,NA,NA,NA
+"737",NA,"hospital center regional university of dijon bourgogne","dijon","burgundy","france","hospital_city_country","hospital center regional university of dijon bourgogne, dijon, france","","loc_1","",47.31667,5.01667,NA,NA,NA,NA
+"7437",NA,"","otago","","new zealand","city_country","otago, new zealand","","loc_1","new zealand",-45.1299859,169.5248818,NA,NA,-41.5000831,172.8344077
+"7440",NA,"split university hospital","","","croatia","hospital_country","split university hospital, croatia","","loc_1","",45.16667,15.5,NA,NA,NA,NA
+"7494",NA,"","buenos aires","","argentina","city_country","buenos aires, argentina","","loc_1","",-34.6075616,-58.437076,NA,NA,NA,NA
+"7585",NA,"frankfurt university hospital","frankfurt","","germany","hospital_city_country","frankfurt university hospital, frankfurt, germany","mumbai, india","loc_1","yemen",50.11552,8.68417,18.9387544,72.8352382,16.3471243,47.8915271
+"7620",NA,"","port elizabeth","","south africa","city_country","port elizabeth, south africa","","loc_1","",-33.9617051,25.6207519,NA,NA,NA,NA
+"7904",NA,"","","","south africa","country","south africa","","loc_1","",-28.8166236,24.991639,NA,NA,NA,NA
+"7945",NA,"","chandigarh","","india","city_country","chandigarh, india","","loc_1","",30.7194022,76.7646552,NA,NA,NA,NA
+"7968",NA,"","yamunanagar","haryana","india","city_country","yamunanagar, india","","loc_1","",30.1231349,77.286329,NA,NA,NA,NA
+"8089",NA,"robert debré hospital","paris","","france","hospital_city_country","robert debré hospital, paris, france","","loc_1","",48.8447475,2.3163033,NA,NA,NA,NA
+"8174",NA,"aalborg university hospital","aalborg","","denmark","hospital_city_country","aalborg university hospital, aalborg, denmark","","loc_1","",57.0159028,9.9753283,NA,NA,NA,NA
+"8181",NA,"university hospital of cologne","cologne","","germany","hospital_city_country","university hospital of cologne, cologne, germany","","loc_1","",50.93333,6.95,NA,NA,NA,NA
+"8515",NA,"","","","norway","country","norway","philippines","loc_1","",64.5731537,11.5280364,12.7503486,122.7312101,NA,NA
+"8591",NA,"the teaching hospital, school of medicine, cukurova university","adana","","turkey","hospital_city_country","the teaching hospital, school of medicine, cukurova university, adana, turkey","","loc_1","syria",37.00167,35.32889,NA,NA,34.6401861,39.0494106
+"8653",NA,"","","","japan","country","japan","","loc_1","",36.5748441,139.2394179,NA,NA,NA,NA
+"869",NA,"university general hospital ‘attikon’","athens","","greece","hospital_city_country","university general hospital ‘attikon’, athens, greece","","loc_1","",37.97945,23.71622,NA,NA,NA,NA
+"8842",NA,"","hackensack","new jersey","","city_state/province/district","hackensack, new jersey","","loc_1","",40.8859326,-74.0434736,NA,NA,NA,NA
+"8862",NA,"","","","united kingdom","country","united kingdom","thailand","loc_1","",54.7023545,-3.2765753,14.8971921,100.83273,NA,NA
+"8862",NA,"","","","united kingdom","country","united kingdom","malaysia","loc_2","",54.7023545,-3.2765753,2.3923759,112.8471939,NA,NA
+"8948",NA,"","","north bohemian region","czech republic","state/province/district_country","north bohemian region, czech republic","","loc_1","",49.75,15,NA,NA,NA,NA
+"8950",NA,"","","north moravian region","czech republic","state/province/district_country","north moravian region, czech republic","greece","loc_1","",49.75,15,38.9953683,21.9877132,NA,NA
+"9",NA,"","shim-anzim","","iran","city_country","shim-anzim, iran","","loc_1","",32,53,NA,NA,NA,NA
+"9010","a","second affiliated hospital of nanchang university","","","","hospital","second affiliated hospital of nanchang university","","loc_1","",34.36594,-89.52536,NA,NA,NA,NA
+"9010","b","first affiliated hospital of nanchang university","","","","hospital","first affiliated hospital of nanchang university","","loc_2","",34.36594,-89.52536,NA,NA,NA,NA
+"9010",NA,"","nanchang","","china","city_country","nanchang, china","","loc_3","",28.6792695,115.8885987,NA,NA,NA,NA
+"9045",NA,"chinese hospital","","","","hospital","chinese hospital","","loc_1","",52.4708084,-1.8617604,NA,NA,NA,NA
+"9075",NA,"","","sichuan","china","state/province/district_country","sichuan, china","karachi, pakistan","loc_1","",30.5000001,102.4999999,24.8667795,67.0311286,NA,NA
+"9081",NA,"","","jiangsu province","china","state/province/district_country","jiangsu province, china","","loc_1","",33.0000001,119.9999999,NA,NA,NA,NA
+"9126",NA,"e ronald reagan ucla medical center","los angeles","california","united states","hospital_city_country","e ronald reagan ucla medical center, los angeles, united states","","loc_1","",34.0664646,-118.4465068,NA,NA,NA,NA
+"9340",NA,"","","","","","","","loc_1","pakistan",NA,NA,NA,NA,30.3308401,71.247499
+"9456",NA,"","karachi","","pakistan","city_country","karachi, pakistan","","loc_1","",24.8667795,67.0311286,NA,NA,NA,NA
+"9669",NA,"","","","","","","","loc_1","south korea",NA,NA,NA,NA,36.5581914,127.9408564
+"9727",NA,"hospital universitario san vicente  fundación","medellín","","colombia","hospital_city_country","hospital universitario san vicente  fundación, medellín, colombia","","loc_1","",6.25184,-75.56359,NA,NA,NA,NA
+"9733",NA,"new territories east cluster hospital","hong kong","","china","hospital_city_country","new territories east cluster hospital, hong kong, china","","loc_1","",22.28552,114.15769,NA,NA,NA,NA
+"9885",NA,"","","balkan region","serbia","state/province/district_country","balkan region, serbia","","loc_1","",44.81892,20.45998,NA,NA,NA,NA
+"9937",NA,"","cairo","","egypt","city_country","cairo, egypt","cairo, egypt","loc_1","germany",30.048819,31.243666,30.048819,31.243666,51.0834196,10.4234469
+"9989",NA,"national bone marrow transplant centre nbmtc of tunisia","tunis","","tunisia","hospital_city_country","national bone marrow transplant centre nbmtc of tunisia, tunis, tunisia","","loc_1","",36.81897,10.16579,NA,NA,NA,NA

@@ -8,15 +8,15 @@ output:
 ---
 Setup
 ```{r setup}
-knitr::opts_chunk$set(include=TRUE, echo=TRUE, message=FALSE)
+knitr::opts_chunk$set(include=TRUE, echo=FALSE, message=FALSE)
 
 library(tidyverse)
 library(magrittr)
 library(stringi)
+library(sf)
 library(mapview)
 library(opencage)
 library(googlesheets)
-library(sf)
 library(here)
 #gs_auth(new_user = TRUE)
 
@@ -26,34 +26,50 @@ paste_collapse <- function(x){
   paste(x, collapse = ", ")
 }
 
-#wd <- gsub("scripts/locations", "data", getwd())
+#Geocode function for batch processing in opencage
+##note: Opencage typically returns multiple results because of placename ambiguity - here we limit to 1 by default
+opencage_forward_mutate <- function(data, location, limit=1){
+  locs <- data[, location, drop = TRUE] #extract location
+  out <- map(locs, opencage_forward, limit=limit) #map opencage_forward function to locations
+  gcdf <- data.frame() #empty dataframe
+  for(i in seq_along(out)){ #extract lat and long
+    tmp <- data.frame(lat = out[[i]]$results$geometry.lat,
+                      lon = out[[i]]$results$geometry.lng)
+    if(nrow(tmp)==0){tmp <- data.frame(lat=NA, lon=NA)} #NA if no lat/long 
+    gcdf <- rbind(gcdf, tmp)
+  }
+  cbind(data, gcdf)
+}
+
 load(here("data", "coded_annotations.RData")) #data compiled in 03_clean_segments.r
 field_corrections <- gs_read(gs_title("amr_db_field_corrections")) %>% as.tibble() #google spreadsheet tracking field corrections
 sub_names1 <- gs_read(gs_title("amr_db_clean_locs")) %>% as.tibble() #google spreadsheet with field cleanup
 ```
 Fix to mislabeled locations 
 ```{r}
-field_corrections %<>%
+field_corrections %<>% 
   mutate(study_id=as.character(study_id)) %>%
   filter(requires_followup=="No") %>%
   select(-requires_followup, -notes)
+
 codes %<>%
   left_join(.,field_corrections) %>%
   mutate(code_main = ifelse(is.na(code_main_new), code_main, code_main_new)) %>%
   select(-code_main_new) %>%
-  filter(!study_id %in% unique(codes$study_id[codes$code_main_cat=="Exclusion"])) 
+  filter(!study_id %in% unique(codes$study_id[codes$code_main_cat=="Exclusion"])) #remove excluded studies
 ```
 Manual Subsitutions
 ```{r}
-sub_names2 <- tribble( #not handled well by google spreadsheet
+sub_names2 <- tribble( #these values are handled well by google spreadsheet 
   ~old,                    ~new,
   "\r\n",                  "",
   "- ",                    "",
-  ",",                     "",
+  #",",                     "",
   "2",                     ""
 )
-sub_names <- bind_rows(sub_names2, sub_names1[sub_names1$field=="study_location",]) #combine with google doc
 
+sub_names <- bind_rows(sub_names2, sub_names1) #combine with google doc for complete correction list
+                       
 city_names  <- tribble( #add countries to cities missing country or state
   ~city,             ~country,
   "toronto",         "canada",
@@ -75,30 +91,53 @@ state_names  <- tribble( #add countries to cities missing country or state
 ```
 Clean data
 ```{r}
-dat <- codes %>% #reshape and clean names
-  filter(code_main_cat=="Location") %>%
+#reshape  
+dat <- codes %>%
+  filter(code_main_cat=="Location"|code_main=="Country of Residence") %>%
+  select(-code_main_cat) %>%
   spread(key = code_main, value = segment) %>%
   select(-matches_str) %>%
   unique() %>%
-  group_by(code_main_cat, study_id, code_identifiers) %>%
+  group_by(study_id, code_identifiers) %>%
   summarise_all(funs(paste_collapse)) %>%
+  ungroup()
+
+#clean names
+dat %<>%
   rename_all(tolower) %>%
-  rename("hospital" = `hospital name`, "travel_location" = `place traveled to`) %>%
+  rename("hospital" = `hospital name`, "travel_location" = `place traveled to`, "residence_location" = `country of residence`) %>%
   mutate_all(funs(tolower)) %>%
   mutate_all(funs(gsub("\\(|\\)", "", .))) %>%
-  mutate_at(vars(country, city, hospital, `state/province/district`), funs(stri_replace_all_regex(.,  sub_names$old, sub_names$new, vectorize_all = FALSE))) %>%
-  mutate_all(funs(trimws(., "both"))) %>%
-  ungroup() 
+  mutate_at(vars(country, city, hospital, `state/province/district`, travel_location, residence_location), funs(stri_replace_all_regex(.,  sub_names$old, sub_names$new, vectorize_all = FALSE))) %>%
+  mutate_all(funs(trimws(., "both"))) 
 
-dat <- left_join(dat, city_names, by="city") %>% #assign countried to cities and states without countries
+#assign countries to cities and states without countries
+dat <- left_join(dat, city_names, by="city") %>% 
   mutate(country= ifelse(is.na(country.y), country.x, country.y)) %>%
   select(-country.y, -country.x) %>%
   left_join(., state_names, by="state/province/district") %>%
   mutate(country= ifelse(is.na(country.y), country.x, country.y)) %>%
   select(-country.y, -country.x) 
 
+#split travel locations
+do_not_split <- c("california, san francisco", "india, new delhi", "riyadh, saudi arabia", "new delhi, india", "mumbai, india", "karachi, pakistan", "cairo, egypt")
+
+dat %<>%
+  mutate(travel_location = ifelse(is.na(travel_location), "", travel_location)) %>%
+  mutate(travel_location = ifelse(travel_location %in% do_not_split, travel_location, gsub("\\,", "\\;", travel_location))) %>%
+  mutate(cat_split = str_split(travel_location, ";")) %>%
+  unnest() %>%
+  mutate(cat_split = str_trim(cat_split)) %>%
+  select(-travel_location) %>%
+  group_by(study_id) %>%
+  mutate(travel_location_id = paste0("loc_", row_number())) %>%
+  rename(travel_location = cat_split) %>%
+  ungroup() #%>%
+  #opencage_forward_mutate(location = "travel_location") %>%
+  #rename(travel_lat = lat, travel_lon=lon)
+
 ```
-Evaluate data available
+Evaluate data available for study locations
 ```{r}
 pref <- c( #Order from most preferable to least
   "hospital_city_country",
@@ -113,98 +152,68 @@ pref <- c( #Order from most preferable to least
   "state/province/district_country", 
   "city", 
   "state/province/district", 
-  "country") #TODO"Place traveled to" 
+  "country")  
 
 dat <- as.data.frame(dat)
-dat$geoloc_basis <- ""
-dat$geoloc_value <- ""
+dat$study_location_basis <- ""
+dat$study_location <- ""
 
-#based on above preference order, assign basis for geocode (geoloc_basis) and extract location name (geoloc_value)
+#based on above preference order, assign basis for geocode (study_location_basis) and extract location name (study_location)
 for (i in rev(seq_along(pref))){
   cnames <- strsplit(pref[i], "_") %>% unlist
   dat_avail <- apply(dat[,c("study_id", cnames)]!="", 1, all) #if all relevant columns have values
-  dat$geoloc_basis <- ifelse(dat_avail, 
+  dat$study_location_basis <- ifelse(dat_avail, 
                              pref[i], 
-                             dat$geoloc_basis)
+                             dat$study_location_basis)
   if(length(cnames)>1){
-    dat$geoloc_value <- ifelse(dat_avail, 
+    dat$study_location <- ifelse(dat_avail, 
                                apply(dat[, c(cnames)], 1 , paste, collapse = ", "),
-                               dat$geoloc_value)
+                               dat$study_location)
   }else{
-    dat$geoloc_value <- ifelse(dat_avail, 
+    dat$study_location <- ifelse(dat_avail, 
                                dat[, c(cnames)],
-                               dat$geoloc_value)
+                               dat$study_location)
   }
 }
 
-dat <- dat %>% select(-country, -city, -hospital, -`state/province/district`)
+dat %<>% rename(study_country=country, study_city=city, study_hospital=hospital, `study_state/province/district`= `state/province/district`) %>%
+  select(study_id, code_identifiers, study_hospital, study_city, `study_state/province/district`, study_country, 
+         study_location_basis, study_location, travel_location, travel_location_id, residence_location)
 ```
 
-Geocode function for batch processing in opencage
+Geocode
 ```{r}
-opencage_forward_mutate <- function(data, location){
-  
-  locs <- data[, location, drop = TRUE] #extract location
-  
-  out <- map(locs, opencage::opencage_forward, limit=1) #map opencage_forward function to locations
-  
-  gcdf <- data.frame() 
-  for(i in seq_along(out)){
-    tmp <- data.frame(lat = out[[i]]$results$geometry.lat,
-                      lon = out[[i]]$results$geometry.lng)
-    if(nrow(tmp)==0){tmp <- data.frame(lat=NA, lon=NA)}
-    gcdf <- rbind(gcdf, tmp)
-  }
-  cbind(data, gcdf)
-}
-```
-Geocode - study location
-```{r}
-gdat <- dat %>%
-  opencage_forward_mutate(location = "geoloc_value") %>%
-  rename(geoloc_lat = lat, geoloc_lon=lon)
-  
-gdat_sf <- st_as_sf(gdat %>% filter(!is.na(geoloc_lat)), coords = c("geoloc_lon", "geoloc_lat"), crs = 4326)
-mapview(gdat_sf, zcol="geoloc_basis", col.regions = colorRampPalette(RColorBrewer::brewer.pal(9, "Set1")), alpha.regions=1)
-
-```
-
-Geocode - places traveled to
-```{r}
-sub_names2 <- tribble( #not handled well by google spreadsheet
-  ~old,                    ~new,
-  "\r\n",                  ""
-)
-sub_names <- bind_rows(sub_names2, sub_names1[sub_names1$field=="travel_location",]) #combine with google doc
-
-do_not_split <- c("california, san francisco", "india, new delhi", "riyadh, saudi arabia", "new delhi, india", "mumbai, india", "karachi, pakistan", "cairo, egypt")
-
-gdat <- gdat %>%
-  mutate(travel_location = stri_replace_all_regex(travel_location,  sub_names$old, sub_names$new, vectorize_all = FALSE)) %>%
-  mutate(travel_location = ifelse(is.na(travel_location), "", travel_location)) %>%
-  mutate(travel_location = ifelse(travel_location %in% do_not_split, travel_location, gsub("\\,", "\\;", travel_location))) %>%
-  mutate(cat_split = str_split(travel_location, ";")) %>%
-  unnest() %>%
-  mutate(cat_split = str_trim(cat_split)) %>%
-  select(-travel_location) %>%
-  group_by(study_id) %>%
-  mutate(travel_location_id = paste0("loc_", row_number())) %>%
-  rename(travel_location = cat_split) %>%
-  ungroup() %>%
+dat %<>%
+  opencage_forward_mutate(location = "study_location") %>%
+  rename(study_location_lat = lat, study_location_lon=lon) %>%
   opencage_forward_mutate(location = "travel_location") %>%
-  rename(travel_lat = lat, travel_lon=lon)
+  rename(travel_location_lat = lat, travel_location_lon=lon) %>%
+  opencage_forward_mutate(location = "residence_location") %>%
+  rename(residence_location_lat = lat, residence_location_lon=lon) 
 
-gdat_sf <- st_as_sf(gdat %>% filter(!is.na(travel_lat)), coords = c("travel_lon", "travel_lat"), crs = 4326)
-mapview(gdat_sf, col.regions = colorRampPalette(RColorBrewer::brewer.pal(9, "Set1")), alpha.regions=1)
+```
+
+Maps
+```{r}
+mapviewOptions(legend.pos="bottomleft")
+
+dat_sf_loc <- st_as_sf(dat %>% filter(!is.na(study_location_lat)) %>% unique(), coords = c("study_location_lon", "study_location_lat"), crs = 4326)
+mapview(dat_sf_loc, zcol="study_location_basis", col.regions = colorRampPalette(RColorBrewer::brewer.pal(9, "Set1")), alpha.regions=1, layer.name="Study Location Spatial Resolution")
+
+dat_sf_trav <- st_as_sf(dat %>% filter(!is.na(travel_location_lat)), coords = c("travel_location_lon", "travel_location_lat"), crs = 4326)
+mapview(dat_sf_trav, col.regions = colorRampPalette(RColorBrewer::brewer.pal(9, "Set1")), alpha.regions=1, layer.name = "Travel Locations")
+
+dat_sf_res <- st_as_sf(dat %>% filter(!is.na(residence_location_lat)) %>% unique, coords = c("residence_location_lon", "residence_location_lat"), crs = 4326)
+mapview(dat_sf_res, col.regions = colorRampPalette(RColorBrewer::brewer.pal(9, "Set1")), alpha.regions=1, layer.name = "Residence Locations")
 ```
 
 Notes
 ```{r}
 #For QA:
-write.csv(gdat, "location_coords.csv",row.names = F)
+write.csv(dat, "location_coords.csv",row.names = F)
 
 #STUDIES THAT HAVE CODE IDENTIFIERS
-gdat[!is.na(gdat$code_identifiers),]
+dat[!is.na(dat$code_identifiers),]
 
 #HOW MANY STUDIES DO NOT HAVE LOCS
 codes %>% 
@@ -217,8 +226,7 @@ codes %>%
 codes %>%
   filter(code_main=="Country of Residence")
 
-#TODO issues
-#TODO include residence (addition to geoloc_value)
+#TODO include residence (addition to study_location)
 #TODO handle locations with A, B etc identifiers
 
 ```
