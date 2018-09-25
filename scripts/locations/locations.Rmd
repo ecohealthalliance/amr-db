@@ -54,11 +54,13 @@ field_corrections %<>%
   filter(requires_followup=="No") %>%
   select(-requires_followup, -notes)
 
+excluded_studies <- unique(codes$study_id[codes$code_main_cat=="Exclusion"])
+
 codes %<>%
   left_join(.,field_corrections) %>%
   mutate(code_main = ifelse(is.na(code_main_new), code_main, code_main_new)) %>%
   select(-code_main_new) %>%
-  filter(!study_id %in% unique(codes$study_id[codes$code_main_cat=="Exclusion"])) #remove excluded studies
+  filter(!study_id %in% excluded_studies) #remove excluded studies
 ```
 Manual Subsitutions
 ```{r}
@@ -225,9 +227,26 @@ Notes
 #For QA:
 write.csv(dat, "location_coords.csv",row.names = F)
 
-#Studies without locs
+#Studies without any location
 missing_locs <- unique(codes$study_id[!codes$study_id %in% unique(dat$study_id)])
 length(missing_locs)
+
+#Studies without study location
+study_locs <- unique(codes$study_id[codes$code_main_cat=="Location"])
+no_study_locs <- unique(codes$study_id[!codes$study_id %in% study_locs])
+index <- read.csv(here("data", "index_articles.csv"))
+sub_index <- index %>%
+  filter(study_id %in% no_study_locs) %>%
+  select(study_id, mex_name)
+
+write.csv(sub_index, "missing_locations_study_id.csv", row.names = F)
+
+#Studies with duplicates
+dups <- dat %>%
+  mutate(dup = duplicated(study_id)) %>%
+  filter(dup ==TRUE)
+
+dup_check <- dat %>% filter(study_id %in% dups$study_id)
 
 #Summary info - what information is available from all studies?
 sum_dat <- dat %>%
@@ -243,7 +262,7 @@ sum_dat <- dat %>%
                             levels = c("", "study", "residence", "travel", "study, residence", "study, travel", "study, travel, residence", "travel, residence"), labels = c("none", "study only", "residence only", "travel only", "study & residence", "study & travel", "study & travel & residence", "travel & residence")))
 sum_dat_total <- tibble(locations = "TOTAL", count=sum(sum_dat$count), percent=round(sum(sum_dat$percent)))
 sum_dat <- bind_rows(sum_dat, sum_dat_total)
-sum_dat #note there are obly 303 studies...we have some studies with duplicate locations
+sum_dat #note there are obly 303 studies...we have some studies with duplicate locations because of travel_locs - CORRECT
 
 #Plot - of the studies that have locations, what is the breakdown?
 cdat <- dat %>%
@@ -262,6 +281,10 @@ ggplot(cdat, aes(x = location_class, fill=basis_cat))  +
   geom_bar() +
   labs(x="", y = "Study Count", fill = "")
 
+#Studies with code identifiers
+code_studies <- unique(dat$study_id[dat$code_identifiers!=""])
+test_dat <- dat %>% filter(study_id %in% code_studies)
+test_codes <- codes %>% filter(study_id %in% code_studies)
 
 
 ```
