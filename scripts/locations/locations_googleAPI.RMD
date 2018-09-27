@@ -1,13 +1,13 @@
 ---
 title: "Locations AMR"
-author: "Emma Mendelsohn"
+author: "Emma Mendelsohn" 
 date: "9/19/2018"
 output:
       html_document:
         keep_md: true
 ---
 ```{r}
-knitr::opts_chunk$set(include=TRUE, echo=TRUE, message=FALSE, warning=FALSE)
+knitr::opts_chunk$set(include=TRUE, echo=FALSE, message=FALSE, warning=FALSE)
 ```
 
 Setup
@@ -17,11 +17,22 @@ library(magrittr)
 library(stringi)
 library(sf)
 library(mapview)
-library(ggmap)
+#library(opencage)
 library(googlesheets)
 library(here)
+#library(RCurl)
+#library(RJSONIO)
+#library(plyr)
+library(googleway)
+library(ggmap)
 #gs_auth(new_user = TRUE)
-register_google(key = Sys.getenv('GOOGLE_KEY'))
+
+#GOOGLE_KEY = "AIzaSyB9Q3FhJqHvzsHC9YMo5JsWftC79B4Uglc"
+#set_key(key = Sys.getenv(GOOGLE_KEY))
+#settig the key in Renvirons doesn't seem to be working, will update with a fix
+
+register_google(key = 'AIzaSyB9Q3FhJqHvzsHC9YMo5JsWftC79B4Uglc')
+#out <- geocode("paris, france", source="google")
 
 #Function for data manipulation
 paste_collapse <- function(x){
@@ -29,20 +40,22 @@ paste_collapse <- function(x){
   paste(x, collapse = ", ")
 }
 
-#Geocode function for batch processing in opencage
+#Geocode function for batch processing using googleway
 ##note: Opencage typically returns multiple results because of placename ambiguity - here we limit to 1 by default
-opencage_forward_mutate <- function(data, location, limit=1){
+google_mutate_geocode <- function(data, location){
   locs <- data[, location, drop = TRUE] #extract location
-  out <- map(locs, opencage::opencage_forward, limit=limit) #map opencage_forward function to locations
+  out <- map(locs, geocode(override_limit = TRUE))
   gcdf <- data.frame() #empty dataframe
-  for(i in seq_along(out)){ #extract lat and long
-    tmp <- data.frame(lat = out[[i]]$results$geometry.lat,
-                      lon = out[[i]]$results$geometry.lng)
-    if(nrow(tmp)==0){tmp <- data.frame(lat=NA, lon=NA)} #NA if no lat/long 
-    gcdf <- rbind(gcdf, tmp)
-  }
-  cbind(data, gcdf)
+    for(i in seq_along(out)){ #extract lat and long
+  tmp <- data.frame(lat = out[[i]]$lat,
+                    lon = out[[i]]$lon)
+  if(nrow(tmp)==0){tmp <- data.frame(lat=NA, lon=NA)} #NA if no lat/long 
+  gcdf <- rbind(gcdf, tmp)
 }
+cbind(dat, gcdf) 
+}
+
+#mutate_geocode()
 
 load(here("data", "coded_annotations.RData")) #data compiled in 03_clean_segments.r
 field_corrections <- gs_read(gs_title("amr_db_field_corrections")) %>% as.tibble() #google spreadsheet tracking field corrections
@@ -197,15 +210,19 @@ dat %<>%
          study_location_basis, study_location, travel_location_basis, travel_location, travel_location_id, residence_location_basis, residence_location)
 ```
 
-Geocode
+Geocode (It appears you can't pass the override queries argument to geocode within the map function)
 ```{r}
 dat %<>%
-  mutate_geocode(location = study_location) %>%
+  google_mutate_geocode(location = "study_location") %>%
   rename(study_location_lat = lat, study_location_lon=lon) %>%
-  mutate_geocode(location = travel_location) %>%
+  google_mutate_geocode(location = "travel_location") %>%
   rename(travel_location_lat = lat, travel_location_lon=lon) %>%
-  mutate_geocode(location = residence_location) %>%
+  google_mutate_geocode(location = "residence_location") %>%
   rename(residence_location_lat = lat, residence_location_lon=lon) 
+
+
+test <- geocode("texas", source="google", override_limit = TRUE)
+
 ```
 
 Maps
@@ -226,20 +243,6 @@ Notes
 ```{r}
 #For QA:
 write.csv(dat, "location_coords.csv",row.names = F)
-qdat <- dat %>%
-  select(-study_hospital, -study_city, -`study_state/province/district`, -study_country, -travel_location_id) %>%
-  mutate(study_location_qa="", study_location_lat_qa="", study_location_lon_qa="",
-         travel_location_qa="", travel_location_lat_qa="", travel_location_lon_qa="",
-         residence_location_qa="", residence_location_lat_qa="", residence_location_lon_qa="") %>%
-  select(study_id, code_identifiers, 
-         study_location_basis,  study_location, study_location_lat, study_location_lon,
-         study_location_qa, study_location_lat_qa, study_location_lon_qa,
-         travel_location_basis, travel_location, travel_location_lat, travel_location_lon,
-         travel_location_qa, travel_location_lat_qa, travel_location_lon_qa,
-         residence_location_basis, residence_location, residence_location_lat, residence_location_lon,
-         residence_location_qa, residence_location_lat_qa, residence_location_lon_qa)
-
-#gs_new("amr_db_locations_qa", input=qdat)
 
 #Studies without any location
 missing_locs <- unique(codes$study_id[!codes$study_id %in% unique(dat$study_id)])
