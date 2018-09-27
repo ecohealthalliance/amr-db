@@ -26,7 +26,7 @@ in_art_not_codes <- art %>%
 
 write_csv(missing_in_codes, here("data", "check_missing_in_codes.csv"))
 
------ # manually checked missing ones and updated notes, and in_codes_db columns----
+#----- # manually checked missing ones and updated notes, and in_codes_db columns----
 
 fix_missing <- read_csv(here("data", "check_missing_in_codes_edit.csv"))
 
@@ -34,12 +34,13 @@ art <- art  %>%
   filter(!(study_id %in% fix_missing$study_id)) %>%
   rbind(fix_missing)
 
+# save updated version of article db 
 save(art, file = here("data", "index_articles.RData"))
 
-  
 
+# one article marked NA for downloaded colum (and in_codes_db col)
 missing_articles <- art  %>%
-  filter(in_codes_db == "no")
+  filter(!(in_codes_db %in% c("yes", "no")))
 
-write_csv(missing_articles, here("data", "missing_articles.csv"))
+
 
