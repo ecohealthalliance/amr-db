@@ -17,10 +17,11 @@ library(magrittr)
 library(stringi)
 library(sf)
 library(mapview)
-library(opencage)
+library(ggmap)
 library(googlesheets)
 library(here)
 #gs_auth(new_user = TRUE)
+register_google(key = Sys.getenv('GOOGLE_KEY'))
 
 #Function for data manipulation
 paste_collapse <- function(x){
@@ -32,7 +33,7 @@ paste_collapse <- function(x){
 ##note: Opencage typically returns multiple results because of placename ambiguity - here we limit to 1 by default
 opencage_forward_mutate <- function(data, location, limit=1){
   locs <- data[, location, drop = TRUE] #extract location
-  out <- map(locs, opencage_forward, limit=limit) #map opencage_forward function to locations
+  out <- map(locs, opencage::opencage_forward, limit=limit) #map opencage_forward function to locations
   gcdf <- data.frame() #empty dataframe
   for(i in seq_along(out)){ #extract lat and long
     tmp <- data.frame(lat = out[[i]]$results$geometry.lat,
@@ -199,13 +200,12 @@ dat %<>%
 Geocode
 ```{r}
 dat %<>%
-  opencage_forward_mutate(location = "study_location") %>%
+  mutate_geocode(location = study_location) %>%
   rename(study_location_lat = lat, study_location_lon=lon) %>%
-  opencage_forward_mutate(location = "travel_location") %>%
+  mutate_geocode(location = travel_location) %>%
   rename(travel_location_lat = lat, travel_location_lon=lon) %>%
-  opencage_forward_mutate(location = "residence_location") %>%
+  mutate_geocode(location = residence_location) %>%
   rename(residence_location_lat = lat, residence_location_lon=lon) 
-
 ```
 
 Maps
@@ -226,6 +226,20 @@ Notes
 ```{r}
 #For QA:
 write.csv(dat, "location_coords.csv",row.names = F)
+qdat <- dat %>%
+  select(-study_hospital, -study_city, -`study_state/province/district`, -study_country, -travel_location_id) %>%
+  mutate(study_location_qa="", study_location_lat_qa="", study_location_lon_qa="",
+         travel_location_qa="", travel_location_lat_qa="", travel_location_lon_qa="",
+         residence_location_qa="", residence_location_lat_qa="", residence_location_lon_qa="") %>%
+  select(study_id, code_identifiers, 
+         study_location_basis,  study_location, study_location_lat, study_location_lon,
+         study_location_qa, study_location_lat_qa, study_location_lon_qa,
+         travel_location_basis, travel_location, travel_location_lat, travel_location_lon,
+         travel_location_qa, travel_location_lat_qa, travel_location_lon_qa,
+         residence_location_basis, residence_location, residence_location_lat, residence_location_lon,
+         residence_location_qa, residence_location_lat_qa, residence_location_lon_qa)
+
+#gs_new("amr_db_locations_qa", input=qdat)
 
 #Studies without any location
 missing_locs <- unique(codes$study_id[!codes$study_id %in% unique(dat$study_id)])
