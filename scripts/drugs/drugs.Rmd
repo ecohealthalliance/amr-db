@@ -8,7 +8,9 @@ output:
 ---
 ```{r}
 knitr::opts_chunk$set(include=TRUE, echo=TRUE, message=FALSE, warning=FALSE)
+```
 
+```{r}
 library(tidyverse)
 library(magrittr)
 library(stringi)
@@ -31,67 +33,73 @@ sub_names <- tribble(
 
 dat <- segments_db %>%
   filter(code_main == "Drug Resisted") %>%
-  mutate(segment = stri_replace_all_regex(tolower(segment),  sub_names$old, sub_names$new, vectorize_all = FALSE))
+  mutate(segment = stri_replace_all_regex(tolower(segment),  sub_names$old, sub_names$new, vectorize_all = FALSE),
+         code_identifiers = ifelse(is.na(code_identifiers), "", code_identifiers)) %>%
+  select(-code_main_cat)
 
 unique(dat$segment)
 ```
-Testing CASE
-```{r}
-aro <- jsonlite::fromJSON(here("scripts", "drugs", "card-ontology", "aro.json"))
-sdat <- dat %>% rename(name = segment)
-sdat<- left_join(sdat, aro)
-sdat
 
+Ontologies at the Comprehensive Antibiotic Resistance Database are freely available under
+the Creative Commons CC-BY license version 4.0, https://creativecommons.org/licenses/by/4.0/
+```{r}
+# ARO - The Antibiotic Resistance Ontology that serves as the primary organizing principle 
+# of the CARD.
+aro <- jsonlite::fromJSON(here("scripts", "drugs", "card-ontology", "aro.json")) %>%
+  rename(segment = name, aro_accession = accession, aro_description = description)
+dat<- left_join(dat, aro)
+dat
 #fluoroquinolones is a class
 #co-trimoxazole is Trimethoprim or sulfamethoxazole, both of which are in db
 ```
-Testing MeSH
+MeSH Medical Subject Headings (https://meshb.nlm.nih.gov/search)
 ```{r}
-#data <- XML::xmlParse(here("scripts", "drugs", "mesh-ontology", "supp2018.xml"))
-#xml_data <- XML::xmlToList(data)
-#save(xml_data, file = here("scripts", "drugs", "mesh-ontology", "supp2018.RData"))
-#load(here("scripts", "drugs", "mesh-ontology", "supp2018.RData"))
-#rlist::list.search(xml_data, grepl('fluoroquinolones', .))
+mesh0 <- read_csv(here("scripts", "drugs", "mesh-ontology", "MESH.csv")) #downloaded from bioportal
+mesh <- mesh0 %>%
+  select(`Class ID`, `Preferred Label`, Synonyms, Definitions) %>%
+  mutate(cat_split = str_split(Synonyms, "\\|")) %>%
+  unnest() %>%
+  mutate(cat_split = str_trim(cat_split)) %>%
+  select(-Synonyms) %>%
+  rename(Synonyms = cat_split) %>%
+  gather(key="mesh_segment_class", value="segment", `Preferred Label`, Synonyms, -`Class ID`, -Definitions) %>%
+  rename(mesh_class_id = `Class ID`, mesh_definitions=Definitions) %>%
+  mutate(segment = tolower(segment)) %>%
+  unique() %>%
+  filter(rowSums(is.na(.)) != ncol(.))
 
-#library(here)
-#nfile <- here("scripts", "drugs", "mesh-ontology", "mesh.nt")
-#library(rdflib)
-#dat <- rdf_parse(nfile, format = "ntriples")
-
-#create sqlite file first
-#r <- rdf(storage="sqlite", new_db = TRUE, name="rdflib.sqlite")
-#then rdf parse, argument, put into sqlite database
-
-#https://cran.r-project.org/web/packages/SPARQL/SPARQL.pdf
-library(SPARQL)
-
-endpoint <- "http://id.nlm.nih.gov/mesh/sparql"
-q <-
- "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
-PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
-PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
-PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
-PREFIX mesh2017: <http://id.nlm.nih.gov/mesh/2017/>
-
- SELECT ?d ?dName ?c ?cName
- FROM <http://id.nlm.nih.gov/mesh>
- 
- WHERE {
-   
- ?d a meshv:Descriptor .
- ?d meshv:active 1 .
- ?d meshv:concept ?c .
- ?d rdfs:label ?dName .
- ?c rdfs:label ?cName
- FILTER(REGEX(?dName,'infection','i') || REGEX(?cName,'infection','i'))
- 
- }
- ORDER BY ?d"
-res <- SPARQL(url=endpoint,query=q,format="xml")
-
+pref_names <- unique(mesh$segment[mesh$mesh_segment_class=="Preferred Label"])
+syn_names <- unique(mesh$segment[mesh$mesh_segment_class=="Synonyms"])
+mesh <- mesh[!c(mesh$mesh_segment_class=="Synonyms" & mesh$segment %in% pref_names),] #filter out synonymns that are also primary names
+  
+out <- left_join(dat, mesh)
+write.csv(out, "drug_card_mesh_ontology.csv", row.names = F)
+out2 <- out[c(is.na(out$aro_accession) & is.na(out$mesh_class_id)),]
+write.csv(out2, "missing_drug_ontology.csv", row.names = F)
 ```
-
+MeSH test archive
+```{r}
+# endpoint <- "http://id.nlm.nih.gov/mesh/sparql"
+# q <-
+#  'PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+# PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+# PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+# PREFIX owl: <http://www.w3.org/2002/07/owl#>
+# PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+# PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+# PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
+# PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
+# PREFIX mesh2017: <http://id.nlm.nih.gov/mesh/2017/>
+# PREFIX mesh2018: <http://id.nlm.nih.gov/mesh/2018/>
+# 
+# SELECT * 
+# FROM <http://id.nlm.nih.gov/mesh>
+# WHERE {
+#   mesh:D015242 meshv:pharmacologicalAction ?pa .
+#   ?pa rdfs:label ?paLabel .
+# }
+# '
+# 
+# page <- httr::GET(paste0(endpoint, "?query=", URLencode(q, reserved = TRUE), "&format=CSV"))
+# test <- httr::content(page)
+```
