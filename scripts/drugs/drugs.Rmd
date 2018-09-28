@@ -1,0 +1,97 @@
+---
+title: "Drugs AMR"
+author: "Emma Mendelsohn"
+date: "9/26/2018"
+output:
+      html_document:
+        keep_md: true
+---
+```{r}
+knitr::opts_chunk$set(include=TRUE, echo=TRUE, message=FALSE, warning=FALSE)
+
+library(tidyverse)
+library(magrittr)
+library(stringi)
+library(here)
+
+load(here("data", "segments_db.RData")) #data compiled in 03_clean_segments.r
+excluded_studies <- unique(segments_db$study_id[segments_db$code_main_cat=="Exclusion"])
+segments_db %<>%
+  filter(!study_id %in% excluded_studies) 
+
+```
+Initial clean-up
+```{r}
+
+sub_names <- tribble( 
+  ~old,                    ~new,
+  "\r\n",                    "",
+  "- ",                      ""
+)
+
+dat <- segments_db %>%
+  filter(code_main == "Drug Resisted") %>%
+  mutate(segment = stri_replace_all_regex(tolower(segment),  sub_names$old, sub_names$new, vectorize_all = FALSE))
+
+unique(dat$segment)
+```
+Testing CASE
+```{r}
+aro <- jsonlite::fromJSON(here("scripts", "drugs", "card-ontology", "aro.json"))
+sdat <- dat %>% rename(name = segment)
+sdat<- left_join(sdat, aro)
+sdat
+
+#fluoroquinolones is a class
+#co-trimoxazole is Trimethoprim or sulfamethoxazole, both of which are in db
+```
+Testing MeSH
+```{r}
+#data <- XML::xmlParse(here("scripts", "drugs", "mesh-ontology", "supp2018.xml"))
+#xml_data <- XML::xmlToList(data)
+#save(xml_data, file = here("scripts", "drugs", "mesh-ontology", "supp2018.RData"))
+#load(here("scripts", "drugs", "mesh-ontology", "supp2018.RData"))
+#rlist::list.search(xml_data, grepl('fluoroquinolones', .))
+
+#library(here)
+#nfile <- here("scripts", "drugs", "mesh-ontology", "mesh.nt")
+#library(rdflib)
+#dat <- rdf_parse(nfile, format = "ntriples")
+
+#create sqlite file first
+#r <- rdf(storage="sqlite", new_db = TRUE, name="rdflib.sqlite")
+#then rdf parse, argument, put into sqlite database
+
+#https://cran.r-project.org/web/packages/SPARQL/SPARQL.pdf
+library(SPARQL)
+
+endpoint <- "http://id.nlm.nih.gov/mesh/sparql"
+q <-
+ "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX meshv: <http://id.nlm.nih.gov/mesh/vocab#>
+PREFIX mesh: <http://id.nlm.nih.gov/mesh/>
+PREFIX mesh2015: <http://id.nlm.nih.gov/mesh/2015/>
+PREFIX mesh2016: <http://id.nlm.nih.gov/mesh/2016/>
+PREFIX mesh2017: <http://id.nlm.nih.gov/mesh/2017/>
+
+ SELECT ?d ?dName ?c ?cName
+ FROM <http://id.nlm.nih.gov/mesh>
+ 
+ WHERE {
+   
+ ?d a meshv:Descriptor .
+ ?d meshv:active 1 .
+ ?d meshv:concept ?c .
+ ?d rdfs:label ?dName .
+ ?c rdfs:label ?cName
+ FILTER(REGEX(?dName,'infection','i') || REGEX(?cName,'infection','i'))
+ 
+ }
+ ORDER BY ?d"
+res <- SPARQL(url=endpoint,query=q,format="xml")
+
+```
+
