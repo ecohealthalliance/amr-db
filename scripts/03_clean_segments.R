@@ -6,7 +6,7 @@ library(googledrive)
 
 
 # Import Data and Clean Segments -----------------------------
-
+load(here("data", "articles_db.RData"))
 files <- dir(path = here('data', 'coded_segments'), pattern = "*.xlsx", full.names = TRUE)
 
 # individual segment data (from MaxQDA exports) - each observation is an instance of an annotation (ungrouped)
@@ -27,7 +27,9 @@ segments_raw <- map_dfr(files, ~read_xlsx(.x)) %>%
 save(segments_raw, file = here("data", "segments_raw.RData"))
 
 # these are all excluded articles or notes on articles, usually due to annotating the title of the article in the PDF. All have strange offsets
-na_segments <- segments_raw %>% filter(is.na(segment))
+na_segments <- segments_raw %>% 
+  filter(is.na(segment)) %>%
+  left_join(select(articles_db, study_id, mex_name))
 
 # save local and google drive copy
 write_csv(na_segments, here("data", "data_qa", "amr_db_na_segments_check.csv"))
@@ -139,14 +141,13 @@ segments_db <- review_codes %>%
   mutate(code_identifiers = map2(.$code_identifiers, .$code_main, ~rep_na_for_unnest(.x, length(.y)))) %>%
   select(-segment_all, -code_identifiers_check)
 
-load(here("data", "index_articles.RData"))
 
 # orphan id codes need manual checking - these have at least 1 ID code but no main code at all 
 orphan_id_codes <- problem_id_codes %>% 
   filter(map_lgl(code_main, ~length(.x) == 0)) %>%
   mutate_if(is.list, funs(from_ls_to_flat(.))) %>%
   select(-segment_all, -code_identifiers_check) %>%
-  left_join(select(art, study_id, mex_name), by = "study_id")
+  left_join(select(articles_db, study_id, mex_name), by = "study_id")
 
 write_csv(orphan_id_codes, here("data", "data_qa", "amr_db_orphan_id_codes.csv"))
 drive_upload(media = here("data", "data_qa", "amr_db_orphan_id_codes.csv"), 
@@ -160,12 +161,12 @@ drive_upload(media = here("data", "data_qa", "amr_db_orphan_id_codes.csv"),
 # Unnest Codes for Final Segments DB  -----------------------------
 
 # unnest so each code and id have their own observation (gets rid of list column), and separate code cateogry identifier from main code
-segments_db_long <- segments_db %>% 
+segments_db <- segments_db %>% 
   unnest(code_main, code_identifiers) %>%
   separate(code_main, into = c("code_main_cat", "code_main"), sep = ":", fill = "left")
 
 # final segments db
-save(segments_db_long, file = here("data", "segments_db.RData"))
+save(segments_db, file = here("data", "segments_db.RData"))
 
 # spread version of segments db
 segments_db_wide <- segments_db_long %>%

@@ -2,44 +2,54 @@ library(tidyverse)
 library(here)
 library(readxl)
 library(magrittr)
+library(googledrive)
+library(googlesheets)
 
-load(here("data", "index_articles.RData"))
-load(file = here("data", "coded_annotations.RData"))
-load(file = here("data", "segments.RData"))
+load(here("data", "articles_db.RData"))
+load(file = here("data", "segments_db.RData"))
+load(file = here("data-raw", "segments_raw.RData"))
 
-in_codes_not_art <- segments %>%
+in_codes_not_art <- segments_db %>%
   unique() %>%
-  anti_join(., art)
-# now empty- previously 4 of these --all fixed, (See below)
-# 13233 is typo on art_index, should be 13223 I think -- fixed
+  anti_join(., articles_db)
+
+# ^ now empty- previously 4 of these --all fixed, (See below)
+# 13233 is typo on art_index, should be 13223 -- fixed
 # 14751 is marked as not downloaded but appears in segments, so it was downloaded -- fixed
 # 20344 - I think this might be 20334 and a typo in study id in the article index -- fixed
 # 20781 marked as no downloaded but it was downloaded and marked with an exclusion tag -- fixed
 
 
-in_art_not_codes <- art %>%
+in_art_not_codes <- articles_db %>%
   filter(in_codes_db == "yes") %>%
-  anti_join(., unique(select(segments, study_id))) %>%
-  mutate(in_codes_db = ifelse(!is.na(reason), "no", "check_mex_files")) 
+  anti_join(., unique(select(segments_raw, study_id))) 
+
+missing_in_codes <- in_art_not_codes %>%
+  mutate(in_codes_db = ifelse(!is.na(reason), "no", "check_mex_files")) %>%
+  filter(!(study_id %in% c("14089", "7213", "15037", "15037", "15140", "17934",
+                         "18229", "15574", "19250", "22668", "23761", "13495",
+                         "23766", "7611"))) # these are na_segments to be fixed later after QA (in google drive)
 # some of these have notes with reasons. add col in article index (separate from downloaded) that indicates whether it is included in the db or not
 # 12 of these (exported to check_missing_in_codes.csv) -- looked into them and recoded updates in check_missing_in_code_edit.csv 
 
-write_csv(missing_in_codes, here("data", "check_missing_in_codes.csv"))
+write_csv(missing_in_codes, here("data", "data_qa", "amr_db_articles_missing_in_segs.csv"))
+drive_upload(media = here("data", "data_qa", "amr_db_articles_missing_in_segs.csv"), 
+             path = "~/amr-db/", #* REVIEW - this does assume you have your amr-db google drive in the top level of g-drive. 
+             type = "spreadsheet")
 
 #----- # manually checked missing ones and updated notes, and in_codes_db columns----
 
-fix_missing <- read_csv(here("data", "check_missing_in_codes_edit.csv"))
+fix_missing <- gs_title("amr_db_articles_missing_in_segs") %>% gs_read()
 
-art <- art  %>%
+articles_db <- articles_db  %>%
   filter(!(study_id %in% fix_missing$study_id)) %>%
   rbind(fix_missing)
 
 # save updated version of article db 
-save(art, file = here("data", "index_articles.RData"))
+save(articles_db, file = here("data", "articles_db.RData"))
 
-
-# one article marked NA for downloaded colum (and in_codes_db col)
-missing_articles <- art  %>%
+# one article marked NA for downloaded column (and in_codes_db col)
+articles_db  %>%
   filter(!(in_codes_db %in% c("yes", "no")))
 
 
