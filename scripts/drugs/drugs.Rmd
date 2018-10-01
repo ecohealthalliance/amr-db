@@ -37,7 +37,7 @@ dat <- segments_db %>%
          code_identifiers = ifelse(is.na(code_identifiers), "", code_identifiers)) %>%
   select(-code_main_cat)
 
-unique(dat$segment)
+#unique(dat$segment)
 ```
 
 Ontologies at the Comprehensive Antibiotic Resistance Database are freely available under
@@ -47,8 +47,8 @@ the Creative Commons CC-BY license version 4.0, https://creativecommons.org/lice
 # of the CARD.
 aro <- jsonlite::fromJSON(here("scripts", "drugs", "card-ontology", "aro.json")) %>%
   rename(segment = name, aro_accession = accession, aro_description = description)
-dat<- left_join(dat, aro)
-dat
+dat<- left_join(dat, aro) %>%
+  mutate(aro_name = ifelse(is.na(aro_accession), NA, segment))
 #fluoroquinolones is a class
 #co-trimoxazole is Trimethoprim or sulfamethoxazole, both of which are in db
 ```
@@ -56,26 +56,37 @@ MeSH Medical Subject Headings (https://meshb.nlm.nih.gov/search)
 ```{r}
 mesh0 <- read_csv(here("scripts", "drugs", "mesh-ontology", "MESH.csv")) #downloaded from bioportal
 mesh <- mesh0 %>%
+  mutate_all(tolower) %>%
   select(`Class ID`, `Preferred Label`, Synonyms, Definitions) %>%
   mutate(cat_split = str_split(Synonyms, "\\|")) %>%
   unnest() %>%
   mutate(cat_split = str_trim(cat_split)) %>%
   select(-Synonyms) %>%
-  rename(Synonyms = cat_split) %>%
+  rename(Synonyms = cat_split)
+
+pref_names <- unique(mesh$`Preferred Label`)
+syn_names <- unique(mesh$Synonyms)
+mesh <- mesh[!mesh$Synonyms %in% pref_names,] #filter out synonymns that are also primary names
+
+mesh_r <- mesh %>%
   gather(key="mesh_segment_class", value="segment", `Preferred Label`, Synonyms, -`Class ID`, -Definitions) %>%
   rename(mesh_class_id = `Class ID`, mesh_definitions=Definitions) %>%
-  mutate(segment = tolower(segment)) %>%
   unique() %>%
   filter(rowSums(is.na(.)) != ncol(.))
 
-pref_names <- unique(mesh$segment[mesh$mesh_segment_class=="Preferred Label"])
-syn_names <- unique(mesh$segment[mesh$mesh_segment_class=="Synonyms"])
-mesh <- mesh[!c(mesh$mesh_segment_class=="Synonyms" & mesh$segment %in% pref_names),] #filter out synonymns that are also primary names
-  
-out <- left_join(dat, mesh)
+mesh_syn <- mesh %>%
+  select(`Preferred Label`, Synonyms) %>%
+  na.omit()  
+out <- left_join(dat, mesh_r) %>%
+  left_join(., mesh_syn, by = c("segment"="Synonyms")) %>%
+  rename(mesh_name = `Preferred Label`) %>%
+  mutate(mesh_name = ifelse(mesh_segment_class=="Synonyms", mesh_name, segment))
+
 write.csv(out, "drug_card_mesh_ontology.csv", row.names = F)
 out2 <- out[c(is.na(out$aro_accession) & is.na(out$mesh_class_id)),]
 write.csv(out2, "missing_drug_ontology.csv", row.names = F)
+
+unique(out[,c("aro_name", "mesh_name")])
 ```
 MeSH test archive
 ```{r}
