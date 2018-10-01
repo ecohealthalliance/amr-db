@@ -17,6 +17,7 @@ library(tidyverse)
 library(magrittr)
 library(stringi)
 library(here)
+library(ontologyIndex)
 
 load(here("data", "segments_db.RData")) #data compiled in 03_clean_segments.r
 excluded_studies <- unique(segments_db$study_id[segments_db$code_main_cat=="Exclusion"])
@@ -43,16 +44,59 @@ dat <- segments_db %>%
 
 Ontologies at the Comprehensive Antibiotic Resistance Database are freely available under
 the Creative Commons CC-BY license version 4.0, https://creativecommons.org/licenses/by/4.0/
+license may be needed: https://card.mcmaster.ca/about
 
 ```r
 # ARO - The Antibiotic Resistance Ontology that serves as the primary organizing principle 
 # of the CARD.
-aro <- jsonlite::fromJSON(here("scripts", "drugs", "card-ontology", "aro.json")) %>%
-  rename(segment = name, aro_accession = accession, aro_description = description)
-dat<- left_join(dat, aro) %>%
-  mutate(aro_name = ifelse(is.na(aro_accession), NA, segment))
-#fluoroquinolones is a class
-#co-trimoxazole is Trimethoprim or sulfamethoxazole, both of which are in db
+
+dat$segment <- gsub("\\(|\\)", "", dat$segment)
+file <- here("scripts", "drugs", "card-ontology", "aro.obo")
+card <- get_ontology(file, extract_tags="everything")
+
+get_select_id <- function(seg){
+  id <-   card$id[grep(x=card$name, pattern=seg, ignore.case = T)]
+  all_prop <- map(id, function(x) get_term_property(ontology=card, property="id", term=x, as_names=TRUE)) 
+  select_name <- all_prop[match(seg, unlist(all_prop))]
+  select_id <- names(select_name)
+  select_name <- unlist(select_name)
+  if(is.null(select_name)){select_name <- select_id <- "no exact match"}
+  return(list(select_name=select_name, select_id=select_id))
+}
+
+
+get_relative <- function(id, relative) {
+  if(!startsWith(id, "ARO")){
+    return(list(relative_name=NA, relative_id=NA))
+  }else{
+    relative_name <- get_term_property(ontology=card, property=relative, term=id, as_names=TRUE)
+    relative_id <- names(relative_name)
+    if(is.null(relative_name)){relative_name <- relative_id <- paste("no", relative, "found")}
+    return(list(relative_name=relative_name, relative_id=relative_id))
+  }
+}
+
+test <- dat %>%
+  mutate(tmp = map(segment, get_select_id))%>%
+  rowwise()%>%
+  mutate(select_name = first(tmp), 
+         select_id = nth(tmp, 2)) %>%
+  mutate(tmp = map(select_id, get_relative, "parents")) %>%
+  mutate(parent_name = first(tmp), 
+         parent_id = nth(tmp, 2)) %>%
+  mutate(tmp = map(select_id, get_relative, "ancestors")) %>%
+  mutate(ancestor_names = list(first(tmp)), 
+         ancestor_ids = list(nth(tmp, 2))) %>%
+  select(-tmp)
+
+#eeeek double maps...work around??
+dat %<>%
+  mutate(card_select_name = map(map(segment, get_select_id), "select_name"), 
+         card_select_id = map(map(segment, get_select_id), "select_id"),
+         card_parent_name = map(map(card_select_id, get_relative, "parents"), "relative_name"), 
+         card_parent_id = map(map(card_select_id, get_relative, "parents"), "relative_id"),
+         card_ancestor_name = map(map(card_select_id, get_relative, "ancestors"), "relative_name"), 
+         card_ancestor_id = map(map(card_select_id, get_relative, "ancestors"), "relative_id"))
 ```
 MeSH Medical Subject Headings (https://meshb.nlm.nih.gov/search)
 
@@ -85,28 +129,11 @@ out <- left_join(dat, mesh_r) %>%
   rename(mesh_name = `Preferred Label`) %>%
   mutate(mesh_name = ifelse(mesh_segment_class=="Synonyms", mesh_name, segment))
 
-write.csv(out, "drug_card_mesh_ontology.csv", row.names = F)
-out2 <- out[c(is.na(out$aro_accession) & is.na(out$mesh_class_id)),]
+save(out, file=here("scripts", "drugs", "drug_card_mesh_ontology.RData"))
+out2 <- out %>%
+  filter(card_select_name=="no exact match", is.na(mesh_class_id)) %>%
+  select(study_id, segment, code_identifiers) 
 write.csv(out2, "missing_drug_ontology.csv", row.names = F)
-
-unique(out[,c("aro_name", "mesh_name")])
-```
-
-```
-## # A tibble: 120 x 2
-##    aro_name    mesh_name                                      
-##    <chr>       <chr>                                          
-##  1 ertapenem   ertapenem                                      
-##  2 imipenem    imipenem                                       
-##  3 <NA>        fluoroquinolones                               
-##  4 <NA>        trimethoprim, sulfamethoxazole drug combination
-##  5 tobramycin  tobramycin                                     
-##  6 <NA>        gentamicins                                    
-##  7 amoxicillin amoxicillin                                    
-##  8 <NA>        <NA>                                           
-##  9 cefuroxime  cefuroxime                                     
-## 10 ceftriaxone ceftriaxone                                    
-## # ... with 110 more rows
 ```
 MeSH test archive
 

@@ -1,245 +1,244 @@
-"study_id","segment","code_identifiers","code_main","aro_accession","aro_description","aro_name","mesh_class_id","mesh_definitions","mesh_segment_class","mesh_name"
-"10020","amoxicillin+clavulanic acid","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"10083","amoxicillin-clavulanate","A","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"10209","ampicillin/clav","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"10209","ceftazidime/clav","D","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"10300","pipc","A","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"10300","cfpm","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"10300","azt","D","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"10300","gm","E","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"10300","tob","F","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"10300","amk","G","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"10323","amoxicillin/clavulanic acid","A","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"10323","all ß-lactam antibiotic","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"10443","trimethoprim/sulfamethoxazole","G","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"10443","piperacillin/tazobactam","I","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"10443","cefoperazone/sulbactam","K","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"10443",": ceftazidime","M","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"10445","trimethoprim/sulfamethoxazole","K","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"10445","ampicillin/sulbactam","L","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"10445","piperacillin/tazobactam","M","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"10445","cefoperazone/sulbactam","O","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"10450","-lactam antibiotics","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"11176","trimethoprim-sulphamethoxazole","H","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"11201","trimethoprim/ sulfamethoxazole","P","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"11201","piperacillin/ tazobactam","F","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"11201","ampicillin/ sulbactam","G","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"11395","tetracyclin","J","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"11508","trimethoprim/sulfamethoxazole","A","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"11797","moxicillin-clavulanic acid","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"12065","piperacillin/tazobactam","O","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"12065","trimethoprim/sulfamethoxazole","Q","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"12065","ampicillin/sulbactam","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"1216","amoxicillin-clavulanate","A","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"12344","evofloxacin","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"12359","ampicilin","A","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"1288","sulbactam-ampicillin","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"12905","trimethoprim–sulfamethoxazole","J","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"12905","piperacillin–tazobactam","E","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"13129","amoxicillin/clavulanic acid","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"13399","cefoxitin,","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"13399","penicillin,","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"13465","trimethoprim/sulfamethoxazole","G","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"13490","b-lactams","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"13548","amoxicillin/clavulanic acid","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"13548","piperacillin/tazobactam","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"13548","sulphonamides","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"13741","carbapenemic antibiotics","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"13772","ticarcillin/clavulanic acid","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"13772","piperacillin/tazobactam","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"13772","amoxicillin/clavulanic acid","A","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"13772","trimethoprim/sulphamethoxazole","A","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"13794","tobramicin","G","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"13794","piperacillin/tazobactam","A","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"14287","amoxicillin plus clavulanic  acid","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"1495","trimethoprim/sulfamethoxazole (tmp/smx)","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"15256","trimethoprim–sulfamethoxazole","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"15256","piperacillin/tazobactam","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"15256","ampicillin/clavulanic acid","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"15268","trimethoprim/ sulfamethoxazole","J","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"15268","ampicillin/ sulbactam","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"15268","piperacillin/ tazobactam","C","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"15378","amoxacillin/clavulanate","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"15475","amoxicillin/clavulanic acid","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"15632","piperacillin/tazobactam","A","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"15632","doxicycline","J","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"16248","amoxicillin/clavulanic acid","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"16248","piperacillin/tazobactam","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"16248","ciprofl oxacin","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"16248","trimethoprim/sulfamethoxazole","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"16251","piperacillin – tazobactam","A","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"16267","ampicillin/sulbactam","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"1652","amoxicillin +cla","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"1652","ticarcillin + cla","D","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"1652","piperacillin + tzb","F","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"16715","sulphonamides","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"17121","ciprofloxacin;","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"17169","trimethoprim­sulphamethoxazole","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"17649","trimethoprim/sulfamethoxazole","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"1786","piperacillin/tazobactam","L","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"1786","cefazoline","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"1786","cefotaxime/clavulanate","F","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"17998","fluoroquinolone","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"18073","piperacillintazobactam","A","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"18184","moxifl oxacin","F","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"18184","ofl oxacin","G","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"18265","cefotetan/cloxacillin","G","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"18265","piperacillin/tazobactam","A","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"18265","cefotaxime/clavulanic acid","C","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"18265","ceftazidime/clavulanic acid","E","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"18265","cefepime/clavulanic acid","F","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"18418","amoxicillin-clavulanate","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"18438","moxicillin-clavulanate","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"18469","enterococcus raffinosus","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"18469","tobramicin","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"18469","amoxicillin/clavulanate","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"18469","ampicillin/sulbactam","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"18469","piperacillin/tazobactam","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"18470","amoxicillin-clavulanate","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"18527","acinetobacter  baumannii  osteomyelitis","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"18674","sulfamethoxazole/trimethoprim","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"18674","ciprofl oxacin","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"18674","nitrofurantoi","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"18674","levofl oxacin","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"18674","piperacillin/tazobactam","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"18674","amoxicillin/clavulanate","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"18674","imipinem","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"1874","piperacillin/tazobactam,","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"18818","o rifampic","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"19093","ampicillin and sulbactam","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"19093","piperacillin and tazobactam","C","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"19267","rif","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"19607","amoxicillin  clavulanate","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"19607","piperacillin  tazobactam","C","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"19609","amoxicillin  clavulanate","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"19609","piperacillin  tazobactam","C","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"202","cefalothin","G","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"202","amoxicillin + cla","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"202","ticarcillin +cla","D","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"202","piperacillin + taz","F","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"20332","fosfomycin;","N","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"20332","piperacillin/tazobactam","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"20553","amoxicillin/clavulanic acid","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"20553","trimethoprim/sulfamethoxazole","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"20841","β-lactams","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"20899","trimethoprim/sulfamethoxazole","N","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"20899","piperacillin/tazobactam","A","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"20899","ticarcillin/clavulanic acid","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"21029","piperacillin/tazobactam","E","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"21083","trimethoprim/ sulfamethoxazole","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"21083","piperacillin/ tazobactam","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"21149","amoxicillin þ cla","J","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"21149","piperacillin þ tzb","L","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"21192","daptomycin nonsusceptible","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"21464","amoxicillin clavulanate","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"21824","icarcillin","A","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"21824","icarcillin/clavulanic acid","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"21824","iperacillin/tazobactam","C","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"22121","tmp/sxt","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"22703","azithromycin-atovaquone","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"2302","ticarcillin-clavulanate","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"23039","piperacillin–tazobactam","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"23155","fluoroquinolone","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"23248","piperacillin/tazobactam","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"23248","ceftazidime/clavulanic acid","D","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"23408","sodium  cefoperazone","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"23408","sodium imipenem/cliastatin","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"23491","-tazobactam (256","J","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"23491",", piperacillin-tazobact","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"23491","/ml), trimethoprim-sulfametho","D","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"23491","�g/ml), cipro","E","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"23491","���g/ml), le","F","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"23491","����g/ml","G","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"23491","���g/ml)","H","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"23491","nt to amik","I","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"2389","amoxicillin-clavulanate","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"2418","vancomycin-intermediate","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"2418","methicillin-","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"2487","trimethoprim/sulfamethoxazole","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"2487","-lactams","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"2628","amoxicillin-clavulanate","G","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"267","cefalothin","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"267","trimethoprim/sulfamethoxazole","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"267","amoxicillin/clavulanic acid","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"2963","cloramphenicol","F","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"2963","piperacillin/tazobactam","K","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"2963","tetracyclin","M","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"2963","trimethoprim/sulfamethoxazole","O","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"2963","amoxicillin/clav","A","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"3060","β-lactams","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"3060","etapenem","D","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"3060","aztreonam(","E","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"3235","piperacillin/tazobactam","D","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"3596","-lactams","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"360","ticarcillin/clavulanate","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"3622","tobramycin ","J","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"3872","amoxicillin/clavulanate","A","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"3872","trimethoprim/sulfamethoxazole","F","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"3882","cefurox","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"3882","ticarcillin + cla","D","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"404","rimethoprimsulfamethoxazole","A","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"4519","amoxicillin-clavulanate","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"4642","ceftazidime-clavulanic acid","K","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"4891","trimethoprimsulfamethoxazole","G","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"4891","broad-spectrum cephalosporins","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"5005","rimethoprim/sufamethoxazole","I","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"5005","amoxicillin/clavulanic acid","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"5183","third generation cephalosporins","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"521","amoxicillin/clavulanate","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"5251","rimethoprim/sulfamethoxazole","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"5449","trimethoprim/sulfamethoxazole","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"5449","fosfomycin.","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"5451","ampicillin/sulbactam","A","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"5774","sulfamethoxazole-trimetoprim","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"6314","moxicillin-clavulanic acid","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"6350","ampicillin/ sulbactam","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"6350","amoxicillin/clavulanic acid","C","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"6350","piperacillin/tazobactam","H","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"6375","amoxicillin-clavulanate","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"6467","ticarcillin/clavulanic acid","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"6467","imipeneme","E","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"6467","meropeneme","F","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"6492","piperacillin/tazobactam","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"6492","ticarcillin/clavulanic acid","C","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"6655","all drugs","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"6655","k. pneumoniae","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"6737","entamicin","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"6737","proxeti","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"6737","flomoxef sodium","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"7108","amoxicillin/clavulanate","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"7108","piperacillin/tazobactam","C","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"7494","b-lactams","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"7494","fosfomycin i.v.","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"7585","ampicillin .","A","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"7585","amoxicillin/ clavulanate","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"7585","ampicillin/ sulbactam","C","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"7585","piperacillin/ tazobactam","D","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"7945","cefoperazone-sulbactam","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"8089","amoxicillin-clavulanate","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"8089","ticarcilin-clavulanate","C","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"8174","phenicol","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"8174","sulphonamide","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"8174","trimethopri","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"8181","amoxicillin/clavulate","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"8181","piperacillin/tazobactam","D","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"8515","streptomycinb","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"8515","ceftiofurb","F","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"8591","cefoperazone/sulbactam","D","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"8591","trimethoprim/sulfamethoxazole","O","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"8591","ampicillin/sulbactam","B","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"8862","sulphonamide","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"9","ciprofl oxacin","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"9010","piperacillin/tazobactam","D","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"9010","trimethoprim/sulfamethoxazole","P","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"9045","ampicillin/sulbactam","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"9045","piperacillin– tazobactam","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"9081","pipercillin/tazobactam","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"9669","trimethoprim/sulfamethoxazole","E","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"9727","levofl oxacin","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"9727","moxifl oxacin","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"9727","trimethoprim/sulfamethoxazole","","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"9989","ticarcillin–clavulanic acid","D","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"9989","tazobactam–piperacillin","F","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"11303","amoxicillin/clavulinic acid","AA","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"11303","amoxicillin/clavulinic acid","BB","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
-"11303","amoxicillin/clavulinic acid","F","Drug Resisted",NA,NA,NA,NA,NA,NA,NA
+"study_id","segment","code_identifiers"
+"10020","amoxicillin+clavulanic acid","B"
+"10083","amoxicillin-clavulanate","A"
+"10209","ampicillin/clav","B"
+"10209","ceftazidime/clav","D"
+"10300","pipc","A"
+"10300","cfpm","B"
+"10300","azt","D"
+"10300","gm","E"
+"10300","tob","F"
+"10300","amk","G"
+"10323","amoxicillin/clavulanic acid","A"
+"10323","all ß-lactam antibiotic",""
+"10443","trimethoprim/sulfamethoxazole","G"
+"10443","piperacillin/tazobactam","I"
+"10443","cefoperazone/sulbactam","K"
+"10443",": ceftazidime","M"
+"10445","trimethoprim/sulfamethoxazole","K"
+"10445","ampicillin/sulbactam","L"
+"10445","piperacillin/tazobactam","M"
+"10445","cefoperazone/sulbactam","O"
+"10450","-lactam antibiotics",""
+"11176","trimethoprim-sulphamethoxazole","H"
+"11201","trimethoprim/ sulfamethoxazole","P"
+"11201","piperacillin/ tazobactam","F"
+"11201","ampicillin/ sulbactam","G"
+"11395","tetracyclin","J"
+"11508","trimethoprim/sulfamethoxazole","A"
+"11797","moxicillin-clavulanic acid",""
+"12065","piperacillin/tazobactam","O"
+"12065","trimethoprim/sulfamethoxazole","Q"
+"12065","ampicillin/sulbactam","B"
+"1216","amoxicillin-clavulanate","A"
+"12344","evofloxacin",""
+"12359","ampicilin","A"
+"1288","sulbactam-ampicillin","B"
+"12905","trimethoprim–sulfamethoxazole","J"
+"12905","piperacillin–tazobactam","E"
+"13129","amoxicillin/clavulanic acid",""
+"13399","cefoxitin,",""
+"13399","penicillin,",""
+"13465","trimethoprim/sulfamethoxazole","G"
+"13490","b-lactams",""
+"13548","amoxicillin/clavulanic acid",""
+"13548","piperacillin/tazobactam",""
+"13548","sulphonamides",""
+"13741","carbapenemic antibiotics",""
+"13772","ticarcillin/clavulanic acid","B"
+"13772","piperacillin/tazobactam","B"
+"13772","amoxicillin/clavulanic acid","A"
+"13772","trimethoprim/sulphamethoxazole","A"
+"13794","tobramicin","G"
+"13794","piperacillin/tazobactam","A"
+"14287","amoxicillin plus clavulanic  acid",""
+"1495","trimethoprim/sulfamethoxazole tmp/smx",""
+"15256","trimethoprim–sulfamethoxazole",""
+"15256","piperacillin/tazobactam",""
+"15256","ampicillin/clavulanic acid",""
+"15268","trimethoprim/ sulfamethoxazole","J"
+"15268","ampicillin/ sulbactam","B"
+"15268","piperacillin/ tazobactam","C"
+"15378","amoxacillin/clavulanate","B"
+"15475","amoxicillin/clavulanic acid",""
+"15632","piperacillin/tazobactam","A"
+"15632","doxicycline","J"
+"16248","amoxicillin/clavulanic acid",""
+"16248","piperacillin/tazobactam",""
+"16248","ciprofl oxacin",""
+"16248","trimethoprim/sulfamethoxazole",""
+"16251","piperacillin – tazobactam","A"
+"16267","ampicillin/sulbactam",""
+"1652","amoxicillin +cla","B"
+"1652","ticarcillin + cla","D"
+"1652","piperacillin + tzb","F"
+"16715","sulphonamides",""
+"17121","ciprofloxacin;",""
+"17169","trimethoprim­sulphamethoxazole",""
+"17649","trimethoprim/sulfamethoxazole",""
+"1786","piperacillin/tazobactam","L"
+"1786","cefazoline","B"
+"1786","cefotaxime/clavulanate","F"
+"17998","fluoroquinolone",""
+"18073","piperacillintazobactam","A"
+"18184","moxifl oxacin","F"
+"18184","ofl oxacin","G"
+"18265","cefotetan/cloxacillin","G"
+"18265","piperacillin/tazobactam","A"
+"18265","cefotaxime/clavulanic acid","C"
+"18265","ceftazidime/clavulanic acid","E"
+"18265","cefepime/clavulanic acid","F"
+"18418","amoxicillin-clavulanate","B"
+"18438","moxicillin-clavulanate",""
+"18469","enterococcus raffinosus",""
+"18469","tobramicin",""
+"18469","amoxicillin/clavulanate",""
+"18469","ampicillin/sulbactam",""
+"18469","piperacillin/tazobactam",""
+"18470","amoxicillin-clavulanate",""
+"18527","acinetobacter  baumannii  osteomyelitis",""
+"18674","sulfamethoxazole/trimethoprim",""
+"18674","ciprofl oxacin",""
+"18674","nitrofurantoi",""
+"18674","levofl oxacin",""
+"18674","piperacillin/tazobactam",""
+"18674","amoxicillin/clavulanate",""
+"18674","imipinem",""
+"1874","piperacillin/tazobactam,",""
+"18818","o rifampic",""
+"19093","ampicillin and sulbactam","B"
+"19093","piperacillin and tazobactam","C"
+"19267","rif",""
+"19607","amoxicillin  clavulanate","B"
+"19607","piperacillin  tazobactam","C"
+"19609","amoxicillin  clavulanate","B"
+"19609","piperacillin  tazobactam","C"
+"202","cefalothin","G"
+"202","amoxicillin + cla","B"
+"202","ticarcillin +cla","D"
+"202","piperacillin + taz","F"
+"20332","fosfomycin;","N"
+"20332","piperacillin/tazobactam","B"
+"20553","amoxicillin/clavulanic acid",""
+"20553","trimethoprim/sulfamethoxazole",""
+"20841","β-lactams",""
+"20899","trimethoprim/sulfamethoxazole","N"
+"20899","piperacillin/tazobactam","A"
+"20899","ticarcillin/clavulanic acid","B"
+"21029","piperacillin/tazobactam","E"
+"21083","trimethoprim/ sulfamethoxazole",""
+"21083","piperacillin/ tazobactam",""
+"21149","amoxicillin þ cla","J"
+"21149","piperacillin þ tzb","L"
+"21192","daptomycin nonsusceptible",""
+"21464","amoxicillin clavulanate",""
+"21824","icarcillin","A"
+"21824","icarcillin/clavulanic acid","B"
+"21824","iperacillin/tazobactam","C"
+"22121","tmp/sxt",""
+"22703","azithromycin-atovaquone",""
+"2302","ticarcillin-clavulanate","B"
+"23039","piperacillin–tazobactam",""
+"23155","fluoroquinolone",""
+"23248","piperacillin/tazobactam","B"
+"23248","ceftazidime/clavulanic acid","D"
+"23408","sodium  cefoperazone",""
+"23408","sodium imipenem/cliastatin",""
+"23491","-tazobactam 256","J"
+"23491",", piperacillin-tazobact","B"
+"23491","/ml, trimethoprim-sulfametho","D"
+"23491","�g/ml, cipro","E"
+"23491","���g/ml, le","F"
+"23491","����g/ml","G"
+"23491","���g/ml","H"
+"23491","nt to amik","I"
+"2389","amoxicillin-clavulanate","B"
+"2418","vancomycin-intermediate",""
+"2418","methicillin-",""
+"2487","trimethoprim/sulfamethoxazole",""
+"2487","-lactams",""
+"2628","amoxicillin-clavulanate","G"
+"267","cefalothin",""
+"267","trimethoprim/sulfamethoxazole",""
+"267","amoxicillin/clavulanic acid","B"
+"2963","cloramphenicol","F"
+"2963","piperacillin/tazobactam","K"
+"2963","tetracyclin","M"
+"2963","trimethoprim/sulfamethoxazole","O"
+"2963","amoxicillin/clav","A"
+"3060","β-lactams",""
+"3060","etapenem","D"
+"3235","piperacillin/tazobactam","D"
+"3596","-lactams",""
+"360","ticarcillin/clavulanate",""
+"3622","tobramycin ","J"
+"3872","amoxicillin/clavulanate","A"
+"3872","trimethoprim/sulfamethoxazole","F"
+"3882","cefurox",""
+"3882","ticarcillin + cla","D"
+"404","rimethoprimsulfamethoxazole","A"
+"4519","amoxicillin-clavulanate","B"
+"4642","ceftazidime-clavulanic acid","K"
+"4891","trimethoprimsulfamethoxazole","G"
+"4891","broad-spectrum cephalosporins",""
+"5005","rimethoprim/sufamethoxazole","I"
+"5005","amoxicillin/clavulanic acid","B"
+"5183","third generation cephalosporins",""
+"521","amoxicillin/clavulanate",""
+"5251","rimethoprim/sulfamethoxazole",""
+"5449","trimethoprim/sulfamethoxazole",""
+"5449","fosfomycin.",""
+"5451","ampicillin/sulbactam","A"
+"5774","sulfamethoxazole-trimetoprim",""
+"6314","moxicillin-clavulanic acid","B"
+"6350","ampicillin/ sulbactam","B"
+"6350","amoxicillin/clavulanic acid","C"
+"6350","piperacillin/tazobactam","H"
+"6375","amoxicillin-clavulanate","B"
+"6467","ticarcillin/clavulanic acid","B"
+"6467","imipeneme","E"
+"6467","meropeneme","F"
+"6492","piperacillin/tazobactam","B"
+"6492","ticarcillin/clavulanic acid","C"
+"6655","all drugs",""
+"6655","k. pneumoniae",""
+"6737","entamicin",""
+"6737","proxeti",""
+"6737","flomoxef sodium",""
+"7108","amoxicillin/clavulanate","B"
+"7108","piperacillin/tazobactam","C"
+"7494","b-lactams",""
+"7494","fosfomycin i.v.",""
+"7585","ampicillin .","A"
+"7585","amoxicillin/ clavulanate","B"
+"7585","ampicillin/ sulbactam","C"
+"7585","piperacillin/ tazobactam","D"
+"7945","cefoperazone-sulbactam",""
+"8089","amoxicillin-clavulanate","B"
+"8089","ticarcilin-clavulanate","C"
+"8174","phenicol",""
+"8174","sulphonamide",""
+"8174","trimethopri",""
+"8181","amoxicillin/clavulate","B"
+"8181","piperacillin/tazobactam","D"
+"8515","streptomycinb","B"
+"8515","ceftiofurb","F"
+"8591","cefoperazone/sulbactam","D"
+"8591","trimethoprim/sulfamethoxazole","O"
+"8591","ampicillin/sulbactam","B"
+"8862","sulphonamide",""
+"9","ciprofl oxacin",""
+"9010","piperacillin/tazobactam","D"
+"9010","trimethoprim/sulfamethoxazole","P"
+"9045","ampicillin/sulbactam",""
+"9045","piperacillin– tazobactam",""
+"9081","pipercillin/tazobactam",""
+"9669","trimethoprim/sulfamethoxazole","E"
+"9727","levofl oxacin",""
+"9727","moxifl oxacin",""
+"9727","trimethoprim/sulfamethoxazole",""
+"9989","ticarcillin–clavulanic acid","D"
+"9989","tazobactam–piperacillin","F"
+"11303","amoxicillin/clavulinic acid","AA"
+"11303","amoxicillin/clavulinic acid","BB"
+"11303","amoxicillin/clavulinic acid","F"
