@@ -133,6 +133,7 @@ $(document).ready(function () {
 library(magrittr)
 library(stringi)
 library(here)
+library(ontologyIndex)
 
 load(here(&quot;data&quot;, &quot;segments_db.RData&quot;)) #data compiled in 03_clean_segments.r
 excluded_studies &lt;- unique(segments_db$study_id[segments_db$code_main_cat==&quot;Exclusion&quot;])
@@ -152,15 +153,57 @@ dat &lt;- segments_db %&gt;%
   select(-code_main_cat)
 
 #unique(dat$segment)</code></pre>
-<p>Ontologies at the Comprehensive Antibiotic Resistance Database are freely available under the Creative Commons CC-BY license version 4.0, <a href="https://creativecommons.org/licenses/by/4.0/" class="uri">https://creativecommons.org/licenses/by/4.0/</a></p>
+<p>Ontologies at the Comprehensive Antibiotic Resistance Database are freely available under the Creative Commons CC-BY license version 4.0, <a href="https://creativecommons.org/licenses/by/4.0/" class="uri">https://creativecommons.org/licenses/by/4.0/</a> license may be needed: <a href="https://card.mcmaster.ca/about" class="uri">https://card.mcmaster.ca/about</a></p>
 <pre class="r"><code># ARO - The Antibiotic Resistance Ontology that serves as the primary organizing principle 
 # of the CARD.
-aro &lt;- jsonlite::fromJSON(here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;card-ontology&quot;, &quot;aro.json&quot;)) %&gt;%
-  rename(segment = name, aro_accession = accession, aro_description = description)
-dat&lt;- left_join(dat, aro) %&gt;%
-  mutate(aro_name = ifelse(is.na(aro_accession), NA, segment))
-#fluoroquinolones is a class
-#co-trimoxazole is Trimethoprim or sulfamethoxazole, both of which are in db</code></pre>
+
+dat$segment &lt;- gsub(&quot;\\(|\\)&quot;, &quot;&quot;, dat$segment)
+file &lt;- here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;card-ontology&quot;, &quot;aro.obo&quot;)
+card &lt;- get_ontology(file, extract_tags=&quot;everything&quot;)
+
+get_select_id &lt;- function(seg){
+  id &lt;-   card$id[grep(x=card$name, pattern=seg, ignore.case = T)]
+  all_prop &lt;- map(id, function(x) get_term_property(ontology=card, property=&quot;id&quot;, term=x, as_names=TRUE)) 
+  select_name &lt;- all_prop[match(seg, unlist(all_prop))]
+  select_id &lt;- names(select_name)
+  select_name &lt;- unlist(select_name)
+  if(is.null(select_name)){select_name &lt;- select_id &lt;- &quot;no exact match&quot;}
+  return(list(select_name=select_name, select_id=select_id))
+}
+
+
+get_relative &lt;- function(id, relative) {
+  if(!startsWith(id, &quot;ARO&quot;)){
+    return(list(relative_name=NA, relative_id=NA))
+  }else{
+    relative_name &lt;- get_term_property(ontology=card, property=relative, term=id, as_names=TRUE)
+    relative_id &lt;- names(relative_name)
+    if(is.null(relative_name)){relative_name &lt;- relative_id &lt;- paste(&quot;no&quot;, relative, &quot;found&quot;)}
+    return(list(relative_name=relative_name, relative_id=relative_id))
+  }
+}
+
+test &lt;- dat %&gt;%
+  mutate(tmp = map(segment, get_select_id))%&gt;%
+  rowwise()%&gt;%
+  mutate(select_name = first(tmp), 
+         select_id = nth(tmp, 2)) %&gt;%
+  mutate(tmp = map(select_id, get_relative, &quot;parents&quot;)) %&gt;%
+  mutate(parent_name = first(tmp), 
+         parent_id = nth(tmp, 2)) %&gt;%
+  mutate(tmp = map(select_id, get_relative, &quot;ancestors&quot;)) %&gt;%
+  mutate(ancestor_names = list(first(tmp)), 
+         ancestor_ids = list(nth(tmp, 2))) %&gt;%
+  select(-tmp)
+
+#eeeek double maps...work around??
+dat %&lt;&gt;%
+  mutate(card_select_name = map(map(segment, get_select_id), &quot;select_name&quot;), 
+         card_select_id = map(map(segment, get_select_id), &quot;select_id&quot;),
+         card_parent_name = map(map(card_select_id, get_relative, &quot;parents&quot;), &quot;relative_name&quot;), 
+         card_parent_id = map(map(card_select_id, get_relative, &quot;parents&quot;), &quot;relative_id&quot;),
+         card_ancestor_name = map(map(card_select_id, get_relative, &quot;ancestors&quot;), &quot;relative_name&quot;), 
+         card_ancestor_id = map(map(card_select_id, get_relative, &quot;ancestors&quot;), &quot;relative_id&quot;))</code></pre>
 <p>MeSH Medical Subject Headings (<a href="https://meshb.nlm.nih.gov/search" class="uri">https://meshb.nlm.nih.gov/search</a>)</p>
 <pre class="r"><code>mesh0 &lt;- read_csv(here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;mesh-ontology&quot;, &quot;MESH.csv&quot;)) #downloaded from bioportal
 mesh &lt;- mesh0 %&gt;%
@@ -190,25 +233,11 @@ out &lt;- left_join(dat, mesh_r) %&gt;%
   rename(mesh_name = `Preferred Label`) %&gt;%
   mutate(mesh_name = ifelse(mesh_segment_class==&quot;Synonyms&quot;, mesh_name, segment))
 
-write.csv(out, &quot;drug_card_mesh_ontology.csv&quot;, row.names = F)
-out2 &lt;- out[c(is.na(out$aro_accession) &amp; is.na(out$mesh_class_id)),]
-write.csv(out2, &quot;missing_drug_ontology.csv&quot;, row.names = F)
-
-unique(out[,c(&quot;aro_name&quot;, &quot;mesh_name&quot;)])</code></pre>
-<pre><code>## # A tibble: 120 x 2
-##    aro_name    mesh_name                                      
-##    &lt;chr&gt;       &lt;chr&gt;                                          
-##  1 ertapenem   ertapenem                                      
-##  2 imipenem    imipenem                                       
-##  3 &lt;NA&gt;        fluoroquinolones                               
-##  4 &lt;NA&gt;        trimethoprim, sulfamethoxazole drug combination
-##  5 tobramycin  tobramycin                                     
-##  6 &lt;NA&gt;        gentamicins                                    
-##  7 amoxicillin amoxicillin                                    
-##  8 &lt;NA&gt;        &lt;NA&gt;                                           
-##  9 cefuroxime  cefuroxime                                     
-## 10 ceftriaxone ceftriaxone                                    
-## # ... with 110 more rows</code></pre>
+save(out, file=here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;drug_card_mesh_ontology.RData&quot;))
+out2 &lt;- out %&gt;%
+  filter(card_select_name==&quot;no exact match&quot;, is.na(mesh_class_id)) %&gt;%
+  select(study_id, segment, code_identifiers) 
+write.csv(out2, &quot;missing_drug_ontology.csv&quot;, row.names = F)</code></pre>
 <p>MeSH test archive</p>
 <pre class="r"><code># endpoint &lt;- &quot;http://id.nlm.nih.gov/mesh/sparql&quot;
 # q &lt;-
