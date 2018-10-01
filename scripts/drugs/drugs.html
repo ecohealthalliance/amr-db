@@ -151,317 +151,64 @@ dat &lt;- segments_db %&gt;%
          code_identifiers = ifelse(is.na(code_identifiers), &quot;&quot;, code_identifiers)) %&gt;%
   select(-code_main_cat)
 
-unique(dat$segment)</code></pre>
-<pre><code>##   [1] &quot;ertapenem&quot;                              
-##   [2] &quot;imipenem&quot;                               
-##   [3] &quot;fluoroquinolones&quot;                       
-##   [4] &quot;co-trimoxazole&quot;                         
-##   [5] &quot;tobramycin&quot;                             
-##   [6] &quot;gentamicin&quot;                             
-##   [7] &quot;amoxicillin&quot;                            
-##   [8] &quot;amoxicillin+clavulanic acid&quot;            
-##   [9] &quot;cefuroxime&quot;                             
-##  [10] &quot;ceftriaxone&quot;                            
-##  [11] &quot;ceftazidime&quot;                            
-##  [12] &quot;meropenem&quot;                              
-##  [13] &quot;cephalosporins&quot;                         
-##  [14] &quot;isoniazid&quot;                              
-##  [15] &quot;rifampin&quot;                               
-##  [16] &quot;pyrazinamide&quot;                           
-##  [17] &quot;ethambutol&quot;                             
-##  [18] &quot;amoxicillin-clavulanate&quot;                
-##  [19] &quot;erythromycin&quot;                           
-##  [20] &quot;clarithromycin&quot;                         
-##  [21] &quot;tetracycline&quot;                           
-##  [22] &quot;levofloxacin&quot;                           
-##  [23] &quot;moxifloxacin&quot;                           
-##  [24] &quot;gatifloxacin&quot;                           
-##  [25] &quot;ampicillin&quot;                             
-##  [26] &quot;ampicillin/clav&quot;                        
-##  [27] &quot;ceftazidime/clav&quot;                       
-##  [28] &quot;aztreonam&quot;                              
-##  [29] &quot;clavulanic acid&quot;                        
-##  [30] &quot;tazobactam&quot;                             
-##  [31] &quot;rifampicin&quot;                             
-##  [32] &quot;ciprofloxacin&quot;                          
-##  [33] &quot;amikacin&quot;                               
-##  [34] &quot;azithromycin&quot;                           
-##  [35] &quot;pipc&quot;                                   
-##  [36] &quot;cfpm&quot;                                   
-##  [37] &quot;czop&quot;                                   
-##  [38] &quot;azt&quot;                                    
-##  [39] &quot;gm&quot;                                     
-##  [40] &quot;tob&quot;                                    
-##  [41] &quot;amk&quot;                                    
-##  [42] &quot;amoxicillin/clavulanic acid&quot;            
-##  [43] &quot;all ß-lactam antibiotic&quot;                
-##  [44] &quot;trimethoprim/sulfamethoxazole&quot;          
-##  [45] &quot;piperacillin/tazobactam&quot;                
-##  [46] &quot;cefepime&quot;                               
-##  [47] &quot;cefoperazone/sulbactam&quot;                 
-##  [48] &quot;: ceftazidime&quot;                          
-##  [49] &quot;ticarcillin&quot;                            
-##  [50] &quot;tigecycline&quot;                            
-##  [51] &quot;ampicillin/sulbactam&quot;                   
-##  [52] &quot;\002-lactam antibiotics&quot;                
-##  [53] &quot;nalidixic acid&quot;                         
-##  [54] &quot;norfloxacin&quot;                            
-##  [55] &quot;cefotaxime&quot;                             
-##  [56] &quot;cefoxitin&quot;                              
-##  [57] &quot;piperacillin&quot;                           
-##  [58] &quot;cephalothin&quot;                            
-##  [59] &quot;amoxicillin-clavulanic acid&quot;            
-##  [60] &quot;minocycline&quot;                            
-##  [61] &quot;doxycycline&quot;                            
-##  [62] &quot;gentamycin&quot;                             
-##  [63] &quot;trimethoprim-sulphamethoxazole&quot;         
-##  [64] &quot;sulperazon&quot;                             
-##  [65] &quot;colistin&quot;                               
-##  [66] &quot;trimethoprim/ sulfamethoxazole&quot;         
-##  [67] &quot;cefoperazone&quot;                           
-##  [68] &quot;piperacillin/ tazobactam&quot;               
-##  [69] &quot;ampicillin/ sulbactam&quot;                  
-##  [70] &quot;trimethoprim-sulfamethoxazole&quot;          
-##  [71] &quot;chloramphenicol&quot;                        
-##  [72] &quot;tetracyclin&quot;                            
-##  [73] &quot;streptomycin&quot;                           
-##  [74] &quot;cefpirome&quot;                              
-##  [75] &quot;carbapenems&quot;                            
-##  [76] &quot;doripenem&quot;                              
-##  [77] &quot;aminoglycosides&quot;                        
-##  [78] &quot;fosfomycin&quot;                             
-##  [79] &quot;moxicillin-clavulanic acid&quot;             
-##  [80] &quot;cefixime&quot;                               
-##  [81] &quot;penicillin&quot;                             
-##  [82] &quot;cefotetan&quot;                              
-##  [83] &quot;nitrofurantoin&quot;                         
-##  [84] &quot;methicillin&quot;                            
-##  [85] &quot;evofloxacin&quot;                            
-##  [86] &quot;piperacillin-tazobactam&quot;                
-##  [87] &quot;ampicillin-sulbactam&quot;                   
-##  [88] &quot;cefazolin&quot;                              
-##  [89] &quot;ampicilin&quot;                              
-##  [90] &quot;trimethoprim&quot;                           
-##  [91] &quot;sulfamethoxazole&quot;                       
-##  [92] &quot;linezolid&quot;                              
-##  [93] &quot;ceftaroline&quot;                            
-##  [94] &quot;clindamycin&quot;                            
-##  [95] &quot;sulbactam-ampicillin&quot;                   
-##  [96] &quot;ofloxacin&quot;                              
-##  [97] &quot;trimethoprim–sulfamethoxazole&quot;          
-##  [98] &quot;piperacillin–tazobactam&quot;                
-##  [99] &quot;cotrimoxazole&quot;                          
-## [100] &quot;furoxone&quot;                               
-## [101] &quot;cefpodoxime&quot;                            
-## [102] &quot;cefoxitin,&quot;                             
-## [103] &quot;penicillin,&quot;                            
-## [104] &quot;penicillin g&quot;                           
-## [105] &quot;mezlocillin&quot;                            
-## [106] &quot;b-lactams&quot;                              
-## [107] &quot;sulphonamides&quot;                          
-## [108] &quot;kanamycin&quot;                              
-## [109] &quot;daptomycin&quot;                             
-## [110] &quot;ethionamide&quot;                            
-## [111] &quot;vancomycin&quot;                             
-## [112] &quot;carbapenemic antibiotics&quot;               
-## [113] &quot;ticarcillin/clavulanic acid&quot;            
-## [114] &quot;trimethoprim/sulphamethoxazole&quot;         
-## [115] &quot;tobramicin&quot;                             
-## [116] &quot;teicoplanin&quot;                            
-## [117] &quot;telithromycin&quot;                          
-## [118] &quot;amoxicillin plus clavulanic  acid&quot;      
-## [119] &quot;carbapenem&quot;                             
-## [120] &quot;trimethoprim/sulfamethoxazole (tmp/smx)&quot;
-## [121] &quot;netilmicin&quot;                             
-## [122] &quot;ampicillin/clavulanic acid&quot;             
-## [123] &quot;quinolones&quot;                             
-## [124] &quot;oxacillin&quot;                              
-## [125] &quot;amoxacillin/clavulanate&quot;                
-## [126] &quot;doxicycline&quot;                            
-## [127] &quot;metronidazole&quot;                          
-## [128] &quot;penicillins&quot;                            
-## [129] &quot;ciprofl oxacin&quot;                         
-## [130] &quot;piperacillin – tazobactam&quot;              
-## [131] &quot;amoxicillin +cla&quot;                       
-## [132] &quot;ticarcillin + cla&quot;                      
-## [133] &quot;piperacillin + tzb&quot;                     
-## [134] &quot;sulfonamides&quot;                           
-## [135] &quot;ciprofloxacin;&quot;                         
-## [136] &quot;trimethoprim­sulphamethoxazole&quot;         
-## [137] &quot;amoxycillin&quot;                            
-## [138] &quot;cefazoline&quot;                             
-## [139] &quot;cefotaxime/clavulanate&quot;                 
-## [140] &quot;sulbenicillin&quot;                          
-## [141] &quot;fluoroquinolone&quot;                        
-## [142] &quot;piperacillintazobactam&quot;                 
-## [143] &quot;moxifl oxacin&quot;                          
-## [144] &quot;ofl oxacin&quot;                             
-## [145] &quot;rifabutin&quot;                              
-## [146] &quot;cefotetan/cloxacillin&quot;                  
-## [147] &quot;cefotaxime/clavulanic acid&quot;             
-## [148] &quot;ceftazidime/clavulanic acid&quot;            
-## [149] &quot;cefepime/clavulanic acid&quot;               
-## [150] &quot;moxicillin-clavulanate&quot;                 
-## [151] &quot;enterococcus raffinosus&quot;                
-## [152] &quot;amoxicillin/clavulanate&quot;                
-## [153] &quot;prulifloxacin&quot;                          
-## [154] &quot;acinetobacter  baumannii  osteomyelitis&quot;
-## [155] &quot;sulfamethoxazole/trimethoprim&quot;          
-## [156] &quot;nitrofurantoi&quot;                          
-## [157] &quot;levofl oxacin&quot;                          
-## [158] &quot;cefadroxil&quot;                             
-## [159] &quot;imipinem&quot;                               
-## [160] &quot;piperacillin/tazobactam,&quot;               
-## [161] &quot;o rifampic&quot;                             
-## [162] &quot;ampicillin and sulbactam&quot;               
-## [163] &quot;piperacillin and tazobactam&quot;            
-## [164] &quot;cefaclor&quot;                               
-## [165] &quot;rif&quot;                                    
-## [166] &quot;amoxicillin \006 clavulanate&quot;           
-## [167] &quot;piperacillin \006 tazobactam&quot;           
-## [168] &quot;cefalothin&quot;                             
-## [169] &quot;amoxicillin + cla&quot;                      
-## [170] &quot;ticarcillin +cla&quot;                       
-## [171] &quot;piperacillin + taz&quot;                     
-## [172] &quot;cephradine&quot;                             
-## [173] &quot;ticarcillin-clavulanic acid&quot;            
-## [174] &quot;arbekacin&quot;                              
-## [175] &quot;fosfomycin;&quot;                            
-## [176] &quot;ceftizoxime&quot;                            
-## [177] &quot;cephalexin&quot;                             
-## [178] &quot;carbenicillin&quot;                          
-## [179] &quot;β-lactams&quot;                              
-## [180] &quot;ceftriaxon&quot;                             
-## [181] &quot;amoxicillin þ cla&quot;                      
-## [182] &quot;piperacillin þ tzb&quot;                     
-## [183] &quot;daptomycin nonsusceptible&quot;              
-## [184] &quot;amoxicillin clavulanate&quot;                
-## [185] &quot;icarcillin&quot;                             
-## [186] &quot;icarcillin/clavulanic acid&quot;             
-## [187] &quot;iperacillin/tazobactam&quot;                 
-## [188] &quot;tmp/sxt&quot;                                
-## [189] &quot;cefalotin&quot;                              
-## [190] &quot;azithromycin-atovaquone&quot;                
-## [191] &quot;ticarcillin-clavulanate&quot;                
-## [192] &quot;temocillin&quot;                             
-## [193] &quot;sodium  cefoperazone&quot;                   
-## [194] &quot;sulbactam&quot;                              
-## [195] &quot;ornidazole&quot;                             
-## [196] &quot;sodium imipenem/cliastatin&quot;             
-## [197] &quot;-tazobactam (256&quot;                       
-## [198] &quot;, piperacillin-tazobact&quot;                
-## [199] &quot;/ml), trimethoprim-sulfametho&quot;          
-## [200] &quot;�g/ml), cipro&quot;                          
-## [201] &quot;���g/ml), le&quot;                           
-## [202] &quot;����g/ml&quot;                               
-## [203] &quot;���g/ml)&quot;                               
-## [204] &quot;nt to amik&quot;                             
-## [205] &quot;vancomycin-intermediate&quot;                
-## [206] &quot;methicillin-&quot;                           
-## [207] &quot;\002-lactams&quot;                           
-## [208] &quot;cloramphenicol&quot;                         
-## [209] &quot;amoxicillin/clav&quot;                       
-## [210] &quot;etapenem&quot;                               
-## [211] &quot;aztreonam(&quot;                             
-## [212] &quot;tetracyclines&quot;                          
-## [213] &quot;ticarcillin/clavulanate&quot;                
-## [214] &quot;tobramycin &quot;                            
-## [215] &quot;polymyxin b&quot;                            
-## [216] &quot;clavulanate&quot;                            
-## [217] &quot;cefurox&quot;                                
-## [218] &quot;benzylpenicillin&quot;                       
-## [219] &quot;cephaloridine&quot;                          
-## [220] &quot;rimethoprimsulfamethoxazole&quot;            
-## [221] &quot;mupirocin&quot;                              
-## [222] &quot;fusidic acid&quot;                           
-## [223] &quot;ceftazidime-clavulanic acid&quot;            
-## [224] &quot;co-amoxiclav&quot;                           
-## [225] &quot;trimethoprimsulfamethoxazole&quot;           
-## [226] &quot;broad-spectrum cephalosporins&quot;          
-## [227] &quot;rimethoprim/sufamethoxazole&quot;            
-## [228] &quot;cefuroxime axetil&quot;                      
-## [229] &quot;third generation cephalosporins&quot;        
-## [230] &quot;macrolides&quot;                             
-## [231] &quot;rimethoprim/sulfamethoxazole&quot;           
-## [232] &quot;fosfomycin.&quot;                            
-## [233] &quot;gemifloxacin&quot;                           
-## [234] &quot;sulfamethoxazole-trimetoprim&quot;           
-## [235] &quot;flucloxacillin&quot;                         
-## [236] &quot;imipeneme&quot;                              
-## [237] &quot;meropeneme&quot;                             
-## [238] &quot;all drugs&quot;                              
-## [239] &quot;k. pneumoniae&quot;                          
-## [240] &quot;entamicin&quot;                              
-## [241] &quot;proxeti&quot;                                
-## [242] &quot;cefozopran&quot;                             
-## [243] &quot;flomoxef sodium&quot;                        
-## [244] &quot;capreomycin&quot;                            
-## [245] &quot;sulphamethoxazole&quot;                      
-## [246] &quot;fosfomycin i.v.&quot;                        
-## [247] &quot;ampicillin .&quot;                           
-## [248] &quot;amoxicillin/ clavulanate&quot;               
-## [249] &quot;cefoperazone-sulbactam&quot;                 
-## [250] &quot;ticarcilin-clavulanate&quot;                 
-## [251] &quot;phenicol&quot;                               
-## [252] &quot;sulphonamide&quot;                           
-## [253] &quot;trimethopri&quot;                            
-## [254] &quot;amoxicillin/clavulate&quot;                  
-## [255] &quot;streptomycinb&quot;                          
-## [256] &quot;ceftiofurb&quot;                             
-## [257] &quot;neomycin&quot;                               
-## [258] &quot;meticillin&quot;                             
-## [259] &quot;furazolidone&quot;                           
-## [260] &quot;piperacillin– tazobactam&quot;               
-## [261] &quot;pipercillin/tazobactam&quot;                 
-## [262] &quot;ticarcillin–clavulanic acid&quot;            
-## [263] &quot;tazobactam–piperacillin&quot;                
-## [264] &quot;amoxicillin/clavulinic acid&quot;</code></pre>
+#unique(dat$segment)</code></pre>
 <p>Ontologies at the Comprehensive Antibiotic Resistance Database are freely available under the Creative Commons CC-BY license version 4.0, <a href="https://creativecommons.org/licenses/by/4.0/" class="uri">https://creativecommons.org/licenses/by/4.0/</a></p>
 <pre class="r"><code># ARO - The Antibiotic Resistance Ontology that serves as the primary organizing principle 
 # of the CARD.
 aro &lt;- jsonlite::fromJSON(here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;card-ontology&quot;, &quot;aro.json&quot;)) %&gt;%
   rename(segment = name, aro_accession = accession, aro_description = description)
-dat&lt;- left_join(dat, aro)
-dat</code></pre>
-<pre><code>## # A tibble: 2,006 x 6
-##    study_id segment code_identifiers code_main aro_accession
-##    &lt;chr&gt;    &lt;chr&gt;   &lt;chr&gt;            &lt;chr&gt;     &lt;chr&gt;        
-##  1 10020    ertape… &quot;&quot;               Drug Res… ARO:0000070  
-##  2 10020    imipen… &quot;&quot;               Drug Res… ARO:3000170  
-##  3 10020    fluoro… &quot;&quot;               Drug Res… &lt;NA&gt;         
-##  4 10020    co-tri… &quot;&quot;               Drug Res… &lt;NA&gt;         
-##  5 10020    tobram… &quot;&quot;               Drug Res… ARO:0000052  
-##  6 10020    gentam… &quot;&quot;               Drug Res… &lt;NA&gt;         
-##  7 10020    amoxic… A                Drug Res… ARO:0000064  
-##  8 10020    amoxic… B                Drug Res… &lt;NA&gt;         
-##  9 10020    cefuro… C                Drug Res… ARO:0000063  
-## 10 10020    ceftri… D                Drug Res… ARO:0000062  
-## # ... with 1,996 more rows, and 1 more variable: aro_description &lt;chr&gt;</code></pre>
-<pre class="r"><code>#fluoroquinolones is a class
+dat&lt;- left_join(dat, aro) %&gt;%
+  mutate(aro_name = ifelse(is.na(aro_accession), NA, segment))
+#fluoroquinolones is a class
 #co-trimoxazole is Trimethoprim or sulfamethoxazole, both of which are in db</code></pre>
 <p>MeSH Medical Subject Headings (<a href="https://meshb.nlm.nih.gov/search" class="uri">https://meshb.nlm.nih.gov/search</a>)</p>
-<pre class="r"><code>mesh0 &lt;- read_csv(here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;mesh-ontology&quot;, &quot;MESH.csv&quot;)) 
+<pre class="r"><code>mesh0 &lt;- read_csv(here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;mesh-ontology&quot;, &quot;MESH.csv&quot;)) #downloaded from bioportal
 mesh &lt;- mesh0 %&gt;%
+  mutate_all(tolower) %&gt;%
   select(`Class ID`, `Preferred Label`, Synonyms, Definitions) %&gt;%
   mutate(cat_split = str_split(Synonyms, &quot;\\|&quot;)) %&gt;%
   unnest() %&gt;%
   mutate(cat_split = str_trim(cat_split)) %&gt;%
   select(-Synonyms) %&gt;%
-  rename(Synonyms = cat_split) %&gt;%
+  rename(Synonyms = cat_split)
+
+pref_names &lt;- unique(mesh$`Preferred Label`)
+syn_names &lt;- unique(mesh$Synonyms)
+mesh &lt;- mesh[!mesh$Synonyms %in% pref_names,] #filter out synonymns that are also primary names
+
+mesh_r &lt;- mesh %&gt;%
   gather(key=&quot;mesh_segment_class&quot;, value=&quot;segment&quot;, `Preferred Label`, Synonyms, -`Class ID`, -Definitions) %&gt;%
   rename(mesh_class_id = `Class ID`, mesh_definitions=Definitions) %&gt;%
-  mutate(segment = tolower(segment)) %&gt;%
   unique() %&gt;%
   filter(rowSums(is.na(.)) != ncol(.))
 
-pref_names &lt;- unique(mesh$segment[mesh$mesh_segment_class==&quot;Preferred Label&quot;])
-syn_names &lt;- unique(mesh$segment[mesh$mesh_segment_class==&quot;Synonyms&quot;])
-mesh &lt;- mesh[!c(mesh$mesh_segment_class==&quot;Synonyms&quot; &amp; mesh$segment %in% pref_names),] #filter out synonymns that are also primary names
-  
-out &lt;- left_join(dat, mesh)
+mesh_syn &lt;- mesh %&gt;%
+  select(`Preferred Label`, Synonyms) %&gt;%
+  na.omit()  
+out &lt;- left_join(dat, mesh_r) %&gt;%
+  left_join(., mesh_syn, by = c(&quot;segment&quot;=&quot;Synonyms&quot;)) %&gt;%
+  rename(mesh_name = `Preferred Label`) %&gt;%
+  mutate(mesh_name = ifelse(mesh_segment_class==&quot;Synonyms&quot;, mesh_name, segment))
+
 write.csv(out, &quot;drug_card_mesh_ontology.csv&quot;, row.names = F)
 out2 &lt;- out[c(is.na(out$aro_accession) &amp; is.na(out$mesh_class_id)),]
-write.csv(out2, &quot;missing_drug_ontology.csv&quot;, row.names = F)</code></pre>
+write.csv(out2, &quot;missing_drug_ontology.csv&quot;, row.names = F)
+
+unique(out[,c(&quot;aro_name&quot;, &quot;mesh_name&quot;)])</code></pre>
+<pre><code>## # A tibble: 120 x 2
+##    aro_name    mesh_name                                      
+##    &lt;chr&gt;       &lt;chr&gt;                                          
+##  1 ertapenem   ertapenem                                      
+##  2 imipenem    imipenem                                       
+##  3 &lt;NA&gt;        fluoroquinolones                               
+##  4 &lt;NA&gt;        trimethoprim, sulfamethoxazole drug combination
+##  5 tobramycin  tobramycin                                     
+##  6 &lt;NA&gt;        gentamicins                                    
+##  7 amoxicillin amoxicillin                                    
+##  8 &lt;NA&gt;        &lt;NA&gt;                                           
+##  9 cefuroxime  cefuroxime                                     
+## 10 ceftriaxone ceftriaxone                                    
+## # ... with 110 more rows</code></pre>
 <p>MeSH test archive</p>
 <pre class="r"><code># endpoint &lt;- &quot;http://id.nlm.nih.gov/mesh/sparql&quot;
 # q &lt;-
