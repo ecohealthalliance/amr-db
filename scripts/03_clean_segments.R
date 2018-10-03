@@ -3,6 +3,7 @@ library(here)
 library(readxl)
 library(magrittr)
 library(googledrive)
+library(stringi)
 
 
 # Import Data and Clean Segments -----------------------------
@@ -26,22 +27,12 @@ segments_raw <- map_dfr(files, ~read_xlsx(.x)) %>%
 
 save(segments_raw, file = here("data", "segments_raw.RData"))
 
-# these are all excluded articles or notes on articles, usually due to annotating the title of the article in the PDF. All have strange offsets
-na_segments <- segments_raw %>% 
-  filter(is.na(segment)) %>%
-  left_join(select(articles_db, study_id, mex_name))
-
-# save local and google drive copy
-write_csv(na_segments, here("data", "data_qa", "amr_db_na_segments_check.csv"))
-drive_upload(media = here("data", "data_qa", "amr_db_na_segments_check.csv"), 
-             path = "~/amr-db/", #* REVIEW - this does assume you have your amr-db google drive in the top level of g-drive. 
-             name = "amr_db_na_segments_check.csv", 
-             type = "spreadsheet")
-
 # create offset range col
 segments_raw %<>%
-  na.omit(.) %>% # see above na.seg
+  na.omit(.) %>% # see check_na_segments.R script
   mutate(range = map2(begin_off, end_off, function(x,y) x:y))
+
+# <insert back NA segments once they have been checked >
 
 # only one segment spans two pages. NOTE - this segment matching method is not robust to cases like this :(
 segments_raw %>%
@@ -60,7 +51,6 @@ return_matches <- function(element1, list, ids) {
 from_ls_to_flat <- function(col) {
   flat_col <-  map(col, ~paste(.x, collapse = ", ")) %>%
     unlist()
-
   return(flat_col)
 }
 
@@ -78,6 +68,7 @@ segments_grp <- segments_raw %>%
             segment = segment[1], # assumes segments have been checked and that they in fact match, so you can just grab the first one of the vector of segments 
             range = list(range)) %>%
   ungroup()
+
 
 # data sanity check export - do the segments grouped by offsets match? - yes
 segments_grp %>%
@@ -100,7 +91,7 @@ segments_db <- segments_grp %>%
 
 # Check Id Codes Missing Corresponding Main Code -----------------------------
 
-# identify problematic id codes- for a given segment (there are more id codes than there are main codes)
+# identify problematic id codes for a given segment (there are more id codes than there are main codes)
 check_orphan_ids <- function(code_id_vec, code_main_vec) {
   if (length(code_id_vec) == 0 || (length(code_id_vec) == length(code_main_vec))) {
     check_vec = "fine" 
@@ -124,6 +115,15 @@ fixed_codes <- problem_id_codes %>%
   filter(map2_lgl(code_main, code_identifiers, ~length(.x) <= length(.y))) 
 # ^ there are 2 cases where there are more main codes than id codes. These are just notes on the doc. ommiting for now
 
+# attach back fixed codes
+segments_db <- review_codes %>%
+  filter(code_identifiers_check != "check") %>%
+  rbind(., fixed_codes)
+
+# < once orphan_ids are checked, rejoin to segments_db also from google doc > 
+
+# Unnest Codes for Final Segments DB  -----------------------------
+
 # function to assign same number of NA's as main code terms so we can unnest later
 rep_na_for_unnest <- function(code_id_vec, code_main_len) {
   if (length(code_id_vec) == 0) {
@@ -134,42 +134,35 @@ rep_na_for_unnest <- function(code_id_vec, code_main_len) {
   return(new_code_id_vec)
 }
 
-# attach back fixed codes from above, and prepare for unnesting
-segments_db <- review_codes %>%
-  filter(code_identifiers_check != "check") %>%
-  rbind(., fixed_codes) %>%
+
+# attach back fixed codes from above, and prepare for unnesting, 
+# unnest so each code and id have their own observation (gets rid of list column)
+# separate code category from main code 
+segments_db %<>%
   mutate(code_identifiers = map2(.$code_identifiers, .$code_main, ~rep_na_for_unnest(.x, length(.y)))) %>%
-  select(-segment_all, -code_identifiers_check)
-
-
-# orphan id codes need manual checking - these have at least 1 ID code but no main code at all 
-orphan_id_codes <- problem_id_codes %>% 
-  filter(map_lgl(code_main, ~length(.x) == 0)) %>%
-  mutate_if(is.list, funs(from_ls_to_flat(.))) %>%
-  select(-segment_all, -code_identifiers_check) %>%
-  left_join(select(articles_db, study_id, mex_name), by = "study_id")
-
-write_csv(orphan_id_codes, here("data", "data_qa", "amr_db_orphan_id_codes.csv"))
-drive_upload(media = here("data", "data_qa", "amr_db_orphan_id_codes.csv"), 
-             path = "~/amr-db/", #* REVIEW - this does assume you have your amr-db google drive in the top level of g-drive. 
-              name = "amr_db_orphan_id_codes.csv", 
-              type = "spreadsheet")
-
-# < once orphan_ids are checked, rejoin to segments_db > 
-
-
-# Unnest Codes for Final Segments DB  -----------------------------
-
-# unnest so each code and id have their own observation (gets rid of list column), and separate code cateogry identifier from main code
-segments_db <- segments_db %>% 
+  select(-segment_all, -code_identifiers_check) %>% 
   unnest(code_main, code_identifiers) %>%
-  separate(code_main, into = c("code_main_cat", "code_main"), sep = ":", fill = "left")
+  separate(code_main, into = c("code_main_cat", "code_main"), sep = ":", fill = "left") %>%
+  mutate_all(tolower) %>%
+  mutate(segment = stri_replace_all_regex(segment, c("\r\n",  "- "), c("", ""), vectorize_all = FALSE),
+         code_identifiers = ifelse(is.na(code_identifiers), "", code_identifiers)) 
+
+# get vector of excluded study IDs
+excluded_studies <- segments_db %>%
+  filter(code_main_cat == "exclusion") %>% 
+  pull(study_id) %>% 
+  unique()
+
+# omit excluded study Ds from final database
+segments_db %<>%
+  filter(!study_id %in% excluded_studies)
 
 # final segments db
 save(segments_db, file = here("data", "segments_db.RData"))
 
+
 # spread version of segments db
-segments_db_wide <- segments_db_long %>%
+segments_db_wide <- segments_db %>%
   tibble::rowid_to_column() %>% 
   spread(., key = code_main_cat, value = code_main) %>%
   spread(., key = Location, value = segment)
