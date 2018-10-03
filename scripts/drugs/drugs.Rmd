@@ -37,6 +37,7 @@ dat <- segments_db %>%
   mutate(segment = stri_replace_all_regex(tolower(segment),  sub_names$old, sub_names$new, vectorize_all = FALSE),
          code_identifiers = ifelse(is.na(code_identifiers), "", code_identifiers)) %>%
   select(-code_main_cat)
+dat$segment <- gsub("\\(|\\)", "", dat$segment)
 
 #unique(dat$segment)
 ```
@@ -48,24 +49,43 @@ license may be needed: https://card.mcmaster.ca/about
 # ARO - The Antibiotic Resistance Ontology that serves as the primary organizing principle 
 # of the CARD.
 
-dat$segment <- gsub("\\(|\\)", "", dat$segment)
+#advantage of CARD - clean ranking of classes
+#requires permission to use for publication
+
 file <- here("scripts", "drugs", "card-ontology", "aro.obo")
 card <- get_ontology(file, extract_tags="everything")
 
-get_select_id <- function(seg){
-  id <-   card$id[grep(x=card$name, pattern=seg, ignore.case = T)]
-  all_prop <- map(id, function(x) get_term_property(ontology=card, property="id", term=x, as_names=TRUE)) 
-  select_name <- all_prop[match(seg, unlist(all_prop))]
-  select_id <- names(select_name)
-  select_name <- unlist(select_name)
-  if(is.null(select_name)){select_name <- select_id <- "no exact match"}
-  return(list(select_name=select_name, select_id=select_id))
-}
+#get synonyms
+syn <- as.tibble(unlist(card$synonym)) %>%
+  rownames_to_column() %>%
+  rename(id = rowname, synonym = value) %>%
+  mutate(synonym = gsub("EXACT \\[\\]|", "", synonym),
+         synonym = gsub("\"", "", synonym),
+         synonym= tolower(str_trim(synonym))) %>%
+  mutate(synonym = str_split(synonym, "\\,")) %>%
+  unnest() 
 
+get_select_id <- function(seg){
+  #seg = "gentamicin" #example not finding match
+  #seh = "fluoroquinolones"
+  id <-   card$id[grep(x=card$name, pattern=seg, ignore.case = T)] #get all ids associated with segment term
+  all_prop <- map(id, function(x) get_term_property(ontology=card, property="id", term=x, as_names=TRUE))  #get all names
+  select_name <- all_prop[match(seg, unlist(all_prop))] #select name with exact match to term
+  select_id <- names(select_name) #select id with exact match to term
+  select_name <- unlist(select_name)
+  select_segment_class <- "primary"
+  # if(is.null(select_name)){
+  #   #check for synonyms - many not in DB
+  #   select_id <- syn$id[syn$synonym==seg]
+  #   select_segment_class <- "synonym"
+  if(length(select_name)==0){  select_name <- select_id <- select_segment_class <-"no exact match"}
+  # }
+  return(list(select_name=select_name, select_id=select_id, select_segment_class=select_segment_class))
+}
 
 get_relative <- function(id, relative) {
   if(!startsWith(id, "ARO")){
-    return(list(relative_name=NA, relative_id=NA))
+    return(list(relative_name=paste("NA", relative), relative_id=paste("NA", relative)))
   }else{
     relative_name <- get_term_property(ontology=card, property=relative, term=id, as_names=TRUE)
     relative_id <- names(relative_name)
@@ -74,67 +94,133 @@ get_relative <- function(id, relative) {
   }
 }
 
-test <- dat %>%
-  mutate(tmp = map(segment, get_select_id))%>%
-  rowwise()%>%
-  mutate(select_name = first(tmp), 
-         select_id = nth(tmp, 2)) %>%
-  mutate(tmp = map(select_id, get_relative, "parents")) %>%
-  mutate(parent_name = first(tmp), 
-         parent_id = nth(tmp, 2)) %>%
-  mutate(tmp = map(select_id, get_relative, "ancestors")) %>%
-  mutate(ancestor_names = list(first(tmp)), 
-         ancestor_ids = list(nth(tmp, 2))) %>%
-  select(-tmp)
-
 #eeeek double maps...work around??
-dat %<>%
-  mutate(card_select_name = map(map(segment, get_select_id), "select_name"), 
-         card_select_id = map(map(segment, get_select_id), "select_id"),
-         card_parent_name = map(map(card_select_id, get_relative, "parents"), "relative_name"), 
-         card_parent_id = map(map(card_select_id, get_relative, "parents"), "relative_id"),
-         card_ancestor_name = map(map(card_select_id, get_relative, "ancestors"), "relative_name"), 
-         card_ancestor_id = map(map(card_select_id, get_relative, "ancestors"), "relative_id"))
+card_dat <- dat %>%
+  mutate(
+    #card_select_name = map_chr(map(segment, get_select_id), "select_name"), 
+    card_select_id = map_chr(map(segment, get_select_id), "select_id"),
+    card_select_segment_class = map_chr(map(segment, get_select_id), "select_segment_class"),
+    card_parent_name = map_chr(map(card_select_id, get_relative, "parents"), "relative_name"), 
+    card_parent_id = map_chr(map(card_select_id, get_relative, "parents"), "relative_id"),
+    #card_isa_name = map_chr(map(card_select_id, get_relative, "is_a"), "relative_name"), #confirmed same as parent
+    #card_isa_id = map_chr(map(card_select_id, get_relative, "is_a"), "relative_id"), #confirmed same as parent
+    card_ancestor_name = map(map(card_select_id, get_relative, "ancestors"), "relative_name"), 
+    card_ancestor_id = map(map(card_select_id, get_relative, "ancestors"), "relative_id"))%>% 
+  unnest() %>%
+  filter(card_ancestor_name != segment)
+
+card_dat_unique <- card_dat %>%
+  select(-study_id, -code_identifiers, -code_main) %>%
+  unique()
+#177/263 drugs with no exact match
+#length(unique(card_dat_unique$segment[card_dat_unique$card_select_id=="no exact match"]))
+
+#86/263 drugs with no exact match
+#length(unique(card_dat_unique$segment[card_dat_unique$card_select_id!="no exact match"]))
+
+card_dat_unique %<>%
+  filter(card_select_id!="no exact match") %>%
+  group_by(card_select_id) %>%
+  mutate(card_ancestor_rank = 1:n()) 
+
+#TODO: can still be in db as no exact match (eg above)
+#TODO: figure out synonyms? eg:
+# syn$id[syn$synonym=="gentamicin"]
+# card$id[card$id=="ARO:30040152"]
+# get_term_property(ontology=card, property="parents", term="ARO:30040152", as_names=TRUE)
 
 ```
 MeSH Medical Subject Headings (https://meshb.nlm.nih.gov/search)
 ```{r}
-mesh0 <- read_csv(here("scripts", "drugs", "mesh-ontology", "MESH.csv")) #downloaded from bioportal
+#advantage of Mesh - synonyms
+#no order of parent name
+
+mesh0 <- read_csv(here("scripts", "drugs", "mesh-ontology", "MESH.csv")) %>% #downloaded from bioportal 
+  mutate_at(vars(`Class ID`, Parents), funs(gsub("http://purl.bioontology.org/ontology/MESH/", "", .))) %>%
+  mutate_at(vars(`Preferred Label`, Synonyms), tolower) 
+
+#mesh clean and reshape
 mesh <- mesh0 %>%
-  mutate_all(tolower) %>%
-  select(`Class ID`, `Preferred Label`, Synonyms, Definitions) %>%
-  mutate(cat_split = str_split(Synonyms, "\\|")) %>%
+  select("Class ID" ,"Preferred Label","Synonyms", "Definitions", "HM", "Parents", "PA") %>%
+  mutate(Synonyms = str_split(Synonyms, "\\|")) %>%
   unnest() %>%
-  mutate(cat_split = str_trim(cat_split)) %>%
-  select(-Synonyms) %>%
-  rename(Synonyms = cat_split)
-
-pref_names <- unique(mesh$`Preferred Label`)
-syn_names <- unique(mesh$Synonyms)
-mesh <- mesh[!mesh$Synonyms %in% pref_names,] #filter out synonymns that are also primary names
-
-mesh_r <- mesh %>%
-  gather(key="mesh_segment_class", value="segment", `Preferred Label`, Synonyms, -`Class ID`, -Definitions) %>%
-  rename(mesh_class_id = `Class ID`, mesh_definitions=Definitions) %>%
+  gather(key="segment_class", value="segment", `Preferred Label`, Synonyms, 
+         -`Class ID`, -Definitions, -HM, -Parents, -PA) %>%
   unique() %>%
-  filter(rowSums(is.na(.)) != ncol(.))
+  filter(rowSums(is.na(.)) != ncol(.)) %>%
+  rename_all(tolower) %>%
+  setNames(paste0('mesh_', names(.)))  %>%
+  rename(mesh_id = `mesh_class id`, segment = mesh_segment)
 
-mesh_syn <- mesh %>%
-  select(`Preferred Label`, Synonyms) %>%
-  na.omit()  
-out <- left_join(dat, mesh_r) %>%
-  left_join(., mesh_syn, by = c("segment"="Synonyms")) %>%
-  rename(mesh_name = `Preferred Label`) %>%
-  mutate(mesh_name = ifelse(mesh_segment_class=="Synonyms", mesh_name, segment))
+pref_names <- unique(mesh$segment[mesh$mesh_segment_class=="Preferred Label"])
+syn_names <- unique(mesh$segment[mesh$mesh_segment_class=="Synonyms"])
+mesh <- mesh[!c(mesh$segment %in% pref_names & mesh$mesh_segment_class=="Synonyms"),] #filter out synonymns that are also primary names
 
-save(out, file=here("scripts", "drugs", "drug_card_mesh_ontology.RData"))
-out2 <- out %>%
-  filter(card_select_name=="no exact match", is.na(mesh_class_id)) %>%
-  select(study_id, segment, code_identifiers) 
-write.csv(out2, "missing_drug_ontology.csv", row.names = F)
+#join mesh with dat based on segment name
+mesh_dat <- dat %>% left_join(., mesh) 
+
+#name look ups
+mesh_dat %<>%
+  left_join(., mesh0 %>% select("Class ID", "Preferred Label" ), by=c("mesh_id"="Class ID")) %>%
+  rename("mesh_preferred_label" = `Preferred Label`) %>%
+  mutate(mesh_class = substr(`mesh_id`, 1, 1)) %>%
+  mutate(mesh_class_desc = ifelse(mesh_class=="C", "supp", "desc")) %>%
+  mutate(mesh_parent_id = ifelse(mesh_class=="C", mesh_hm, mesh_parents)) %>%
+  separate(mesh_parent_id, c("mesh_parent_id", "mesh_parent_id_qualifier"), "/") %>% #warning is ok
+  mutate(mesh_parent_id = str_split(mesh_parent_id, "\\|")) %>%  unnest() %>%
+  mutate(mesh_pa_id = str_split(mesh_pa, "\\|")) %>%  unnest() %>%
+  left_join(., mesh0 %>% select("Class ID", "Preferred Label" ), by=c("mesh_parent_id"="Class ID")) %>%
+  rename("mesh_parent_name" = `Preferred Label`) %>%
+  left_join(., mesh0 %>% select("Class ID", "Preferred Label" ), by=c("mesh_pa_id"="Class ID")) %>%
+  rename("mesh_pa_name" = `Preferred Label`) %>%
+  select(-mesh_hm, -mesh_parents, -mesh_pa)
+
+mesh_dat_unique <- mesh_dat %>%
+  select(-study_id, -code_identifiers, -code_main) %>%
+  unique()
+#143/263 drugs with no exact match
+#length(unique(mesh_dat_unique$segment[is.na(mesh_dat_unique$mesh_id)]))
+
+#120/263 drugs with no exact match
+#length(unique(mesh_dat_unique$segment[!is.na(mesh_dat_unique$mesh_id)]))
+
+mesh_dat_unique %<>%
+  filter(!is.na(mesh_id))  
+
 ```
+Combine
+```{r}
+#all data
+out <- full_join(card_dat, mesh_dat)
+save(out, file=here("scripts", "drugs", "drug_card_mesh_ontology.RData"))
+
+#compare parents
+out2 <- out %>%  
+  filter(!(card_select_id=="no exact match" & is.na(mesh_id)))%>%
+  select(segment, card_parent_name, mesh_parent_name)  %>%
+  unique()
+save(out, file=here("scripts", "drugs", "drug_card_mesh_comparison.RData"))
+
+#
+out3 <- out %>%
+  filter((card_select_id=="no exact match" & is.na(mesh_id)))%>%
+  select(study_id, segment, code_identifiers) 
+write.csv(out3, "missing_drug_ontology.csv", row.names = F)
+unique(out3$segment)
+```
+
+
 MeSH test archive
 ```{r}
+# mesh_desc <- xmlToDataFrame(here("scripts", "drugs", "mesh-ontology", "xml", "desc2018.xml"))
+# save(mesh_desc, file=here("scripts", "drugs", "mesh-ontology", "xml", "desc2018.RData"))
+# mesh_qual <- xmlToDataFrame(here("scripts", "drugs", "mesh-ontology", "xml", "qual2018.xml"))
+# save(mesh_qual, file=here("scripts", "drugs", "mesh-ontology", "xml", "qual2018.RData"))
+# mesh_pa <- xmlToDataFrame(here("scripts", "drugs", "mesh-ontology", "xml", "pa2018.xml"))
+# save(mesh_pa, file=here("scripts", "drugs", "mesh-ontology", "xml", "pa2018.RData"))
+# mesh_supp <- xmlToDataFrame(here("scripts", "drugs", "mesh-ontology", "xml", "supp2018.xml"))
+#save(mesh_supp, file=here("scripts", "drugs", "mesh-ontology", "xml", "supp2018.RData"))
+
 # endpoint <- "http://id.nlm.nih.gov/mesh/sparql"
 # q <-
 #  'PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -158,4 +244,10 @@ MeSH test archive
 # 
 # page <- httr::GET(paste0(endpoint, "?query=", URLencode(q, reserved = TRUE), "&format=CSV"))
 # test <- httr::content(page)
+
+# file<-here("scripts", "drugs", "mesh-ontology", "archive", "desc2018.xml")
+# library(XML)
+# library(methods)
+# mesh_desc_xml <- xmlToDataFrame(file)
+# test <- mesh[mesh$DescriptorName=="ertapenem",]
 ```
