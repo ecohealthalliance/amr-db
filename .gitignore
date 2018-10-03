@@ -14,3 +14,5 @@
 #/data-raw/coded_text_mex
 .httr-oauth
 data/data_qa
+data/articles_db.RData
+data/segments_db.RData
