@@ -136,112 +136,10 @@ library(here)
 library(ontologyIndex)
 
 load(here(&quot;data&quot;, &quot;segments_db.RData&quot;)) #data compiled in 03_clean_segments.r
-excluded_studies &lt;- unique(segments_db$study_id[segments_db$code_main_cat==&quot;Exclusion&quot;])
-segments_db %&lt;&gt;%
-  filter(!study_id %in% excluded_studies) </code></pre>
-<p>Initial clean-up</p>
-<pre class="r"><code>sub_names &lt;- tribble( 
-  ~old,                    ~new,
-  &quot;\r\n&quot;,                    &quot;&quot;,
-  &quot;- &quot;,                      &quot;&quot;
-)
-
 dat &lt;- segments_db %&gt;%
-  filter(code_main == &quot;Drug Resisted&quot;) %&gt;%
-  mutate(segment = stri_replace_all_regex(tolower(segment),  sub_names$old, sub_names$new, vectorize_all = FALSE),
-         code_identifiers = ifelse(is.na(code_identifiers), &quot;&quot;, code_identifiers)) %&gt;%
-  select(-code_main_cat)
-dat$segment &lt;- gsub(&quot;\\(|\\)&quot;, &quot;&quot;, dat$segment)
-
-#unique(dat$segment)</code></pre>
-<p>Ontologies at the Comprehensive Antibiotic Resistance Database are freely available under the Creative Commons CC-BY license version 4.0, <a href="https://creativecommons.org/licenses/by/4.0/" class="uri">https://creativecommons.org/licenses/by/4.0/</a> license may be needed: <a href="https://card.mcmaster.ca/about" class="uri">https://card.mcmaster.ca/about</a></p>
-<pre class="r"><code># ARO - The Antibiotic Resistance Ontology that serves as the primary organizing principle 
-# of the CARD.
-
-#advantage of CARD - clean ranking of classes
-#requires permission to use for publication
-
-file &lt;- here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;card-ontology&quot;, &quot;aro.obo&quot;)
-card &lt;- get_ontology(file, extract_tags=&quot;everything&quot;)
-
-#get synonyms
-syn &lt;- as.tibble(unlist(card$synonym)) %&gt;%
-  rownames_to_column() %&gt;%
-  rename(id = rowname, synonym = value) %&gt;%
-  mutate(synonym = gsub(&quot;EXACT \\[\\]|&quot;, &quot;&quot;, synonym),
-         synonym = gsub(&quot;\&quot;&quot;, &quot;&quot;, synonym),
-         synonym= tolower(str_trim(synonym))) %&gt;%
-  mutate(synonym = str_split(synonym, &quot;\\,&quot;)) %&gt;%
-  unnest() 
-
-get_select_id &lt;- function(seg){
-  #seg = &quot;gentamicin&quot; #example not finding match
-  #seh = &quot;fluoroquinolones&quot;
-  id &lt;-   card$id[grep(x=card$name, pattern=seg, ignore.case = T)] #get all ids associated with segment term
-  all_prop &lt;- map(id, function(x) get_term_property(ontology=card, property=&quot;id&quot;, term=x, as_names=TRUE))  #get all names
-  select_name &lt;- all_prop[match(seg, unlist(all_prop))] #select name with exact match to term
-  select_id &lt;- names(select_name) #select id with exact match to term
-  select_name &lt;- unlist(select_name)
-  select_segment_class &lt;- &quot;primary&quot;
-  # if(is.null(select_name)){
-  #   #check for synonyms - many not in DB
-  #   select_id &lt;- syn$id[syn$synonym==seg]
-  #   select_segment_class &lt;- &quot;synonym&quot;
-  if(length(select_name)==0){  select_name &lt;- select_id &lt;- select_segment_class &lt;-&quot;no exact match&quot;}
-  # }
-  return(list(select_name=select_name, select_id=select_id, select_segment_class=select_segment_class))
-}
-
-get_relative &lt;- function(id, relative) {
-  if(!startsWith(id, &quot;ARO&quot;)){
-    return(list(relative_name=paste(&quot;NA&quot;, relative), relative_id=paste(&quot;NA&quot;, relative)))
-  }else{
-    relative_name &lt;- get_term_property(ontology=card, property=relative, term=id, as_names=TRUE)
-    relative_id &lt;- names(relative_name)
-    if(is.null(relative_name)){relative_name &lt;- relative_id &lt;- paste(&quot;no&quot;, relative, &quot;found&quot;)}
-    return(list(relative_name=relative_name, relative_id=relative_id))
-  }
-}
-
-#eeeek double maps...work around??
-card_dat &lt;- dat %&gt;%
-  mutate(
-    #card_select_name = map_chr(map(segment, get_select_id), &quot;select_name&quot;), 
-    card_select_id = map_chr(map(segment, get_select_id), &quot;select_id&quot;),
-    card_select_segment_class = map_chr(map(segment, get_select_id), &quot;select_segment_class&quot;),
-    card_parent_name = map_chr(map(card_select_id, get_relative, &quot;parents&quot;), &quot;relative_name&quot;), 
-    card_parent_id = map_chr(map(card_select_id, get_relative, &quot;parents&quot;), &quot;relative_id&quot;),
-    #card_isa_name = map_chr(map(card_select_id, get_relative, &quot;is_a&quot;), &quot;relative_name&quot;), #confirmed same as parent
-    #card_isa_id = map_chr(map(card_select_id, get_relative, &quot;is_a&quot;), &quot;relative_id&quot;), #confirmed same as parent
-    card_ancestor_name = map(map(card_select_id, get_relative, &quot;ancestors&quot;), &quot;relative_name&quot;), 
-    card_ancestor_id = map(map(card_select_id, get_relative, &quot;ancestors&quot;), &quot;relative_id&quot;))%&gt;% 
-  unnest() %&gt;%
-  filter(card_ancestor_name != segment)
-
-card_dat_unique &lt;- card_dat %&gt;%
-  select(-study_id, -code_identifiers, -code_main) %&gt;%
-  unique()
-#177/263 drugs with no exact match
-#length(unique(card_dat_unique$segment[card_dat_unique$card_select_id==&quot;no exact match&quot;]))
-
-#86/263 drugs with no exact match
-#length(unique(card_dat_unique$segment[card_dat_unique$card_select_id!=&quot;no exact match&quot;]))
-
-card_dat_unique %&lt;&gt;%
-  filter(card_select_id!=&quot;no exact match&quot;) %&gt;%
-  group_by(card_select_id) %&gt;%
-  mutate(card_ancestor_rank = 1:n()) 
-
-#TODO: can still be in db as no exact match (eg above)
-#TODO: figure out synonyms? eg:
-# syn$id[syn$synonym==&quot;gentamicin&quot;]
-# card$id[card$id==&quot;ARO:30040152&quot;]
-# get_term_property(ontology=card, property=&quot;parents&quot;, term=&quot;ARO:30040152&quot;, as_names=TRUE)</code></pre>
+  mutate(segment = gsub(&quot;\\(|\\)&quot;, &quot;&quot;, segment))</code></pre>
 <p>MeSH Medical Subject Headings (<a href="https://meshb.nlm.nih.gov/search" class="uri">https://meshb.nlm.nih.gov/search</a>)</p>
-<pre class="r"><code>#advantage of Mesh - synonyms
-#no order of parent name
-
-mesh0 &lt;- read_csv(here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;mesh-ontology&quot;, &quot;MESH.csv&quot;)) %&gt;% #downloaded from bioportal 
+<pre class="r"><code>mesh0 &lt;- read_csv(here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;mesh-ontology&quot;, &quot;MESH.csv&quot;)) %&gt;% #downloaded from bioportal 
   mutate_at(vars(`Class ID`, Parents), funs(gsub(&quot;http://purl.bioontology.org/ontology/MESH/&quot;, &quot;&quot;, .))) %&gt;%
   mutate_at(vars(`Preferred Label`, Synonyms), tolower) 
 
@@ -263,10 +161,10 @@ syn_names &lt;- unique(mesh$segment[mesh$mesh_segment_class==&quot;Synonyms&quot
 mesh &lt;- mesh[!c(mesh$segment %in% pref_names &amp; mesh$mesh_segment_class==&quot;Synonyms&quot;),] #filter out synonymns that are also primary names
 
 #join mesh with dat based on segment name
-mesh_dat &lt;- dat %&gt;% left_join(., mesh) 
+dat &lt;- dat %&gt;% left_join(., mesh) 
 
 #name look ups
-mesh_dat %&lt;&gt;%
+dat %&lt;&gt;%
   left_join(., mesh0 %&gt;% select(&quot;Class ID&quot;, &quot;Preferred Label&quot; ), by=c(&quot;mesh_id&quot;=&quot;Class ID&quot;)) %&gt;%
   rename(&quot;mesh_preferred_label&quot; = `Preferred Label`) %&gt;%
   mutate(mesh_class = substr(`mesh_id`, 1, 1)) %&gt;%
@@ -281,215 +179,28 @@ mesh_dat %&lt;&gt;%
   rename(&quot;mesh_pa_name&quot; = `Preferred Label`) %&gt;%
   select(-mesh_hm, -mesh_parents, -mesh_pa)
 
-mesh_dat_unique &lt;- mesh_dat %&gt;%
+dat_unique &lt;- dat %&gt;%
   select(-study_id, -code_identifiers, -code_main) %&gt;%
   unique()
 #143/263 drugs with no exact match
-#length(unique(mesh_dat_unique$segment[is.na(mesh_dat_unique$mesh_id)]))
+#length(unique(dat_unique$segment[is.na(dat_unique$mesh_id)]))
 
-#120/263 drugs with no exact match
-#length(unique(mesh_dat_unique$segment[!is.na(mesh_dat_unique$mesh_id)]))
+#120/263 drugs with exact match
+#length(unique(dat_unique$segment[!is.na(dat_unique$mesh_id)]))
 
-mesh_dat_unique %&lt;&gt;%
-  filter(!is.na(mesh_id))  </code></pre>
-<p>Combine</p>
+dat_unique %&lt;&gt;%
+  filter(!is.na(mesh_id))  
+
+#TODO::check for missing drugs</code></pre>
+<p>Save data</p>
 <pre class="r"><code>#all data
-out &lt;- full_join(card_dat, mesh_dat)
-save(out, file=here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;drug_card_mesh_ontology.RData&quot;))
+save(dat, file=here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;drug_mesh_ontology.RData&quot;))
 
-#compare parents
-out2 &lt;- out %&gt;%  
-  filter(!(card_select_id==&quot;no exact match&quot; &amp; is.na(mesh_id)))%&gt;%
-  select(segment, card_parent_name, mesh_parent_name)  %&gt;%
-  unique()
-save(out, file=here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;drug_card_mesh_comparison.RData&quot;))
-
-#
-out3 &lt;- out %&gt;%
-  filter((card_select_id==&quot;no exact match&quot; &amp; is.na(mesh_id)))%&gt;%
+#missing names
+outm &lt;- dat %&gt;%
+  filter(is.na(mesh_id))%&gt;%
   select(study_id, segment, code_identifiers) 
-write.csv(out3, &quot;missing_drug_ontology.csv&quot;, row.names = F)
-unique(out3$segment)</code></pre>
-<pre><code>##   [1] &quot;amoxicillin+clavulanic acid&quot;            
-##   [2] &quot;amoxicillin-clavulanate&quot;                
-##   [3] &quot;ampicillin/clav&quot;                        
-##   [4] &quot;ceftazidime/clav&quot;                       
-##   [5] &quot;pipc&quot;                                   
-##   [6] &quot;cfpm&quot;                                   
-##   [7] &quot;azt&quot;                                    
-##   [8] &quot;gm&quot;                                     
-##   [9] &quot;tob&quot;                                    
-##  [10] &quot;amk&quot;                                    
-##  [11] &quot;amoxicillin/clavulanic acid&quot;            
-##  [12] &quot;all ß-lactam antibiotic&quot;                
-##  [13] &quot;trimethoprim/sulfamethoxazole&quot;          
-##  [14] &quot;piperacillin/tazobactam&quot;                
-##  [15] &quot;cefoperazone/sulbactam&quot;                 
-##  [16] &quot;: ceftazidime&quot;                          
-##  [17] &quot;ampicillin/sulbactam&quot;                   
-##  [18] &quot;\002-lactam antibiotics&quot;                
-##  [19] &quot;trimethoprim-sulphamethoxazole&quot;         
-##  [20] &quot;trimethoprim/ sulfamethoxazole&quot;         
-##  [21] &quot;piperacillin/ tazobactam&quot;               
-##  [22] &quot;ampicillin/ sulbactam&quot;                  
-##  [23] &quot;tetracyclin&quot;                            
-##  [24] &quot;moxicillin-clavulanic acid&quot;             
-##  [25] &quot;evofloxacin&quot;                            
-##  [26] &quot;ampicilin&quot;                              
-##  [27] &quot;sulbactam-ampicillin&quot;                   
-##  [28] &quot;trimethoprim–sulfamethoxazole&quot;          
-##  [29] &quot;piperacillin–tazobactam&quot;                
-##  [30] &quot;cefoxitin,&quot;                             
-##  [31] &quot;penicillin,&quot;                            
-##  [32] &quot;b-lactams&quot;                              
-##  [33] &quot;sulphonamides&quot;                          
-##  [34] &quot;carbapenemic antibiotics&quot;               
-##  [35] &quot;ticarcillin/clavulanic acid&quot;            
-##  [36] &quot;trimethoprim/sulphamethoxazole&quot;         
-##  [37] &quot;tobramicin&quot;                             
-##  [38] &quot;amoxicillin plus clavulanic  acid&quot;      
-##  [39] &quot;trimethoprim/sulfamethoxazole tmp/smx&quot;  
-##  [40] &quot;ampicillin/clavulanic acid&quot;             
-##  [41] &quot;amoxacillin/clavulanate&quot;                
-##  [42] &quot;doxicycline&quot;                            
-##  [43] &quot;ciprofl oxacin&quot;                         
-##  [44] &quot;piperacillin – tazobactam&quot;              
-##  [45] &quot;amoxicillin +cla&quot;                       
-##  [46] &quot;ticarcillin + cla&quot;                      
-##  [47] &quot;piperacillin + tzb&quot;                     
-##  [48] &quot;ciprofloxacin;&quot;                         
-##  [49] &quot;trimethoprim­sulphamethoxazole&quot;         
-##  [50] &quot;cefazoline&quot;                             
-##  [51] &quot;cefotaxime/clavulanate&quot;                 
-##  [52] &quot;fluoroquinolone&quot;                        
-##  [53] &quot;piperacillintazobactam&quot;                 
-##  [54] &quot;moxifl oxacin&quot;                          
-##  [55] &quot;ofl oxacin&quot;                             
-##  [56] &quot;cefotetan/cloxacillin&quot;                  
-##  [57] &quot;cefotaxime/clavulanic acid&quot;             
-##  [58] &quot;ceftazidime/clavulanic acid&quot;            
-##  [59] &quot;cefepime/clavulanic acid&quot;               
-##  [60] &quot;moxicillin-clavulanate&quot;                 
-##  [61] &quot;enterococcus raffinosus&quot;                
-##  [62] &quot;amoxicillin/clavulanate&quot;                
-##  [63] &quot;acinetobacter  baumannii  osteomyelitis&quot;
-##  [64] &quot;sulfamethoxazole/trimethoprim&quot;          
-##  [65] &quot;nitrofurantoi&quot;                          
-##  [66] &quot;levofl oxacin&quot;                          
-##  [67] &quot;imipinem&quot;                               
-##  [68] &quot;piperacillin/tazobactam,&quot;               
-##  [69] &quot;o rifampic&quot;                             
-##  [70] &quot;ampicillin and sulbactam&quot;               
-##  [71] &quot;piperacillin and tazobactam&quot;            
-##  [72] &quot;rif&quot;                                    
-##  [73] &quot;amoxicillin \006 clavulanate&quot;           
-##  [74] &quot;piperacillin \006 tazobactam&quot;           
-##  [75] &quot;cefalothin&quot;                             
-##  [76] &quot;amoxicillin + cla&quot;                      
-##  [77] &quot;ticarcillin +cla&quot;                       
-##  [78] &quot;piperacillin + taz&quot;                     
-##  [79] &quot;fosfomycin;&quot;                            
-##  [80] &quot;β-lactams&quot;                              
-##  [81] &quot;amoxicillin þ cla&quot;                      
-##  [82] &quot;piperacillin þ tzb&quot;                     
-##  [83] &quot;daptomycin nonsusceptible&quot;              
-##  [84] &quot;amoxicillin clavulanate&quot;                
-##  [85] &quot;icarcillin&quot;                             
-##  [86] &quot;icarcillin/clavulanic acid&quot;             
-##  [87] &quot;iperacillin/tazobactam&quot;                 
-##  [88] &quot;tmp/sxt&quot;                                
-##  [89] &quot;azithromycin-atovaquone&quot;                
-##  [90] &quot;ticarcillin-clavulanate&quot;                
-##  [91] &quot;sodium  cefoperazone&quot;                   
-##  [92] &quot;sodium imipenem/cliastatin&quot;             
-##  [93] &quot;-tazobactam 256&quot;                        
-##  [94] &quot;, piperacillin-tazobact&quot;                
-##  [95] &quot;/ml, trimethoprim-sulfametho&quot;           
-##  [96] &quot;�g/ml, cipro&quot;                           
-##  [97] &quot;���g/ml, le&quot;                            
-##  [98] &quot;����g/ml&quot;                               
-##  [99] &quot;���g/ml&quot;                                
-## [100] &quot;nt to amik&quot;                             
-## [101] &quot;vancomycin-intermediate&quot;                
-## [102] &quot;methicillin-&quot;                           
-## [103] &quot;\002-lactams&quot;                           
-## [104] &quot;cloramphenicol&quot;                         
-## [105] &quot;amoxicillin/clav&quot;                       
-## [106] &quot;etapenem&quot;                               
-## [107] &quot;ticarcillin/clavulanate&quot;                
-## [108] &quot;tobramycin &quot;                            
-## [109] &quot;cefurox&quot;                                
-## [110] &quot;rimethoprimsulfamethoxazole&quot;            
-## [111] &quot;ceftazidime-clavulanic acid&quot;            
-## [112] &quot;trimethoprimsulfamethoxazole&quot;           
-## [113] &quot;broad-spectrum cephalosporins&quot;          
-## [114] &quot;rimethoprim/sufamethoxazole&quot;            
-## [115] &quot;third generation cephalosporins&quot;        
-## [116] &quot;rimethoprim/sulfamethoxazole&quot;           
-## [117] &quot;fosfomycin.&quot;                            
-## [118] &quot;sulfamethoxazole-trimetoprim&quot;           
-## [119] &quot;imipeneme&quot;                              
-## [120] &quot;meropeneme&quot;                             
-## [121] &quot;all drugs&quot;                              
-## [122] &quot;k. pneumoniae&quot;                          
-## [123] &quot;entamicin&quot;                              
-## [124] &quot;proxeti&quot;                                
-## [125] &quot;flomoxef sodium&quot;                        
-## [126] &quot;fosfomycin i.v.&quot;                        
-## [127] &quot;ampicillin .&quot;                           
-## [128] &quot;amoxicillin/ clavulanate&quot;               
-## [129] &quot;cefoperazone-sulbactam&quot;                 
-## [130] &quot;ticarcilin-clavulanate&quot;                 
-## [131] &quot;phenicol&quot;                               
-## [132] &quot;sulphonamide&quot;                           
-## [133] &quot;trimethopri&quot;                            
-## [134] &quot;amoxicillin/clavulate&quot;                  
-## [135] &quot;streptomycinb&quot;                          
-## [136] &quot;ceftiofurb&quot;                             
-## [137] &quot;piperacillin– tazobactam&quot;               
-## [138] &quot;pipercillin/tazobactam&quot;                 
-## [139] &quot;ticarcillin–clavulanic acid&quot;            
-## [140] &quot;tazobactam–piperacillin&quot;                
-## [141] &quot;amoxicillin/clavulinic acid&quot;</code></pre>
-<p>MeSH test archive</p>
-<pre class="r"><code># mesh_desc &lt;- xmlToDataFrame(here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;mesh-ontology&quot;, &quot;xml&quot;, &quot;desc2018.xml&quot;))
-# save(mesh_desc, file=here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;mesh-ontology&quot;, &quot;xml&quot;, &quot;desc2018.RData&quot;))
-# mesh_qual &lt;- xmlToDataFrame(here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;mesh-ontology&quot;, &quot;xml&quot;, &quot;qual2018.xml&quot;))
-# save(mesh_qual, file=here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;mesh-ontology&quot;, &quot;xml&quot;, &quot;qual2018.RData&quot;))
-# mesh_pa &lt;- xmlToDataFrame(here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;mesh-ontology&quot;, &quot;xml&quot;, &quot;pa2018.xml&quot;))
-# save(mesh_pa, file=here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;mesh-ontology&quot;, &quot;xml&quot;, &quot;pa2018.RData&quot;))
-# mesh_supp &lt;- xmlToDataFrame(here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;mesh-ontology&quot;, &quot;xml&quot;, &quot;supp2018.xml&quot;))
-#save(mesh_supp, file=here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;mesh-ontology&quot;, &quot;xml&quot;, &quot;supp2018.RData&quot;))
-
-# endpoint &lt;- &quot;http://id.nlm.nih.gov/mesh/sparql&quot;
-# q &lt;-
-#  'PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
-# PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-# PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
-# PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
-# PREFIX meshv: &lt;http://id.nlm.nih.gov/mesh/vocab#&gt;
-# PREFIX mesh: &lt;http://id.nlm.nih.gov/mesh/&gt;
-# PREFIX mesh2015: &lt;http://id.nlm.nih.gov/mesh/2015/&gt;
-# PREFIX mesh2016: &lt;http://id.nlm.nih.gov/mesh/2016/&gt;
-# PREFIX mesh2017: &lt;http://id.nlm.nih.gov/mesh/2017/&gt;
-# PREFIX mesh2018: &lt;http://id.nlm.nih.gov/mesh/2018/&gt;
-# 
-# SELECT * 
-# FROM &lt;http://id.nlm.nih.gov/mesh&gt;
-# WHERE {
-#   mesh:D015242 meshv:pharmacologicalAction ?pa .
-#   ?pa rdfs:label ?paLabel .
-# }
-# '
-# 
-# page &lt;- httr::GET(paste0(endpoint, &quot;?query=&quot;, URLencode(q, reserved = TRUE), &quot;&amp;format=CSV&quot;))
-# test &lt;- httr::content(page)
-
-# file&lt;-here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;mesh-ontology&quot;, &quot;archive&quot;, &quot;desc2018.xml&quot;)
-# library(XML)
-# library(methods)
-# mesh_desc_xml &lt;- xmlToDataFrame(file)
-# test &lt;- mesh[mesh$DescriptorName==&quot;ertapenem&quot;,]</code></pre>
+write.csv(outm, &quot;missing_drug_ontology.csv&quot;, row.names = F)</code></pre>
 
 
 
