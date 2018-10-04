@@ -29,47 +29,22 @@ paste_collapse <- function(x){
   paste(x, collapse = ", ")
 }
 
-#Geocode function for batch processing in opencage
-##note: Opencage typically returns multiple results because of placename ambiguity - here we limit to 1 by default
-opencage_forward_mutate <- function(data, location, limit=1){
-  locs <- data[, location, drop = TRUE] #extract location
-  out <- map(locs, opencage::opencage_forward, limit=limit) #map opencage_forward function to locations
-  gcdf <- data.frame() #empty dataframe
-  for(i in seq_along(out)){ #extract lat and long
-    tmp <- data.frame(lat = out[[i]]$results$geometry.lat,
-                      lon = out[[i]]$results$geometry.lng)
-    if(nrow(tmp)==0){tmp <- data.frame(lat=NA, lon=NA)} #NA if no lat/long 
-    gcdf <- rbind(gcdf, tmp)
-  }
-  cbind(data, gcdf)
-}
-
-load(here("data", "coded_annotations.RData")) #data compiled in 03_clean_segments.r
-field_corrections <- gs_read(gs_title("amr_db_field_corrections")) %>% as.tibble() #google spreadsheet tracking field corrections
+load(here("data", "segments_db.RData")) #data compiled in 03_clean_segments.r
+#field_corrections <- gs_read(gs_title("amr_db_field_corrections")) %>% as.tibble() #google spreadsheet tracking field corrections
 sub_names1 <- gs_read(gs_title("amr_db_clean_locs")) %>% as.tibble() #google spreadsheet with field cleanup
 ```
 Fix to mislabeled locations 
 ```{r}
-field_corrections %<>% 
-  mutate(study_id=as.character(study_id)) %>%
-  filter(requires_followup=="No") %>%
-  select(-requires_followup, -notes)
-
-excluded_studies <- unique(codes$study_id[codes$code_main_cat=="Exclusion"])
-
-codes %<>%
-  left_join(.,field_corrections) %>%
-  mutate(code_main = ifelse(is.na(code_main_new), code_main, code_main_new)) %>%
-  select(-code_main_new) %>%
-  filter(!study_id %in% excluded_studies) #remove excluded studies
+#field corrections to be handles in MAXQDA
+# field_corrections %<>% 
+#   mutate(study_id=as.character(study_id)) %>%
+#   filter(requires_followup=="No") %>%
+#   select(-requires_followup, -notes)
 ```
 Manual Subsitutions
 ```{r}
-sub_names2 <- tribble( #these values are handled well by google spreadsheet 
+sub_names2 <- tribble( 
   ~old,                    ~new,
-  "\r\n",                  "",
-  "- ",                    "",
-  #",",                     "",
   "2",                     ""
 )
 
@@ -97,11 +72,11 @@ state_names  <- tribble( #add countries to cities missing country or state
 Clean data
 ```{r}
 #reshape  
-dat <- codes %>%
-  filter(code_main_cat=="Location"|code_main=="Country of Residence") %>%
+dat <- segments_db %>%
+  mutate(tmp_identifier = 1:nrow(.)) %>%
+  filter(code_main_cat=="location"|code_main=="country of residence") %>%
   select(-code_main_cat) %>%
   spread(key = code_main, value = segment) %>%
-  select(-matches_str) %>%
   unique() %>%
   group_by(study_id, code_identifiers) %>%
   summarise_all(funs(paste_collapse)) %>%
@@ -242,18 +217,18 @@ qdat <- dat %>%
 #gs_new("amr_db_locations_qa", input=qdat)
 
 #Studies without any location
-missing_locs <- unique(codes$study_id[!codes$study_id %in% unique(dat$study_id)])
+missing_locs <- unique(segments_db$study_id[!segments_db$study_id %in% unique(dat$study_id)])
 length(missing_locs)
 
 #Studies without study location
-study_locs <- unique(codes$study_id[codes$code_main_cat=="Location"])
-no_study_locs <- unique(codes$study_id[!codes$study_id %in% study_locs])
-index <- read.csv(here("data", "index_articles.csv"))
-sub_index <- index %>%
+study_locs <- unique(segments_db$study_id[segments_db$code_main_cat=="location"])
+no_study_locs <- unique(segments_db$study_id[!segments_db$study_id %in% study_locs])
+load(here("data", "articles_db.RData"))
+sub_index <- articles_db %>%
   filter(study_id %in% no_study_locs) %>%
   select(study_id, mex_name)
 
-write.csv(sub_index, "missing_locations_study_id.csv", row.names = F)
+#gs_new("amr_db_missing_locations_study_id", input=sub_index)
 
 #Studies with duplicates
 dups <- dat %>%
@@ -298,7 +273,7 @@ ggplot(cdat, aes(x = location_class, fill=basis_cat))  +
 #Studies with code identifiers
 code_studies <- unique(dat$study_id[dat$code_identifiers!=""])
 test_dat <- dat %>% filter(study_id %in% code_studies)
-test_codes <- codes %>% filter(study_id %in% code_studies)
+test_segments_db <- segments_db %>% filter(study_id %in% code_studies)
 
 
 ```
