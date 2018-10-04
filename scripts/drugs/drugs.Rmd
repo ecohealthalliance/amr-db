@@ -19,12 +19,13 @@ library(ontologyIndex)
 
 load(here("data", "segments_db.RData")) #data compiled in 03_clean_segments.r
 dat <- segments_db %>%
+  filter(code_main == "drug resisted") %>%
   mutate(segment = gsub("\\(|\\)", "", segment))
 ```
 
 MeSH Medical Subject Headings (https://meshb.nlm.nih.gov/search)
 ```{r}
-mesh0 <- read_csv(here("scripts", "drugs", "mesh-ontology", "MESH.csv")) %>% #downloaded from bioportal 
+mesh0 <- read_csv(here("scripts", "drugs", "mesh-ontology", "MESH.csv")) %>% #downloaded from bioportal: https://bioportal.bioontology.org/ontologies/MESH?p=summary
   mutate_at(vars(`Class ID`, Parents), funs(gsub("http://purl.bioontology.org/ontology/MESH/", "", .))) %>%
   mutate_at(vars(`Preferred Label`, Synonyms), tolower) 
 
@@ -67,16 +68,14 @@ dat %<>%
 dat_unique <- dat %>%
   select(-study_id, -code_identifiers, -code_main) %>%
   unique()
-#143/263 drugs with no exact match
+#141/261 drugs with no exact match
 #length(unique(dat_unique$segment[is.na(dat_unique$mesh_id)]))
 
-#120/263 drugs with exact match
+#120/261 drugs with exact match
 #length(unique(dat_unique$segment[!is.na(dat_unique$mesh_id)]))
 
 dat_unique %<>%
   filter(!is.na(mesh_id))  
-
-#TODO::check for missing drugs
 
 ```
 Save data
