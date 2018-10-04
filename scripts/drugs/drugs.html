@@ -199,7 +199,16 @@ save(dat, file=here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;drug_mesh_onto
 outm &lt;- dat %&gt;%
   filter(is.na(mesh_id))%&gt;%
   select(study_id, segment, code_identifiers) 
-write.csv(outm, &quot;missing_drug_ontology.csv&quot;, row.names = F)</code></pre>
+write.csv(outm, &quot;drugs_no_ontology_match.csv&quot;, row.names = F)
+
+#studies without drug names?
+missing &lt;- unique(segments_db$study_id[!segments_db$study_id %in% unique(dat$study_id)])
+load(here(&quot;data&quot;, &quot;articles_db.RData&quot;))
+sub_index &lt;- articles_db %&gt;%
+  filter(study_id %in% missing) %&gt;%
+  select(study_id, mex_name)
+
+write.csv(sub_index, &quot;missing_drugs_study_id.csv&quot;, row.names = F)</code></pre>
 
 
 
