@@ -137,9 +137,10 @@ library(ontologyIndex)
 
 load(here(&quot;data&quot;, &quot;segments_db.RData&quot;)) #data compiled in 03_clean_segments.r
 dat &lt;- segments_db %&gt;%
+  filter(code_main == &quot;drug resisted&quot;) %&gt;%
   mutate(segment = gsub(&quot;\\(|\\)&quot;, &quot;&quot;, segment))</code></pre>
 <p>MeSH Medical Subject Headings (<a href="https://meshb.nlm.nih.gov/search" class="uri">https://meshb.nlm.nih.gov/search</a>)</p>
-<pre class="r"><code>mesh0 &lt;- read_csv(here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;mesh-ontology&quot;, &quot;MESH.csv&quot;)) %&gt;% #downloaded from bioportal 
+<pre class="r"><code>mesh0 &lt;- read_csv(here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;mesh-ontology&quot;, &quot;MESH.csv&quot;)) %&gt;% #downloaded from bioportal: https://bioportal.bioontology.org/ontologies/MESH?p=summary
   mutate_at(vars(`Class ID`, Parents), funs(gsub(&quot;http://purl.bioontology.org/ontology/MESH/&quot;, &quot;&quot;, .))) %&gt;%
   mutate_at(vars(`Preferred Label`, Synonyms), tolower) 
 
@@ -182,16 +183,14 @@ dat %&lt;&gt;%
 dat_unique &lt;- dat %&gt;%
   select(-study_id, -code_identifiers, -code_main) %&gt;%
   unique()
-#143/263 drugs with no exact match
+#141/261 drugs with no exact match
 #length(unique(dat_unique$segment[is.na(dat_unique$mesh_id)]))
 
-#120/263 drugs with exact match
+#120/261 drugs with exact match
 #length(unique(dat_unique$segment[!is.na(dat_unique$mesh_id)]))
 
 dat_unique %&lt;&gt;%
-  filter(!is.na(mesh_id))  
-
-#TODO::check for missing drugs</code></pre>
+  filter(!is.na(mesh_id))  </code></pre>
 <p>Save data</p>
 <pre class="r"><code>#all data
 save(dat, file=here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;drug_mesh_ontology.RData&quot;))
