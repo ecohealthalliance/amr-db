@@ -133,12 +133,29 @@ $(document).ready(function () {
 library(magrittr)
 library(stringi)
 library(here)
-library(ontologyIndex)
+library(googlesheets)
 
 load(here(&quot;data&quot;, &quot;segments_db.RData&quot;)) #data compiled in 03_clean_segments.r
+sub_names &lt;- gs_read(gs_title(&quot;amr_db_clean_drugs&quot;)) %&gt;% as.tibble() %&gt;% filter(new!=&quot;--&quot;) #google spreadsheet with field cleanup
+sub_names$segment &lt;- paste0(&quot;^&quot;, sub_names$segment, &quot;$&quot;)
 dat &lt;- segments_db %&gt;%
   filter(code_main == &quot;drug resisted&quot;) %&gt;%
   mutate(segment = gsub(&quot;\\(|\\)&quot;, &quot;&quot;, segment))</code></pre>
+<p>Data clean up</p>
+<pre class="r"><code>dat %&lt;&gt;% 
+  mutate(segment = gsub(&quot;\\+|\\–&quot;, &quot;/&quot;, segment)) %&gt;%
+  mutate(segment = gsub(&quot;\\:|\\;|\006|\002|\\.|\\,&quot;, &quot;&quot;, segment)) %&gt;%
+  mutate(segment = str_trim(segment)) %&gt;%
+  mutate(segment = stri_replace_all_regex(segment,  sub_names$segment, sub_names$new, vectorize_all = FALSE)) %&gt;%
+  mutate(segment_combo = ifelse(grepl(&quot;\\/&quot;, segment), TRUE, FALSE)) %&gt;%
+  mutate(segment = str_split(segment, &quot;\\/&quot;)) %&gt;%
+  unnest()
+  
+#testing
+# name &lt;- &quot;vancomycin&quot;
+# mesh[mesh$segment==name,]
+# mesh[mesh$mesh_id==&quot;D002438&quot;,]
+# mesh[grepl(name, mesh$segment),]</code></pre>
 <p>MeSH Medical Subject Headings (<a href="https://meshb.nlm.nih.gov/search" class="uri">https://meshb.nlm.nih.gov/search</a>)</p>
 <pre class="r"><code>mesh0 &lt;- read_csv(here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;mesh-ontology&quot;, &quot;MESH.csv&quot;)) %&gt;% #downloaded from bioportal: https://bioportal.bioontology.org/ontologies/MESH?p=summary
   mutate_at(vars(`Class ID`, Parents), funs(gsub(&quot;http://purl.bioontology.org/ontology/MESH/&quot;, &quot;&quot;, .))) %&gt;%
@@ -152,7 +169,7 @@ mesh &lt;- mesh0 %&gt;%
   gather(key=&quot;segment_class&quot;, value=&quot;segment&quot;, `Preferred Label`, Synonyms, 
          -`Class ID`, -Definitions, -HM, -Parents, -PA) %&gt;%
   unique() %&gt;%
-  filter(rowSums(is.na(.)) != ncol(.)) %&gt;%
+  filter(!is.na(segment)) %&gt;% #cases with no synonyms
   rename_all(tolower) %&gt;%
   setNames(paste0('mesh_', names(.)))  %&gt;%
   rename(mesh_id = `mesh_class id`, segment = mesh_segment)
@@ -180,13 +197,18 @@ dat %&lt;&gt;%
   rename(&quot;mesh_pa_name&quot; = `Preferred Label`) %&gt;%
   select(-mesh_hm, -mesh_parents, -mesh_pa)
 
+#c = Class 1 Supplementary Records - Chemicals #These records are dedicated to chemicals and are primarily heading mapped to the D tree descriptors.
+#d = D tree for drugs and chemicals,
+#this dataframe currently provides immediate parents only
+#use MN to get full tree - only works for D.  C lookup against D then full tree
+
 dat_unique &lt;- dat %&gt;%
   select(-study_id, -code_identifiers, -code_main) %&gt;%
   unique()
-#141/261 drugs with no exact match
+#19 drugs with no exact match
 #length(unique(dat_unique$segment[is.na(dat_unique$mesh_id)]))
 
-#120/261 drugs with exact match
+#128 drugs with exact match
 #length(unique(dat_unique$segment[!is.na(dat_unique$mesh_id)]))
 
 dat_unique %&lt;&gt;%
@@ -195,11 +217,13 @@ dat_unique %&lt;&gt;%
 <pre class="r"><code>#all data
 save(dat, file=here(&quot;scripts&quot;, &quot;drugs&quot;, &quot;drug_mesh_ontology.RData&quot;))
 
-#missing names
+#unrecognized names
 outm &lt;- dat %&gt;%
   filter(is.na(mesh_id))%&gt;%
-  select(study_id, segment, code_identifiers) 
-write.csv(outm, &quot;drugs_no_ontology_match.csv&quot;, row.names = F)
+  select(study_id, segment, code_identifiers) %&gt;%
+  group_by(segment) %&gt;%
+  summarize(study_id = paste(study_id, collapse = &quot;, &quot;))
+#gs_new(&quot;amr_db_clean_drugs&quot;, input = outm)
 
 #studies without drug names?
 missing &lt;- unique(segments_db$study_id[!segments_db$study_id %in% unique(dat$study_id)])
@@ -207,8 +231,7 @@ load(here(&quot;data&quot;, &quot;articles_db.RData&quot;))
 sub_index &lt;- articles_db %&gt;%
   filter(study_id %in% missing) %&gt;%
   select(study_id, mex_name)
-
-write.csv(sub_index, &quot;missing_drugs_study_id.csv&quot;, row.names = F)</code></pre>
+#gs_new(&quot;amr_db_missing_drugs_study_id&quot;, input=sub_index)</code></pre>
 
 
 

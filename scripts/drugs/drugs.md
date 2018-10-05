@@ -17,13 +17,34 @@ library(tidyverse)
 library(magrittr)
 library(stringi)
 library(here)
-library(ontologyIndex)
+library(googlesheets)
 
 load(here("data", "segments_db.RData")) #data compiled in 03_clean_segments.r
+sub_names <- gs_read(gs_title("amr_db_clean_drugs")) %>% as.tibble() %>% filter(new!="--") #google spreadsheet with field cleanup
+sub_names$segment <- paste0("^", sub_names$segment, "$")
 dat <- segments_db %>%
   filter(code_main == "drug resisted") %>%
   mutate(segment = gsub("\\(|\\)", "", segment))
 ```
+Data clean up
+
+```r
+dat %<>% 
+  mutate(segment = gsub("\\+|\\–", "/", segment)) %>%
+  mutate(segment = gsub("\\:|\\;|\006|\002|\\.|\\,", "", segment)) %>%
+  mutate(segment = str_trim(segment)) %>%
+  mutate(segment = stri_replace_all_regex(segment,  sub_names$segment, sub_names$new, vectorize_all = FALSE)) %>%
+  mutate(segment_combo = ifelse(grepl("\\/", segment), TRUE, FALSE)) %>%
+  mutate(segment = str_split(segment, "\\/")) %>%
+  unnest()
+  
+#testing
+# name <- "vancomycin"
+# mesh[mesh$segment==name,]
+# mesh[mesh$mesh_id=="D002438",]
+# mesh[grepl(name, mesh$segment),]
+```
+
 
 MeSH Medical Subject Headings (https://meshb.nlm.nih.gov/search)
 
@@ -40,7 +61,7 @@ mesh <- mesh0 %>%
   gather(key="segment_class", value="segment", `Preferred Label`, Synonyms, 
          -`Class ID`, -Definitions, -HM, -Parents, -PA) %>%
   unique() %>%
-  filter(rowSums(is.na(.)) != ncol(.)) %>%
+  filter(!is.na(segment)) %>% #cases with no synonyms
   rename_all(tolower) %>%
   setNames(paste0('mesh_', names(.)))  %>%
   rename(mesh_id = `mesh_class id`, segment = mesh_segment)
@@ -68,13 +89,18 @@ dat %<>%
   rename("mesh_pa_name" = `Preferred Label`) %>%
   select(-mesh_hm, -mesh_parents, -mesh_pa)
 
+#c = Class 1 Supplementary Records - Chemicals #These records are dedicated to chemicals and are primarily heading mapped to the D tree descriptors.
+#d = D tree for drugs and chemicals,
+#this dataframe currently provides immediate parents only
+#use MN to get full tree - only works for D.  C lookup against D then full tree
+
 dat_unique <- dat %>%
   select(-study_id, -code_identifiers, -code_main) %>%
   unique()
-#141/261 drugs with no exact match
+#19 drugs with no exact match
 #length(unique(dat_unique$segment[is.na(dat_unique$mesh_id)]))
 
-#120/261 drugs with exact match
+#128 drugs with exact match
 #length(unique(dat_unique$segment[!is.na(dat_unique$mesh_id)]))
 
 dat_unique %<>%
@@ -86,11 +112,13 @@ Save data
 #all data
 save(dat, file=here("scripts", "drugs", "drug_mesh_ontology.RData"))
 
-#missing names
+#unrecognized names
 outm <- dat %>%
   filter(is.na(mesh_id))%>%
-  select(study_id, segment, code_identifiers) 
-write.csv(outm, "drugs_no_ontology_match.csv", row.names = F)
+  select(study_id, segment, code_identifiers) %>%
+  group_by(segment) %>%
+  summarize(study_id = paste(study_id, collapse = ", "))
+#gs_new("amr_db_clean_drugs", input = outm)
 
 #studies without drug names?
 missing <- unique(segments_db$study_id[!segments_db$study_id %in% unique(dat$study_id)])
@@ -98,6 +126,5 @@ load(here("data", "articles_db.RData"))
 sub_index <- articles_db %>%
   filter(study_id %in% missing) %>%
   select(study_id, mex_name)
-
-write.csv(sub_index, "missing_drugs_study_id.csv", row.names = F)
+#gs_new("amr_db_missing_drugs_study_id", input=sub_index)
 ```
