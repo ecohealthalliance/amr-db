@@ -32,18 +32,17 @@ src_sqlite_mex <- function(fileloc, filename){
   path <- src_sqlite(paste(fileloc, filename, sep = "/"))
   table <- tbl(path, "Texts") %>% 
     collect() %>%
-    mutate(mex_name = filename)
+    rename_all(tolower) %>%
+    mutate(name  = as.numeric(name), 
+           mex_name = filename) %>%
+    select(name, mex_name) %>%
+    rename("study_id" = name)
   return(table)
 }
 
 fileloc <- here("data-raw", "coded_text_mex")
 files <- list.files("data-raw/coded_text_mex/", pattern = "*.mex")
-
-mex <- map_df(files, ~src_sqlite_mex(fileloc, .x)) %>%
-  rename_all(tolower) %>%
-  select(name, mex_name) %>%
-  mutate(name  = as.numeric(name)) %>%
-  rename("study_id" = name)
+mex <- map_df(files, ~src_sqlite_mex(fileloc, .x))
 
 articles_db <- left_join(articles_db, mex)
 
@@ -62,9 +61,10 @@ articles_db <- articles_db %>%
          downloaded = fct_collapse(downloaded, 
                                      yes = c("yes", "downloaded"), 
                                      no = c("no", "not full text", "could not access"))) %>%
-  mutate(in_codes_db = ifelse(.$downloaded == "yes", "yes", "no"))
+  mutate(in_codes_db = ifelse(.$downloaded == "yes", "yes", "no"), 
+         article_type = case_when(grepl("promed", .$csv_name) ~ "promed", 
+                                  TRUE ~ "journal"))
 
-#write.csv(articles_db, file = here("data", "articles_db.csv"))
 save(articles_db, file = here("data", "articles_db.RData"))
 
 # count number of articles that were able to be downloaded
