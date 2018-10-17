@@ -161,8 +161,8 @@ segments_db %<>%
 segments_db %<>%
   group_by(study_id, code_main_cat, code_identifiers, code_main) %>%
   mutate(segment = ifelse(code_main=="place traveled to", paste(segment, collapse = "|"), segment)) %>% #summarize not working b/c dups in data
-  unique()
+  unique() %>%
+  ungroup()
   
 # final segments db
-save(segments_db, file = here("data", "segments_db.RData"))
-
+saveRDS(segments_db, file = here("data", "segments_db.RData"))
