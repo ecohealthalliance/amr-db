@@ -1,9 +1,9 @@
-library(tidyverse)
 library(here)
 library(readxl)
 library(magrittr)
 library(googledrive)
 library(stringi)
+library(tidyverse)
 
 
 # Import Data and Clean Segments -----------------------------
@@ -11,7 +11,7 @@ load(here("data", "articles_db.RData"))
 files <- dir(path = here('data', 'coded_segments'), pattern = "*.xlsx", full.names = TRUE)
 
 # individual segment data (from MaxQDA exports) - each observation is an instance of an annotation (ungrouped)
-segments_raw <- map_dfr(files, ~read_xlsx(.x)) %>%
+segments_raw <- map_dfr(files, ~read_xlsx(.x, col_types = "text")) %>%
   rename_all(tolower) %>%
   rename_all(funs(str_replace(., " ", "_")))  %>%
   rename("study_id" = document_name) %>%
@@ -165,3 +165,4 @@ segments_db %<>%
   
 # final segments db
 save(segments_db, file = here("data", "segments_db.RData"))
+
