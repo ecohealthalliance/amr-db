@@ -1,6 +1,7 @@
 .Rproj.user
 .Rhistory
 .RData
+.rds
 .Ruserdata
 .Renviron
 # knitr and R markdown default cache directories
@@ -14,5 +15,6 @@
 #/data-raw/coded_text_mex
 .httr-oauth
 data/data_qa
-data/articles_db.RData
-data/segments_db.RData
+data/articles_db.rds
+data/segments_db.rds
+data/events_db.rds
