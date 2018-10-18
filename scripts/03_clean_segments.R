@@ -7,7 +7,7 @@ library(tidyverse)
 
 
 # Import Data and Clean Segments -----------------------------
-load(here("data", "articles_db.RData"))
+articles_db <- read_rds(path = here("data","articles_db.rds"))
 files <- dir(path = here('data', 'coded_segments'), pattern = "*.xlsx", full.names = TRUE)
 
 # individual segment data (from MaxQDA exports) - each observation is an instance of an annotation (ungrouped)
@@ -25,7 +25,7 @@ segments_raw <- map_dfr(files, ~read_xlsx(.x, col_types = "text")) %>%
          end_page, 
          end_off)
 
-save(segments_raw, file = here("data", "segments_raw.RData"))
+# save(segments_raw, file = here("data", "segments_raw.RData"))
 
 # create offset range col
 segments_raw %<>%
@@ -165,4 +165,4 @@ segments_db %<>%
   ungroup()
   
 # final segments db
-saveRDS(segments_db, file = here("data", "segments_db.RData"))
+write_rds(segments_db, path = here("data", "segments_db.rds"))
