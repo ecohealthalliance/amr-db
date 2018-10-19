@@ -65,7 +65,7 @@ articles_db <- articles_db %>%
          article_type = case_when(grepl("promed", .$csv_name) ~ "promed", 
                                   TRUE ~ "journal"))
 
-write_rds(articles_db, path = here("data", "articles_db.rds"))
+write_csv(articles_db, path = here("data", "articles_db.csv"))
 
 # count number of articles that were able to be downloaded
 fct_count(articles_db$downloaded)

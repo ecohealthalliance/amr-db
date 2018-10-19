@@ -10,7 +10,7 @@ library(here)
 
 # Structure Location Data -----------------
 
-segments_db <- read_rds(here("data", "segments_db.rds"))
+segments_db <- read_csv(here("data", "segments_db.csv"))
 
 # structure segments database into location codes dataframe   
 locations <- segments_db %>%
@@ -217,8 +217,8 @@ events_db <- events_db %>%
 
 print("residence_location geocode complete")
   
-write_rds(events_db, path = here("data", "events_db.rds"))
-
+#write_rds(events_db, path = here("data", "events_db.csv"))
+write_csv(events_db, here("data", "events_db.csv"))
 # To Do ----
 
 # Travel_country column is unnecessary list column at the end. need to fix this

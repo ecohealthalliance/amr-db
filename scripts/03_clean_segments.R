@@ -7,7 +7,7 @@ library(tidyverse)
 
 
 # Import Data and Clean Segments -----------------------------
-articles_db <- read_rds(path = here("data","articles_db.rds"))
+articles_db <- read_csv(here("data","articles_db.csv"))
 files <- dir(path = here('data', 'coded_segments'), pattern = "*.xlsx", full.names = TRUE)
 
 # individual segment data (from MaxQDA exports) - each observation is an instance of an annotation (ungrouped)
@@ -165,4 +165,4 @@ segments_db %<>%
   ungroup()
   
 # final segments db
-write_rds(segments_db, path = here("data", "segments_db.rds"))
+write_csv(segments_db, path = here("data", "segments_db.csv"))
