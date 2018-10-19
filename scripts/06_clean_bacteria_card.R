@@ -6,29 +6,35 @@ library(googlesheets)
 
 # Structure Bacteria Data-----------------
 
-segments_db <- read_rds(here("data", "segments_db.rds")) 
+segments_db <- read_csv(here("data", "segments_db.csv")) 
 
 # structure segments database into bacteria codes dataframe   
 bacteria <- segments_db %>%
   filter(code_main_cat == "bacteria")  %>%
-  select(-code_main_cat, -code_identifiers_check) %>%
+  select(-code_main_cat) %>%
   mutate(segment = stri_replace_all_regex(segment, 
                                           c("\\(|\\)|\\:|\\;|\\.|\\,"),
                                           c(""), vectorize = FALSE))
 
 # id studies with missing bacteria segments
 bacteria_genspe <- bacteria %>% filter(code_main == "binomial (genus species)") %>% pull(study_id)
-missing_genspe <- segments_db %>% filter(!study_id %in% bacteria_genspe) %>% pull(study_id) %>% unique
+missing_genspe <- segments_db %>% filter(!study_id %in% bacteria_genspe) %>% pull(study_id) %>% unique() #45 missing
+
+#articles_db <- read_rds(here("data", "articles_db.rds")) %>%
+#  select(study_id, mex_name) %>%
+#  filter(study_id %in% missing_genspe) #push to google drive
+#gs_new("amr_db_missing_bacteria", input=articles_db)
 
 bacteria_marker <- bacteria %>% filter(code_main == "resistance marker") %>% pull(study_id)
-missing_marker <- segments_db %>% filter(!study_id %in% bacteria_marker) %>% pull(study_id) %>% unique
+missing_marker <- segments_db %>% filter(!study_id %in% bacteria_marker) %>% pull(study_id) %>% unique()
 
 bacteria_strain <- bacteria %>% filter(code_main == "strain") %>% pull(study_id)
-missing_strain <- segments_db %>% filter(!study_id %in% bacteria_strain) %>% pull(study_id) %>% unique
+missing_strain <- segments_db %>% filter(!study_id %in% bacteria_strain) %>% pull(study_id) %>% unique()
 
 # load card + functions
 source(here("scripts", "clean_card.R"))
 
+# get card id and parents + ancestors
 bacteria %<>% 
   mutate(card_db = ifelse(code_main=="binomial (genus species)", "card_ncbi", "card_aro")) %>%
   mutate(
@@ -66,5 +72,3 @@ match<- bacteria_unique %>%
 #52 bacteria gen/spe  match
 #48 resistance match
 #7 strain match
-
-write.csv(bacteria, "bacteria_card_all.csv", row.names = F)
