@@ -1,0 +1,2 @@
+study_id,code_identifiers,event_id,city,country,residence_location_country,hospital,state_province_district,travel_location_city,travel_location_country,travel_location_id,study_location_basis,study_location,travel_location_basis,travel_location,study_location_lon,study_location_lat,travel_location_lon,travel_location_lat,residence_location_basis,residence_location_lon,residence_location_lat
+10020,,10020_1,new delhi,india,the netherlands,NA,NA,NA,

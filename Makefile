@@ -4,9 +4,9 @@
 SEGMENTS_EXCELS := $(wildcard data/coded_segments/*.xlsx)
 ARTICLE_INDEX_CSV := $(wildcard data-raw/art_index_csvs/*.csv)
 CODED_MEX := $(wildcard data-raw/coded_text_mex/*.mex)
-ARTICLES_DB := data/articles_db.rds
-SEGMENTS_DB := data/segments_db.rds
-EVENTS_DB := data/events_db.rds
+ARTICLES_DB := data/articles_db.csv
+SEGMENTS_DB := data/segments_db.csv
+EVENTS_DB := data/events_db.csv
 
 segments_excels : $(SEGMENTS_EXCELS)
 all_data: $(ARTICLES_DB) $(SEGMENTS_DB)
