@@ -14,7 +14,6 @@ segments_db <- read_rds(here("data", "segments_db.rds"))
 
 # structure segments database into location codes dataframe   
 locations <- segments_db %>%
-  ungroup() %>%
   mutate(segment_id = 1:nrow(.)) %>%
   filter(code_main_cat=="location"|code_main=="country of residence") %>%
   select(-code_main_cat) %>%
@@ -78,9 +77,9 @@ event_locations <- unnest_cities_countries %>%
                    unlist(.))) %>%
   select(-segment_id)
   
-# Manual Correction of Location Codes -----------------
+# Correction of Location Codes -----------------
 
-# Clean Main Locations ---
+# * Clean Main Locations ----
 
 # Import corrections from manual checking of strange fields and replace in events
 cleaned_location_codes <- gs_read(gs_title("amr_db_clean_locs")) %>% 
@@ -96,39 +95,7 @@ event_locations <- event_locations %<>%
                                         vectorize_all = FALSE))) %>%
   mutate_all(funs(ifelse(. == ' ', NA, trimws(., "both")))) # bring back NA's
 
-# Clean Travel Locations ---
-
-# Create world cities key- some travel locations contain city information. Identify these so they can be separated out. 
-data(world.cities)
-
-world_cities <- world.cities %>%
-  mutate_all(tolower) %>%
-  transmute(city_country = paste(name, country.etc, sep = ", ")) %>%
-  bind_rows(tribble(
-    ~city_country,
-    "new delhi, india", 
-    "san francisco, california", 
-    "new york city", 
-    "mumbai, india"
-  ))
-
-# Clean travel city, country data points and split into two columns - travel_city, and travel_country
-event_locations <- event_locations %>%
-  mutate(travel_location = ifelse(travel_location %in% world_cities$city_country, travel_location,
-                                  gsub("\\,", "\\;", travel_location)) %>%
-           str_split(., ";") %>%
-           purrr::map(., ~trimws(.x, "both")) %>%
-           purrr::map(., ~unique(.x)) %>%
-           ifelse(is.na(.), "", .)) %>%
-  unnest(travel_location) %>%
-  mutate(travel_location = str_trim(travel_location)) %>% # might not need this
-  group_by(study_id) %>%
-  mutate(travel_location_id = paste0("travel_loc_", row_number())) %>%
-  ungroup() %>%
-  separate(travel_location, into = c("travel_city", "travel_country"), sep = ",", fill = "left") 
-
-
-# Clean travel states
+# Clean States/Provinces/Districts field
 state_names  <- tribble( #add countries to cities missing country or state
   ~"state_province_district",  ~country,
   "california",         "united states",
@@ -137,82 +104,124 @@ state_names  <- tribble( #add countries to cities missing country or state
   "new york",           "united states"
 )
 
-# assign countries to cases when state is known but country is not to help fill in this info
+# Assign countries to cases when state is known but country is not to help fill in this info
 event_locations <- event_locations %>%
   left_join(state_names, by="state_province_district", suffix = c("", "_province")) %>%
   mutate(country = ifelse(is.na(country), country_province, country)) %>%
   select(-country_province) %>%
   mutate_all(funs(gsub(",$", "",.))) # get rid of any trailing commas 
 
+# * Clean Travel Locations ------
+
+# Create world cities key- some travel locations contain city information. Identify these so they can be separated out. 
+data(world.cities)
+
+# These are not in the world cities dataframe 
+travel_location_fix <- tribble(
+  ~city, ~country,
+  "new delhi", "india", 
+  "san francisco", "california", 
+  "new york city", "new york",
+  "mumbai",  "india", 
+  "kolkata", "india", 
+  "medina", "saudi arabia" # because top population medina is in columbia but study 14475 is probably referring to saudi arabia where the other travel case was
+)
+
+# Take top pop city when cities share names - could potentially include some sort of logic that decides what city based on proximity to other locations in the future? But it's difficut to make generalizable assumptions, especially with travel locations
+world_cities <- world.cities %>%
+  mutate_all(tolower) %>%
+  rename("city" = name, "country" = country.etc) %>%
+  group_by(city) %>%
+  top_n(1, pop) %>% 
+  filter(city != "medina") %>% # Medina, Columbia is top pop city but Medina, Saudi Arabia is in our dataset 
+  bind_rows(travel_location_fix) %>%
+  mutate(city_country = paste(city, country, sep = ", "))
+
+
+# Clean travel city, travel country data points and split into two separate columns 
+event_locations <- event_locations %>%
+  mutate(travel_location = ifelse(travel_location %in% world_cities$city_country, travel_location,
+                                  gsub("\\,", "\\;", travel_location)) %>%
+           str_split(., ";") %>%
+           purrr::map(., ~trimws(.x, "both")) %>%
+           purrr::map(., ~unique(.x)) %>%
+           ifelse(is.na(.), "", .)) %>%
+  unnest(travel_location) %>%
+  group_by(study_id) %>%
+  mutate(travel_location_id = paste0("travel_loc_", row_number())) %>%
+  ungroup() %>%
+  separate(travel_location, into = c("travel_location_city", "travel_location_country"), sep = ",", fill = "left") %>%
+  mutate(travel_location_city = ifelse((travel_location_country %in% world_cities$city & !(travel_location_country %in% world_cities$country)), travel_location_country, travel_location_city), 
+         travel_location_country = map(travel_location_country, function(potentially_a_city) {
+           ifelse((potentially_a_city %in% world_cities$city & !(potentially_a_city %in% world_cities$country)), filter(world_cities, city == potentially_a_city) %>% pull(country), potentially_a_city) }))
+
 # Geocode ---
 
 register_google(key = Sys.getenv("GOOGLE_MAPS_KEY"))
-# geocodeQueryCheck()
 
-pref <- c( #Order from most preferable to least
-  "hospital:city:country",
-  "hospital:city:state_province_district",
-  "hospital:state_province_district:country",
-  "hospital:city",
-  "hospital:state_province_district",
-  "hospital:country",
-  "hospital",
-  "city:country", 
-  "city:state_province_district", 
-  "state_province_district:country", 
-  "city", 
-  "state_province_district", 
-  "country")  
+# Check what information is available for each study location field. Collpase locations fields in order to geocode
+event_locations <- event_locations %>%
+  mutate(ls = pmap(list(.$hospital, .$city, .$state_province_district, .$country), 
+                   function(hospital, city, state_province_district, country) {
+                     location_basis_tb <- tribble(
+                     ~location,              ~location_fields,
+                       hospital,                "hospital",
+                       city,                    "city",
+                       state_province_district, "state_province_district", 
+                       country, "country"
+                     )
+                     location_basis_tb_n <- na.omit(location_basis_tb)
+                     return(location_basis_tb_n)
+                   }), 
+         study_location_basis = map(ls, ~.x$location_fields), 
+         study_location = map(ls, ~.x$location), 
+         study_location_basis = map_chr(study_location_basis, ~paste(., collapse = ", ")), 
+         study_location = map_chr(study_location, ~paste(., collapse = ", "))) %>%
+  select(-ls)
 
-event_locations <- as.data.frame(event_locations) %>%
-  mutate_all(funs(replace(., is.na(.), "")))
-
-event_locations$study_location_basis <- ""
-event_locations$study_location <- ""
-
-# based on above preference order, assign basis for geocode (study_location_basis) and extract location name (study_location)
-for (i in rev(seq_along(pref))) {
-  cnames <- strsplit(pref[i], ":") %>% unlist
-  event_locations_avail <- apply(event_locations[,c("study_id", cnames)]!="", 1, all) #if all relevant columns have values
-  event_locations$study_location_basis <- ifelse(event_locations_avail, 
-                                     pref[i], 
-                                     event_locations$study_location_basis)
-  if(length(cnames) > 1){
-    event_locations$study_location <- ifelse(event_locations_avail, 
-                                 apply(event_locations[, c(cnames)], 1 , paste, collapse = ", "),
-                                 event_locations$study_location)
-  }else{
-    event_locations$study_location <- ifelse(event_locations_avail, 
-                                 event_locations[, c(cnames)],
-                                 event_locations$study_location)
-  }
-}
+event_locations <- event_locations %>%
+  mutate(ls = map2(.$travel_location_city, .$travel_location_country, 
+                   function(city, country) {
+                     location_basis_tb <- tribble(
+                      ~location,   ~location_fields,
+                       city,        "city",
+                       country,     "country"
+                     )
+                     location_basis_tb_n <- na.omit(location_basis_tb)
+                     return(location_basis_tb_n)
+                   }), 
+         travel_location_basis = map(ls, ~.x$location_fields), 
+         travel_location = map(ls, ~.x$location), 
+         travel_location_basis = map_chr(travel_location_basis, ~paste(., collapse = ", ")), 
+         travel_location = map_chr(travel_location, ~paste(., collapse = ", "))) %>%
+  select(-ls)
 
 events_db <- event_locations  %>%
- mutate_geocode(location = study_location) %>%
- rename(study_location_lat = lat, study_location_lon=lon)
+  mutate_geocode(study_location) %>%
+  rename(study_location_lat = lat, study_location_lon=lon)
 
+print("study_location geocode complete")
+
+events_db <- events_db %>%
+  mutate_geocode(location = travel_location) %>%
+  rename(travel_location_lat = lat, travel_location_lon = lon)
+
+print("travel_location geocode complete")
+
+events_db <- events_db %>%
+  rename("residence_location_country" = residence_location) %>%
+  mutate("residence_location_basis" = "country", 
+         residence_location_country = replace_na(residence_location_country, "")) %>%
+  mutate_geocode(., location = residence_location_country) %>%
+  rename(residence_location_lat = lat, residence_location_lon = lon)
+
+print("residence_location geocode complete")
+  
 write_rds(events_db, path = here("data", "events_db.rds"))
-
-
-# To Do
- #  mutate_geocode(location = travel_location) %>%
- #  rename(travel_location_lat = lat, travel_location_lon=lon) %>%
- #  mutate_geocode(location = residence_location) %>%
- #  rename(residence_location_lat = lat, residence_location_lon=lon) 
-
-# final events db
-#saveRDS(events_db, file = here("data", "events_db.rds"))
-
 
 # To Do ----
 
-# We may be able to just unite and geocode (see below), instead of the for loop, but we would not explicitely retain the hierarchy info.
-# Not sure that we need the hierarchical info for the database itself (just for vis) so that may be fine
-# I will explore this more before next meeting
+# Travel_country column is unnecessary list column at the end. need to fix this
+# Just use given lat long for known cities and countries -  limit time and quota of geocoding
 
-# test <- event_locations %>%
-  #replace_na(list(hospital = "", city = "", state_province_district = "", country = "")) %>%
-  #unite(col = geocode_compare, hospital, city, state_province_district, country, remove = FALSE, sep = " ") 
 
-# Stil need to to incorporate the few lines that clean travel locations and geocode those
