@@ -13,7 +13,7 @@ cleaned_drug_codes <- gs_read(gs_title("amr_db_clean_drugs")) %>% as.tibble() %>
 # structure segments database into drug codes dataframe   
 drugs <- segments_db %>%
   filter(code_main == "drug resisted") %>%
-  select(-code_main_cat) %>%
+  select(-code_main_cat, -code_identifiers_check) %>%
   mutate(segment = stri_replace_all_regex(segment, 
                                           c("\\(|\\)|\\:|\\;|\006|\002|\\.|\\,", "\\+|\\–"),
                                           c("", "/"), vectorize = FALSE)) %>%         
