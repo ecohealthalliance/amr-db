@@ -6,14 +6,14 @@ library(googlesheets)
 
 # Structure Drugs Data and Manual Corrections-----------------
 
-segments_db <- read_rds(here("data", "segments_db.rds")) 
+segments_db <- read_csv(here("data", "segments_db.csv")) 
 cleaned_drug_codes <- gs_read(gs_title("amr_db_clean_drugs")) %>% as.tibble() %>% filter(new!="--") %>% #google spreadsheet with field cleanup
   mutate(segment = paste0("^", segment, "$"))
 
 # structure segments database into drug codes dataframe   
 drugs <- segments_db %>%
   filter(code_main == "drug resisted") %>%
-  select(-code_main_cat, -code_identifiers_check) %>%
+  select(-code_main_cat) %>%
   mutate(segment = stri_replace_all_regex(segment, 
                                           c("\\(|\\)|\\:|\\;|\006|\002|\\.|\\,", "\\+|\\–"),
                                           c("", "/"), vectorize = FALSE)) %>%         
@@ -78,3 +78,4 @@ missing <- drugs_unique %>%
   filter(is.na(mesh_id))  
 not_missing <- drugs_unique %>%
   filter(!is.na(mesh_id))  
+
