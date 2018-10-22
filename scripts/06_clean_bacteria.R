@@ -4,19 +4,15 @@ library(stringi)
 library(here)
 library(googlesheets)
 
-#checks:
-#dups (NA)
-#clean (amr_db_clean_bacteria - issue - includes MAXQDA edits)
-#missing (amr_db_missing_bacteria - issue #10)
+# Structure Bacteria Data and Manual Corrections-----------------
 
-# Structure Bacteria Data-----------------
-
+# read in data
 segments_db <- read_csv(here("data", "segments_db.csv"))
 cleaned_bacteria_codes <-
   gs_read(gs_title("amr_db_clean_bacteria")) %>% as.tibble() %>% filter(new != "--") %>% #google spreadsheet with field cleanup
   mutate(segment = paste0("^", segment, "$"))
 
-# structure segments database into bacteria codes dataframe with initial cleaning
+# bacteria codes dataframe with manual corrections
 bacteria <- segments_db %>%
   filter(code_main_cat == "bacteria")  %>%
   select(-code_main_cat) %>%
@@ -31,6 +27,25 @@ bacteria <- segments_db %>%
       vectorize_all = FALSE
     )
   )
+
+# QA Checks-----------------
+# clean (amr_db_clean_bacteria - issue 11 - includes MAXQDA edits)
+# dups (NA)
+# missing (amr_db_missing_bacteria - issue 10)
+
+# identify duplicate bacteria in studies 
+dups_segs_with_same_code <- bacteria %>%
+  group_by(study_id, code_identifiers, code_main, segment) %>%
+  filter(duplicated(segment) |
+           duplicated(segment, fromLast = TRUE))
+
+dups_segs_with_NA_code <-  bacteria %>%
+  group_by(study_id, code_main, segment) %>%
+  filter(duplicated(segment) |
+           duplicated(segment, fromLast = TRUE)) %>%
+  mutate(code_identifiers = ifelse(code_identifiers == "", "NA", code_identifiers)) %>%
+  summarize(code_identifiers = paste(code_identifiers, collapse = "|")) %>%
+  filter(grepl("NA", code_identifiers))
 
 # id studies with missing bacteria segments
 bacteria_genspe <-
@@ -48,24 +63,10 @@ bacteria_strain <-
 missing_strain <-
   segments_db %>% filter(!study_id %in% bacteria_strain) %>% pull(study_id) %>% unique()
 
-#articles_db <- read_rds(here("data", "articles_db.rds")) %>%
-#  select(study_id, mex_name) %>%
-#  filter(study_id %in% missing_genspe) #push to google drive
-#gs_new("amr_db_missing_bacteria", input=articles_db)
-
-# identify duplicate bacteria in studies (to be checked)
-dups_with_same_code <- bacteria %>%
-  group_by(study_id, code_identifiers, code_main, segment) %>%
-  filter(duplicated(segment) |
-           duplicated(segment, fromLast = TRUE))
-
-dups_with_NA_code <-  bacteria %>%
-  group_by(study_id, code_main, segment) %>%
-  filter(duplicated(segment) |
-           duplicated(segment, fromLast = TRUE)) %>%
-  mutate(code_identifiers = ifelse(code_identifiers == "", "NA", code_identifiers)) %>%
-  summarize(code_identifiers = paste(code_identifiers, collapse = "|")) %>%
-  filter(grepl("NA", code_identifiers))
+studies_missing_bacteria <- read_csv(here("data", "articles_db.csv")) %>%
+  select(study_id, mex_name) %>%
+  filter(study_id %in% missing_genspe) #push to google drive
+#gs_new("amr_db_missing_bacteria", input=studies_missing_bacteria)
 
 # NCBI Ontology-----------------
 # for bacteria genus / species
@@ -117,7 +118,6 @@ match <- bacteria_unique %>%
 # CARD Ontology-----------------
 # for strains and markers
 
-# load card + functions
 source(here("scripts", "clean_card.R"))
 
 # get card id and parents + ancestors
@@ -172,7 +172,7 @@ match <- bacteria_unique %>%
   group_by(code_main) %>%
   count()
 
-# Separate DBs-----------------
+# Separate DBs and export-----------------
 bacteria_ncbi <- bacteria %>%
   filter(code_main == "binomial (genus species)") %>%
   select("study_id", "segment", "code_main", "code_identifiers", starts_with("ncbi"))

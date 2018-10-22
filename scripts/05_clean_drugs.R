@@ -4,19 +4,15 @@ library(stringi)
 library(here)
 library(googlesheets)
 
-#checks:
-#dups (amr_db_field_corrections - issue 2)
-#clean (amr_db_clean_drugs - issue 7 - includes MAXQDA edits)
-#missing (amr_db_missing_drugs - issue 2)
-
 # Structure Drugs Data and Manual Corrections-----------------
 
+# read in data
 segments_db <- read_csv(here("data", "segments_db.csv"))
 cleaned_drug_codes <-
   gs_read(gs_title("amr_db_clean_drugs")) %>% as.tibble() %>% filter(new != "--") %>% #google spreadsheet with field cleanup
   mutate(segment = paste0("^", segment, "$"))
 
-# structure segments database into drug codes dataframe
+# drug codes dataframe with manual corrections
 drugs <- segments_db %>%
   filter(code_main == "drug resisted") %>%
   select(-code_main_cat) %>%
@@ -35,19 +31,24 @@ drugs <- segments_db %>%
     )
   )
 
-# separate drug combos
+# separate out drug combos
 drugs %<>%
   mutate(segment_combo = ifelse(grepl("\\/", segment), TRUE, FALSE),
          segment = str_split(segment, "\\/")) %>%
   unnest()
 
-# identify duplicate drugs in studies (to be checked)
-dups_with_same_code <- drugs %>%
+# QA Checks-----------------
+# clean (amr_db_clean_drugs - issue 7 - includes MAXQDA edits)
+# dups (amr_db_field_corrections - issue 2)
+# missing (amr_db_missing_drugs - issue 2)
+
+# identify duplicate drugs in studies
+dups_segs_with_same_code <- drugs %>%
   group_by(study_id, segment_combo, code_identifiers, segment) %>%
   filter(duplicated(segment) |
            duplicated(segment, fromLast = TRUE)) ####This dup was created by the clean drug replacement and is to be confirmed in the study
 
-dups_with_NA_code <- drugs %>%
+dups_segs_with_NA_code <- drugs %>%
   group_by(study_id, segment_combo, segment) %>%
   filter(duplicated(segment) |
            duplicated(segment, fromLast = TRUE)) %>%
@@ -55,10 +56,21 @@ dups_with_NA_code <- drugs %>%
   summarize(code_identifiers = paste(code_identifiers, collapse = "|")) %>%
   filter(grepl("NA", code_identifiers))
 
-# Join segments with MESH drug ontology-----------------
+# studies with missing codes
+articles_db <- read_csv(here("data", "articles_db.csv"))
+studies_missing_drugs <- segments_db %>%
+  filter(!study_id %in% drugs$study_id) %>%
+  select(study_id) %>%
+  unique() %>%
+  left_join(., articles_db %>% select(study_id, mex_name))
+#gs_new("amr_db_missing_drugs", input=studies_missing_drugs)
+
+# MESH drug ontology-----------------
+
 mesh0 <- read_rds(here("data", "mesh-ontology", "mesh_raw.rds")) #raw mesh data from clean_mesh.r
 mesh <- read_rds(here("data", "mesh-ontology", "mesh.rds")) #mesh data from clean_mesh.r
 
+# join with drugs data
 drugs %<>% left_join(., mesh)
 
 # preferred name look ups for synonyms
@@ -94,7 +106,7 @@ drugs %<>%
             by = c("mesh_pa_id" = "class_id")) %>%
   rename("mesh_pa_name" = preferred_label) %>%
   select(-mesh_hm,-mesh_parents,-mesh_pa)
-#TODO get qualifier name
+  #TODO get qualifier name
 
 # check matches
 drugs_unique <- drugs %>%
