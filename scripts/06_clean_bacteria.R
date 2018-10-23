@@ -92,12 +92,12 @@ bacteria %<>%
             by = c("ncbi_id" = "class_id")) %>%
   rename(ncbi_preferred_label = preferred_label)
 
-# get ncbi parent name
+# get ncbi parent name and rank
 bacteria %<>%
   left_join(.,
-            ncbi0 %>% select(class_id, preferred_label),
+            ncbi0 %>% select(class_id, preferred_label, rank),
             by = c("ncbi_parents" = "class_id")) %>%
-  rename("ncbi_parent_name" = preferred_label) %>%
+  rename(ncbi_parent_name = preferred_label, ncbi_parent_rank = rank) %>%
   select(-ncbi_parents)
 
 # check matches
