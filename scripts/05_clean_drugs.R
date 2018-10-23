@@ -108,7 +108,26 @@ drugs %<>%
   select(-mesh_hm,-mesh_parents,-mesh_pa)
   #TODO get qualifier name
 
-# check matches
+# classify as group or drug based on tree (if terminal -> drug, otherwise class)
+drugs_tree <- drugs %>%
+  select(mesh_preferred_label, mesh_mn, mesh_class) %>%
+  filter(mesh_class != "c") %>% #remove supp concepts (these are terminal)
+  distinct() %>%
+  mutate(mesh_mn = str_split(mesh_mn, "\\|")) %>%
+  unnest() 
+
+drugs_tree_terminal <- drugs_tree %>%
+  mutate(mesh_mn_match_count = map_int(mesh_mn, function(x) length(grep(x, mesh0$mn)))) %>%
+  group_by(mesh_preferred_label) %>%
+  summarize(mesh_mn_match_count = paste(unique(mesh_mn_match_count), collapse = ", ")) %>%
+  filter(mesh_mn_match_count == "1") %>%
+  pull(mesh_preferred_label)
+       
+drugs %<>% 
+  mutate(mesh_rank = ifelse(mesh_class=="c" | mesh_preferred_label %in% drugs_tree_terminal, "drug name", "drug group"))
+  
+# Check matches with MESH ontology-----------------
+# 
 drugs_unique <- drugs %>%
   select(-study_id,-code_identifiers,-code_main) %>%
   unique()
