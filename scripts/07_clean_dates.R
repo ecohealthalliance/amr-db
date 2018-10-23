@@ -43,11 +43,23 @@ dup_dates <- dates %>%
 
 # studies with missing codes
 articles_db <- read_csv(here("data", "articles_db.csv"))
-studies_missing_dates <- segments_db %>%
+
+missing_any_date <- segments_db %>%
   filter(!study_id %in% dates$study_id) %>%
   select(study_id) %>%
-  unique() %>%
-  left_join(., articles_db %>% select(study_id, mex_name))
-#gs_new("amr_db_missing_dates", input=studies_missing_dates)
+  unique() 
 
+missing_year_id <- dates %>%
+  filter(is.na(event_year), is.na(event_date)) %>%
+  pull(study_id) 
 
+missing_year <- dates %>%
+  filter(study_id %in% missing_year_id) %>%
+  group_by(study_id) %>%
+  filter(n() == 1 ) %>%
+  select(study_id)
+
+missing <- bind_rows(missing_any_date, missing_year) %>%
+  left_join(., articles_db %>% select(study_id, mex_name)) 
+#gs_new("amr_db_missing_dates", input=missing)
+ 
