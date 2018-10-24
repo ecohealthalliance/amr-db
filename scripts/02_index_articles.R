@@ -10,8 +10,6 @@ library(compare)
 read_article_csvs <- function(fileloc, filename){
   each_article_csv <- read_csv(paste(fileloc, filename, sep = "/"), 
                                col_types = cols("STUDY_ID" = col_integer(),
-                                                "year" = col_integer(), 
-                                                "pmid" = col_integer(),
                                                 .default = "c"), 
                                local = locale(encoding = "latin1")) %>%
     filter(!is.na(STUDY_ID))  %>% #remove rows that are all NA

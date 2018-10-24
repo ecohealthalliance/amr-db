@@ -14,7 +14,7 @@ segments_db <- read_csv(here("data", "segments_db.csv"))
 # structure segments database into location codes dataframe   
 locations <- segments_db %>%
   mutate(segment_id = 1:nrow(.)) %>%
-  filter(code_main_cat=="location"|code_main=="country of residence") %>%
+  filter(code_main_cat == "location" | code_main == "country of residence") %>%
   select(-code_main_cat) %>%
   spread(key = code_main, value = segment) %>%
   unique() %>%
@@ -35,7 +35,7 @@ locations <- segments_db %>%
 
 # Group codes by "event" (study + code identifiers) and create list columns. Create an event_id column, and omit NA's
 raw_event_locations <- locations %>%
-  group_by(study_id, code_identifiers) %>%
+  group_by(study_id, code_identifiers, code_identifiers_link) %>%
   summarise_all(funs(list)) %>%
   mutate(event_id = paste0(study_id, "_", row_number())) %>%
   mutate_at(vars(city, country, residence_location, hospital, travel_location, state_province_district),
@@ -151,7 +151,7 @@ event_locations <- event_locations %>%
   ungroup() %>%
   separate(travel_location, into = c("travel_location_city", "travel_location_country"), sep = ",", fill = "left") %>%
   mutate(travel_location_city = ifelse((travel_location_country %in% world_cities$city & !(travel_location_country %in% world_cities$country)), travel_location_country, travel_location_city), 
-         travel_location_country = map(travel_location_country, function(potentially_a_city) {
+         travel_location_country = map_chr(travel_location_country, function(potentially_a_city) {
            ifelse((potentially_a_city %in% world_cities$city & !(potentially_a_city %in% world_cities$country)), filter(world_cities, city == potentially_a_city) %>% pull(country), potentially_a_city) }))
 
 # Geocode ---
@@ -195,32 +195,32 @@ event_locations <- event_locations %>%
          travel_location = map_chr(travel_location, ~paste(., collapse = ", "))) %>%
   select(-ls)
 
-events_db <- event_locations  %>%
-  mutate_geocode(study_location) %>%
-  rename(study_location_lat = lat, study_location_lon=lon)
 
-print("study_location geocode complete")
+# Geocode ---------
 
-events_db <- events_db %>%
-  mutate_geocode(location = travel_location) %>%
-  rename(travel_location_lat = lat, travel_location_lon = lon)
+# prepare a list of locations to be geocoded - 
+# TODO Need to figure out how to trigger update to this as needed
+geocode_locations <- tibble(geocode_loc = c(event_locations$study_location, event_locations$travel_location, event_locations$residence_location)) %>%
+  unique() %>%
+  mutate(geocode_loc = ifelse(geocode_loc == "", NA, geocode_loc)) %>%
+  na.omit()
 
-print("travel_location geocode complete")
-
-events_db <- events_db %>%
-  rename("residence_location_country" = residence_location) %>%
-  mutate("residence_location_basis" = "country", 
-         residence_location_country = replace_na(residence_location_country, "")) %>%
-  mutate_geocode(., location = residence_location_country) %>%
-  rename(residence_location_lat = lat, residence_location_lon = lon)
-
-print("residence_location geocode complete")
+if (file.exists(here("data", "geocode_locations_complete.csv")) == TRUE) {
+  read_csv(here("data", "geocode_locations_complete.csv"))
+  message("loaded")
+} else {
+  geocode_locations_complete <- geocode_locations %>%
+    mutate_geocode(geocode_loc)
   
-#write_rds(events_db, path = here("data", "events_db.csv"))
-write_csv(events_db, here("data", "events_db.csv"))
-# To Do ----
+  write_csv(geocode_locations_complete, here("data", "geocode_locations_complete"))
+  message("saved coordinate data")
+}
 
-# Travel_country column is unnecessary list column at the end. need to fix this
-# Just use given lat long for known cities and countries -  limit time and quota of geocoding
+locations_db <- event_locations %>%
+  left_join(geocode_locations, by = c("travel_location" = "geocode_loc")) %>%
+  left_join(geocode_locations, by = c("residence_location" = "geocode_loc"), suffix = c("_travel", "_residence")) %>%
+  left_join(geocode_locations, by = c("study_location" = "geocode_loc"))
+
+write_csv(locations_db, here("data", "locations_db.csv"))
 
 

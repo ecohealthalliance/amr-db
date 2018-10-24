@@ -4,6 +4,7 @@
 .RData
 .rds
 .Ruserdata
+*.scpt
 .Renviron
 # knitr and R markdown default cache directories
 /*_cache/
@@ -19,3 +20,5 @@ data/data_qa
 data/articles_db.rds
 data/segments_db.rds
 data/events_db.rds
+
+data-raw/mesh-ontology/mesh.rds
