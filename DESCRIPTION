@@ -1,0 +1,26 @@
+Package: amr-db
+Title: AMR Database
+Version: 0.1
+Authors@R:
+Description: This repository contains code, data, and documentation for the AMR events database.
+Imports:
+  ggplot2,
+  dplyr,
+  readr,
+  purrr, 
+  tibble,
+  rlang,
+  tidyr,
+  stringr,
+  stringi,
+  stats,
+  plyr,
+  here, 
+  readxl, 
+  magrittr, 
+  compare,
+  googledrive, 
+  ggmap
+Remotes: dkahle/ggmap
+Encoding: UTF-8
+LazyData: true

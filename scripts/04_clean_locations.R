@@ -1,6 +1,5 @@
 library(magrittr)
 library(stringi)
-library(sf)
 library(ggmap)
 library(maps)
 library(googlesheets)
