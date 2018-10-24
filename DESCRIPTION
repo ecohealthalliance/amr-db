@@ -22,6 +22,7 @@ Imports:
   compare,
   googledrive, 
   ggmap, 
+  janitor,
   RSQLite
 Remotes: dkahle/ggmap
 Encoding: UTF-8

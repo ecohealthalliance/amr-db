@@ -2,6 +2,7 @@ library(tidyverse)
 library(magrittr)
 library(stringi)
 library(here)
+library(janitor)
 library(googlesheets)
 
 # Structure Drugs Data and Manual Corrections-----------------
@@ -67,8 +68,13 @@ studies_missing_drugs <- segments_db %>%
 
 # MESH drug ontology-----------------
 
-mesh0 <- read_rds(here("data", "mesh-ontology", "mesh_raw.rds")) #raw mesh data from clean_mesh.r
-mesh <- read_rds(here("data", "mesh-ontology", "mesh.rds")) #mesh data from clean_mesh.r
+mesh0 <- mesh0 <- read_csv(here("data-raw", "mesh-ontology", "mesh_raw.zip")) %>% #downloaded from bioportal: https://bioportal.bioontology.org/ontologies/MESH?p=summary
+  clean_names() %>%
+  select(class_id, preferred_label, synonyms, definitions, hm, parents, pa, mn) %>%
+  mutate_at(vars(class_id, parents), funs(gsub("http://purl.bioontology.org/ontology/MESH/", "", .))) %>%
+  mutate_all(tolower) 
+
+mesh <- read_rds(here("data-raw", "mesh-ontology", "mesh.rds")) #mesh data from clean_mesh.r
 
 # join with drugs data
 drugs %<>% left_join(., mesh)
@@ -127,7 +133,7 @@ drugs %<>%
   mutate(mesh_rank = ifelse(mesh_class=="c" | mesh_preferred_label %in% drugs_tree_terminal, "drug name", "drug group"))
   
 # Check matches with MESH ontology-----------------
-# 
+
 drugs_unique <- drugs %>%
   select(-study_id,-code_identifiers,-code_main) %>%
   unique()

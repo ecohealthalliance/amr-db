@@ -6,7 +6,7 @@ library(janitor)
 ###MeSH Medical Subject Headings (https://meshb.nlm.nih.gov/search)###
 
 # Read raw mesh db and cleam
-mesh0 <- read_csv(here("data", "mesh-ontology", "as_received", "MESH.csv")) %>% #downloaded from bioportal: https://bioportal.bioontology.org/ontologies/MESH?p=summary
+mesh0 <- read_csv(here("data-raw", "mesh-ontology", "mesh_raw.zip")) %>% #downloaded directly from bioportal: https://bioportal.bioontology.org/ontologies/MESH?p=summary
   clean_names() %>%
   select(class_id, preferred_label, synonyms, definitions, hm, parents, pa, mn) %>%
   mutate_at(vars(class_id, parents), funs(gsub("http://purl.bioontology.org/ontology/MESH/", "", .))) %>%
@@ -30,8 +30,7 @@ pref_names <- mesh %>%
 mesh %<>% filter(!c(segment %in% pref_names & mesh_segment_name_class == "synonyms"))
 
 # save data
-write_rds(mesh0, here("data","mesh-ontology", "mesh_raw.rds"))
-write_rds(mesh, here("data","mesh-ontology", "mesh.rds"))
+write_rds(mesh, here("data-raw","mesh-ontology", "mesh.rds"))
 
 #c = Class 1 Supplementary Records - Chemicals #These records are dedicated to chemicals and are primarily heading mapped to the D tree descriptors.
 #d = D tree for drugs and chemicals,

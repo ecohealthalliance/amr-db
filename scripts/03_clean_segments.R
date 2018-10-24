@@ -166,17 +166,17 @@ segments_db %<>%
 code_links <- segments_db %>%
   filter(!is.na(code_identifiers)) %>%
   group_by(study_id, code_identifiers) %>%
-  summarize(code_identifiers_link = paste(sort(unique(code_main)), collapse = "|")) %>%
+  summarize(code_identifiers_link = paste(sort(unique(code_main)), collapse = "; ")) %>%
   ungroup()
 
 # Identify code identifiers that are not "linked" - these need to be spot checked
 code_links_solo <- code_links %>%
-  filter(!grepl("\\|", code_identifiers_link)) %>%
+  filter(!grepl("\\;", code_identifiers_link)) %>%
   left_join(., articles_db %>% select(study_id, mex_name) %>% mutate(study_id = as.character(study_id)))
 #gs_new("amr_db_missing_code_identifiers_links", input=code_links_solo)
 
 # Remove solo code links
-code_links %<>% mutate(code_identifiers_link = ifelse(grepl("\\|", code_identifiers_link), code_identifiers_link, NA)) 
+code_links %<>% mutate(code_identifiers_link = ifelse(grepl("\\;", code_identifiers_link), code_identifiers_link, NA)) 
 
 # Join into segments db
 segments_db %<>%
