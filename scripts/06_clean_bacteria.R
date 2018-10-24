@@ -48,20 +48,20 @@ dups_segs_with_NA_code <-  bacteria %>%
   filter(grepl("NA", code_identifiers))
 
 # id studies with missing bacteria segments
-bacteria_genspe <-
+bacteria_genspe_id <-
   bacteria %>% filter(code_main == "binomial (genus species)") %>% pull(study_id)
 missing_genspe <-
-  segments_db %>% filter(!study_id %in% bacteria_genspe) %>% pull(study_id) %>% unique() #45 missing
+  segments_db %>% filter(!study_id %in% bacteria_genspe_id) %>% pull(study_id) %>% unique() #45 missing
 
-bacteria_marker <-
+bacteria_marker_id <-
   bacteria %>% filter(code_main == "resistance marker") %>% pull(study_id)
 missing_marker <-
-  segments_db %>% filter(!study_id %in% bacteria_marker) %>% pull(study_id) %>% unique()
+  segments_db %>% filter(!study_id %in% bacteria_marker_id) %>% pull(study_id) %>% unique()
 
-bacteria_strain <-
+bacteria_strain_id <-
   bacteria %>% filter(code_main == "strain") %>% pull(study_id)
 missing_strain <-
-  segments_db %>% filter(!study_id %in% bacteria_strain) %>% pull(study_id) %>% unique()
+  segments_db %>% filter(!study_id %in% bacteria_strain_id) %>% pull(study_id) %>% unique()
 
 studies_missing_bacteria <- read_csv(here("data", "articles_db.csv")) %>%
   select(study_id, mex_name) %>%
@@ -82,18 +82,20 @@ ncbi_abbr <- ncbi %>%
 
 ncbi %<>% bind_rows(., ncbi_abbr)
 
-# join into bacteria data frame
-bacteria %<>% left_join(., ncbi)
+# join into bacteria data frame for gen/spe
+bacteria_genspe <- bacteria %>% 
+  filter(code_main == "binomial (genus species)") %>%
+  left_join(., ncbi)
 
 # preferred name look ups for synonyms and abbreviations
-bacteria %<>%
+bacteria_genspe %<>%
   left_join(.,
             ncbi0 %>% select(class_id, preferred_label),
             by = c("ncbi_id" = "class_id")) %>%
   rename(ncbi_preferred_label = preferred_label)
 
 # get ncbi parent name and rank
-bacteria %<>%
+bacteria_genspe %<>%
   left_join(.,
             ncbi0 %>% select(class_id, preferred_label, rank),
             by = c("ncbi_parents" = "class_id")) %>%
@@ -101,16 +103,16 @@ bacteria %<>%
   select(-ncbi_parents)
 
 # check matches
-bacteria_unique <- bacteria %>%
+bacteria_genspe_unique <- bacteria_genspe %>%
   select(segment, ncbi_id, code_main) %>%
   unique()
 
-no_match <- bacteria_unique %>%
+no_match <- bacteria_genspe_unique %>%
   filter(is.na(ncbi_id))  %>%
   group_by(code_main) %>%
   count()
 
-match <- bacteria_unique %>%
+match <- bacteria_genspe_unique %>%
   filter(!is.na(ncbi_id))  %>%
   group_by(code_main) %>%
   count()
@@ -121,7 +123,8 @@ match <- bacteria_unique %>%
 source(here("scripts", "clean_card.R"))
 
 # get card id and parents + ancestors
-bacteria %<>%
+bacteria_strain_marker <- bacteria %>%
+  filter(code_main == "binomial (genus species)") %>%
   mutate(card_db = ifelse(code_main == "binomial (genus species)", "card_ncbi", "card_aro")) %>%
   mutate(
     card_select_id = map_chr(map2(
@@ -158,29 +161,21 @@ bacteria %<>%
   ungroup()
 
 # check matches
-bacteria_unique <- bacteria %>%
+bacteria_strain_marker_unique <- bacteria_strain_marker %>%
   select(segment, card_db, card_select_id, code_main) %>%
   unique()
 
-no_match <- bacteria_unique %>%
+no_match <- bacteria_strain_marker_unique %>%
   filter(card_select_id == "no exact match")  %>%
   group_by(code_main) %>%
   count()
 
-match <- bacteria_unique %>%
+match <- bacteria_strain_marker_unique %>%
   filter(card_select_id != "no exact match")  %>%
   group_by(code_main) %>%
   count()
 
-# Separate DBs and export-----------------
-bacteria_ncbi <- bacteria %>%
-  filter(code_main == "binomial (genus species)") %>%
-  select("study_id", "segment", "code_main", "code_identifiers", starts_with("ncbi"))
+# Separate DBs export-----------------
+write_csv(bacteria_genspe, here("data", "bacteria_genus_species_db.csv"))
 
-write_csv(bacteria_ncbi, here("data", "bacteria_genus_species_db.csv"))
-
-bacteria_card <- bacteria %>%
-  filter(code_main != "binomial (genus species)") %>%
-  select("study_id", "segment", "code_main", "code_identifiers", starts_with("card"))
-
-write_csv(bacteria_card, here("data", "bacteria_strains_and_resistance_markers_db.csv"))
+write_csv(bacteria_strain_marker, here("data", "bacteria_strains_and_resistance_markers_db.csv"))
