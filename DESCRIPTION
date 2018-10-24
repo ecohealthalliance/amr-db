@@ -5,6 +5,7 @@ Authors@R:
 Description: This repository contains code, data, and documentation for the AMR events database.
 Imports:
   ggplot2,
+  tidyverse,
   dplyr,
   readr,
   purrr, 
@@ -20,7 +21,8 @@ Imports:
   magrittr, 
   compare,
   googledrive, 
-  ggmap
+  ggmap, 
+  RSQLite
 Remotes: dkahle/ggmap
 Encoding: UTF-8
 LazyData: true
