@@ -31,8 +31,8 @@ clean_mx12:
 	rm -r data-raw/coded_text_mex/*.mx12
 
 clean_all:
-	rm -r data-raw/coded_text_mex/*.mx12
-	rm -r data/*.rds
+	rm -r data/articles_db.csv data/segments_db.csv data/events_db.csv
+
 	
 
 data-raw/coded_text_mex/%.mex: data/coded_segments/%.xlsx
