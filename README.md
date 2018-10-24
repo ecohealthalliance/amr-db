@@ -26,10 +26,12 @@ This repository contains code, data, and documentation for the AMR events databa
 
 ### Reproducing the Database
 
-The `Makefile` will re-build the project. Main commands are:
+The `Makefile` will re-build the project. Before running the `Makefile` you can run `sh gittime.sh` in terminal (from within the repo) to ensure file time stamps represent the time the file was last committed to the repo, not the time the file was last checked out/ cloned from the repo. To run the applescripts, be sure your `Accessibility` settings allow the Terminal app to control your computer. You can set this in `System Preferences > Security & Privacy > Accessibility`.
+
+Main `Makefile` commands are:
 
 - `make aricles_db` 
 - `make segments_db`
 - `make events_db`
 - `clean_mx12` - cleans only `.mx12` files
-- `clean_all` - cleans all files including `.mx12` and `.rds` files 
+- `clean_all` - cleans all files including `.mx12` and `.csv` files 
