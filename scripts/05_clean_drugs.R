@@ -132,9 +132,9 @@ drugs_unique <- drugs %>%
   select(-study_id,-code_identifiers,-code_main) %>%
   unique()
 
-missing <- drugs_unique %>%
+no_match <- drugs_unique %>%
   filter(is.na(mesh_id))
-not_missing <- drugs_unique %>%
+match <- drugs_unique %>%
   filter(!is.na(mesh_id))
 
 write_csv(drugs, here("data", "drugs_db.csv"))

@@ -5,7 +5,6 @@ library(googledrive)
 library(stringi)
 library(tidyverse)
 
-
 # Import Data and Clean Segments -----------------------------
 articles_db <- read_csv(here("data","articles_db.csv"))
 files <- dir(path = here('data', 'coded_segments'), pattern = "*.xlsx", full.names = TRUE)
@@ -144,8 +143,7 @@ segments_db %<>%
   unnest(code_main, code_identifiers) %>%
   separate(code_main, into = c("code_main_cat", "code_main"), sep = ":", fill = "left") %>%
   mutate_all(tolower) %>%
-  mutate(segment = stri_replace_all_regex(segment, c("\r\n",  "- "), c("", ""), vectorize_all = FALSE),
-         code_identifiers = ifelse(is.na(code_identifiers), "", code_identifiers)) 
+  mutate(segment = stri_replace_all_regex(segment, c("\r\n",  "- "), c("", ""), vectorize_all = FALSE)) 
 
 # get vector of excluded study IDs
 excluded_studies <- segments_db %>%
@@ -163,6 +161,27 @@ segments_db %<>%
   mutate(segment = ifelse(code_main=="place traveled to", paste(segment, collapse = "|"), segment)) %>% #summarize not working b/c dups in data
   unique() %>%
   ungroup()
+
+# Add code_identifiers_link to provide linked fields for code identifiers
+code_links <- segments_db %>%
+  filter(!is.na(code_identifiers)) %>%
+  group_by(study_id, code_identifiers) %>%
+  summarize(code_identifiers_link = paste(sort(unique(code_main)), collapse = "|")) %>%
+  ungroup()
+
+# Identify code identifiers that are not "linked" - these need to be spot checked
+code_links_solo <- code_links %>%
+  filter(!grepl("\\|", code_identifiers_link)) %>%
+  left_join(., articles_db %>% select(study_id, mex_name) %>% mutate(study_id = as.character(study_id)))
+#gs_new("amr_db_missing_code_identifiers_links", input=code_links_solo)
+
+# Remove solo code links
+code_links %<>% mutate(code_identifiers_link = ifelse(grepl("\\|", code_identifiers_link), code_identifiers_link, NA)) 
+
+# Join into segments db
+segments_db %<>%
+  left_join(., code_links) %>%
+  mutate(code_identifiers = ifelse(is.na(code_identifiers_link), NA, code_identifiers)) 
   
 # final segments db
 write_csv(segments_db, path = here("data", "segments_db.csv"))
