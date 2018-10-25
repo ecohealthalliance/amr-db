@@ -65,14 +65,19 @@ missing_strain <-
 
 studies_missing_bacteria <- read_csv(here("data", "articles_db.csv")) %>%
   select(study_id, mex_name) %>%
-  filter(study_id %in% missing_genspe) #push to google drive
+  filter(study_id %in% missing_genspe) 
 #gs_new("amr_db_missing_bacteria", input=studies_missing_bacteria)
 
 # NCBI Ontology-----------------
 # for bacteria genus / species
 
-ncbi0 <- read_rds(here("data", "ncbi-ontology", "ncbi_raw.rds")) #raw ncbi data from clean_ncbi.r
-ncbi <- read_rds(here("data", "ncbi-ontology", "ncbi.rds")) #ncbi data from clean_ncbi.r
+ncbi0 <- read_csv(here("data-raw", "ncbi-ontology", "as_received", "NCBITAXON.csv.zip")) %>% #downloaded from bioportal: http://bioportal.bioontology.org/ontologies/NCBITAXON
+  clean_names() %>%
+  select(class_id, preferred_label, synonyms, definitions, parents, rank, div) %>%
+  mutate_at(vars(class_id, parents), funs(gsub("http://purl.bioontology.org/ontology/NCBITAXON/", "", .))) %>%
+  mutate_all(tolower) 
+
+ncbi <- read_rds(here("data-raw", "ncbi-ontology", "ncbi.rds")) #ncbi data from clean_ncbi.r
 
 # get abbreviated gen/spe
 ncbi_abbr <- ncbi %>%
@@ -124,7 +129,7 @@ source(here("scripts", "clean_card.R"))
 
 # get card id and parents + ancestors
 bacteria_strain_marker <- bacteria %>%
-  filter(code_main == "binomial (genus species)") %>%
+  filter(code_main != "binomial (genus species)") %>%
   mutate(card_db = ifelse(code_main == "binomial (genus species)", "card_ncbi", "card_aro")) %>%
   mutate(
     card_select_id = map_chr(map2(

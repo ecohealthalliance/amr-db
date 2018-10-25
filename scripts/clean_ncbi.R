@@ -6,9 +6,8 @@ library(janitor)
 ###National Center for Biotechnology Information (NCBI) Organismal Classification###
 
 # Read raw mesh db and cleam
-ncbi0 <- read_csv(here("data", "ncbi-ontology", "as_received", "NCBITAXON.csv")) %>% #downloaded from bioportal: http://bioportal.bioontology.org/ontologies/NCBITAXON
+ncbi0 <- read_csv(here("data-raw", "ncbi-ontology", "as_received", "NCBITAXON.csv.zip")) %>% #downloaded from bioportal: http://bioportal.bioontology.org/ontologies/NCBITAXON
   clean_names() %>%
- # filter(div=="Bacteria") %>%
   select(class_id, preferred_label, synonyms, definitions, parents, rank, div) %>%
   mutate_at(vars(class_id, parents), funs(gsub("http://purl.bioontology.org/ontology/NCBITAXON/", "", .))) %>%
   mutate_all(tolower) 
@@ -31,5 +30,4 @@ pref_names <- ncbi %>%
 ncbi %<>% filter(!c(segment %in% pref_names & ncbi_segment_name_class == "synonyms"))
 
 # save data
-write_rds(ncbi0, here("data","ncbi-ontology", "ncbi_raw.rds"))
-write_rds(ncbi, here("data","ncbi-ontology", "ncbi.rds"))
+write_rds(ncbi, here("data-raw","ncbi-ontology", "ncbi.rds"))
