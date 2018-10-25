@@ -41,7 +41,7 @@ species
 5
 </td>
 <td style="text-align:right;">
-467
+286
 </td>
 <td style="text-align:right;">
 2
@@ -99,10 +99,10 @@ genus
 klebsiella
 </td>
 <td style="text-align:right;">
-82
+46
 </td>
 <td style="text-align:right;">
-17.3
+15.6
 </td>
 </tr>
 <tr>
@@ -119,10 +119,10 @@ genus
 escherichia
 </td>
 <td style="text-align:right;">
-58
+37
 </td>
 <td style="text-align:right;">
-12.2
+12.6
 </td>
 </tr>
 <tr>
@@ -139,10 +139,10 @@ genus
 staphylococcus
 </td>
 <td style="text-align:right;">
-38
+22
 </td>
 <td style="text-align:right;">
-8.0
+7.5
 </td>
 </tr>
 <tr>
@@ -159,30 +159,10 @@ species group
 pseudomonas aeruginosa group
 </td>
 <td style="text-align:right;">
-22
+12
 </td>
 <td style="text-align:right;">
-4.6
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-species
-</td>
-<td style="text-align:left;">
-neisseria gonorrhoeae
-</td>
-<td style="text-align:left;">
-genus
-</td>
-<td style="text-align:left;">
-neisseria
-</td>
-<td style="text-align:right;">
-20
-</td>
-<td style="text-align:right;">
-4.2
+4.1
 </td>
 </tr>
 <tr>
@@ -199,10 +179,30 @@ species group
 acinetobacter calcoaceticus/baumannii complex
 </td>
 <td style="text-align:right;">
-19
+11
 </td>
 <td style="text-align:right;">
-4.0
+3.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+species
+</td>
+<td style="text-align:left;">
+neisseria gonorrhoeae
+</td>
+<td style="text-align:left;">
+genus
+</td>
+<td style="text-align:left;">
+neisseria
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+3.4
 </td>
 </tr>
 <tr>
@@ -219,10 +219,30 @@ genus
 salmonella
 </td>
 <td style="text-align:right;">
-18
+9
 </td>
 <td style="text-align:right;">
-3.8
+3.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+species
+</td>
+<td style="text-align:left;">
+achromobacter xylosoxidans
+</td>
+<td style="text-align:left;">
+genus
+</td>
+<td style="text-align:left;">
+achromobacter
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+1.7
 </td>
 </tr>
 <tr>
@@ -239,10 +259,10 @@ species group
 citrobacter freundii complex
 </td>
 <td style="text-align:right;">
-10
+5
 </td>
 <td style="text-align:right;">
-2.1
+1.7
 </td>
 </tr>
 <tr>
@@ -259,30 +279,10 @@ species group
 enterobacter cloacae complex
 </td>
 <td style="text-align:right;">
-10
+5
 </td>
 <td style="text-align:right;">
-2.1
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-species
-</td>
-<td style="text-align:left;">
-enterococcus faecium
-</td>
-<td style="text-align:left;">
-genus
-</td>
-<td style="text-align:left;">
-enterococcus
-</td>
-<td style="text-align:right;">
-10
-</td>
-<td style="text-align:right;">
-2.1
+1.7
 </td>
 </tr>
 </tbody>
@@ -326,18 +326,18 @@ drug name
 <tbody>
 <tr>
 <td style="text-align:right;">
-572
+576
 </td>
 <td style="text-align:right;">
-1417
+1432
 </td>
 <td style="text-align:right;">
-9
+15
 </td>
 </tr>
 </tbody>
 </table>
-count by name and parent (note that dups have not yet been handled 10/23/18)
+Count by name and parent (note that dups have not yet been handled 10/23/18)
 
 ``` r
 drugs_sum <- drugs %>%
@@ -381,10 +381,10 @@ ceftazidime
 cephaloridine
 </td>
 <td style="text-align:right;">
-105
+106
 </td>
 <td style="text-align:right;">
-5.3
+5.2
 </td>
 </tr>
 <tr>
@@ -398,10 +398,10 @@ imipenem
 thienamycins
 </td>
 <td style="text-align:right;">
-98
+101
 </td>
 <td style="text-align:right;">
-4.9
+5.0
 </td>
 </tr>
 <tr>
@@ -418,7 +418,7 @@ aminoglycosides
 96
 </td>
 <td style="text-align:right;">
-4.8
+4.7
 </td>
 </tr>
 <tr>
@@ -435,7 +435,7 @@ fluoroquinolones
 92
 </td>
 <td style="text-align:right;">
-4.6
+4.5
 </td>
 </tr>
 <tr>
@@ -449,7 +449,7 @@ meropenem
 thienamycins
 </td>
 <td style="text-align:right;">
-87
+89
 </td>
 <td style="text-align:right;">
 4.4
@@ -466,7 +466,7 @@ cefepime
 cephalosporins
 </td>
 <td style="text-align:right;">
-77
+79
 </td>
 <td style="text-align:right;">
 3.9
@@ -483,10 +483,27 @@ piperacillin, tazobactam drug combination
 penicillanic acid
 </td>
 <td style="text-align:right;">
-68
+70
 </td>
 <td style="text-align:right;">
-3.4
+3.5
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+drug group
+</td>
+<td style="text-align:left;">
+ampicillin
+</td>
+<td style="text-align:left;">
+penicillin g
+</td>
+<td style="text-align:right;">
+67
+</td>
+<td style="text-align:right;">
+3.3
 </td>
 </tr>
 <tr>
@@ -503,7 +520,7 @@ cephacetrile
 67
 </td>
 <td style="text-align:right;">
-3.4
+3.3
 </td>
 </tr>
 <tr>
@@ -518,23 +535,6 @@ kanamycin
 </td>
 <td style="text-align:right;">
 67
-</td>
-<td style="text-align:right;">
-3.4
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-drug group
-</td>
-<td style="text-align:left;">
-ampicillin
-</td>
-<td style="text-align:left;">
-penicillin g
-</td>
-<td style="text-align:right;">
-66
 </td>
 <td style="text-align:right;">
 3.3
@@ -552,7 +552,145 @@ ggplot(drugs_sum[drugs_sum$percent > 1,], aes(x = reorder(mesh_preferred_label, 
 
 ![](data_summary_files/figure-markdown_github/unnamed-chunk-4-1.png)
 
+-----------------Bacteria + Drugs links-----------------
+
 ``` r
-# next: 
-# drug + disease pairs 
+paired_segments <- list(bacteria, drugs) %>%
+  map(., ~ mutate(.x, join_id = ifelse(
+    c(
+      grepl("drug resisted", code_identifiers_link) &
+        grepl("binomial", code_identifiers_link)
+    ), code_identifiers, NA
+  ))) %>%
+  map(., ~ select(.x, -code_identifiers, -code_identifiers_link, -segment, -code_main)) %>%
+  reduce(full_join) %>%
+  filter(!is.na(ncbi_preferred_label), !is.na(mesh_preferred_label)) %>%
+  mutate(bacteria_drug_pair = paste(ncbi_preferred_label, mesh_preferred_label, sep = " - "))
 ```
+
+    ## Joining, by = c("study_id", "join_id")
+
+Count by combo
+
+``` r
+paired_segments_count <- paired_segments %>%
+  group_by(bacteria_drug_pair) %>%
+  count(sort = TRUE) %>%
+  ungroup() %>%
+  filter(n > 15)
+
+paired_segments_count %>%
+  slice(1:10) %>%
+  kable() 
+```
+
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+bacteria\_drug\_pair
+</th>
+<th style="text-align:right;">
+n
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+klebsiella pneumoniae - ceftazidime
+</td>
+<td style="text-align:right;">
+27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+klebsiella pneumoniae - imipenem
+</td>
+<td style="text-align:right;">
+24
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+klebsiella pneumoniae - meropenem
+</td>
+<td style="text-align:right;">
+23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+escherichia coli - imipenem
+</td>
+<td style="text-align:right;">
+21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+escherichia coli - meropenem
+</td>
+<td style="text-align:right;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+klebsiella pneumoniae - ertapenem
+</td>
+<td style="text-align:right;">
+19
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+klebsiella pneumoniae - cefepime
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+klebsiella pneumoniae - cefotaxime
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+klebsiella pneumoniae - ciprofloxacin
+</td>
+<td style="text-align:right;">
+18
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+klebsiella pneumoniae - aztreonam
+</td>
+<td style="text-align:right;">
+17
+</td>
+</tr>
+</tbody>
+</table>
+``` r
+sub_paired_segments <- paired_segments %>%
+  select(ncbi_preferred_label, mesh_preferred_label, bacteria_drug_pair) %>%
+  rename(bacteria = ncbi_preferred_label, drug = mesh_preferred_label) %>% 
+  filter(bacteria_drug_pair %in% paired_segments_count$bacteria_drug_pair)
+
+ggparallel(list("drug", "bacteria"), 
+           data=as.data.frame(sub_paired_segments), 
+           text.angle=0) +
+  scale_fill_brewer(palette="Paired") +
+  scale_colour_brewer(palette="Paired") +
+  theme_bw()+
+  theme(legend.position = "none")
+```
+
+![](data_summary_files/figure-markdown_github/unnamed-chunk-5-1.png)

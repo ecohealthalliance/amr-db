@@ -10,8 +10,8 @@ library(here)
 # ARO - The Antibiotic Resistance Ontology that serves as the primary organizing principle 
 # of the CARD.
 
-card_aro <- get_ontology(here("data", "card-ontology", "as_received", "aro.obo"), extract_tags="everything")
-card_ncbi <- get_ontology(here("data", "card-ontology", "as_received", "ncbi_taxonomy.obo"), extract_tags="everything")
+card_aro <- get_ontology(here("data-raw", "card-ontology", "as_received", "aro.obo"), extract_tags="everything")
+card_ncbi <- get_ontology(here("data-raw", "card-ontology", "as_received", "ncbi_taxonomy.obo"), extract_tags="everything")
 
 card_aro$name <- tolower(card_aro$name)
 card_ncbi$name <- tolower(card_ncbi$name)
