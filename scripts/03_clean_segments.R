@@ -24,7 +24,7 @@ segments_raw <- map_dfr(files, ~read_xlsx(.x, col_types = "text")) %>%
          end_page, 
          end_off)
 
-# save(segments_raw, file = here("data", "segments_raw.RData"))
+ save(segments_raw, file = here("data", "segments_raw.RData"))
 
 # create offset range col
 segments_raw %<>%
@@ -83,7 +83,7 @@ code_id_letters <- map2(LETTERS, LETTERS, ~paste0(.x, .y)) %>%
 
 
 # clean up segments database. keep segment_ls just in case something looks funky
-segments_db <- segments_grp %>%
+segments <- segments_grp %>%
   mutate(code_identifiers = map(codes, function(x) x[x %in% code_id_letters]), 
          code_main =  map(codes, function(x) x[!x %in% code_id_letters])) %>%
   select(-matches_str, -length_codes, -range, -codes)
@@ -100,7 +100,7 @@ check_orphan_ids <- function(code_id_vec, code_main_vec) {
   return(check_vec)
 }
 
-review_codes <- segments_db %>% 
+review_codes <- segments %>% 
   mutate(code_identifiers_check = map2(.$code_identifiers, .$code_main, ~check_orphan_ids(.x, .y)))
 
 # codes that need review because the number of identifier codes does not match the number of main codes
@@ -115,11 +115,11 @@ fixed_codes <- problem_id_codes %>%
 # ^ there are 2 cases where there are more main codes than id codes. These are just notes on the doc. ommiting for now
 
 # attach back fixed codes
-segments_db <- review_codes %>%
+segments <- review_codes %>%
   filter(code_identifiers_check != "check") %>%
   rbind(., fixed_codes)
 
-# < once orphan_ids are checked, rejoin to segments_db also from google doc > 
+# < once orphan_ids are checked, rejoin to segments also from google doc > 
 
 # Unnest Codes for Final Segments DB  -----------------------------
 
@@ -137,7 +137,7 @@ rep_na_for_unnest <- function(code_id_vec, code_main_len) {
 # attach back fixed codes from above, and prepare for unnesting, 
 # unnest so each code and id have their own observation (gets rid of list column)
 # separate code category from main code 
-segments_db %<>%
+segments %<>%
   mutate(code_identifiers = map2(.$code_identifiers, .$code_main, ~rep_na_for_unnest(.x, length(.y)))) %>%
   select(-segment_all, -code_identifiers_check) %>% 
   unnest(code_main, code_identifiers) %>%
@@ -146,24 +146,24 @@ segments_db %<>%
   mutate(segment = stri_replace_all_regex(segment, c("\r\n",  "- "), c("", ""), vectorize_all = FALSE)) 
 
 # get vector of excluded study IDs
-excluded_studies <- segments_db %>%
+excluded_studies <- segments %>%
   filter(code_main_cat == "exclusion") %>% 
   pull(study_id) %>% 
   unique()
 
 # omit excluded study Ds from final database
-segments_db %<>%
+segments %<>%
   filter(!study_id %in% excluded_studies)
 
 # collapse travel locations
-segments_db %<>%
+segments %<>%
   group_by(study_id, code_main_cat, code_identifiers, code_main) %>%
   mutate(segment = ifelse(code_main=="place traveled to", paste(segment, collapse = "|"), segment)) %>% #summarize not working b/c dups in data
   unique() %>%
   ungroup()
 
 # Add code_identifiers_link to provide linked fields for code identifiers
-code_links <- segments_db %>%
+code_links <- segments %>%
   filter(!is.na(code_identifiers)) %>%
   group_by(study_id, code_identifiers) %>%
   summarize(code_identifiers_link = paste(sort(unique(code_main)), collapse = "; ")) %>%
@@ -179,9 +179,9 @@ code_links_solo <- code_links %>%
 code_links %<>% mutate(code_identifiers_link = ifelse(grepl("\\;", code_identifiers_link), code_identifiers_link, NA)) 
 
 # Join into segments db
-segments_db %<>%
+segments %<>%
   left_join(., code_links) %>%
   mutate(code_identifiers = ifelse(is.na(code_identifiers_link), NA, code_identifiers)) 
   
 # final segments db
-write_csv(segments_db, path = here("data", "segments_db.csv"))
+write_csv(segments, path = here("data", "segments.csv"))
