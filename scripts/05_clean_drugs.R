@@ -10,7 +10,7 @@ library(googlesheets)
 # read in data
 segments_db <- read_csv(here("data", "segments_db.csv"))
 cleaned_drug_codes <-
-  gs_read(gs_title("amr_db_clean_drugs")) %>% as.tibble() %>% filter(new != "--") %>% #google spreadsheet with field cleanup
+  gs_read(gs_title("amr_db_clean_drugs")) %>% filter(new != "--") %>% #google spreadsheet with field cleanup
   mutate(segment = paste0("^", segment, "$"))
 
 # drug codes dataframe with manual corrections
@@ -55,7 +55,7 @@ dups_segs_with_NA_code <- drugs %>%
            duplicated(segment, fromLast = TRUE)) %>%
   mutate(code_identifiers = ifelse(code_identifiers == "", "NA", code_identifiers)) %>%
   summarize(code_identifiers = paste(code_identifiers, collapse = "|")) %>%
-  filter(grepl("NA", code_identifiers))
+  filter(grepl("NA", code_identifiers), segment_combo==FALSE)
 
 # studies with missing codes
 articles_db <- read_csv(here("data", "articles_db.csv"))
@@ -63,12 +63,17 @@ studies_missing_drugs <- segments_db %>%
   filter(!study_id %in% drugs$study_id) %>%
   select(study_id) %>%
   unique() %>%
-  left_join(., articles_db %>% select(study_id, mex_name))
-#gs_new("amr_db_missing_drugs", input=studies_missing_drugs)
+  left_join(., articles_db %>% select(study_id, mex_name)) %>%
+  arrange(study_id)
+#gs_new("amr_db_missing_drugs_study_id", input=studies_missing_drugs)
+
+# compare with list of studies that were evaluated for missing drug codes
+missing_list <- gs_read(gs_title("amr_db_missing_drugs_study_id")) 
+studies_missing_drugs %<>% left_join(., missing_list)
 
 # MESH drug ontology-----------------
 
-mesh0 <- mesh0 <- read_csv(here("data-raw", "mesh-ontology", "mesh_raw.zip")) %>% #downloaded from bioportal: https://bioportal.bioontology.org/ontologies/MESH?p=summary
+mesh0 <- read_csv(here("data-raw", "mesh-ontology", "as_received", "MESH.csv.zip")) %>% #downloaded directly from bioportal: https://bioportal.bioontology.org/ontologies/MESH?p=summary
   clean_names() %>%
   select(class_id, preferred_label, synonyms, definitions, hm, parents, pa, mn) %>%
   mutate_at(vars(class_id, parents), funs(gsub("http://purl.bioontology.org/ontology/MESH/", "", .))) %>%
@@ -134,13 +139,13 @@ drugs %<>%
   
 # Check matches with MESH ontology-----------------
 
-drugs_unique <- drugs %>%
-  select(-study_id,-code_identifiers,-code_main) %>%
-  unique()
+no_match <- drugs %>%
+  filter(is.na(mesh_id)) %>%
+  group_by(segment) %>%
+  summarize(study_id = paste(unique(study_id, collapse = ", ")))
 
-no_match <- drugs_unique %>%
-  filter(is.na(mesh_id))
-match <- drugs_unique %>%
-  filter(!is.na(mesh_id))
+# compare with list of studies that were previously cleaned
+clean_list <- gs_read(gs_title("amr_db_clean_drugs")) 
+no_match %<>% left_join(., clean_list)
 
 write_csv(drugs, here("data", "drugs_db.csv"))
