@@ -34,7 +34,7 @@ drugs <- segments_db %>%
 
 # separate out drug combos
 drugs %<>%
-  mutate(segment_combo = ifelse(grepl("\\/", segment), TRUE, FALSE),
+  mutate(segment_drug_combo = ifelse(grepl("\\/", segment), TRUE, FALSE),
          segment = str_split(segment, "\\/")) %>%
   unnest()
 
@@ -45,17 +45,17 @@ drugs %<>%
 
 # identify duplicate drugs in studies
 dups_segs_with_same_code <- drugs %>%
-  group_by(study_id, segment_combo, code_identifiers, segment) %>%
+  group_by(study_id, segment_drug_combo, code_identifiers, segment) %>%
   filter(duplicated(segment) |
            duplicated(segment, fromLast = TRUE)) ####This dup was created by the clean drug replacement and is to be confirmed in the study
 
 dups_segs_with_NA_code <- drugs %>%
-  group_by(study_id, segment_combo, segment) %>%
+  group_by(study_id, segment_drug_combo, segment) %>%
   filter(duplicated(segment) |
            duplicated(segment, fromLast = TRUE)) %>%
   mutate(code_identifiers = ifelse(code_identifiers == "", "NA", code_identifiers)) %>%
   summarize(code_identifiers = paste(code_identifiers, collapse = "|")) %>%
-  filter(grepl("NA", code_identifiers), segment_combo==FALSE)
+  filter(grepl("NA", code_identifiers), segment_drug_combo==FALSE)
 
 # studies with missing codes
 articles_db <- read_csv(here("data", "articles_db.csv"))
@@ -88,59 +88,59 @@ drugs %<>% left_join(., mesh)
 drugs %<>%
   left_join(.,
             mesh0 %>% select(class_id, preferred_label),
-            by = c("mesh_id" = "class_id")) %>%
-  rename(mesh_preferred_label = preferred_label)
+            by = c("drug_id" = "class_id")) %>%
+  rename(drug_preferred_label = preferred_label)
 
 # get mesh class (c or d) and associated parent ID
 # c = Class 1 Supplementary Records - Chemicals (These records are dedicated to chemicals and are primarily heading mapped to the D tree descriptors.)
 # d = D tree for drugs and chemicals,
 drugs %<>%
   mutate(
-    mesh_class = substr(mesh_id, 1, 1),
-    mesh_class_desc = ifelse(mesh_class == "c", "supp", "desc"),
-    mesh_parent_id = ifelse(mesh_class == "c", mesh_hm, mesh_parents)
+    drug_class = substr(drug_id, 1, 1),
+    drug_class_desc = ifelse(drug_class == "c", "supp", "desc"),
+    drug_parent_id = ifelse(drug_class == "c", drug_hm, drug_parents)
   ) %>%
-  separate(mesh_parent_id,
-           c("mesh_parent_id", "mesh_parent_id_qualifier"),
+  separate(drug_parent_id,
+           c("drug_parent_id", "drug_parent_id_qualifier"),
            "/") %>% #warning is ok
-  mutate(mesh_parent_id = str_split(mesh_parent_id, "\\|")) %>%  unnest() %>%
-  mutate(mesh_pa_id = str_split(mesh_pa, "\\|")) %>%  unnest()
+  mutate(drug_parent_id = str_split(drug_parent_id, "\\|")) %>%  unnest() %>%
+  mutate(drug_pa_id = str_split(drug_pa, "\\|")) %>%  unnest()
 
 # get mesh parent name and pharmacological action (pa) name
 drugs %<>%
   left_join(.,
             mesh0 %>% select(class_id, preferred_label),
-            by = c("mesh_parent_id" = "class_id")) %>%
-  rename("mesh_parent_name" = preferred_label) %>%
+            by = c("drug_parent_id" = "class_id")) %>%
+  rename("drug_parent_name" = preferred_label) %>%
   left_join(.,
             mesh0 %>% select(class_id, preferred_label),
-            by = c("mesh_pa_id" = "class_id")) %>%
-  rename("mesh_pa_name" = preferred_label) %>%
-  select(-mesh_hm,-mesh_parents,-mesh_pa)
+            by = c("drug_pa_id" = "class_id")) %>%
+  rename("drug_pa_name" = preferred_label) %>%
+  select(-drug_hm,-drug_parents,-drug_pa)
   #TODO get qualifier name
 
 # classify as group or drug based on tree (if terminal -> drug, otherwise class)
 drugs_tree <- drugs %>%
-  select(mesh_preferred_label, mesh_mn, mesh_class) %>%
-  filter(mesh_class != "c") %>% #remove supp concepts (these are terminal)
+  select(drug_preferred_label, drug_mn, drug_class) %>%
+  filter(drug_class != "c") %>% #remove supp concepts (these are terminal)
   distinct() %>%
-  mutate(mesh_mn = str_split(mesh_mn, "\\|")) %>%
+  mutate(drug_mn = str_split(drug_mn, "\\|")) %>%
   unnest() 
 
 drugs_tree_terminal <- drugs_tree %>%
-  mutate(mesh_mn_match_count = map_int(mesh_mn, function(x) length(grep(x, mesh0$mn)))) %>%
-  group_by(mesh_preferred_label) %>%
-  summarize(mesh_mn_match_count = paste(unique(mesh_mn_match_count), collapse = ", ")) %>%
-  filter(mesh_mn_match_count == "1") %>%
-  pull(mesh_preferred_label)
+  mutate(drug_mn_match_count = map_int(drug_mn, function(x) length(grep(x, mesh0$mn)))) %>%
+  group_by(drug_preferred_label) %>%
+  summarize(drug_mn_match_count = paste(unique(drug_mn_match_count), collapse = ", ")) %>%
+  filter(drug_mn_match_count == "1") %>%
+  pull(drug_preferred_label)
        
 drugs %<>% 
-  mutate(mesh_rank = ifelse(mesh_class=="c" | mesh_preferred_label %in% drugs_tree_terminal, "drug name", "drug group"))
+  mutate(drug_rank = ifelse(drug_class=="c" | drug_preferred_label %in% drugs_tree_terminal, "drug name", "drug group"))
   
 # Check matches with MESH ontology-----------------
 
 no_match <- drugs %>%
-  filter(is.na(mesh_id)) %>%
+  filter(is.na(drug_id)) %>%
   group_by(segment) %>%
   summarize(study_id = paste(unique(study_id, collapse = ", ")))
 

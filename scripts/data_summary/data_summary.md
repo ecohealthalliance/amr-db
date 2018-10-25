@@ -9,9 +9,9 @@ Count by rank
 
 ``` r
 bacteria %>%
-  group_by(ncbi_rank) %>%
+  group_by(bacteria_rank) %>%
   count() %>% 
-  spread(ncbi_rank, n) %>%
+  spread(bacteria_rank, n) %>%
   kable() 
 ```
 
@@ -53,7 +53,7 @@ Count by name and parent
 
 ``` r
 bacteria_sum <- bacteria %>%
-  group_by(ncbi_rank, ncbi_preferred_label, ncbi_parent_rank, ncbi_parent_name) %>%
+  group_by(bacteria_rank, bacteria_preferred_label, bacteria_parent_rank, bacteria_parent_name) %>%
   count(sort = TRUE) %>%
   mutate(percent = round(100*n/nrow(bacteria), 1)) %>%
   ungroup()
@@ -65,16 +65,16 @@ kable(bacteria_sum %>% slice(1:10))
 <thead>
 <tr>
 <th style="text-align:left;">
-ncbi\_rank
+bacteria\_rank
 </th>
 <th style="text-align:left;">
-ncbi\_preferred\_label
+bacteria\_preferred\_label
 </th>
 <th style="text-align:left;">
-ncbi\_parent\_rank
+bacteria\_parent\_rank
 </th>
 <th style="text-align:left;">
-ncbi\_parent\_name
+bacteria\_parent\_name
 </th>
 <th style="text-align:right;">
 n
@@ -288,7 +288,7 @@ enterobacter cloacae complex
 </tbody>
 </table>
 ``` r
-ggplot(bacteria_sum[bacteria_sum$n > 4,], aes(x = reorder(ncbi_preferred_label, -n), y = n)) +
+ggplot(bacteria_sum[bacteria_sum$n > 4,], aes(x = reorder(bacteria_preferred_label, -n), y = n)) +
   geom_bar(stat = "identity", fill = "green3") +
   labs(x = "Most common species", y = "Number of studies") +
   theme_bw() +
@@ -303,9 +303,9 @@ Count by rank
 
 ``` r
 drugs %>%
-  group_by(mesh_rank) %>%
+  group_by(drug_rank) %>%
   count() %>% 
-  spread(mesh_rank, n) %>%
+  spread(drug_rank, n) %>%
   kable() 
 ```
 
@@ -341,7 +341,7 @@ Count by name and parent (note that dups have not yet been handled 10/23/18)
 
 ``` r
 drugs_sum <- drugs %>%
-  group_by(mesh_rank, mesh_preferred_label, mesh_parent_name) %>%
+  group_by(drug_rank, drug_preferred_label, drug_parent_name) %>%
   count(sort = TRUE) %>%
   mutate(percent = round(100*n/nrow(drugs), 1)) %>%
   ungroup()
@@ -353,13 +353,13 @@ kable(drugs_sum %>% slice(1:10))
 <thead>
 <tr>
 <th style="text-align:left;">
-mesh\_rank
+drug\_rank
 </th>
 <th style="text-align:left;">
-mesh\_preferred\_label
+drug\_preferred\_label
 </th>
 <th style="text-align:left;">
-mesh\_parent\_name
+drug\_parent\_name
 </th>
 <th style="text-align:right;">
 n
@@ -543,7 +543,7 @@ kanamycin
 </tbody>
 </table>
 ``` r
-ggplot(drugs_sum[drugs_sum$percent > 1,], aes(x = reorder(mesh_preferred_label, -n), y = n, fill = mesh_rank)) +
+ggplot(drugs_sum[drugs_sum$percent > 1,], aes(x = reorder(drug_preferred_label, -n), y = n, fill = drug_rank)) +
   geom_bar(stat = "identity") +
   labs(x = "Most common drugs", y = "Number of studies") +
   theme_bw() +
@@ -564,8 +564,8 @@ paired_segments <- list(bacteria, drugs) %>%
   ))) %>%
   map(., ~ select(.x, -code_identifiers, -code_identifiers_link, -segment, -code_main)) %>%
   reduce(full_join) %>%
-  filter(!is.na(ncbi_preferred_label), !is.na(mesh_preferred_label)) %>%
-  mutate(bacteria_drug_pair = paste(ncbi_preferred_label, mesh_preferred_label, sep = " - "))
+  filter(!is.na(bacteria_preferred_label), !is.na(drug_preferred_label)) %>%
+  mutate(bacteria_drug_pair = paste(bacteria_preferred_label, drug_preferred_label, sep = " - "))
 ```
 
     ## Joining, by = c("study_id", "join_id")
@@ -680,8 +680,8 @@ klebsiella pneumoniae - aztreonam
 </table>
 ``` r
 sub_paired_segments <- paired_segments %>%
-  select(ncbi_preferred_label, mesh_preferred_label, bacteria_drug_pair) %>%
-  rename(bacteria = ncbi_preferred_label, drug = mesh_preferred_label) %>% 
+  select(bacteria_preferred_label, drug_preferred_label, bacteria_drug_pair) %>%
+  rename(bacteria = bacteria_preferred_label, drug = drug_preferred_label) %>% 
   filter(bacteria_drug_pair %in% paired_segments_count$bacteria_drug_pair)
 
 ggparallel(list("drug", "bacteria"), 

@@ -80,12 +80,12 @@ ncbi0 <- read_csv(here("data-raw", "ncbi-ontology", "as_received", "NCBITAXON.cs
 ncbi <- read_rds(here("data-raw", "ncbi-ontology", "ncbi.rds")) #ncbi data from clean_ncbi.r
 
 # get abbreviated gen/spe
-ncbi_abbr <- ncbi %>%
-  filter(ncbi_div == "bacteria", ncbi_rank == "species") %>%
+bacteria_abbr <- ncbi %>%
+  filter(bacteria_div == "bacteria", bacteria_rank == "species") %>%
   mutate(segment = paste(substr(segment, 1, 1), gsub(".* ", "", segment)),
-         ncbi_segment_name_class = "abbreviation")
+         bacteria_segment_name_class = "abbreviation")
 
-ncbi %<>% bind_rows(., ncbi_abbr)
+ncbi %<>% bind_rows(., bacteria_abbr)
 
 # join into bacteria data frame for gen/spe
 bacteria_genspe <- bacteria %>% 
@@ -96,29 +96,29 @@ bacteria_genspe <- bacteria %>%
 bacteria_genspe %<>%
   left_join(.,
             ncbi0 %>% select(class_id, preferred_label),
-            by = c("ncbi_id" = "class_id")) %>%
-  rename(ncbi_preferred_label = preferred_label)
+            by = c("bacteria_id" = "class_id")) %>%
+  rename(bacteria_preferred_label = preferred_label)
 
 # get ncbi parent name and rank
 bacteria_genspe %<>%
   left_join(.,
             ncbi0 %>% select(class_id, preferred_label, rank),
-            by = c("ncbi_parents" = "class_id")) %>%
-  rename(ncbi_parent_name = preferred_label, ncbi_parent_rank = rank) %>%
-  select(-ncbi_parents)
+            by = c("bacteria_parents" = "class_id")) %>%
+  rename(bacteria_parent_name = preferred_label, bacteria_parent_rank = rank) %>%
+  select(-bacteria_parents)
 
 # check matches
 bacteria_genspe_unique <- bacteria_genspe %>%
-  select(segment, ncbi_id, code_main) %>%
+  select(segment, bacteria_id, code_main) %>%
   unique()
 
 no_match <- bacteria_genspe_unique %>%
-  filter(is.na(ncbi_id))  %>%
+  filter(is.na(bacteria_id))  %>%
   group_by(code_main) %>%
   count()
 
 match <- bacteria_genspe_unique %>%
-  filter(!is.na(ncbi_id))  %>%
+  filter(!is.na(bacteria_id))  %>%
   group_by(code_main) %>%
   count()
 
