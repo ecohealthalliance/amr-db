@@ -1,4 +1,4 @@
-study_id,segment,code_main,code_identifiers,code_identifiers_link,ncbi_id,ncbi_definitions,ncbi_rank,ncbi_div,ncbi_segment_name_class,ncbi_preferred_label,ncbi_parent_name,ncbi_parent_rank
+study_id,segment,code_main,code_identifiers,code_identifiers_link,bacteria_id,bacteria_definitions,bacteria_rank,bacteria_div,bacteria_segment_name_class,bacteria_preferred_label,bacteria_parent_name,bacteria_parent_rank
 10020,k pneumoniae,binomial (genus species),NA,NA,573,NA,species,bacteria,abbreviation,klebsiella pneumoniae,klebsiella,genus
 10081,mycobacterium szulgai,binomial (genus species),NA,NA,1787,NA,species,bacteria,preferred_label,mycobacterium szulgai,mycobacterium,genus
 10083,streptococcus pneumoniae,binomial (genus species),NA,NA,1313,NA,species,bacteria,preferred_label,streptococcus pneumoniae,streptococcus,genus
