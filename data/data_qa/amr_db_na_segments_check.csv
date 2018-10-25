@@ -1,0 +1,15 @@
+study_id,segment,code,begin_page,begin_off,end_page,end_off,mex_name
+14089,NA,Exclusion: no resistance or did not name antibiotic/antibiotic,2, 53|377,2, 87|389,zm_2_2.mex
+7213,NA,Exclusion: Not first case in country,2, 100|654,2, 521|678,zm_3_2.mex
+15037,NA,Exclusion:Review article,1, 38|557,1, 467|588,zm_3_4.mex
+15037,NA,Exclusion: no resistance or did not name antibiotic/antibiotic,1, 38|557,1, 467|588,zm_3_4.mex
+15140,NA,Exclusion: Not first case in country,1, 37|163,1, 159|175,zm_3_4.mex
+17934,NA,Exclusion: not full text article,1, 73|464,1, 137|488,zm_3_4.mex
+18229,NA,Exclusion: Not first case in country,1, 322|306,1, 569|341,zm_3_4.mex
+15574,NA,Exclusion: Not first case in country,1, 27|425,1, 564|509,zm_3_4.mex
+19250,NA,Exclusion: Not first case in country,1, 27|599,1, 566|636,zm_3_5.mex
+22668,NA,Event year,4, 307|661,4, 327|671,zm_3_5.mex
+23761,NA,Exclusion: not full text article,1, 230|734,1, 409|767,zm_3_5.mex
+13495,NA,Exclusion: Not first case in country,4, 110|724,4, 513|755,zm_6_2.mex
+23766,NA,Notes,2, 322|572,2, 576|601,zm_6_4.mex
+7611,NA,Notes,1, 34|671,1, 409|724,zm_7_1.mex

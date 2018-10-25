@@ -1,0 +1,310 @@
+study_id,code_identifiers,code_identifiers_link,event_id,city,country,residence_location,hospital,state_province_district,travel_location_city,travel_location_country,travel_location_id,study_location_basis,study_location,travel_location_basis,travel_location,lon_travel,lat_travel,lon_residence,lat_residence,lon,lat
+10020,NA,NA,10020_1,new delhi,india,the netherlands,NA,NA,NA,india,travel_loc_1,"city, country","new delhi, india",country,india,78.96288,20.593684,5.291265999999999,52.132633,77.2090212,28.6139391
+10081,NA,NA,10081_1,NA,united states,mexico,NA,california,NA,,travel_loc_1,"state_province_district, country","california, united states",country,,NA,NA,-102.552784,23.634501,-119.4179324,36.778261
+10083,NA,NA,10083_1,seoul,south korea,NA,samsung medical center,NA,NA,,travel_loc_1,"hospital, city, country","samsung medical center, seoul, south korea",country,,NA,NA,NA,NA,127.0855952,37.4881568
+10209,NA,NA,10209_1,NA,nigeria,NA,NA,NA,NA,,travel_loc_1,country,nigeria,country,,NA,NA,NA,NA,8.675277,9.081999
+10221,NA,NA,10221_1,NA,france,NA,paul brousse hospital,NA,NA,greece,travel_loc_1,"hospital, country","paul brousse hospital, france",country,greece,21.824312,39.074208,NA,NA,2.3636751,48.7948463
+10248,NA,NA,10248_1,athens,greece,NA,laiko general hospital,NA,NA,,travel_loc_1,"hospital, city, country","laiko general hospital, athens, greece",country,,NA,NA,NA,NA,23.7653281,37.9833861
+10259,NA,NA,10259_1,NA,united states,NA,NA,NA,NA,,travel_loc_1,country,united states,country,,NA,NA,NA,NA,-95.712891,37.09024
+10260,NA,NA,10260_1,honolulu,united states,NA,NA,hawaii,san francisco, california,travel_loc_1,"city, state_province_district, country","honolulu, hawaii, united states","city, country","san francisco,  california",-122.4194155,37.7749295,NA,NA,-157.8583333,21.3069444
+10300,NA,NA,10300_1,NA,japan,NA,NA,NA,NA,,travel_loc_1,country,japan,country,,NA,NA,NA,NA,138.252924,36.204824
+10443,NA,NA,10443_1,NA,india,NA,NA,NA,NA,,travel_loc_1,country,india,country,,NA,NA,NA,NA,78.96288,20.593684
+10445,NA,NA,10445_1,pune,india,NA,NA,NA,NA,,travel_loc_1,"city, country","pune, india",country,,NA,NA,NA,NA,73.8567437,18.5204303
+10450,NA,NA,10450_1,kafr el-sheikh city,egypt,NA,public hospital,NA,NA,,travel_loc_1,"hospital, city, country","public hospital, kafr el-sheikh city, egypt",country,,NA,NA,NA,NA,30.9426713,31.1165211
+10634,NA,NA,10634_1,seoul,south korea,NA,NA,NA,NA,,travel_loc_1,"city, country","seoul, south korea",country,,NA,NA,NA,NA,126.9779692,37.566535
+10703,NA,NA,10703_1,NA,thailand,NA,NA,NA,NA,,travel_loc_1,country,thailand,country,,NA,NA,NA,NA,100.992541,15.870032
+1080,NA,NA,1080_1,NA,egypt,NA,NA,NA,NA,,travel_loc_1,country,egypt,country,,NA,NA,NA,NA,30.802498,26.820553
+11176,NA,NA,11176_1,NA,japan,japan,NA,NA,NA,,travel_loc_1,country,japan,country,,NA,NA,138.252924,36.204824,138.252924,36.204824
+11201,NA,NA,11201_1,bratislava,slovakia,NA,"university hospital (tertiary hospital in bratislava, slovakia)",NA,NA,,travel_loc_1,"hospital, city, country","university hospital (tertiary hospital in bratislava, slovakia), bratislava, slovakia",country,,NA,NA,NA,NA,17.1521074,48.1549942
+11202,NA,NA,11202_1,bratislava,slovakia,NA,university hospital,NA,NA,,travel_loc_1,"hospital, city, country","university hospital, bratislava, slovakia",country,,NA,NA,NA,NA,17.1172786,48.15077369999999
+11303,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district,11303_1,toronto,canada,NA,NA,ontario,NA,,travel_loc_1,"city, state_province_district, country","toronto, ontario, canada",country,,NA,NA,NA,NA,-79.3831843,43.653226
+11303,bb,age; binomial (genus species); comorbidities; country; drug resisted; place traveled to; resistance marker; sex; state/province/district; symptoms/disease,11303_1,NA,canada,NA,NA,ontario,NA,india,travel_loc_2,"state_province_district, country","ontario, canada",country,india,78.96288,20.593684,NA,NA,-85.323214,51.253775
+11384,NA,NA,11384_1,NA,canada,NA,NA,NA,NA,,travel_loc_1,country,canada,country,,NA,NA,NA,NA,-106.346771,56.130366
+11395,NA,NA,11395_1,NA,tunisia,NA,NA,NA,NA,,travel_loc_1,country,tunisia,country,,NA,NA,NA,NA,9.537499,33.886917
+11406,NA,NA,11406_1,NA,taiwan,NA,NA,NA,NA,china,travel_loc_1,country,taiwan,country,china,104.195397,35.86166,NA,NA,120.960515,23.69781
+11413,NA,NA,11413_1,NA,taiwan,NA,NA,NA,NA,,travel_loc_1,country,taiwan,country,,NA,NA,NA,NA,120.960515,23.69781
+11508,a,age; drug resisted; event month; event year; mic; sex; state/province/district,11508_1,NA,NA,NA,NA,new jersey,NA,,travel_loc_1,state_province_district,new jersey,country,,NA,NA,NA,NA,-74.4056612,40.0583238
+11508,b,age; event date; state/province/district,11508_1,NA,NA,NA,NA,new jersey,NA,,travel_loc_2,state_province_district,new jersey,country,,NA,NA,NA,NA,-74.4056612,40.0583238
+11508,c,state/province/district; symptoms/disease,11508_1,NA,NA,NA,NA,new jersey,NA,,travel_loc_3,state_province_district,new jersey,country,,NA,NA,NA,NA,-74.4056612,40.0583238
+1151,NA,NA,1151_1,NA,congo,NA,NA,NA,NA,,travel_loc_1,country,congo,country,,NA,NA,NA,NA,21.758664,-4.038333
+11510,NA,NA,11510_1,quebec,canada,NA,NA,NA,NA,,travel_loc_1,"city, country","quebec, canada",country,,NA,NA,NA,NA,-73.5491361,52.9399159
+11797,NA,NA,11797_1,seoul,south korea,NA,NA,NA,NA,,travel_loc_1,"city, country","seoul, south korea",country,,NA,NA,NA,NA,126.9779692,37.566535
+1198,NA,NA,1198_1,pordenone,italy,NA,s. maria degli angeli regional hospital,NA,NA,,travel_loc_1,"hospital, city, country","s. maria degli angeli regional hospital, pordenone, italy",country,,NA,NA,NA,NA,12.6528061,45.9680876
+11983,NA,NA,11983_1,johannesburg,south africa,NA,NA,NA,NA,,travel_loc_1,"city, country","johannesburg, south africa",country,,NA,NA,NA,NA,28.0473051,-26.2041028
+12065,NA,NA,12065_1,hangzhou,china,NA,NA,NA,NA,,travel_loc_1,"city, country","hangzhou, china",country,,NA,NA,NA,NA,120.15507,30.274084
+12188,NA,NA,12188_1,NA,japan,NA,NA,NA,NA,,travel_loc_1,country,japan,country,,NA,NA,NA,NA,138.252924,36.204824
+12344,NA,NA,12344_1,NA,china,NA,NA,NA,NA,,travel_loc_1,country,china,country,,NA,NA,NA,NA,104.195397,35.86166
+12359,NA,NA,12359_1,beijing,china,china,NA,NA,NA,,travel_loc_1,"city, country","beijing, china",country,,NA,NA,104.195397,35.86166,116.4073963,39.90419989999999
+12403,NA,NA,12403_1,saint louis,senegal,NA,NA,NA,NA,,travel_loc_1,"city, country","saint louis, senegal",country,,NA,NA,NA,NA,-16.4818167,16.0326307
+12482,NA,NA,12482_1,houston,united states,NA,houston methodist hospital,texas,NA,,travel_loc_1,"hospital, city, state_province_district, country","houston methodist hospital, houston, texas, united states",country,,NA,NA,NA,NA,-95.3996829,29.7107772
+1288,NA,NA,1288_1,montevideo,uruguay,NA,hospital pasteur of montevideo,NA,NA,,travel_loc_1,"hospital, city, country","hospital pasteur of montevideo, montevideo, uruguay",country,,NA,NA,NA,NA,-56.138406,-34.8750846
+12887,NA,NA,12887_1,NA,tunisia,NA,NA,NA,NA,,travel_loc_1,country,tunisia,country,,NA,NA,NA,NA,9.537499,33.886917
+12905,NA,NA,12905_1,bialystok,poland,NA,medical university of bialystok,NA,NA,,travel_loc_1,"hospital, city, country","medical university of bialystok, bialystok, poland",country,,NA,NA,NA,NA,23.1653094,53.13058119999999
+13015,NA,NA,13015_1,puducherry,india,NA,jawaharlal institute of postgraduate  medical education and research (jipmer),NA,NA,,travel_loc_1,"hospital, city, country","jawaharlal institute of postgraduate  medical education and research (jipmer), puducherry, india",country,,NA,NA,NA,NA,79.7996963,11.9503023
+13129,NA,NA,13129_1,caracas,venezuela,NA,hospital de niños ―j.m de los ríos‖,NA,NA,,travel_loc_1,"hospital, city, country","hospital de niños ―j.m de los ríos‖, caracas, venezuela",country,,NA,NA,NA,NA,-66.89958469999999,10.5068404
+13223,NA,NA,13223_1,punta del este,uruguay,NA,the ‘sanatorio mautone’,NA,NA,,travel_loc_1,"hospital, city, country","the ‘sanatorio mautone’, punta del este, uruguay",country,,NA,NA,NA,NA,-54.9620056,-34.9142712
+13308,NA,NA,13308_1,são paulo,brazil,NA,NA,NA,NA,,travel_loc_1,"city, country","são paulo, brazil",country,,NA,NA,NA,NA,-46.63330939999999,-23.5505199
+13370,NA,NA,13370_1,calgary,canada,canada,NA,alberta,new delhi, india,travel_loc_1,"city, state_province_district, country","calgary, alberta, canada","city, country","new delhi,  india",77.2090212,28.6139391,-106.346771,56.130366,-114.0708459,51.0486151
+13376,NA,NA,13376_1,charlottesville,united states,NA,university of virginia medical center (uvamc),virginia,riyadh, saudi arabia,travel_loc_1,"hospital, city, state_province_district, country","university of virginia medical center (uvamc), charlottesville, virginia, united states","city, country","riyadh,  saudi arabia",46.6752957,24.7135517,NA,NA,-78.501032,38.0319019
+13399,NA,NA,13399_1,delhi,india,NA,vmmc and associated safdarjung hospital,NA,NA,,travel_loc_1,"hospital, city, country","vmmc and associated safdarjung hospital, delhi, india",country,,NA,NA,NA,NA,77.2031046,28.569075
+13465,NA,NA,13465_1,manali,india,japan,NA,NA,NA,china,travel_loc_1,"city, country","manali, india",country,china,104.195397,35.86166,138.252924,36.204824,77.1887145,32.2396325
+13465,NA,NA,13465_1,manali,india,japan,NA,NA,NA,india,travel_loc_2,"city, country","manali, india",country,india,78.96288,20.593684,138.252924,36.204824,77.1887145,32.2396325
+13465,NA,NA,13465_1,manali,india,japan,NA,NA,NA,myanmar,travel_loc_3,"city, country","manali, india",country,myanmar,95.955974,21.916221,138.252924,36.204824,77.1887145,32.2396325
+13465,NA,NA,13465_1,manali,india,japan,NA,NA,NA,thailand,travel_loc_4,"city, country","manali, india",country,thailand,100.992541,15.870032,138.252924,36.204824,77.1887145,32.2396325
+13465,NA,NA,13465_1,manali,india,japan,NA,NA,NA,nepal,travel_loc_5,"city, country","manali, india",country,nepal,84.12400799999999,28.394857,138.252924,36.204824,77.1887145,32.2396325
+13490,NA,NA,13490_1,NA,france,NA,NA,NA,NA,,travel_loc_1,country,france,country,,NA,NA,NA,NA,2.213749,46.227638
+13548,NA,NA,13548_1,NA,ireland,NA,NA,NA,kolkata,india,travel_loc_1,country,ireland,"city, country","kolkata, india",88.36389500000001,22.572646,NA,NA,-7.692053599999999,53.1423672
+13557,NA,NA,13557_1,st. louis,NA,NA,NA,missouri,NA,,travel_loc_1,"city, state_province_district","st. louis, missouri",country,,NA,NA,NA,NA,-90.19940419999999,38.6270025
+13592,NA,NA,13592_1,NA,papua new guinea,NA,NA,western province,NA,,travel_loc_1,"state_province_district, country","western province, papua new guinea",country,,NA,NA,NA,NA,142.3613378,-7.584644
+13741,NA,NA,13741_1,são paulo,brazil,NA,universidade federal,NA,NA,,travel_loc_1,"hospital, city, country","universidade federal, são paulo, brazil",country,,NA,NA,NA,NA,-46.6278675,-23.7193221
+13772,NA,NA,13772_1,marseille,france,NA,hôpital timone,NA,NA,,travel_loc_1,"hospital, city, country","hôpital timone, marseille, france",country,,NA,NA,NA,NA,5.40274,43.291719
+13794,NA,NA,13794_1,a coruña,spain,NA,university hospital a coruña,NA,NA,portugal,travel_loc_1,"hospital, city, country","university hospital a coruña, a coruña, spain",country,portugal,-8.224454,39.39987199999999,NA,NA,-8.388385099999999,43.3441977
+13804,NA,NA,13804_1,rio de janeiro,brazil,NA,NA,NA,NA,,travel_loc_1,"city, country","rio de janeiro, brazil",country,,NA,NA,NA,NA,-43.1728965,-22.9068467
+13994,NA,NA,13994_1,NA,canada,NA,NA,NA,NA,india,travel_loc_1,country,canada,country,india,78.96288,20.593684,NA,NA,-106.346771,56.130366
+14082,NA,NA,14082_1,lihir island,papua new guinea,NA,lihir medical center,NA,NA,,travel_loc_1,"hospital, city, country","lihir medical center, lihir island, papua new guinea",country,,NA,NA,NA,NA,152.6290689,-3.0676778
+14126,NA,NA,14126_1,sfax,tunisia,NA,sfax habib bourguiba hospital,NA,NA,,travel_loc_1,"hospital, city, country","sfax habib bourguiba hospital, sfax, tunisia",country,,NA,NA,NA,NA,10.7482127,34.7402677
+14130,NA,NA,14130_1,NA,united states,NA,NA,NA,NA,pakistan,travel_loc_1,country,united states,country,pakistan,69.34511599999999,30.375321,NA,NA,-95.712891,37.09024
+14233,NA,NA,14233_1,islamabad,pakistan,NA,NA,NA,NA,,travel_loc_1,"city, country","islamabad, pakistan",country,,NA,NA,NA,NA,73.04788479999999,33.6844202
+14287,NA,NA,14287_1,NA,italy,NA,NA,NA,NA,,travel_loc_1,country,italy,country,,NA,NA,NA,NA,12.56738,41.87194
+14404,NA,NA,14404_1,osaka,japan,NA,NA,NA,NA,,travel_loc_1,"city, country","osaka, japan",country,,NA,NA,NA,NA,135.5021651,34.6937378
+14571,NA,NA,14571_1,vancouver,canada,NA,NA,british  columbia,NA,,travel_loc_1,"city, state_province_district, country","vancouver, british  columbia, canada",country,,NA,NA,NA,NA,-123.1207375,49.2827291
+14616,NA,NA,14616_1,buenaventura,colombia,NA,NA,NA,NA,,travel_loc_1,"city, country","buenaventura, colombia",country,,NA,NA,NA,NA,-77.01972119999999,3.8830471
+14740,NA,NA,14740_1,kanto,NA,NA,NA,NA,NA,southeast asia,travel_loc_1,city,kanto,country,southeast asia,115.66283,-2.2179704,NA,NA,-97.37190299999999,27.705549
+14751,NA,NA,14751_1,beirut,lebanon,NA,american university of beirut medical center,NA,NA,,travel_loc_1,"hospital, city, country","american university of beirut medical center, beirut, lebanon",country,,NA,NA,NA,NA,35.486152,33.897885
+14823,NA,NA,14823_1,tokyo,japan,japan,jikei university hospital,NA,NA,india,travel_loc_1,"hospital, city, country","jikei university hospital, tokyo, japan",country,india,78.96288,20.593684,138.252924,36.204824,139.7515282,35.6636096
+14906,NA,NA,14906_1,NA,israel,NA,tel aviv medical center,NA,NA,,travel_loc_1,"hospital, country","tel aviv medical center, israel",country,,NA,NA,NA,NA,34.7647153,32.0720466
+1495,NA,NA,1495_1,newark,united states,united states,saint michael’s medical center,new jersey,NA,,travel_loc_1,"hospital, city, state_province_district, country","saint michael’s medical center, newark, new jersey, united states",country,,NA,NA,-95.712891,37.09024,-74.17456800000001,40.74393
+15,NA,NA,15_1,marseille,france,NA,casamance hospital,NA,NA,,travel_loc_1,"hospital, city, country","casamance hospital, marseille, france",country,,NA,NA,NA,NA,5.5311109,43.2762106
+15256,NA,NA,15256_1,split,croatia,NA,university hospital centre split,NA,NA,,travel_loc_1,"hospital, city, country","university hospital centre split, split, croatia",country,,NA,NA,NA,NA,16.4579764,43.5037301
+15268,NA,NA,15268_1,belgrade,serbia,NA,institute for mother and child healthcare,NA,NA,,travel_loc_1,"hospital, city, country","institute for mother and child healthcare, belgrade, serbia",country,,NA,NA,NA,NA,20.4029235,44.83191739999999
+15331,NA,NA,15331_1,limerick,ireland,NA,university hospital limerick (uhl),NA,NA,,travel_loc_1,"hospital, city, country","university hospital limerick (uhl), limerick, ireland",country,,NA,NA,NA,NA,-8.653955,52.6352017
+15337,NA,NA,15337_1,NA,ireland,NA,NA,NA,NA,,travel_loc_1,country,ireland,country,,NA,NA,NA,NA,-7.692053599999999,53.1423672
+15378,NA,NA,15378_1,mexico city,méxico,NA,hospital infantil de méxico federico gómez (himfg),NA,NA,,travel_loc_1,"hospital, city, country","hospital infantil de méxico federico gómez (himfg), mexico city, méxico",country,,NA,NA,NA,NA,-99.1520204,19.410614
+15475,NA,NA,15475_1,NA,france,france,NA,NA,mecca,saudi arabia,travel_loc_1,country,france,"city, country","mecca, saudi arabia",39.8579118,21.3890824,2.213749,46.227638,2.213749,46.227638
+15475,NA,NA,15475_1,NA,france,france,NA,NA,medina,saudi arabia,travel_loc_2,country,france,"city, country","medina, saudi arabia",39.5691841,24.5246542,2.213749,46.227638,2.213749,46.227638
+15632,NA,NA,15632_1,NA,finland,NA,hus,NA,NA,greece,travel_loc_1,"hospital, country","hus, finland",country,greece,21.824312,39.074208,NA,NA,24.922504,60.1810951
+15632,NA,NA,15632_1,NA,finland,NA,hus,NA,NA,italy,travel_loc_2,"hospital, country","hus, finland",country,italy,12.56738,41.87194,NA,NA,24.922504,60.1810951
+15654,NA,NA,15654_1,NA,denmark,denmark,NA,NA,NA,,travel_loc_1,country,denmark,country,,NA,NA,9.501785,56.26392,9.501785,56.26392
+1566,NA,NA,1566_1,NA,italy,NA,NA,NA,NA,,travel_loc_1,country,italy,country,,NA,NA,NA,NA,12.56738,41.87194
+15760,NA,NA,15760_1,NA,italy,NA,NA,NA,NA,,travel_loc_1,country,italy,country,,NA,NA,NA,NA,12.56738,41.87194
+15936,NA,NA,15936_1,athens,NA,NA,aglaia kyriakou pediatric hospital,NA,NA,,travel_loc_1,"hospital, city","aglaia kyriakou pediatric hospital, athens",country,,NA,NA,NA,NA,23.7678473,37.9852228
+15946,NA,NA,15946_1,athens,greece,NA,“iatrikon athinon” medical center,NA,NA,,travel_loc_1,"hospital, city, country","“iatrikon athinon” medical center, athens, greece",country,,NA,NA,NA,NA,23.7275388,37.9838096
+16248,NA,NA,16248_1,NA,india,canada,NA,NA,NA,india,travel_loc_1,country,india,country,india,78.96288,20.593684,-106.346771,56.130366,78.96288,20.593684
+16251,NA,NA,16251_1,pretoria,south africa,NA,NA,gauteng,NA,,travel_loc_1,"city, state_province_district, country","pretoria, gauteng, south africa",country,,NA,NA,NA,NA,28.2292712,-25.7478676
+16267,NA,NA,16267_1,pittsburgh,united states,NA,university of pittsburgh medical center,pennsylvania,NA,,travel_loc_1,"hospital, city, state_province_district, country","university of pittsburgh medical center, pittsburgh, pennsylvania, united states",country,,NA,NA,NA,NA,-79.961006,40.4425937
+1652,NA,NA,1652_1,havana,cuba,germany,NA,NA,NA,cuba,travel_loc_1,"city, country","havana, cuba",country,cuba,-77.781167,21.521757,10.451526,51.165691,-82.3665956,23.1135925
+16584,NA,NA,16584_1,NA,brazil,NA,NA,paraná,NA,,travel_loc_1,"state_province_district, country","paraná, brazil",country,,NA,NA,NA,NA,-52.0215415,-25.2520888
+16713,NA,NA,16713_1,NA,malaysia,NA,kuala lumpur hospital,NA,NA,,travel_loc_1,"hospital, country","kuala lumpur hospital, malaysia",country,,NA,NA,NA,NA,101.70181,3.1715251
+16715,NA,NA,16715_1,rabat,morocco,NA,NA,NA,NA,,travel_loc_1,"city, country","rabat, morocco",country,,NA,NA,NA,NA,-6.8498129,33.9715904
+16726,NA,NA,16726_1,nairobi,kenya,NA,aga khan university hospital,NA,NA,,travel_loc_1,"hospital, city, country","aga khan university hospital, nairobi, kenya",country,,NA,NA,NA,NA,36.824348,-1.2616306
+16801,NA,NA,16801_1,vogroño,spain,spain,NA,NA,NA,,travel_loc_1,"city, country","vogroño, spain",country,,NA,NA,-3.74922,40.46366700000001,-3.74922,40.46366700000001
+16837,NA,NA,16837_1,NA,iran,NA,NA,NA,NA,,travel_loc_1,country,iran,country,,NA,NA,NA,NA,53.688046,32.427908
+17121,NA,NA,17121_1,tripoli,lebanon,syria,government hospital of kobbe,NA,NA,syria,travel_loc_1,"hospital, city, country","government hospital of kobbe, tripoli, lebanon",country,syria,38.996815,34.80207499999999,38.996815,34.80207499999999,35.8602605,34.4374228
+17169,NA,NA,17169_1,mysore,india,NA,jss medical college,NA,NA,,travel_loc_1,"hospital, city, country","jss medical college, mysore, india",country,,NA,NA,NA,NA,76.652721,12.3444424
+17611,NA,NA,17611_1,NA,australia,NA,NA,NA,perth,canada,travel_loc_1,country,australia,"city, country","perth, canada",-76.2485592,44.8988097,NA,NA,133.775136,-25.274398
+17611,NA,NA,17611_1,NA,australia,NA,NA,NA,new york city,new york,travel_loc_2,country,australia,"city, country","new york city, new york",-74.0059728,40.7127753,NA,NA,133.775136,-25.274398
+17611,NA,NA,17611_1,NA,australia,NA,NA,NA,NA,hawaii,travel_loc_3,country,australia,country,hawaii,-155.5827818,19.8967662,NA,NA,133.775136,-25.274398
+17611,NA,NA,17611_1,NA,australia,NA,NA,NA,vancouver,canada,travel_loc_4,country,australia,"city, country","vancouver, canada",-123.1207375,49.2827291,NA,NA,133.775136,-25.274398
+17611,NA,NA,17611_1,NA,australia,NA,NA,NA,honolulu,usa,travel_loc_5,country,australia,"city, country","honolulu, usa",-157.8583333,21.3069444,NA,NA,133.775136,-25.274398
+17649,NA,NA,17649_1,aligarh,india,NA,jawaharlal nehru medical college,NA,NA,,travel_loc_1,"hospital, city, country","jawaharlal nehru medical college, aligarh, india",country,,NA,NA,NA,NA,78.0857405,27.918604
+17819,NA,NA,17819_1,NA,spain,NA,NA,NA,NA,,travel_loc_1,country,spain,country,,NA,NA,NA,NA,-3.74922,40.46366700000001
+1786,NA,NA,1786_1,NA,croatia,NA,clinical hospital center zagreb,NA,NA,,travel_loc_1,"hospital, country","clinical hospital center zagreb, croatia",country,,NA,NA,NA,NA,15.9855239,45.8191725
+17942,NA,NA,17942_1,rio de janeiro,NA,NA,NA,NA,NA,,travel_loc_1,city,rio de janeiro,country,,NA,NA,NA,NA,-43.1728965,-22.9068467
+1806,NA,NA,1806_1,rajamundry,india,NA,NA,andhra pradesh,NA,,travel_loc_1,"city, state_province_district, country","rajamundry, andhra pradesh, india",country,,NA,NA,NA,NA,81.8040345,17.0005383
+18073,NA,NA,18073_1,rochester,NA,NA,NA,minnesota,NA,,travel_loc_1,"city, state_province_district","rochester, minnesota",country,,NA,NA,NA,NA,-92.4801989,44.0121221
+18158,NA,NA,18158_1,NA,japan,NA,medical hospital of tokyo medical and dental university,NA,NA,brazil,travel_loc_1,"hospital, country","medical hospital of tokyo medical and dental university, japan",country,brazil,-51.92528,-14.235004,NA,NA,139.7643633,35.7014296
+18184,NA,NA,18184_1,NA,NA,united states,NA,NA,NA,india,travel_loc_1,,,country,india,78.96288,20.593684,-95.712891,37.09024,NA,NA
+18265,NA,NA,18265_1,NA,norway,NA,NA,NA,NA,greece,travel_loc_1,country,norway,country,greece,21.824312,39.074208,NA,NA,8.468945999999999,60.47202399999999
+183,NA,NA,183_1,constantine,algeria,NA,military hospital of constantine,NA,NA,tunisia,travel_loc_1,"hospital, city, country","military hospital of constantine, constantine, algeria",country,tunisia,9.537499,33.886917,NA,NA,6.6116171,36.3700086
+18418,NA,NA,18418_1,annaba,algeria,NA,university hospital of annaba,NA,NA,,travel_loc_1,"hospital, city, country","university hospital of annaba, annaba, algeria",country,,NA,NA,NA,NA,7.765345499999999,36.902826
+18438,NA,NA,18438_1,rawalpindi,pakistan,NA,children ward of the military hospital,NA,NA,,travel_loc_1,"hospital, city, country","children ward of the military hospital, rawalpindi, pakistan",country,,NA,NA,NA,NA,73.0430098,33.5937311
+18470,NA,NA,18470_1,NA,italy,NA,NA,NA,NA,,travel_loc_1,country,italy,country,,NA,NA,NA,NA,12.56738,41.87194
+18527,NA,NA,18527_1,NA,NA,NA,NA,NA,NA,iraq,travel_loc_1,,,country,iraq,43.679291,33.223191,NA,NA,NA,NA
+18631,NA,NA,18631_1,NA,NA,NA,NA,NA,NA,,travel_loc_1,,,country,,NA,NA,NA,NA,NA,NA
+18674,NA,NA,18674_1,tubarão,brazil,NA,hospital nossa  senhora da conceição,santa catarina,NA,,travel_loc_1,"hospital, city, state_province_district, country","hospital nossa  senhora da conceição, tubarão, santa catarina, brazil",country,,NA,NA,NA,NA,-49.00294,-28.4804845
+1874,NA,NA,1874_1,NA,israel,NA,NA,NA,NA,,travel_loc_1,country,israel,country,,NA,NA,NA,NA,34.851612,31.046051
+18778,NA,NA,18778_1,NA,united kingdom,united kingdom,alexandra hospital,NA,NA,,travel_loc_1,"hospital, country","alexandra hospital, united kingdom",country,,NA,NA,-3.435973,55.378051,-1.9129407,52.280084
+18818,NA,NA,18818_1,bournemouth,united kingdom,NA,bournemouth hospital,NA,NA,,travel_loc_1,"hospital, city, country","bournemouth hospital, bournemouth, united kingdom",country,,NA,NA,NA,NA,-1.820774,50.745682
+18852,NA,NA,18852_1,zaragoza,spain,NA,the hospital clínico ‘lozano blesa’,NA,NA,,travel_loc_1,"hospital, city, country","the hospital clínico ‘lozano blesa’, zaragoza, spain",country,,NA,NA,NA,NA,-0.9033678999999999,41.6434171
+1887,NA,NA,1887_1,san antonio,NA,NA,university hospital,texas,NA,,travel_loc_1,"hospital, city, state_province_district","university hospital, san antonio, texas",country,,NA,NA,NA,NA,-98.5780561,29.508196
+18945,NA,NA,18945_1,tehran,iran,NA,NA,NA,NA,,travel_loc_1,"city, country","tehran, iran",country,,NA,NA,NA,NA,51.3889736,35.6891975
+18946,NA,NA,18946_1,tehran,iran,NA,NA,NA,NA,india,travel_loc_1,"city, country","tehran, iran",country,india,78.96288,20.593684,NA,NA,51.3889736,35.6891975
+18946,NA,NA,18946_1,tehran,iran,NA,NA,NA,NA,pakistan,travel_loc_2,"city, country","tehran, iran",country,pakistan,69.34511599999999,30.375321,NA,NA,51.3889736,35.6891975
+18947,NA,NA,18947_1,tehran,iran,NA,NA,NA,NA,,travel_loc_1,"city, country","tehran, iran",country,,NA,NA,NA,NA,51.3889736,35.6891975
+18963,NA,NA,18963_1,NA,united states,NA,NA,georgia,NA,,travel_loc_1,"state_province_district, country","georgia, united states",country,,NA,NA,NA,NA,-82.9000751,32.1656221
+19093,NA,NA,19093_1,NA,united states,united states,walter reed army medical center (wramc),"washington, dc",NA,germany,travel_loc_1,"hospital, state_province_district, country","walter reed army medical center (wramc), washington, dc, united states",country,germany,10.451526,51.165691,-95.712891,37.09024,-77.028746,38.976559
+19093,NA,NA,19093_1,NA,united states,united states,walter reed army medical center (wramc),"washington, dc",NA,afghanistan,travel_loc_2,"hospital, state_province_district, country","walter reed army medical center (wramc), washington, dc, united states",country,afghanistan,67.709953,33.93911,-95.712891,37.09024,-77.028746,38.976559
+19152,NA,NA,19152_1,jeonju,south korea,NA,chonbuk national university hospital,NA,NA,,travel_loc_1,"hospital, city, country","chonbuk national university hospital, jeonju, south korea",country,,NA,NA,NA,NA,127.141001,35.846885
+19196,NA,NA,19196_1,NA,iran,NA,NA,NA,NA,,travel_loc_1,country,iran,country,,NA,NA,NA,NA,53.688046,32.427908
+19267,NA,NA,19267_1,NA,united states,NA,NA,michigan,NA,,travel_loc_1,"state_province_district, country","michigan, united states",country,,NA,NA,NA,NA,-85.60236429999999,44.3148443
+19568,NA,NA,19568_1,manerbio,italy,NA,NA,NA,NA,,travel_loc_1,"city, country","manerbio, italy",country,,NA,NA,NA,NA,10.140792,45.3534331
+19607,NA,NA,19607_1,barcelona,spain,spain,the hospital clinic of barcelona,NA,NA,india,travel_loc_1,"hospital, city, country","the hospital clinic of barcelona, barcelona, spain",country,india,78.96288,20.593684,-3.74922,40.46366700000001,2.1522994,41.3895158
+19609,NA,NA,19609_1,barcelona,spain,spain,hospital clinic of barcelona,NA,NA,india,travel_loc_1,"hospital, city, country","hospital clinic of barcelona, barcelona, spain",country,india,78.96288,20.593684,-3.74922,40.46366700000001,2.1522994,41.3895158
+19615,NA,NA,19615_1,kafr el-sheikh,egypt,NA,NA,NA,NA,,travel_loc_1,"city, country","kafr el-sheikh, egypt",country,,NA,NA,NA,NA,30.9419751,31.1063198
+202,NA,NA,202_1,algiers,algeria,NA,hoˆpital central de l’arme´e of algiers,NA,NA,,travel_loc_1,"hospital, city, country","hoˆpital central de l’arme´e of algiers, algiers, algeria",country,,NA,NA,NA,NA,3.0494823,36.794825
+20331,NA,NA,20331_1,kathmandu,nepal,NA,tribhuvan university teaching hospital,NA,NA,,travel_loc_1,"hospital, city, country","tribhuvan university teaching hospital, kathmandu, nepal",country,,NA,NA,NA,NA,85.3302641,27.7360022
+20332,NA,NA,20332_1,kathmandu,nepal,NA,tribhuvan university teaching hospital,NA,NA,,travel_loc_1,"hospital, city, country","tribhuvan university teaching hospital, kathmandu, nepal",country,,NA,NA,NA,NA,85.3302641,27.7360022
+20350,NA,NA,20350_1,bushehr,iran,NA,NA,NA,NA,persian gulf,travel_loc_1,"city, country","bushehr, iran",country,persian gulf,51.6834275,26.7505337,NA,NA,50.820314,28.9233837
+20373,NA,NA,20373_1,tehran,iran,NA,milad hospital,NA,NA,,travel_loc_1,"hospital, city, country","milad hospital, tehran, iran",country,,NA,NA,NA,NA,51.3814979,35.745565
+20553,NA,NA,20553_1,NA,spain,NA,NA,NA,NA,,travel_loc_1,country,spain,country,,NA,NA,NA,NA,-3.74922,40.46366700000001
+20639,NA,NA,20639_1,porto alegre,brazil,NA,NA,NA,NA,,travel_loc_1,"city, country","porto alegre, brazil",country,,NA,NA,NA,NA,-51.2176584,-30.0346471
+2067,NA,NA,2067_1,NA,india,NA,NA,andaman islands,NA,,travel_loc_1,"state_province_district, country","andaman islands, india",country,,NA,NA,NA,NA,92.6586401,11.7400867
+20841,NA,NA,20841_1,brampton,canada,NA,NA,ontario,mumbai, india,travel_loc_1,"city, state_province_district, country","brampton, ontario, canada","city, country","mumbai,  india",72.8776559,19.0759837,NA,NA,-79.7624177,43.7315479
+20899,NA,NA,20899_1,sofia,bulgaria,NA,NA,NA,NA,,travel_loc_1,"city, country","sofia, bulgaria",country,,NA,NA,NA,NA,23.3218675,42.6977082
+21029,NA,NA,21029_1,NA,japan,japan,NA,NA,NA,,travel_loc_1,country,japan,country,,NA,NA,138.252924,36.204824,138.252924,36.204824
+21083,NA,NA,21083_1,santiago de compostela,spain,NA,university hospital complex of santiago de compostela,NA,NA,,travel_loc_1,"hospital, city, country","university hospital complex of santiago de compostela, santiago de compostela, spain",country,,NA,NA,NA,NA,-8.565451900000001,42.8690532
+21149,NA,NA,21149_1,serres,greece,NA,serres general hospital,NA,NA,,travel_loc_1,"hospital, city, country","serres general hospital, serres, greece",country,,NA,NA,NA,NA,23.5822707,41.0901159
+21347,NA,NA,21347_1,NA,austria,NA,NA,NA,NA,germany,travel_loc_1,country,austria,country,germany,10.451526,51.165691,NA,NA,14.550072,47.516231
+21348,NA,NA,21348_1,NA,norway,norway,NA,NA,NA,,travel_loc_1,country,norway,country,,NA,NA,8.468945999999999,60.47202399999999,8.468945999999999,60.47202399999999
+21464,NA,NA,21464_1,veldhoven,the netherlands,NA,NA,NA,NA,,travel_loc_1,"city, country","veldhoven, the netherlands",country,,NA,NA,NA,NA,5.4060209,51.4176337
+21479,NA,NA,21479_1,amsterdam,netherlands,NA,NA,NA,NA,,travel_loc_1,"city, country","amsterdam, netherlands",country,,NA,NA,NA,NA,4.9035614,52.3679843
+21824,NA,NA,21824_1,besançon,france,NA,besançon hospital,NA,NA,,travel_loc_1,"hospital, city, country","besançon hospital, besançon, france",country,,NA,NA,NA,NA,5.9611985,47.22530159999999
+21838,NA,NA,21838_1,charleston,united states,NA,NA,south carolina,NA,,travel_loc_1,"city, state_province_district, country","charleston, south carolina, united states",country,,NA,NA,NA,NA,-79.93105120000001,32.7764749
+22167,NA,NA,22167_1,beijing,china,NA,public hospital,NA,NA,,travel_loc_1,"hospital, city, country","public hospital, beijing, china",country,,NA,NA,NA,NA,116.404743,39.9224518
+22199,NA,NA,22199_1,beijing,china,NA,NA,NA,NA,,travel_loc_1,"city, country","beijing, china",country,,NA,NA,NA,NA,116.4073963,39.90419989999999
+22437,NA,NA,22437_1,tourcoing,NA,NA,dron hospita,france,NA,,travel_loc_1,"hospital, city, state_province_district","dron hospita, tourcoing, france",country,,NA,NA,NA,NA,3.1801727,50.7441021
+22668,NA,NA,22668_1,NA,china,NA,NA,NA,NA,,travel_loc_1,country,china,country,,NA,NA,NA,NA,104.195397,35.86166
+22703,NA,NA,22703_1,NA,united states,NA,NA,new york,NA,,travel_loc_1,"state_province_district, country","new york, united states",country,,NA,NA,NA,NA,-74.0059728,40.7127753
+2302,NA,NA,2302_1,brussels,belgium,NA,NA,NA,NA,,travel_loc_1,"city, country","brussels, belgium",country,,NA,NA,NA,NA,4.3517211,50.8503463
+2303,NA,NA,2303_1,brussels,belgium,NA,NA,NA,NA,pakistan,travel_loc_1,"city, country","brussels, belgium",country,pakistan,69.34511599999999,30.375321,NA,NA,4.3517211,50.8503463
+23039,NA,NA,23039_1,NA,china,NA,the first affiliated hospital of anhui medical university,NA,NA,,travel_loc_1,"hospital, country","the first affiliated hospital of anhui medical university, china",country,,NA,NA,NA,NA,117.268745,31.84583099999999
+23107,NA,NA,23107_1,orebro,sweden,sweden,NA,NA,NA,india,travel_loc_1,"city, country","orebro, sweden",country,india,78.96288,20.593684,18.643501,60.12816100000001,15.2134105,59.2752626
+23248,NA,NA,23248_1,cairo,egypt,NA,kasr al aini hospita,NA,NA,,travel_loc_1,"hospital, city, country","kasr al aini hospita, cairo, egypt",country,,NA,NA,NA,NA,31.2286221,30.0318766
+23251,NA,NA,23251_1,,brazil,NA,NA,parana´,NA,,travel_loc_1,"city, state_province_district, country",", parana´, brazil",country,,NA,NA,NA,NA,-52.0215415,-25.2520888
+23314,NA,NA,23314_1,NA,austria,kosovo,university hospital,NA,NA,india,travel_loc_1,"hospital, country","university hospital, austria",country,india,78.96288,20.593684,20.902977,42.6026359,14.30545,48.3032098
+23314,NA,NA,23314_1,NA,austria,kosovo,university hospital,NA,NA,pakistan,travel_loc_2,"hospital, country","university hospital, austria",country,pakistan,69.34511599999999,30.375321,20.902977,42.6026359,14.30545,48.3032098
+23408,NA,NA,23408_1,NA,china,NA,peking university first hospital,NA,NA,,travel_loc_1,"hospital, country","peking university first hospital, china",country,,NA,NA,NA,NA,116.380416,39.931765
+23491,NA,NA,23491_1,NA,china,NA,NA,NA,NA,,travel_loc_1,country,china,country,,NA,NA,NA,NA,104.195397,35.86166
+23549,NA,NA,23549_1,guangzhou,china,china,guangzhou women and children’s,NA,NA,,travel_loc_1,"hospital, city, country","guangzhou women and children’s, guangzhou, china",country,,NA,NA,104.195397,35.86166,113.320116,23.124263
+23647,NA,NA,23647_1,kuala lumpur,malaysia,NA,kuala lumpur hospital,NA,NA,,travel_loc_1,"hospital, city, country","kuala lumpur hospital, kuala lumpur, malaysia",country,,NA,NA,NA,NA,101.70181,3.1715251
+2372,NA,NA,2372_1,paris,france,NA,NA,NA,NA,algeria,travel_loc_1,"city, country","paris, france",country,algeria,1.659626,28.033886,NA,NA,2.3522219,48.856614
+2389,NA,NA,2389_1,limerick,ireland,NA,mid-western regional hospital,NA,NA,france,travel_loc_1,"hospital, city, country","mid-western regional hospital, limerick, ireland",country,france,2.213749,46.227638,NA,NA,-8.653955,52.6352017
+2389,NA,NA,2389_1,limerick,ireland,NA,mid-western regional hospital,NA,NA,italy,travel_loc_2,"hospital, city, country","mid-western regional hospital, limerick, ireland",country,italy,12.56738,41.87194,NA,NA,-8.653955,52.6352017
+2389,NA,NA,2389_1,limerick,ireland,NA,mid-western regional hospital,NA,NA,israel,travel_loc_3,"hospital, city, country","mid-western regional hospital, limerick, ireland",country,israel,34.851612,31.046051,NA,NA,-8.653955,52.6352017
+2418,NA,NA,2418_1,tokyo,japan,NA,"department of infection control and prevention, tokyo medical university hospital",NA,NA,,travel_loc_1,"hospital, city, country","department of infection control and prevention, tokyo medical university hospital, tokyo, japan",country,,NA,NA,NA,NA,139.6915648,35.6934407
+2419,NA,NA,2419_1,brampton,canada,NA,brampton civic hospital campus (bch),ontario,NA,,travel_loc_1,"hospital, city, state_province_district, country","brampton civic hospital campus (bch), brampton, ontario, canada",country,,NA,NA,NA,NA,-79.7440096,43.7463347
+2487,NA,NA,2487_1,paris,france,NA,trousseau hospital,NA,NA,,travel_loc_1,"hospital, city, country","trousseau hospital, paris, france",country,,NA,NA,NA,NA,2.4054147,48.8425755
+2512,NA,NA,2512_1,NA,bulgaria,NA,NA,NA,NA,,travel_loc_1,country,bulgaria,country,,NA,NA,NA,NA,25.48583,42.733883
+261,NA,NA,261_1,edmonton,canada,canada,NA,alberta,NA,india,travel_loc_1,"city, state_province_district, country","edmonton, alberta, canada",country,india,78.96288,20.593684,-106.346771,56.130366,-113.4909267,53.544389
+2628,NA,NA,2628_1,johannesburg,south africa,NA,NA,NA,NA,,travel_loc_1,"city, country","johannesburg, south africa",country,,NA,NA,NA,NA,28.0473051,-26.2041028
+267,NA,NA,267_1,NA,palestine,NA,NA,NA,NA,,travel_loc_1,country,palestine,country,,NA,NA,NA,NA,35.233154,31.952162
+2697,NA,NA,2697_1,NA,jamaica,NA,NA,NA,NA,,travel_loc_1,country,jamaica,country,,NA,NA,NA,NA,-77.297508,18.109581
+2791,NA,NA,2791_1,atlanta,united states,NA,NA,georgia,NA,,travel_loc_1,"city, state_province_district, country","atlanta, georgia, united states",country,,NA,NA,NA,NA,-84.3879824,33.7489954
+281,NA,NA,281_1,NA,south korea,NA,NA,NA,NA,,travel_loc_1,country,south korea,country,,NA,NA,NA,NA,127.766922,35.907757
+2889,NA,NA,2889_1,madrid,spain,china,hospital universitario ramón y cajal,NA,NA,china,travel_loc_1,"hospital, city, country","hospital universitario ramón y cajal, madrid, spain",country,china,104.195397,35.86166,104.195397,35.86166,-3.694557,40.4876812
+2889,NA,NA,2889_1,madrid,spain,china,hospital universitario ramón y cajal,NA,NA,korea,travel_loc_2,"hospital, city, country","hospital universitario ramón y cajal, madrid, spain",country,korea,127.9784585,37.66399759999999,104.195397,35.86166,-3.694557,40.4876812
+2963,NA,NA,2963_1,pavia,italy,NA,i.r.c.c.s. fondazione s. maugeri in pavia,NA,NA,,travel_loc_1,"hospital, city, country","i.r.c.c.s. fondazione s. maugeri in pavia, pavia, italy",country,,NA,NA,NA,NA,9.1414788,45.2031643
+3060,NA,NA,3060_1,NA,NA,NA,"air force general hospital, pla",NA,NA,,travel_loc_1,hospital,"air force general hospital, pla",country,,NA,NA,NA,NA,NA,NA
+3095,NA,NA,3095_1,NA,rome,NA,NA,NA,NA,,travel_loc_1,country,rome,country,,NA,NA,NA,NA,12.4963655,41.9027835
+3095,NA,NA,3095_1,NA,italy,NA,NA,NA,NA,,travel_loc_2,country,italy,country,,NA,NA,NA,NA,12.56738,41.87194
+3235,NA,NA,3235_1,ohio,united states,NA,NA,NA,NA,,travel_loc_1,"city, country","ohio, united states",country,,NA,NA,NA,NA,-82.90712300000001,40.4172871
+345,NA,NA,345_1,mount hope,trinidad and tobago,NA,NA,NA,NA,,travel_loc_1,"city, country","mount hope, trinidad and tobago",country,,NA,NA,NA,NA,-61.4227551,10.6467643
+3461,NA,NA,3461_1,NA,brazil,NA,NA,mato grosso do sul,NA,,travel_loc_1,"state_province_district, country","mato grosso do sul, brazil",country,,NA,NA,NA,NA,-54.7851531,-20.7722295
+3529,NA,NA,3529_1,NA,greece,NA,NA,NA,NA,,travel_loc_1,country,greece,country,,NA,NA,NA,NA,21.824312,39.074208
+3557,NA,NA,3557_1,NA,NA,NA,NA,NA,NA,congo,travel_loc_1,,,country,congo,21.758664,-4.038333,NA,NA,NA,NA
+3596,NA,NA,3596_1,guangzhou,china,NA,NA,NA,NA,,travel_loc_1,"city, country","guangzhou, china",country,,NA,NA,NA,NA,113.264385,23.12911
+360,NA,NA,360_1,tripoli,lebanon,NA,NA,north lebanon,NA,,travel_loc_1,"city, state_province_district, country","tripoli, north lebanon, lebanon",country,,NA,NA,NA,NA,35.8361633,34.4345947
+3613,NA,NA,3613_1,beijing,china,NA,peking university first hospital,NA,NA,,travel_loc_1,"hospital, city, country","peking university first hospital, beijing, china",country,,NA,NA,NA,NA,116.380416,39.931765
+3622,NA,NA,3622_1,NA,palestine,NA,al-shifa hospital,gaza,NA,,travel_loc_1,"hospital, state_province_district, country","al-shifa hospital, gaza, palestine",country,,NA,NA,NA,NA,34.4429111,31.5243735
+3651,NA,NA,3651_1,NA,china,NA,NA,NA,NA,,travel_loc_1,country,china,country,,NA,NA,NA,NA,104.195397,35.86166
+3722,NA,NA,3722_1,ny,united states,NA,ew york methodist hospital,NA,NA,,travel_loc_1,"hospital, city, country","ew york methodist hospital, ny, united states",country,,NA,NA,NA,NA,-73.9791231,40.6678679
+3799,NA,NA,3799_1,NA,NA,NA,NA,NA,NA,,travel_loc_1,,,country,,NA,NA,NA,NA,NA,NA
+3872,NA,NA,3872_1,NA,philippines,NA,st. luke’s medical center global city,NA,NA,,travel_loc_1,"hospital, country","st. luke’s medical center global city, philippines",country,,NA,NA,NA,NA,121.0232333,14.6225309
+3882,NA,NA,3882_1,NA,tunisia,NA,NA,NA,NA,,travel_loc_1,country,tunisia,country,,NA,NA,NA,NA,9.537499,33.886917
+3910,NA,NA,3910_1,NA,france,NA,NA,NA,NA,,travel_loc_1,country,france,country,,NA,NA,NA,NA,2.213749,46.227638
+404,NA,NA,404_1,NA,saudi arabia,saudi arabia,riyadh military hospital,NA,NA,,travel_loc_1,"hospital, country","riyadh military hospital, saudi arabia",country,,NA,NA,45.079162,23.885942,46.7151211,24.6923351
+4167,NA,NA,4167_1,massa,italy,NA,NA,NA,NA,,travel_loc_1,"city, country","massa, italy",country,,NA,NA,NA,NA,10.1393221,44.03544369999999
+4379,NA,NA,4379_1,NA,new zealand,NA,christchurch hospital,NA,NA,,travel_loc_1,"hospital, country","christchurch hospital, new zealand",country,,NA,NA,NA,NA,172.625825,-43.534003
+4489,NA,NA,4489_1,madrid,spain,NA,ramo´n y cajal university hospital,NA,NA,,travel_loc_1,"hospital, city, country","ramo´n y cajal university hospital, madrid, spain",country,,NA,NA,NA,NA,-3.694557,40.4876812
+4519,NA,NA,4519_1,modena,italy,NA,modena university hospital,NA,NA,india,travel_loc_1,"hospital, city, country","modena university hospital, modena, italy",country,india,78.96288,20.593684,NA,NA,10.9425871,44.6354895
+4581,NA,NA,4581_1,new york,united states,NA,new york hospital queens,new york,NA,,travel_loc_1,"hospital, city, state_province_district, country","new york hospital queens, new york, new york, united states",country,,NA,NA,NA,NA,-73.8251598,40.7473176
+4641,NA,NA,4641_1,beirut,lebanon,NA,saint joseph hospital-raymond and aida najjar polyclinic,NA,NA,,travel_loc_1,"hospital, city, country","saint joseph hospital-raymond and aida najjar polyclinic, beirut, lebanon",country,,NA,NA,NA,NA,35.48868909999999,33.8823566
+4642,NA,NA,4642_1,beirut,lebanon,NA,saint joseph hospital-raymond and aida najjar polyclinic,NA,NA,,travel_loc_1,"hospital, city, country","saint joseph hospital-raymond and aida najjar polyclinic, beirut, lebanon",country,,NA,NA,NA,NA,35.48868909999999,33.8823566
+4776,NA,NA,4776_1,dublin,ireland,NA,NA,NA,NA,,travel_loc_1,"city, country","dublin, ireland",country,,NA,NA,NA,NA,-6.2603097,53.3498053
+5005,NA,NA,5005_1,sakarya,turkey,NA,NA,NA,NA,,travel_loc_1,"city, country","sakarya, turkey",country,,NA,NA,NA,NA,30.4357631,40.6939973
+5091,NA,NA,5091_1,belgrade,serbia,NA,NA,NA,NA,,travel_loc_1,"city, country","belgrade, serbia",country,,NA,NA,NA,NA,20.4489216,44.786568
+5183,NA,NA,5183_1,mangalore,india,NA,NA,NA,NA,,travel_loc_1,"city, country","mangalore, india",country,,NA,NA,NA,NA,74.8559568,12.9141417
+5251,NA,NA,5251_1,NA,kuwait,bedouin,al-sabah hospital,NA,NA,,travel_loc_1,"hospital, country","al-sabah hospital, kuwait",country,,NA,NA,-73.984416,40.68698150000001,47.9019802,29.32637549999999
+5265,NA,NA,5265_1,NA,NA,NA,new york hospital queens,NA,NA,,travel_loc_1,hospital,new york hospital queens,country,,NA,NA,NA,NA,-73.8261739,40.7470077
+5362,NA,NA,5362_1,brno,czech republic,NA,he university hospital brno,NA,NA,,travel_loc_1,"hospital, city, country","he university hospital brno, brno, czech republic",country,,NA,NA,NA,NA,16.5702582,49.1754001
+5449,NA,NA,5449_1,athens,greece,NA,evangelismos hospital,NA,NA,,travel_loc_1,"hospital, city, country","evangelismos hospital, athens, greece",country,,NA,NA,NA,NA,23.7473348,37.9778997
+5451,NA,NA,5451_1,bronx,united states,NA,"children’s hospital at montefiore, albert einstein college of medicine",new york,NA,,travel_loc_1,"hospital, city, state_province_district, country","children’s hospital at montefiore, albert einstein college of medicine, bronx, new york, united states",country,,NA,NA,NA,NA,-73.8460728,40.8486869
+5553,NA,NA,5553_1,NA,india,NA,"glocal medical college and super speciality hospital, uttar pradesh",NA,NA,,travel_loc_1,"hospital, country","glocal medical college and super speciality hospital, uttar pradesh, india",country,,NA,NA,NA,NA,77.63963319999999,30.28988409999999
+5560,NA,NA,5560_1,cleveland,united states,NA,the cleveland clinic,ohio,NA,,travel_loc_1,"hospital, city, state_province_district, country","the cleveland clinic, cleveland, ohio, united states",country,,NA,NA,NA,NA,-81.6207701,41.5027008
+5774,NA,NA,5774_1,beirut,lebanon,NA,american  university of beirut medical center (aub-mc),NA,NA,,travel_loc_1,"hospital, city, country","american  university of beirut medical center (aub-mc), beirut, lebanon",country,,NA,NA,NA,NA,35.486152,33.897885
+579,NA,NA,579_1,recife,brazil,NA,university hospital oswaldo cruz,NA,NA,,travel_loc_1,"hospital, city, country","university hospital oswaldo cruz, recife, brazil",country,,NA,NA,NA,NA,-34.8876378,-8.047677799999999
+580,NA,NA,580_1,recife,brazil,NA,university hospital oswaldo cruz,NA,NA,,travel_loc_1,"hospital, city, country","university hospital oswaldo cruz, recife, brazil",country,,NA,NA,NA,NA,-34.8876378,-8.047677799999999
+591,NA,NA,591_1,buenos aires,argentina,NA,hospital de clínicas josé de san martín,NA,NA,,travel_loc_1,"hospital, city, country","hospital de clínicas josé de san martín, buenos aires, argentina",country,,NA,NA,NA,NA,-58.3999683,-34.5987057
+592,NA,NA,592_1,NA,NA,NA,hospital de clínicas josé de san martín,NA,NA,,travel_loc_1,hospital,hospital de clínicas josé de san martín,country,,NA,NA,NA,NA,-58.3999683,-34.5987057
+5934,NA,NA,5934_1,NA,colombia,NA,NA,NA,NA,,travel_loc_1,country,colombia,country,,NA,NA,NA,NA,-74.297333,4.570868
+5961,NA,NA,5961_1,mallorca,spain,NA,son espases hospital,NA,NA,portugal,travel_loc_1,"hospital, city, country","son espases hospital, mallorca, spain",country,portugal,-8.224454,39.39987199999999,NA,NA,2.6455916,39.6072298
+5961,NA,NA,5961_1,mallorca,spain,NA,son espases hospital,NA,NA,france,travel_loc_2,"hospital, city, country","son espases hospital, mallorca, spain",country,france,2.213749,46.227638,NA,NA,2.6455916,39.6072298
+6314,NA,NA,6314_1,a coruña,spain,NA,a coruña university hospital,NA,NA,,travel_loc_1,"hospital, city, country","a coruña university hospital, a coruña, spain",country,,NA,NA,NA,NA,-8.388385099999999,43.3441977
+6350,NA,NA,6350_1,aveiro,portugal,NA,NA,NA,NA,,travel_loc_1,"city, country","aveiro, portugal",country,,NA,NA,NA,NA,-8.6537539,40.6405055
+6375,NA,NA,6375_1,warsaw,poland,poland,NA,NA,NA,congo,travel_loc_1,"city, country","warsaw, poland",country,congo,21.758664,-4.038333,19.145136,51.919438,21.0122287,52.2296756
+6375,NA,NA,6375_1,warsaw,poland,poland,NA,NA,NA,equatorial africa,travel_loc_2,"city, country","warsaw, poland",country,equatorial africa,-98.6212088,29.4974255,19.145136,51.919438,21.0122287,52.2296756
+6454,NA,NA,6454_1,leicester,united kingdom,NA,university hospital of leicester nhs trust,NA,NA,ethiopia,travel_loc_1,"hospital, city, country","university hospital of leicester nhs trust, leicester, united kingdom",country,ethiopia,40.489673,9.145000000000001,NA,NA,-1.1353772,52.6283184
+6467,NA,NA,6467_1,saint-mandé,france,NA,military  hospital bégin,NA,NA,serbia,travel_loc_1,"hospital, city, country","military  hospital bégin, saint-mandé, france",country,serbia,21.005859,44.016521,NA,NA,2.4253137,48.843381
+6492,NA,NA,6492_1,mérida,venezuela,NA,the andes university hospital in mérida,NA,NA,,travel_loc_1,"hospital, city, country","the andes university hospital in mérida, mérida, venezuela",country,,NA,NA,NA,NA,-71.1590883,8.586649099999999
+6505,NA,NA,6505_1,chicago,united states,NA,cook county hospital,illinois,NA,syria,travel_loc_1,"hospital, city, state_province_district, country","cook county hospital, chicago, illinois, united states",country,syria,38.996815,34.80207499999999,NA,NA,-87.6742879,41.8724775
+661,NA,NA,661_1,NA,colombia,NA,NA,NA,NA,,travel_loc_1,country,colombia,country,,NA,NA,NA,NA,-74.297333,4.570868
+661,NA,NA,661_1,NA,colombia.,NA,NA,NA,NA,,travel_loc_2,country,colombia.,country,,NA,NA,NA,NA,-74.297333,4.570868
+6655,NA,NA,6655_1,NA,italy,NA,NA,florence province,NA,,travel_loc_1,"state_province_district, country","florence province, italy",country,,NA,NA,NA,NA,11.2558136,43.7695604
+6737,NA,NA,6737_1,ohmura city,japan,NA,nagasaki medical center,NA,NA,,travel_loc_1,"hospital, city, country","nagasaki medical center, ohmura city, japan",country,,NA,NA,NA,NA,129.9728933,32.8954905
+6842,NA,NA,6842_1,NA,brazil,NA,NA,NA,NA,,travel_loc_1,country,brazil,country,,NA,NA,NA,NA,-51.92528,-14.235004
+708,NA,NA,708_1,new york,NA,united states,new york methodist hospital,NA,NA,,travel_loc_1,"hospital, city","new york methodist hospital, new york",country,,NA,NA,-95.712891,37.09024,-73.9791231,40.6678679
+7090,NA,NA,7090_1,bali,indonesia,NA,udayana university sanglah hospital,NA,NA,,travel_loc_1,"hospital, city, country","udayana university sanglah hospital, bali, indonesia",country,,NA,NA,NA,NA,115.1723921,-8.7982727
+7108,NA,NA,7108_1,NA,denmark,NA,NA,NA,NA,egypt,travel_loc_1,country,denmark,country,egypt,30.802498,26.820553,NA,NA,9.501785,56.26392
+7108,NA,NA,7108_1,NA,denmark,NA,NA,NA,NA,turkey,travel_loc_2,country,denmark,country,turkey,35.243322,38.963745,NA,NA,9.501785,56.26392
+7369,NA,NA,7369_1,rome,NA,NA,NA,NA,NA,,travel_loc_1,city,rome,country,,NA,NA,NA,NA,12.4963655,41.9027835
+737,NA,NA,737_1,dijon,france,NA,cf centre of the paediatric department of dijon's hospital: the crcm (centre de ressources et de compétences pour la mucoviscidose),burgundy,NA,,travel_loc_1,"hospital, city, state_province_district, country","cf centre of the paediatric department of dijon's hospital: the crcm (centre de ressources et de compétences pour la mucoviscidose), dijon, burgundy, france",country,,NA,NA,NA,NA,5.04148,47.322047
+7437,NA,NA,7437_1,otago,new zealand,NA,NA,NA,NA,,travel_loc_1,"city, country","otago, new zealand",country,,NA,NA,NA,NA,170.1547567,-45.47906709999999
+7440,NA,NA,7440_1,NA,croatia,NA,split university hospital,NA,NA,,travel_loc_1,"hospital, country","split university hospital, croatia",country,,NA,NA,NA,NA,16.4579764,43.5037301
+7494,NA,NA,7494_1,buenos aires,argentina,NA,NA,NA,NA,,travel_loc_1,"city, country","buenos aires, argentina",country,,NA,NA,NA,NA,-58.3815591,-34.6036844
+7585,NA,NA,7585_1,frankfurt,germany,yemen,frankfurt university hospital,NA,mumbai, india,travel_loc_1,"hospital, city, country","frankfurt university hospital, frankfurt, germany","city, country","mumbai,  india",72.8776559,19.0759837,48.516388,15.552727,8.6613099,50.0949387
+7620,NA,NA,7620_1,port elizabeth,south africa,NA,NA,NA,NA,,travel_loc_1,"city, country","port elizabeth, south africa",country,,NA,NA,NA,NA,25.6022423,-33.9608369
+7904,NA,NA,7904_1,NA,south africa,NA,NA,NA,NA,,travel_loc_1,country,south africa,country,,NA,NA,NA,NA,22.937506,-30.559482
+7945,NA,NA,7945_1,chandigarh,india,NA,NA,NA,NA,,travel_loc_1,"city, country","chandigarh, india",country,,NA,NA,NA,NA,76.7794179,30.7333148
+7968,NA,NA,7968_1,yamunanagar,india,NA,NA,haryana,NA,,travel_loc_1,"city, state_province_district, country","yamunanagar, haryana, india",country,,NA,NA,NA,NA,77.2673901,30.1290485
+8089,NA,NA,8089_1,paris,france,NA,robert debré hospital,NA,NA,,travel_loc_1,"hospital, city, country","robert debré hospital, paris, france",country,,NA,NA,NA,NA,2.4013382,48.8794483
+8174,NA,NA,8174_1,aalborg,denmark,NA,aalborg university hospital,NA,NA,,travel_loc_1,"hospital, city, country","aalborg university hospital, aalborg, denmark",country,,NA,NA,NA,NA,9.9061723,57.0381685
+8181,NA,NA,8181_1,cologne,germany,NA,university hospital of cologne,NA,NA,,travel_loc_1,"hospital, city, country","university hospital of cologne, cologne, germany",country,,NA,NA,NA,NA,6.9163165,50.9235591
+8515,NA,NA,8515_1,NA,norway,NA,NA,NA,NA,philippines,travel_loc_1,country,norway,country,philippines,121.774017,12.879721,NA,NA,8.468945999999999,60.47202399999999
+8591,NA,NA,8591_1,adana,turkey,syria,"the teaching hospital, school of medicine, cukurova university",NA,NA,,travel_loc_1,"hospital, city, country","the teaching hospital, school of medicine, cukurova university, adana, turkey",country,,NA,NA,38.996815,34.80207499999999,35.355414,37.059684
+8619,NA,NA,8619_1,saitama,japan,NA,NA,NA,NA,,travel_loc_1,"city, country","saitama, japan",country,,NA,NA,NA,NA,139.6454822,35.8617292
+8653,NA,NA,8653_1,NA,japan,NA,NA,NA,NA,,travel_loc_1,country,japan,country,,NA,NA,NA,NA,138.252924,36.204824
+869,NA,NA,869_1,athens,greece,NA,university general hospital ‘attikon’,NA,NA,,travel_loc_1,"hospital, city, country","university general hospital ‘attikon’, athens, greece",country,,NA,NA,NA,NA,23.6675572,38.0166922
+8842,NA,NA,8842_1,hackensack,NA,NA,NA,new jersey,NA,,travel_loc_1,"city, state_province_district","hackensack, new jersey",country,,NA,NA,NA,NA,-74.0434736,40.8859325
+8862,NA,NA,8862_1,NA,united kingdom,NA,NA,NA,NA,thailand,travel_loc_1,country,united kingdom,country,thailand,100.992541,15.870032,NA,NA,-3.435973,55.378051
+8862,NA,NA,8862_1,NA,united kingdom,NA,NA,NA,NA,malaysia,travel_loc_2,country,united kingdom,country,malaysia,101.975766,4.210484,NA,NA,-3.435973,55.378051
+8948,NA,NA,8948_1,NA,czech republic,NA,NA,north bohemian region,NA,,travel_loc_1,"state_province_district, country","north bohemian region, czech republic",country,,NA,NA,NA,NA,14.9362955,49.8782223
+8950,NA,NA,8950_1,NA,czech republic,NA,NA,north moravian region,NA,greece,travel_loc_1,"state_province_district, country","north moravian region, czech republic",country,greece,21.824312,39.074208,NA,NA,16.7676899,48.9544528
+9,NA,NA,9_1,shim-anzim,iran,NA,NA,NA,NA,,travel_loc_1,"city, country","shim-anzim, iran",country,,NA,NA,NA,NA,53.688046,32.427908
+9010,a,hospital name; mic; outcome; strain,9010_1,NA,NA,NA,second affiliated hospital of nanchang university,NA,NA,,travel_loc_1,hospital,second affiliated hospital of nanchang university,country,,NA,NA,NA,NA,115.9035815,28.6229979
+9010,b,hospital name; mic; outcome; strain,9010_1,NA,NA,NA,first affiliated hospital of nanchang university,NA,NA,,travel_loc_2,hospital,first affiliated hospital of nanchang university,country,,NA,NA,NA,NA,115.865666,28.589639
+9010,NA,NA,9010_1,nanchang,china,NA,NA,NA,NA,,travel_loc_3,"city, country","nanchang, china",country,,NA,NA,NA,NA,115.858197,28.682892
+9045,NA,NA,9045_1,NA,NA,NA,chinese hospital,NA,NA,,travel_loc_1,hospital,chinese hospital,country,,NA,NA,NA,NA,-122.4089419,37.7954961
+9075,NA,NA,9075_1,sichuan,china,NA,NA,NA,karachi, pakistan,travel_loc_1,"city, country","sichuan, china","city, country","karachi,  pakistan",67.0011364,24.8607343,NA,NA,102.8054753,30.26380319999999
+9081,NA,NA,9081_1,NA,china,NA,NA,jiangsu province,NA,,travel_loc_1,"state_province_district, country","jiangsu province, china",country,,NA,NA,NA,NA,119.7889248,33.1401715
+9126,NA,NA,9126_1,los angeles,united states,NA,e ronald reagan ucla medical center,california,NA,,travel_loc_1,"hospital, city, state_province_district, country","e ronald reagan ucla medical center, los angeles, california, united states",country,,NA,NA,NA,NA,-118.4466372,34.065236
+927,NA,NA,927_1,NA,switzerland,NA,NA,geneva,NA,,travel_loc_1,"state_province_district, country","geneva, switzerland",country,,NA,NA,NA,NA,6.1431577,46.2043907
+9340,NA,NA,9340_1,NA,NA,pakistan,NA,NA,NA,,travel_loc_1,,,country,,NA,NA,69.34511599999999,30.375321,NA,NA
+9456,NA,NA,9456_1,karachi,pakistan,NA,NA,NA,NA,,travel_loc_1,"city, country","karachi, pakistan",country,,NA,NA,NA,NA,67.0011364,24.8607343
+9628,a,age; city; comorbidities; country; drug resisted; event month; event year; outcome,9628_1,besançon,france,NA,NA,NA,NA,,travel_loc_1,"city, country","besançon, france",country,,NA,NA,NA,NA,6.024053899999999,47.237829
+9628,b,city; comorbidities; country; drug resisted; event year; sex,9628_1,besançon,france,NA,NA,NA,NA,,travel_loc_2,"city, country","besançon, france",country,,NA,NA,NA,NA,6.024053899999999,47.237829
+9669,NA,NA,9669_1,NA,NA,south korea,NA,NA,NA,,travel_loc_1,,,country,,NA,NA,127.766922,35.907757,NA,NA
+9727,NA,NA,9727_1,medellín,colombia,NA,hospital universitario san vicente  fundación,NA,NA,,travel_loc_1,"hospital, city, country","hospital universitario san vicente  fundación, medellín, colombia",country,,NA,NA,NA,NA,-75.5656503,6.261840599999999
+9733,NA,NA,9733_1,hong kong,china,NA,new territories east cluster hospital,NA,NA,,travel_loc_1,"hospital, city, country","new territories east cluster hospital, hong kong, china",country,,NA,NA,NA,NA,114.22703,22.323359
+9885,NA,NA,9885_1,NA,serbia,NA,NA,balkan region,NA,,travel_loc_1,"state_province_district, country","balkan region, serbia",country,,NA,NA,NA,NA,21.005859,44.016521
+9937,NA,NA,9937_1,cairo,egypt,germany,NA,NA,cairo, egypt,travel_loc_1,"city, country","cairo, egypt","city, country","cairo,  egypt",31.2357116,30.0444196,10.451526,51.165691,31.2357116,30.0444196
+9989,NA,NA,9989_1,tunis,tunisia,NA,national bone marrow transplant centre (nbmtc) of tunisia,NA,NA,,travel_loc_1,"hospital, city, country","national bone marrow transplant centre (nbmtc) of tunisia, tunis, tunisia",country,,NA,NA,NA,NA,10.1815316,36.8064948
+16248,NA,NA,16248_1,alberta,canada,canada,NA,NA,NA,india,travel_loc_2,"city, country","alberta, canada",country,india,78.96288,20.593684,-106.346771,56.130366,-116.5765035,53.9332706
+16248,NA,NA,16248_2,mysore,india,canada,NA,NA,NA,india,travel_loc_3,"city, country","mysore, india",country,india,78.96288,20.593684,-106.346771,56.130366,76.6393805,12.2958104
+23314,NA,NA,23314_1,graz,austria,kosovo,university hospital,NA,NA,india,travel_loc_3,"hospital, city, country","university hospital, graz, austria",country,india,78.96288,20.593684,20.902977,42.6026359,15.4658311,47.0810454
+23314,NA,NA,23314_1,graz,austria,kosovo,university hospital,NA,NA,pakistan,travel_loc_4,"hospital, city, country","university hospital, graz, austria",country,pakistan,69.34511599999999,30.375321,20.902977,42.6026359,15.4658311,47.0810454
+23314,NA,NA,23314_2,pristina,kosovo,kosovo,university hospital,NA,NA,india,travel_loc_5,"hospital, city, country","university hospital, pristina, kosovo",country,india,78.96288,20.593684,20.902977,42.6026359,21.1607975,42.6434827
+23314,NA,NA,23314_2,pristina,kosovo,kosovo,university hospital,NA,NA,pakistan,travel_loc_6,"hospital, city, country","university hospital, pristina, kosovo",country,pakistan,69.34511599999999,30.375321,20.902977,42.6026359,21.1607975,42.6434827
+3799,NA,NA,3799_1,cardiff,NA,NA,NA,NA,NA,,travel_loc_2,city,cardiff,country,,NA,NA,NA,NA,-3.17909,51.48158100000001
+3799,NA,NA,3799_2,liverpool,NA,NA,NA,NA,NA,,travel_loc_3,city,liverpool,country,,NA,NA,NA,NA,-2.9915726,53.4083714
+3095,NA,NA,3095_1,rome,italy,NA,NA,NA,NA,,travel_loc_3,"city, country","rome, italy",country,,NA,NA,NA,NA,12.4963655,41.9027835
+661,NA,NA,661_1,rome,italy,NA,NA,NA,NA,,travel_loc_3,"city, country","rome, italy",country,,NA,NA,NA,NA,12.4963655,41.9027835

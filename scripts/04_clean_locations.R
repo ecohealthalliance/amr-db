@@ -9,10 +9,10 @@ library(here)
 
 # Structure Location Data -----------------
 
-segments_db <- read_csv(here("data", "segments_db.csv"))
+segments <- read_csv(here("data", "segments.csv"))
 
 # structure segments database into location codes dataframe   
-locations <- segments_db %>%
+locations_raw <- segments %>%
   mutate(segment_id = 1:nrow(.)) %>%
   filter(code_main_cat == "location" | code_main == "country of residence") %>%
   select(-code_main_cat) %>%
@@ -34,7 +34,7 @@ locations <- segments_db %>%
 # Later we will refine this to defining events by unique country only, but for now retaining all location info 
 
 # Group codes by "event" (study + code identifiers) and create list columns. Create an event_id column, and omit NA's
-raw_event_locations <- locations %>%
+raw_event_locations <- locations_raw %>%
   group_by(study_id, code_identifiers, code_identifiers_link) %>%
   summarise_all(funs(list)) %>%
   mutate(event_id = paste0(study_id, "_", row_number())) %>%
@@ -70,7 +70,7 @@ unnest_cities_countries <- unnest_cities %>%
   bind_rows(two_countries_fix) 
 
 # Replace NA's with blank (in order to retain all rows when unnesting) and unnest
-event_locations <- unnest_cities_countries %>%
+locations <- unnest_cities_countries %>%
   mutate_at(vars(residence_location, travel_location, hospital, state_province_district), 
             funs(purrr::map(., ~ifelse(length(.x) < 1, ' ', .x)) %>% 
                    unlist(.))) %>%
@@ -87,7 +87,7 @@ cleaned_location_codes <- gs_read(gs_title("amr_db_clean_locs")) %>%
     "2",        "",      NA, 
     "maringa´", "",      NA))
 
-event_locations <- event_locations %<>%
+locations <- locations %<>%
   mutate_at(vars(country, city, hospital, state_province_district, 
                  travel_location, residence_location), 
             funs(stri_replace_all_regex(., cleaned_location_codes$old, cleaned_location_codes$new, 
@@ -104,7 +104,7 @@ state_names  <- tribble( #add countries to cities missing country or state
 )
 
 # Assign countries to cases when state is known but country is not to help fill in this info
-event_locations <- event_locations %>%
+locations <- locations %>%
   left_join(state_names, by="state_province_district", suffix = c("", "_province")) %>%
   mutate(country = ifelse(is.na(country), country_province, country)) %>%
   select(-country_province) %>%
@@ -138,7 +138,7 @@ world_cities <- world.cities %>%
 
 
 # Clean travel city, travel country data points and split into two separate columns 
-event_locations <- event_locations %>%
+locations <- locations %>%
   mutate(travel_location = ifelse(travel_location %in% world_cities$city_country, travel_location,
                                   gsub("\\,", "\\;", travel_location)) %>%
            str_split(., ";") %>%
@@ -159,7 +159,7 @@ event_locations <- event_locations %>%
 register_google(key = Sys.getenv("GOOGLE_MAPS_KEY"))
 
 # Check what information is available for each study location field. Collpase locations fields in order to geocode
-event_locations <- event_locations %>%
+locations <- locations %>%
   mutate(ls = pmap(list(.$hospital, .$city, .$state_province_district, .$country), 
                    function(hospital, city, state_province_district, country) {
                      location_basis_tb <- tribble(
@@ -178,7 +178,7 @@ event_locations <- event_locations %>%
          study_location = map_chr(study_location, ~paste(., collapse = ", "))) %>%
   select(-ls)
 
-event_locations <- event_locations %>%
+locations <- locations %>%
   mutate(ls = map2(.$travel_location_city, .$travel_location_country, 
                    function(city, country) {
                      location_basis_tb <- tribble(
@@ -199,28 +199,41 @@ event_locations <- event_locations %>%
 # Geocode ---------
 
 # prepare a list of locations to be geocoded - 
-# TODO Need to figure out how to trigger update to this as needed
-geocode_locations <- tibble(geocode_loc = c(event_locations$study_location, event_locations$travel_location, event_locations$residence_location)) %>%
+
+geocode_locations <- tibble(geocode_loc = c(locations$study_location, locations$travel_location, locations$residence_location)) %>%
   unique() %>%
   mutate(geocode_loc = ifelse(geocode_loc == "", NA, geocode_loc)) %>%
   na.omit()
 
-if (file.exists(here("data", "geocode_locations_complete.csv")) == TRUE) {
-  read_csv(here("data", "geocode_locations_complete.csv"))
-  message("loaded")
-} else {
-  geocode_locations_complete <- geocode_locations %>%
-    mutate_geocode(geocode_loc)
+# If data has already been geocoded, load geocodes but identify if any new codes exist that need to be geocoded
+
+if (file.exists(here("data-raw", "geocode_locations_complete.csv"))) {
+  former_geocode_locations <- read_csv(here("data-raw", "geocode_locations_complete.csv"))
+  new_to_geocode <- anti_join(geocode_locations, former_geocode_locations) %>%
+    unique()
   
-  write_csv(geocode_locations_complete, here("data", "geocode_locations_complete"))
-  message("saved coordinate data")
-}
+  if (nrow(new_to_geocode) == 0) {
+    geocode_locations_to_use <- former_geocode_locations
+    
+  } else {
+    new_to_geocode %<>%
+      mutate_geocode(geocode_loc)
+    
+    geocode_locations_to_use <- former_geocode_locations %>%
+      rbind(new_to_geocode) }
+  
+  } else {
+    geocode_locations_to_use <- geocode_locations %>%
+      mutate_geocode(geocode_loc) 
+    
+    write_csv(geocode_locations_to_use, here("data-raw", "geocode_locations_complete.csv")) }
 
-locations_db <- event_locations %>%
-  left_join(geocode_locations, by = c("travel_location" = "geocode_loc")) %>%
-  left_join(geocode_locations, by = c("residence_location" = "geocode_loc"), suffix = c("_travel", "_residence")) %>%
-  left_join(geocode_locations, by = c("study_location" = "geocode_loc"))
 
-write_csv(locations_db, here("data", "locations_db.csv"))
+locations <- locations %>%
+  left_join(geocode_locations_to_use, by = c("travel_location" = "geocode_loc")) %>%
+  left_join(geocode_locations_to_use, by = c("residence_location" = "geocode_loc"), suffix = c("_travel", "_residence")) %>%
+  left_join(geocode_locations_to_use, by = c("study_location" = "geocode_loc"))
+
+write_csv(locations, here("data", "locations.csv"))
 
 

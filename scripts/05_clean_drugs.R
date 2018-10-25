@@ -8,7 +8,7 @@ library(googlesheets)
 # Structure Drugs Data and Manual Corrections-----------------
 
 # read in data
-segments_db <- read_csv(here("data", "segments_db.csv"))
+segments_db <- read_csv(here("data", "segments.csv"))
 cleaned_drug_codes <-
   gs_read(gs_title("amr_db_clean_drugs")) %>% filter(new != "--") %>% #google spreadsheet with field cleanup
   mutate(segment = paste0("^", segment, "$"))
@@ -148,4 +148,4 @@ no_match <- drugs %>%
 clean_list <- gs_read(gs_title("amr_db_clean_drugs")) 
 no_match %<>% left_join(., clean_list)
 
-write_csv(drugs, here("data", "drugs_db.csv"))
+write_csv(drugs, here("data", "drugs.csv"))
