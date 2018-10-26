@@ -7,14 +7,16 @@ library(googlesheets)
 
 # Structure Drugs Data and Manual Corrections-----------------
 
-# read in data
-segments_db <- read_csv(here("data", "segments.csv"))
+# Read in data
+segments <- read_csv(here("data", "segments.csv"))
+
+# Import corrections from manual checking
 cleaned_drug_codes <-
   gs_read(gs_title("amr_db_clean_drugs")) %>% filter(new != "--") %>% #google spreadsheet with field cleanup
   mutate(segment = paste0("^", segment, "$"))
 
-# drug codes dataframe with manual corrections
-drugs <- segments_db %>%
+# Drug codes dataframe with manual corrections
+drugs <- segments %>%
   filter(code_main == "drug resisted") %>%
   select(-code_main_cat) %>%
   mutate(
@@ -32,43 +34,29 @@ drugs <- segments_db %>%
     )
   )
 
-# separate out drug combos
+# Separate out drug combos that are not recognized combinations
 drugs %<>%
   mutate(segment_drug_combo = ifelse(grepl("\\/", segment), TRUE, FALSE),
          segment = str_split(segment, "\\/")) %>%
   unnest()
 
 # QA Checks-----------------
-# clean (amr_db_clean_drugs - issue 7 - includes MAXQDA edits)
+# clean (amr_db_clean_drugs - issue 7)
 # dups (amr_db_field_corrections - issue 2)
 # missing (amr_db_missing_drugs - issue 2)
+source(here("scripts", "helper_scripts", "qa.R"))
 
-# identify duplicate drugs in studies
-dups_segs_with_same_code <- drugs %>%
-  group_by(study_id, segment_drug_combo, code_identifiers, segment) %>%
-  filter(duplicated(segment) |
-           duplicated(segment, fromLast = TRUE)) ####This dup was created by the clean drug replacement and is to be confirmed in the study
+# Identify duplicate drugs in studies
+studies_with_dups <- qa_duplicate(drugs, group_vars = c("study_id", "segment_drug_combo", "segment")) %>%
+  filter(segment_drug_combo == FALSE) %>%
+  select(-segment_drug_combo)
 
-dups_segs_with_NA_code <- drugs %>%
-  group_by(study_id, segment_drug_combo, segment) %>%
-  filter(duplicated(segment) |
-           duplicated(segment, fromLast = TRUE)) %>%
-  mutate(code_identifiers = ifelse(code_identifiers == "", "NA", code_identifiers)) %>%
-  summarize(code_identifiers = paste(code_identifiers, collapse = "|")) %>%
-  filter(grepl("NA", code_identifiers), segment_drug_combo==FALSE)
-
-# studies with missing codes
-articles_db <- read_csv(here("data", "articles_db.csv"))
-studies_missing_drugs <- segments_db %>%
-  filter(!study_id %in% drugs$study_id) %>%
-  select(study_id) %>%
-  unique() %>%
-  left_join(., articles_db %>% select(study_id, mex_name)) %>%
-  arrange(study_id)
+# Studies with missing codes
+studies_missing_drugs <- qa_missing(drugs)
 #gs_new("amr_db_missing_drugs_study_id", input=studies_missing_drugs)
 
-# compare with list of studies that were evaluated for missing drug codes
-missing_list <- gs_read(gs_title("amr_db_missing_drugs_study_id")) 
+# Compare with list of studies that were evaluated for missing drug codes (review 1)
+missing_list <- gs_read(gs_title("amr_db_missing_drugs_study_id"), ws = "review_1") 
 studies_missing_drugs %<>% left_join(., missing_list)
 
 # MESH drug ontology-----------------
@@ -81,17 +69,17 @@ mesh0 <- read_csv(here("data-raw", "mesh-ontology", "as_received", "MESH.csv.zip
 
 mesh <- read_rds(here("data-raw", "mesh-ontology", "mesh.rds")) #mesh data from clean_mesh.r
 
-# join with drugs data
+# Join with drugs data
 drugs %<>% left_join(., mesh)
 
-# preferred name look ups for synonyms
+# Preferred name look ups for synonyms
 drugs %<>%
   left_join(.,
             mesh0 %>% select(class_id, preferred_label),
             by = c("drug_id" = "class_id")) %>%
   rename(drug_preferred_label = preferred_label)
 
-# get mesh class (c or d) and associated parent ID
+# Get mesh class (c or d) and associated parent ID
 # c = Class 1 Supplementary Records - Chemicals (These records are dedicated to chemicals and are primarily heading mapped to the D tree descriptors.)
 # d = D tree for drugs and chemicals,
 drugs %<>%
@@ -106,7 +94,7 @@ drugs %<>%
   mutate(drug_parent_id = str_split(drug_parent_id, "\\|")) %>%  unnest() %>%
   mutate(drug_pa_id = str_split(drug_pa, "\\|")) %>%  unnest()
 
-# get mesh parent name and pharmacological action (pa) name
+# Get mesh parent name and pharmacological action (pa) name
 drugs %<>%
   left_join(.,
             mesh0 %>% select(class_id, preferred_label),
@@ -119,7 +107,7 @@ drugs %<>%
   select(-drug_hm,-drug_parents,-drug_pa)
   #TODO get qualifier name
 
-# classify as group or drug based on tree (if terminal -> drug, otherwise class)
+# Classify as group or drug based on tree (if terminal -> drug, otherwise class)
 drugs_tree <- drugs %>%
   select(drug_preferred_label, drug_mn, drug_class) %>%
   filter(drug_class != "c") %>% #remove supp concepts (these are terminal)
@@ -133,18 +121,15 @@ drugs_tree_terminal <- drugs_tree %>%
   summarize(drug_mn_match_count = paste(unique(drug_mn_match_count), collapse = ", ")) %>%
   filter(drug_mn_match_count == "1") %>%
   pull(drug_preferred_label)
-       
+
 drugs %<>% 
   mutate(drug_rank = ifelse(drug_class=="c" | drug_preferred_label %in% drugs_tree_terminal, "drug name", "drug group"))
-  
+
 # Check matches with MESH ontology-----------------
 
-no_match <- drugs %>%
-  filter(is.na(drug_id)) %>%
-  group_by(segment) %>%
-  summarize(study_id = paste(unique(study_id, collapse = ", ")))
+no_match <- qa_match(drugs, "drug_id")
 
-# compare with list of studies that were previously cleaned
+# Compare with list of studies that were previously cleaned
 clean_list <- gs_read(gs_title("amr_db_clean_drugs")) 
 no_match %<>% left_join(., clean_list)
 

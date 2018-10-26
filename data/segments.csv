@@ -181,7 +181,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 10260,united states,location,country,NA,NA
 10260,hawaii,location,state/province/district,NA,NA
 10260,honolulu,location,city,NA,NA
-10260,california|san francisco,location,place traveled to,NA,NA
+10260,california; san francisco,location,place traveled to,NA,NA
 10260,2011,NA,event year,NA,NA
 10260,21-year-old,patient,age,NA,NA
 10260,woman,patient,sex,NA,NA
@@ -447,7 +447,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 11202,acute respiratory failure,patient,symptoms/disease,NA,NA
 11303,"we describe the isolation ndm-1–producing organisms from two patients in toronto, ontario. to the best of our knowledge, this is the first report of an organism producing ndm-1 that was locally acquired in canada.",NA,article/study aim,NA,NA
 11303,toronto,location,city,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
-11303,india|india,location,place traveled to,bb,age; binomial (genus species); comorbidities; country; drug resisted; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,india; india,location,place traveled to,bb,age; binomial (genus species); comorbidities; country; drug resisted; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,86-year-old,patient,age,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
 11303,man,patient,sex,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
 11303,type 2 diabetes mellitus,patient,comorbidities,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
@@ -1001,7 +1001,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 13370,canada,patient,country of residence,NA,NA
 13370,alberta,location,state/province/district,NA,NA
 13370,calgary,location,city,NA,NA
-13370,india|new delhi,location,place traveled to,NA,NA
+13370,india; new delhi,location,place traveled to,NA,NA
 13370,late 70s,patient,age,NA,NA
 13370,male,patient,sex,NA,NA
 13370,ceftriaxone,NA,drug resisted,c,drug resisted; mic
@@ -1082,7 +1082,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 13465,ctx-m-15,bacteria,resistance marker,NA,NA
 13465,india,location,country,NA,NA
 13465,manali,location,city,NA,NA
-13465,china|india|myanmar|thailand|nepal,location,place traveled to,NA,NA
+13465,china; india; myanmar; thailand; nepal,location,place traveled to,NA,NA
 13465,japan,patient,country of residence,NA,NA
 13465,fever,patient,symptoms/disease,NA,NA
 13465,ampicillin,NA,drug resisted,a,drug resisted; mic
@@ -1672,7 +1672,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 15475,gentamicin,NA,drug resisted,NA,NA
 15475,ctx-m-2,bacteria,resistance marker,NA,NA
 15475,"this study shows that pilgrims acquired salmonella bacteria, including anovelmdrclone, during the hajj pilgrimage",NA,article/study aim,NA,NA
-15475,hajj pilgrimage in saudi arabia|mecca|medina,location,place traveled to,NA,NA
+15475,hajj pilgrimage in saudi arabia; mecca; medina,location,place traveled to,NA,NA
 15475,2013,NA,event year,NA,NA
 15475,salmonella enterica,bacteria,binomial (genus species),NA,NA
 15475,sa 100rc3 (st45),NA,notes,NA,NA
@@ -1720,7 +1720,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 15632,"yigit h, queenan am, anderson gj, domenech-sanchez a, biddle jw, steward cd,  et al. novel carbapenem-hydrolyzing β -lactamase, kpc-1, from a carbapenemresistant strain of klebsiella pneumoniae. antimicrob agents chemother.  2001;45(4):1151–61.",NA,references for follow up,NA,NA
 15632,"baraniak a, izdebski r, herda m, hryniewics w, gniadkowski m, kern-zdanowicz  i, et al. the emergence of klebsiella pneumoniae st258 with kpc-2 in poland.  antimicrob agents chemother. 2009;53(10):4565-7.",NA,references for follow up,NA,NA
 15632,"giani t, d’andrea mm, pecile p, borgianni l, nicoletti p, tonelli f, et al.  emergence of klebsiella pneumoniae sequence type 258 producing kpc-3  carbapenemase, italy. j clin microbiol. 2009 sep 16 [epub ahead of print]",NA,references for follow up,NA,NA
-15632,greece|italy,location,place traveled to,NA,NA
+15632,greece; italy,location,place traveled to,NA,NA
 15654,2015,NA,event year,NA,NA
 15654,nimd,bacteria,resistance marker,NA,NA
 15654,danish,patient,country of residence,NA,NA
@@ -2114,7 +2114,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 17611,pcr ribotype 027,bacteria,strain,NA,NA
 17611,"her condition improved, and she has remained well since, with two negative cultures for c. difficile since cessation of vancomycin",patient,outcome,NA,NA
 17611,"we report the first isolation in australia of a hypervirulent epidemic strain of clostridium difficile, pcr ribotype  027",NA,article/study aim,NA,NA
-17611,"perth|new york city|hawaii|vancouver, canada|honolulu",location,place traveled to,NA,NA
+17611,"perth; new york city; hawaii; vancouver, canada; honolulu",location,place traveled to,NA,NA
 17611,clostridium difficile,bacteria,binomial (genus species),NA,NA
 17611,australia,location,country,NA,NA
 17649,case report,NA,article/study aim,NA,NA
@@ -2578,7 +2578,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 18946,kanamycin,NA,drug resisted,NA,NA
 18946,aztreonam,NA,drug resisted,NA,NA
 18946,trimethoprim-sulfamethoxazole,NA,drug resisted,NA,NA
-18946,india|pakistan,location,place traveled to,NA,NA
+18946,india; pakistan,location,place traveled to,NA,NA
 18946,2011,NA,event year,NA,NA
 18946,52year-old,patient,age,NA,NA
 18946,male,patient,sex,NA,NA
@@ -2646,7 +2646,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 19093,bacteroides fragilis,bacteria,binomial (genus species),NA,NA
 19093,united states,location,country,NA,NA
 19093,walter reed army medical center (wramc),location,hospital name,NA,NA
-19093,germany|afghanistan,location,place traveled to,NA,NA
+19093,germany; afghanistan,location,place traveled to,NA,NA
 19093,united states army soldier,patient,occupation,NA,NA
 19093,23 year-old,patient,age,NA,NA
 19093,he,patient,sex,NA,NA
@@ -3086,7 +3086,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 20841,brampton,location,city,NA,NA
 20841,36-yearold,patient,age,NA,NA
 20841,woman,patient,sex,NA,NA
-20841,india|mumbai,location,place traveled to,NA,NA
+20841,india; mumbai,location,place traveled to,NA,NA
 20841,august 2010,NA,event date,NA,NA
 20841,miscarriage,patient,comorbidities,NA,NA
 20841,β-lactams,NA,drug resisted,NA,NA
@@ -3601,7 +3601,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 23251,ceftriaxone,NA,drug resisted,NA,NA
 23251,acinetobacter baumannii,bacteria,binomial (genus species),NA,NA
 23314,30-,patient,age,NA,NA
-23314,india|pakistan,location,place traveled to,NA,NA
+23314,india; pakistan,location,place traveled to,NA,NA
 23314,k. pneumoniae,bacteria,binomial (genus species),NA,NA
 23314,ndm-1 strain,bacteria,strain,NA,NA
 23314,14,patient,age,NA,NA
@@ -3758,7 +3758,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 2389,fosfomycin,NA,drug resisted,NA,NA
 2389,colistin,NA,drug resisted,h,drug resisted; mic
 2389,> 32,NA,mic,h,drug resisted; mic
-2389,france|italy|iver  jordan in israel,location,place traveled to,NA,NA
+2389,france; italy; iver  jordan in israel,location,place traveled to,NA,NA
 2389,enterobacter asburiae,bacteria,binomial (genus species),NA,NA
 2389,uneventful recovery,patient,outcome,NA,NA
 2389,march,NA,event month,NA,NA
@@ -4004,7 +4004,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 2889,spain,location,country,NA,NA
 2889,madrid,location,city,NA,NA
 2889,hospital universitario ramón y cajal,location,hospital name,NA,NA
-2889,china|korea,location,place traveled to,NA,NA
+2889,china; korea,location,place traveled to,NA,NA
 2889,china,patient,country of residence,NA,NA
 2889,23-year-old,patient,age,NA,NA
 2889,female,patient,sex,NA,NA
@@ -4924,7 +4924,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 5961,a. baumannii,bacteria,binomial (genus species),NA,NA
 5961,chills,patient,symptoms/disease,NA,NA
 5961,purulent secretions,patient,symptoms/disease,NA,NA
-5961,portugal|france,location,place traveled to,NA,NA
+5961,portugal; france,location,place traveled to,NA,NA
 5961,amikacin,NA,drug resisted,a,drug resisted; mic
 5961,256 g/ml,NA,mic,a,drug resisted; mic
 5961,ceftazidime,NA,drug resisted,b,drug resisted; mic
@@ -5044,7 +5044,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 6375,poland,patient,country of residence,NA,NA
 6375,amoxicillin,NA,drug resisted,c,drug resisted; mic
 6375,warsaw,location,city,NA,NA
-6375,congo|equatorial africa,location,place traveled to,NA,NA
+6375,congo; equatorial africa,location,place traveled to,NA,NA
 6375,53-year-old,patient,age,NA,NA
 6375,male,patient,sex,NA,NA
 6375,died of multiorgan failure,patient,outcome,NA,NA
@@ -5280,7 +5280,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 7108,oxa-48,bacteria,resistance marker,NA,NA
 7108,2013,NA,event year,NA,NA
 7108,denmark,location,country,NA,NA
-7108,egypt|turkey,location,place traveled to,NA,NA
+7108,egypt; turkey,location,place traveled to,NA,NA
 7108,64-year-old,patient,age,NA,NA
 7108,female,patient,sex,NA,NA
 7108,systemic sclerosis,patient,comorbidities,NA,NA
@@ -5733,7 +5733,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 8862,tetracyclines,NA,drug resisted,NA,NA
 8862,ciprofloxacin,NA,drug resisted,NA,NA
 8862,salmonella enterica,bacteria,binomial (genus species),NA,NA
-8862,thailand|malaysia,location,place traveled to,NA,NA
+8862,thailand; malaysia,location,place traveled to,NA,NA
 8862,the uk,location,country,NA,NA
 8862,this is the first report of plasmid-mediated quinolone resistance in a salmonella isolate from the uk,NA,notes,NA,NA
 8862,2001,NA,event year,NA,NA
@@ -6081,7 +6081,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 9937,st103,bacteria,strain,NA,NA
 9937,ndm-2,bacteria,resistance marker,NA,NA
 9937,egypt,location,country,NA,NA
-9937,egypt|cairo,location,place traveled to,NA,NA
+9937,egypt; cairo,location,place traveled to,NA,NA
 9937,meropenem,NA,drug resisted,d,drug resisted; mic
 9937,cairo,location,city,NA,NA
 9937,germany,patient,country of residence,NA,NA
