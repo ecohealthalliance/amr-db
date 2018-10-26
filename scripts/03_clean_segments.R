@@ -158,7 +158,7 @@ segments %<>%
 # collapse travel locations
 segments %<>%
   group_by(study_id, code_main_cat, code_identifiers, code_main) %>%
-  mutate(segment = ifelse(code_main=="place traveled to", paste(segment, collapse = "|"), segment)) %>% #summarize not working b/c dups in data
+  mutate(segment = ifelse(code_main=="place traveled to", paste(segment, collapse = "; "), segment)) %>% #summarize not working b/c dups in data
   unique() %>%
   ungroup()
 

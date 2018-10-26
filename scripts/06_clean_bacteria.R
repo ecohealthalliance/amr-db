@@ -6,14 +6,16 @@ library(googlesheets)
 
 # Structure Bacteria Data and Manual Corrections-----------------
 
-# read in data
-segments_db <- read_csv(here("data", "segments_db.csv"))
+# Read in data
+segments <- read_csv(here("data", "segments.csv"))
+
+# Import corrections from manual checking
 cleaned_bacteria_codes <-
   gs_read(gs_title("amr_db_clean_bacteria")) %>% as.tibble() %>% filter(new != "--") %>% #google spreadsheet with field cleanup
   mutate(segment = paste0("^", segment, "$"))
 
-# bacteria codes dataframe with manual corrections
-bacteria <- segments_db %>%
+# Bacteria codes dataframe with manual corrections
+bacteria <- segments %>%
   filter(code_main_cat == "bacteria")  %>%
   select(-code_main_cat) %>%
   mutate(segment = stri_replace_all_regex(segment,
@@ -29,44 +31,17 @@ bacteria <- segments_db %>%
   )
 
 # QA Checks-----------------
-# clean (amr_db_clean_bacteria - issue 11 - includes MAXQDA edits)
+# clean (amr_db_clean_bacteria - issue 11)
 # dups (NA)
 # missing (amr_db_missing_bacteria - issue 10)
+source(here("scripts", "helper_scripts", "qa.R"))
 
-# identify duplicate bacteria in studies 
-dups_segs_with_same_code <- bacteria %>%
-  group_by(study_id, code_identifiers, code_main, segment) %>%
-  filter(duplicated(segment) |
-           duplicated(segment, fromLast = TRUE))
+# Identify duplicate bacteria in studies 
+studies_with_dups <- qa_duplicate(bacteria, c("study_id", "code_main", "segment"))
 
-dups_segs_with_NA_code <-  bacteria %>%
-  group_by(study_id, code_main, segment) %>%
-  filter(duplicated(segment) |
-           duplicated(segment, fromLast = TRUE)) %>%
-  mutate(code_identifiers = ifelse(code_identifiers == "", "NA", code_identifiers)) %>%
-  summarize(code_identifiers = paste(code_identifiers, collapse = "|")) %>%
-  filter(grepl("NA", code_identifiers))
-
-# id studies with missing bacteria segments
-bacteria_genspe_id <-
-  bacteria %>% filter(code_main == "binomial (genus species)") %>% pull(study_id)
-missing_genspe <-
-  segments_db %>% filter(!study_id %in% bacteria_genspe_id) %>% pull(study_id) %>% unique() #45 missing
-
-bacteria_marker_id <-
-  bacteria %>% filter(code_main == "resistance marker") %>% pull(study_id)
-missing_marker <-
-  segments_db %>% filter(!study_id %in% bacteria_marker_id) %>% pull(study_id) %>% unique()
-
-bacteria_strain_id <-
-  bacteria %>% filter(code_main == "strain") %>% pull(study_id)
-missing_strain <-
-  segments_db %>% filter(!study_id %in% bacteria_strain_id) %>% pull(study_id) %>% unique()
-
-studies_missing_bacteria <- read_csv(here("data", "articles_db.csv")) %>%
-  select(study_id, mex_name) %>%
-  filter(study_id %in% missing_genspe) 
-#gs_new("amr_db_missing_bacteria", input=studies_missing_bacteria)
+# ID studies with missing bacteria segments
+missing_genspe <- qa_missing(bacteria %>% filter(code_main == "binomial (genus species)"))
+#gs_new("amr_db_missing_bacteria", input=missing_genspe)
 
 # NCBI Ontology-----------------
 # for bacteria genus / species
@@ -79,7 +54,7 @@ ncbi0 <- read_csv(here("data-raw", "ncbi-ontology", "as_received", "NCBITAXON.cs
 
 ncbi <- read_rds(here("data-raw", "ncbi-ontology", "ncbi.rds")) #ncbi data from clean_ncbi.r
 
-# get abbreviated gen/spe
+# Get abbreviated gen/spe
 bacteria_abbr <- ncbi %>%
   filter(bacteria_div == "bacteria", bacteria_rank == "species") %>%
   mutate(segment = paste(substr(segment, 1, 1), gsub(".* ", "", segment)),
@@ -87,19 +62,19 @@ bacteria_abbr <- ncbi %>%
 
 ncbi %<>% bind_rows(., bacteria_abbr)
 
-# join into bacteria data frame for gen/spe
+# Join into bacteria data frame for gen/spe
 bacteria_genspe <- bacteria %>% 
   filter(code_main == "binomial (genus species)") %>%
   left_join(., ncbi)
 
-# preferred name look ups for synonyms and abbreviations
+# Preferred name look ups for synonyms and abbreviations
 bacteria_genspe %<>%
   left_join(.,
             ncbi0 %>% select(class_id, preferred_label),
             by = c("bacteria_id" = "class_id")) %>%
   rename(bacteria_preferred_label = preferred_label)
 
-# get ncbi parent name and rank
+# Get ncbi parent name and rank
 bacteria_genspe %<>%
   left_join(.,
             ncbi0 %>% select(class_id, preferred_label, rank),
@@ -107,27 +82,16 @@ bacteria_genspe %<>%
   rename(bacteria_parent_name = preferred_label, bacteria_parent_rank = rank) %>%
   select(-bacteria_parents)
 
-# check matches
-bacteria_genspe_unique <- bacteria_genspe %>%
-  select(segment, bacteria_id, code_main) %>%
-  unique()
+# Check matches with NCBI ontology-----------------
 
-no_match <- bacteria_genspe_unique %>%
-  filter(is.na(bacteria_id))  %>%
-  group_by(code_main) %>%
-  count()
-
-match <- bacteria_genspe_unique %>%
-  filter(!is.na(bacteria_id))  %>%
-  group_by(code_main) %>%
-  count()
+no_match <- qa_match(bacteria_genspe, "bacteria_id")
 
 # CARD Ontology-----------------
 # for strains and markers
 
-source(here("scripts", "clean_card.R"))
+source(here("scripts", "helper_scripts", "functions_card.R"))
 
-# get card id and parents + ancestors
+# Get card id and parents + ancestors
 bacteria_strain_marker <- bacteria %>%
   filter(code_main != "binomial (genus species)") %>%
   mutate(card_db = ifelse(code_main == "binomial (genus species)", "card_ncbi", "card_aro")) %>%
@@ -165,20 +129,12 @@ bacteria_strain_marker <- bacteria %>%
   mutate(card_ancestor_rank = 1:n()) %>%
   ungroup()
 
-# check matches
-bacteria_strain_marker_unique <- bacteria_strain_marker %>%
-  select(segment, card_db, card_select_id, code_main) %>%
-  unique()
+# Check matches with CARD ontology-----------------
+bacteria_strain_marker %<>%
+  mutate(card_select_id = ifelse(card_select_id=="no exact match", NA, card_select_id))
 
-no_match <- bacteria_strain_marker_unique %>%
-  filter(card_select_id == "no exact match")  %>%
-  group_by(code_main) %>%
-  count()
+no_match <- qa_match(bacteria_strain_marker, "card_select_id", group_vars = c("segment", "code_main"))
 
-match <- bacteria_strain_marker_unique %>%
-  filter(card_select_id != "no exact match")  %>%
-  group_by(code_main) %>%
-  count()
 
 # Separate DBs export-----------------
 write_csv(bacteria_genspe, here("data", "bacteria_genus_species_db.csv"))
