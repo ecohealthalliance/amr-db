@@ -13,7 +13,11 @@ segments <- read_csv(here("data", "segments.csv"))
 # Structure segments database into location codes dataframe   
 locations <- segments %>%
   filter(code_main_cat == "location" | code_main == "country of residence") %>%
-  select(-code_main_cat) 
+  select(-code_main_cat) %>%
+  mutate(segment = stri_replace_all_regex(segment,
+                                          c("\\(|\\)"),
+                                          c(""), vectorize = FALSE))
+
 
 # QA checks -----------------
 # clean 
@@ -54,7 +58,7 @@ locations %<>%
          "residence_location" = `country of residence`, 
          "state_province_district" = `state/province/district`) %>%
   mutate_all(as.character())
-  
+
 # Correction of Location Codes -----------------
 
 # * Clean Main Locations ----
@@ -71,23 +75,8 @@ locations %<>%
                  travel_location, residence_location), 
             funs(stri_replace_all_regex(., cleaned_location_codes$old, cleaned_location_codes$new, 
                                         vectorize_all = FALSE))) %>%
-  mutate_all(funs(ifelse(. == ' ', NA, trimws(., "both")))) # bring back NA's
-
-# Clean States/Provinces/Districts field
-state_names  <- tribble( #add countries to cities missing country or state
-  ~"state_province_district",  ~country,
-  "california",         "united states",
-  "kanto",              "japan",
-  "georgia",            "united states",
-  "new york",           "united states"
-)
-
-# Assign countries to cases when state is known but country is not to help fill in this info
-locations %<>%
-  left_join(state_names, by="state_province_district", suffix = c("", "_province")) %>%
-  mutate(country = ifelse(is.na(country), country_province, country)) %>%
-  select(-country_province) %>%
-  mutate_all(funs(gsub(",$", "",.))) # get rid of any trailing commas 
+  mutate_all(funs(ifelse(. == ' ', NA, trimws(., "both")))) %>% # bring back NA's
+  mutate_all(funs(gsub(",$", "",.)))
 
 # * Clean Travel Locations ------
 
@@ -108,7 +97,7 @@ locations %<>%
   mutate(ls = pmap(list(.$hospital, .$city, .$state_province_district, .$country), 
                    function(hospital, city, state_province_district, country) {
                      location_basis_tb <- tribble(
-                     ~location,              ~location_fields,
+                       ~location,              ~location_fields,
                        hospital,                "hospital",
                        city,                    "city",
                        state_province_district, "state_province_district", 
@@ -140,21 +129,24 @@ if (file.exists(here("data-raw", "geocode_locations_complete.csv"))) {
     unique()
   
   if (nrow(new_to_geocode) == 0) {
+    #if no new locations, do not geocode
     geocode_locations_to_use <- former_geocode_locations
     
   } else {
+    #geocode new locations
     new_to_geocode %<>%
       mutate_geocode(geocode_loc)
     
     geocode_locations_to_use <- former_geocode_locations %>%
       rbind(new_to_geocode) }
   
-  } else {
-    geocode_locations_to_use <- geocode_locations %>%
-      mutate_geocode(geocode_loc) 
-    
-    write_csv(geocode_locations_to_use, here("data-raw", "geocode_locations_complete.csv")) }
+} else {
+  #if no recorded geolocations, geocode all
+  geocode_locations_to_use <- geocode_locations %>%
+    mutate_geocode(geocode_loc) 
+}
 
+write_csv(geocode_locations_to_use, here("data-raw", "geocode_locations_complete.csv")) 
 
 locations %<>%
   left_join(geocode_locations_to_use, by = c("travel_location" = "geocode_loc")) %>%
@@ -167,6 +159,19 @@ locations %<>%
          lon_study = lon,
          lat_study = lat)
 
+# Final QA check on data cleaning-----------------
+study_locs <- locations %>% 
+  filter(!is.na(study_location)) %>% 
+  select(study_id, code_identifiers, study_location_basis, study_location, lat_study, lon_study) %>% 
+  distinct() %>% 
+  mutate(study_id=as.numeric(study_id)) %>% 
+  arrange(study_id)
+
+filter(study_locs, is.na(study_locs$lat_study))
+
+# Find studies that were not checked in review_1
+clean_list <- gs_read(gs_title("amr_db_locations_qa"), ws = "review_1")  %>%
+  select(study_id, study_location)
+updated_studies <- anti_join(study_locs, clean_list)
+
 write_csv(locations, here("data", "locations.csv"))
-
-
