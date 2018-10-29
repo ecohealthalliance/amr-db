@@ -88,10 +88,6 @@ locations %<>%
   mutate(travel_location_id = paste0("travel_loc_", row_number())) %>%
   ungroup() 
 
-# Geocode ---
-
-register_google(key = Sys.getenv("GOOGLE_MAPS_KEY"))
-
 # Check what information is available for each study location field. Collpase locations fields in order to geocode
 locations %<>%
   mutate(ls = pmap(list(.$hospital, .$city, .$state_province_district, .$country), 
@@ -112,7 +108,20 @@ locations %<>%
          study_location = map_chr(study_location, ~paste(., collapse = ", "))) %>%
   select(-ls)
 
-# Geocode ---------
+# Manually assign study country if missing
+add_country <- gs_read(gs_title("amr_db_add_country")) %>% 
+  rename(study_country_add = study_country) %>%
+  mutate(study_id = as.character(study_id))
+
+locations %<>%
+  left_join(., add_country) %>%
+  mutate(country = ifelse(is.na(study_country_add), country, study_country_add),
+         study_location = ifelse(is.na(study_country_add), study_location, paste(study_location, study_country_add, sep = ", ")),
+         study_location_basis = ifelse(is.na(study_country_add), study_location_basis, paste(study_location_basis, "country", sep = ", "))) %>%
+  select(-study_country_add)
+
+# Geocode ---
+register_google(key = Sys.getenv("GOOGLE_MAPS_KEY"))
 
 # prepare a list of locations to be geocoded - 
 
