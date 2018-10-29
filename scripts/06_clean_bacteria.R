@@ -34,7 +34,7 @@ bacteria <- segments %>%
 # clean (amr_db_clean_bacteria - issue 11)
 # dups (NA)
 # missing (amr_db_missing_bacteria - issue 10)
-source(here("scripts", "helper_scripts", "qa.R"))
+source(here("scripts", "helper_scripts", "functions_qa.R"))
 
 # Identify duplicate bacteria in studies 
 studies_with_dups <- qa_duplicate(bacteria, c("study_id", "code_main", "segment"))

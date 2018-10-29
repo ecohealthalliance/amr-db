@@ -2,7 +2,7 @@ library(here)
 library(tidyverse)
 
 load(file = here("data", "segments_raw.RData"))
-load(file = here("data", "articles_db.RData"))
+articles_db <- read_csv(here("data", "articles_db.csv")) %>% mutate_all(as.character)
 
 # these are all excluded articles or notes on articles, usually due to annotating the title of the article in the PDF. All have strange offsets
 na_segments <- segments_raw %>% 

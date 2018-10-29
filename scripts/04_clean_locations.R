@@ -23,7 +23,7 @@ locations <- segments %>%
 # clean 
 # dups 
 # missing
-source(here("scripts", "helper_scripts", "qa.R"))
+source(here("scripts", "helper_scripts", "functions_qa.R"))
 
 # Identify duplicate location segments in studies
 studies_with_dups <- qa_duplicate(locations, c("study_id", "code_main", "segment"))
