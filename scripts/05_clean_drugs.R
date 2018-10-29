@@ -44,7 +44,7 @@ drugs %<>%
 # clean (amr_db_clean_drugs - issue 7)
 # dups (amr_db_field_corrections - issue 2)
 # missing (amr_db_missing_drugs - issue 2)
-source(here("scripts", "helper_scripts", "qa.R"))
+source(here("scripts", "helper_scripts", "functions_qa.R"))
 
 # Identify duplicate drugs in studies
 studies_with_dups <- qa_duplicate(drugs, group_vars = c("study_id", "segment_drug_combo", "segment")) %>%
