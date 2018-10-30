@@ -43,12 +43,14 @@ dates %<>%
 
 cleaned_date_codes <- gs_read(gs_title("amr_db_clean_dates")) 
 
-
+#When i try to do this for all variables just using an old and a new column, 
+#it considers all of them indiscriminately of what field is listed
 dates <- dates %<>%
-  mutate_at(vars(evemt_date, event_day, event_month, event_year), 
-            funs(stri_replace_all_regex(., cleaned_date_codes$old, cleaned_date_codes$new, 
+  mutate_at(vars(event_year), 
+            funs(stri_replace_all_regex(., cleaned_date_codes$oldyear, cleaned_date_codes$newyear, 
                                         vectorize_all = FALSE))) %>%
-  mutate_all(funs(ifelse(. == ' ', NA, trimws(., "both")))) # bring back NA's
+ 
+   mutate_all(funs(ifelse(. == ' ', NA, trimws(., "both")))) # bring back NA's
 
 
 
@@ -110,8 +112,8 @@ dates_year[149, 6]<- "07"
 dates_year[160, 6]<- "11"
 
 #Change all months to #s
-unique<-unique(dates_year$event_month) #used this to create a look up table 
-write.csv(unique, P("data", "unique_dates.csv"))
+#unique<-unique(dates_year$event_day) #used this to create a look up table 
+#write.csv(unique, P("data", "unique_dates.csv"))
 #(there's a better way to do this automatically but right now it works)
 look_up <- read.csv(P("data", "dates_lookup.csv")) #load look up table
 look_up$lookupValue <- as.character(look_up$lookupValue)
