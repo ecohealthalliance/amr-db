@@ -6,7 +6,7 @@ library(stringi)
 library(tidyverse)
 
 # Import Data and Clean Segments -----------------------------
-articles_db <- read_csv(here("data","articles_db.csv"))
+articles_db <- read_csv(here("data","articles_db.csv")) 
 files <- dir(path = here('data', 'coded_segments'), pattern = "*.xlsx", full.names = TRUE)
 
 # individual segment data (from MaxQDA exports) - each observation is an instance of an annotation (ungrouped)
@@ -24,7 +24,7 @@ segments_raw <- map_dfr(files, ~read_xlsx(.x, col_types = "text")) %>%
          end_page, 
          end_off)
 
- save(segments_raw, file = here("data", "segments_raw.RData"))
+save(segments_raw, file = here("data", "segments_raw.RData"))
 
 # create offset range col
 segments_raw %<>%
@@ -94,7 +94,7 @@ segments <- segments_grp %>%
 check_orphan_ids <- function(code_id_vec, code_main_vec) {
   if (length(code_id_vec) == 0 || (length(code_id_vec) == length(code_main_vec))) {
     check_vec = "fine" 
-    } else {
+  } else {
     check_vec = "check"
   }
   return(check_vec)
@@ -158,30 +158,20 @@ segments %<>%
 # collapse travel locations
 segments %<>%
   group_by(study_id, code_main_cat, code_identifiers, code_main) %>%
-  mutate(segment = ifelse(code_main=="place traveled to", paste(segment, collapse = "|"), segment)) %>% #summarize not working b/c dups in data
+  mutate(segment = ifelse(code_main=="place traveled to", paste(segment, collapse = "; "), segment)) %>% #summarize not working b/c dups in data
   unique() %>%
   ungroup()
 
 # Add code_identifiers_link to provide linked fields for code identifiers
-code_links <- segments %>%
-  filter(!is.na(code_identifiers)) %>%
+segments %<>%
   group_by(study_id, code_identifiers) %>%
-  summarize(code_identifiers_link = paste(sort(unique(code_main)), collapse = "; ")) %>%
+  mutate(code_identifiers_link = ifelse(is.na(code_identifiers), NA, paste(sort(unique(code_main)), collapse = "; "))) %>%
   ungroup()
 
-# Identify code identifiers that are not "linked" - these need to be spot checked
-code_links_solo <- code_links %>%
-  filter(!grepl("\\;", code_identifiers_link)) %>%
-  left_join(., articles_db %>% select(study_id, mex_name) %>% mutate(study_id = as.character(study_id)))
-#gs_new("amr_db_missing_code_identifiers_links", input=code_links_solo)
-
 # Remove solo code links
-code_links %<>% mutate(code_identifiers_link = ifelse(grepl("\\;", code_identifiers_link), code_identifiers_link, NA)) 
+segments_out <- segments %>% 
+  mutate(code_identifiers_link = ifelse(grepl("\\;", code_identifiers_link), code_identifiers_link, NA),
+         code_identifiers = ifelse(is.na(code_identifiers_link), NA, code_identifiers)) 
 
-# Join into segments db
-segments %<>%
-  left_join(., code_links) %>%
-  mutate(code_identifiers = ifelse(is.na(code_identifiers_link), NA, code_identifiers)) 
-  
 # final segments db
-write_csv(segments, path = here("data", "segments.csv"))
+write_csv(segments_out, path = here("data", "segments.csv"))
