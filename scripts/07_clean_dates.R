@@ -99,82 +99,33 @@ dates %<>%
 
 ##esm edited to this point
 
-
-
-#separate out dates with no year in them and dates with misentries (they're tagged in the google doc)
-dateless <- dates %>% 
-  filter(is.na(event_year))
-mistakes <- dates %>%
-  filter(str_detect(dates$event_year, "february|two years later"))
-no_year <- rbind(dateless, mistakes)
-#write.csv(no_year, P("data", "dates_noyear.csv"))
-
-#Create a data frame with all observations that have a year
-dates_year <- dates %>% 
-  filter(!is.na(event_year)) %>%
-  filter(event_year != "february") %>%
-  filter(event_year != "two years later")
-#write.csv(dates_year, P("data", "dates_year.csv"))
-
-#Manually edit entry mistakes (need to find a clever-er way of doing this)
-dates_year[82,7] <- "2003"
-dates_year[128,7] <- "2007"
-dates_year[115, 5]<- "28"
-dates_year[139, 6]<- "04"
-dates_year[146, 6]<- "08"
-dates_year[149, 6]<- "07"
-dates_year[160, 6]<- "11"
-
-#Change all months to #s
-#unique<-unique(dates_year$event_day) #used this to create a look up table 
-#write.csv(unique, P("data", "unique_dates.csv"))
-#(there's a better way to do this automatically but right now it works)
-look_up <- read.csv(P("data", "dates_lookup.csv")) #load look up table
-look_up$lookupValue <- as.character(look_up$lookupValue)
-dates_year$num_month <- look_up[match(dates_year$event_month,look_up$lookupValue), "newValue"]
-
-dates_year %<>%
-  mutate(event_month = num_month) %>%
-  mutate( event_month= as.character(event_month)) %>%
+dates %<>%
   mutate(event_month = str_pad(event_month, width = 2, side = "left", pad = "0")) %>%
-  select(-num_month)
-
-#Manually fix date entry
-dates_year[55,4] <- "15"
-
-#Add 0 so all single digit event-days
-dates_year %<>%
   mutate(event_day = str_pad(event_day, width = 2, side = "left", pad = "0"))
 
 #separate data according to availability of y, m, d info
 #add that info to new_date column
 
-no_day <- dates_year %>%
+no_day <- dates %>%
   filter(is.na(event_day)) %>%
   filter(!is.na(event_month))  %>%
   mutate(new_date = paste(event_year, event_month, sep = "-")) 
 
-no_dayormonth <- dates_year %>%
+no_dayormonth <- dates %>%
   filter(is.na(event_day)) %>%
   filter(is.na(event_month)) %>%
   mutate(new_date = event_year) 
 
-no_month <- dates_year %>%
-  filter(is.na(event_month)) %>%
-  filter(!is.na(event_day)) %>%
-  mutate(event_month = c("06", "03", "06", "05", NA)) %>%
-  mutate(new_date = paste(event_year, event_month, sep = "-"))
-
-library(lubridate)
-full_date <- dates_year %>%
+library(lubridate)  #use lubridate to put in right format, then change back to character for now
+full_date <- dates %>%
   filter(!is.na(event_month)) %>%
   filter(!is.na(event_day)) %>%
   mutate(full_date = paste(event_year, event_month, event_day, sep = " ")) %>%
   mutate(new_date = ymd(full_date)) %>%
   select(-full_date)  %>%
-  mutate(new_date = as.character(new_date))  #to get it in same format as the other dates while we figure this out
+  mutate(new_date = as.character(new_date))
 
-clean_dates <-rbind(no_day, no_dayormonth, no_month, full_date) 
+clean_dates <-rbind(no_day, no_dayormonth, full_date) 
 clean_dates %<>%
   mutate(event_date = new_date) %>%
   select(-new_date) %>%
