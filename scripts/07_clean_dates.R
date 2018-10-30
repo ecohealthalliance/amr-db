@@ -1,20 +1,22 @@
 library(tidyverse)
 library(magrittr)
 library(stringi)
-library(here)
+#library(here) Taking this out and replacing with rprojectroot b/c here interferes with lubridate
 library(googlesheets)
 library(janitor)
 library(rprojroot)
+library(googlesheets)
 
 # Structure Date Data-----------------
 
 P <- rprojroot::find_rstudio_root_file #bc here doesn't work with lubridate
+
 #Run scripts to create base files
-source(here("scripts/02_index_articles.R"))
-source(here("scripts/03_clean_segments.R"))
+source(P("scripts/02_index_articles.R"))
+source(P("scripts/03_clean_segments.R"))
 
 # read in data
-segments_db <- read_csv(here("data", "segments.csv"))
+segments_db <- read_csv(P("data", "segments.csv"))
 
 # structure segments database into dates codes dataframe 
 dates <- segments_db %>%
@@ -34,7 +36,21 @@ dates %<>%
   group_by(study_id, code_identifiers) %>%
   mutate(event_id = paste(study_id, row_number(), sep="_")) %>%
   ungroup() %>%
-  select(-dup)
+  select(-dup) %>%
+  select(-code_identifiers) %>%
+  select(-code_identifiers_link)
+#write.csv(dates, P("data/dates_raw_db.csv"))
+
+cleaned_date_codes <- gs_read(gs_title("amr_db_clean_dates")) 
+
+
+dates <- dates %<>%
+  mutate_at(vars(evemt_date, event_day, event_month, event_year), 
+            funs(stri_replace_all_regex(., cleaned_date_codes$old, cleaned_date_codes$new, 
+                                        vectorize_all = FALSE))) %>%
+  mutate_all(funs(ifelse(. == ' ', NA, trimws(., "both")))) # bring back NA's
+
+
 
 # QA Checks-----------------
 # clean (amr_db_clean_dates - not yet created)
@@ -48,7 +64,7 @@ dup_dates <- dates %>%
   ungroup()
 
 # studies with missing codes
-articles_db <- read_csv(here("data", "articles_db.csv"))
+articles_db <- read_csv(P("data", "articles_db.csv"))
 
 missing_any_date <- segments_db %>%
   filter(!study_id %in% dates$study_id) %>%
@@ -75,14 +91,14 @@ dateless <- dates %>%
 mistakes <- dates %>%
   filter(str_detect(dates$event_year, "february|two years later"))
 no_year <- rbind(dateless, mistakes)
-#write.csv(no_year, here("data", "dates_noyear.csv"))
+#write.csv(no_year, P("data", "dates_noyear.csv"))
 
 #Create a data frame with all observations that have a year
 dates_year <- dates %>% 
   filter(!is.na(event_year)) %>%
   filter(event_year != "february") %>%
   filter(event_year != "two years later")
-#write.csv(dates_year, here("data", "dates_year.csv"))
+#write.csv(dates_year, P("data", "dates_year.csv"))
 
 #Manually edit entry mistakes (need to find a clever-er way of doing this)
 dates_year[82,7] <- "2003"
@@ -95,9 +111,9 @@ dates_year[160, 6]<- "11"
 
 #Change all months to #s
 unique<-unique(dates_year$event_month) #used this to create a look up table 
-write.csv(unique, here("data", "unique_dates.csv"))
+write.csv(unique, P("data", "unique_dates.csv"))
 #(there's a better way to do this automatically but right now it works)
-look_up <- read.csv(here("data", "dates_lookup.csv")) #load look up table
+look_up <- read.csv(P("data", "dates_lookup.csv")) #load look up table
 look_up$lookupValue <- as.character(look_up$lookupValue)
 dates_year$num_month <- look_up[match(dates_year$event_month,look_up$lookupValue), "newValue"]
 
@@ -150,8 +166,5 @@ clean_dates %<>%
 
 duplicated(clean_dates$event_id)
 
-
 write.csv(clean_dates, P("data/clean_dates_db.csv"))
-#check for duplicates
-#pull and re-run
-#better idea for look up table? 
+
