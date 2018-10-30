@@ -59,7 +59,7 @@ ggplot(bacteria_sum[bacteria_sum$n > 4,], aes(x = reorder(bacteria_preferred_lab
 
 #' -----------------Drugs-----------------
 ```{r drugs_read, include = FALSE}
-drugs <- read_csv(here("data", "drugs_db.csv")) %>%  
+drugs <- read_csv(here("data", "drugs.csv")) %>%  
   group_by(
     study_id,
     segment,
@@ -137,3 +137,61 @@ ggparallel(list("drug", "bacteria"),
   theme_bw()+
   theme(legend.position = "none")
 #+ r bacteria_drugs, include = TRUE
+
+#' -----------------Locations-----------------
+library(crosstalk)
+library(leaflet)
+library(DT)
+locs <- read_csv(here("data", "locations.csv"))
+#+ r locs_read, include = FALSE
+
+#'```{r locs}
+#' STUDY LOCATIONS
+
+# Wrap data frame in SharedData
+sl_locs <- locs %>%
+  select(lat_study, lon_study, study_location, study_id) %>%
+  rename(latitude = lat_study, longitude = lon_study) %>%
+  filter(!is.na(latitude)) %>%
+  unique() #some dups for travel locs
+sd <- SharedData$new(sl_locs)
+
+# Use SharedData like a dataframe with Crosstalk-enabled widgets
+bscols(
+  leaflet(sd) %>% addTiles() %>% addMarkers(),
+  datatable(sd, extensions="Scroller", style="bootstrap", class="compact", width="100%",
+            options=list(deferRender=TRUE, scrollY=300, scroller=TRUE)))
+  
+#' TRAVEL LOCATIONS
+
+# Wrap data frame in SharedData
+sl_locs <- locs %>%
+  select(lat_travel, lon_travel, travel_location, study_id) %>%
+  rename(latitude = lat_travel, longitude = lon_travel) %>%
+  filter(!is.na(latitude)) 
+sd <- SharedData$new(sl_locs)
+
+#Use SharedData like a dataframe with Crosstalk-enabled widgets
+bscols(
+  leaflet(sd) %>% addTiles() %>% addMarkers(),
+  datatable(sd, extensions="Scroller", style="bootstrap", class="compact", width="100%",
+            options=list(deferRender=TRUE, scrollY=300, scroller=TRUE)))
+
+#' RESIDENCE LOCATIONS
+
+# Wrap data frame in SharedData
+sl_locs <- locs %>%
+  select(lat_residence, lon_residence, residence_location, study_id) %>%
+  rename(latitude = lat_residence, longitude = lon_residence) %>%
+  filter(!is.na(latitude)) %>%
+  unique() #some dups for travel locs
+sd <- SharedData$new(sl_locs)
+
+# Use SharedData like a dataframe with Crosstalk-enabled widgets
+bscols(
+  leaflet(sd) %>% addTiles() %>% addMarkers(),
+  datatable(sd, extensions="Scroller", style="bootstrap", class="compact", width="100%",
+            options=list(deferRender=TRUE, scrollY=300, scroller=TRUE))
+)
+
+#+ r locs
