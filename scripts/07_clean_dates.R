@@ -1,92 +1,106 @@
 library(tidyverse)
 library(magrittr)
 library(stringi)
-#library(here) Taking this out and replacing with rprojectroot b/c here interferes with lubridate
 library(googlesheets)
 library(janitor)
-library(rprojroot)
+library(lubridate)
 library(googlesheets)
+library(here) 
 
 # Structure Date Data-----------------
 
-P <- rprojroot::find_rstudio_root_file #bc here doesn't work with lubridate
-
-#Run scripts to create base files
-source(P("scripts/02_index_articles.R"))
-source(P("scripts/03_clean_segments.R"))
-
 # read in data
-segments_db <- read_csv(P("data", "segments.csv"))
+segments <- read_csv(here::here("data", "segments.csv"))
 
 # structure segments database into dates codes dataframe 
-dates <- segments_db %>%
+dates <- segments %>%
   filter(code_main %in% c("event month" , "event year", "event date" , "event day")) %>%
   select(-code_main_cat) %>%
   mutate(tmp = paste(study_id, code_main,  code_identifiers),
          dup = duplicated(tmp)) %>%
   select(-tmp)
 
+# QA Checks-----------------
+# clean 
+# dups 
+# missing (amr_db_missing_dates - issue 12)
+source(here::here("scripts", "helper_scripts", "functions_qa.R"))
+
+# Identify duplicate dates in studies
+studies_with_dups <- qa_duplicate(dates)
+  
+# Check if more than one date per study - ie multiple events
+studies_with_mult_events <- qa_event(dates)
+
+# ID studies with missing dates
+studies_missing_dates <- qa_missing(dates)
+
+# also ID studies with missing year
+articles_db <- read_csv(here::here("data", "articles_db.csv"))
+
+has_year_id <- dates %>%
+  filter(code_main %in% c("event year","event date")) %>%
+  pull(study_id) %>% unique()
+
+missing_year <- dates %>%
+  filter(!study_id %in% has_year_id) %>%
+  select(study_id) %>%
+  left_join(., articles_db %>% select(study_id, mex_name))
+
+# Quick QA response - remove incorrectly coded segment
+dates %<>% filter(!c(study_id==17611 & segment=="february"))
+  
+# Handling of multiple events -----------------
+# some may be collapsed in the future if they are very close in time
+
 # reshape 
 dates %<>%
   spread(key = code_main, value = segment) %>%
   clean_names()
 
-# create event ID - a lot of these are the same event and need to be combined (see dup_dates below)
+# create event ID - a lot of these are the same event and need to be combined (see dup_dates above)
 dates %<>%
   group_by(study_id, code_identifiers) %>%
   mutate(event_id = paste(study_id, row_number(), sep="_")) %>%
   ungroup() %>%
-  select(-dup) %>%
-  select(-code_identifiers) %>%
-  select(-code_identifiers_link)
-#write.csv(dates, P("data/dates_raw_db.csv"))
+  select(-dup)
+
+# Lookups for manual cleaning ----------------
 
 cleaned_date_codes <- gs_read(gs_title("amr_db_clean_dates")) 
+cleaned_years <- cleaned_date_codes %>% filter(field == "event_year")
+cleaned_months <- cleaned_date_codes %>% filter(field == "event_month")
+cleaned_month_regex <- paste(cleaned_months$old, collapse="|")
 
-#When i try to do this for all variables just using an old and a new column, 
-#it considers all of them indiscriminately of what field is listed
-dates <- dates %<>%
-  mutate_at(vars(event_year), 
-            funs(stri_replace_all_regex(., cleaned_date_codes$oldyear, cleaned_date_codes$newyear, 
-                                        vectorize_all = FALSE))) %>%
- 
-   mutate_all(funs(ifelse(. == ' ', NA, trimws(., "both")))) # bring back NA's
+# Separate out information from dates----------------
 
+dates %<>%
+  mutate_at(vars(event_year, event_month, event_day, event_date), funs(gsub("\\.|th|mid\\-", "", .))) %>%
+  mutate(event_year = ifelse(is.na(event_year) & !is.na(event_date), 
+                             str_sub(event_date, start = -4L, end = -1L), 
+                             event_year),
+         event_month = ifelse(is.na(event_month) & !is.na(event_date),
+                              str_extract(event_date, cleaned_month_regex),
+                              event_month))
 
-
-# QA Checks-----------------
-# clean (amr_db_clean_dates - not yet created)
-# dups (NA for now)
-# missing (amr_db_missing_dates - issue 12)
-
-# identify duplicate dates in studies 
-dup_dates <- dates %>%
-  group_by(study_id, code_identifiers) %>%
-  filter(n() >1 ) %>%
+# for studies with multiple "events" and missing year for second entry, assume year of first entry
+dates %<>%
+  group_by(study_id) %>%
+  mutate(event_year = ifelse(is.na(event_year), paste(unique(event_year[!is.na(event_year)]), collapse=","), event_year)) %>%
   ungroup()
 
-# studies with missing codes
-articles_db <- read_csv(P("data", "articles_db.csv"))
+# Clean months, years, days----------------
 
-missing_any_date <- segments_db %>%
-  filter(!study_id %in% dates$study_id) %>%
-  select(study_id) %>%
-  unique() 
+# manual find and replace
+dates %<>% 
+  mutate(event_month = stri_replace_all_regex(event_month, cleaned_months$old, cleaned_months$new, vectorize_all = FALSE),
+         event_year = stri_replace_all_regex(event_year, cleaned_years$old, cleaned_years$new, vectorize_all = FALSE)) %>%
+  mutate_at(vars(event_year, event_month, event_day), funs(as.numeric)) 
 
-missing_year_id <- dates %>%
-  filter(is.na(event_year), is.na(event_date)) %>%
-  pull(study_id) 
+##esm edited to this point
 
-missing_year <- dates %>%
-  filter(study_id %in% missing_year_id) %>%
-  group_by(study_id) %>%
-  filter(n() == 1 ) %>%
-  select(study_id)
 
-missing <- bind_rows(missing_any_date, missing_year) %>%
-  left_join(., articles_db %>% select(study_id, mex_name)) 
-#gs_new("amr_db_missing_dates", input=missing)
- 
+
 #separate out dates with no year in them and dates with misentries (they're tagged in the google doc)
 dateless <- dates %>% 
   filter(is.na(event_year))
