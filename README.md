@@ -26,6 +26,13 @@ This repository contains code, data, and documentation for the AMR events databa
 
 ### Reproducing the Database
 
+First, if you have the package `devtools` installed, you can ensure you have the correct packages installed to run this repo's code by running the following R code: 
+
+```
+library(devtools)
+install_deps()
+```
+
 The `Makefile` will re-build the project. Before running the `Makefile` you can run `sh gittime.sh` in terminal (from within the repo) to ensure file time stamps represent the time the file was last committed to the repo, not the time the file was last checked out/ cloned from the repo. To run the applescripts, be sure your `Accessibility` settings allow the Terminal app to control your computer. You can set this in `System Preferences > Security & Privacy > Accessibility`.
 
 Main `Makefile` commands are:
