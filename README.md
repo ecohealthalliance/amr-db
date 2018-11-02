@@ -8,8 +8,11 @@ This repository contains code, data, and documentation for the AMR events databa
 
 
 -  `data-raw/` contains raw data used in the creation of database files including:
-	-	`coded_text_mex/` directory that contains all coded article pdfs as `.mex` files. Note: `.mx12` files are created as a byproduct of opening a `.mex` file. All `.mx12` files can be cleared using `make clean_mx12`. 
+	-	`coded_text_mex/` directory that contains all coded article pdfs as `.mex` files. Note: `.mx12` or `mx.18` files are created as a byproduct of opening a `.mex` file. All `.mx12` and `.mx18` files can be cleared using `make clean_mx12` and `make clean_mx18`. 
 	-	`art_index_csvs/` directory contains all csvs used to index articles that were reviewed in the full text review phase of the project. There was one csv per review batch.
+	-	`card-ontology/` directory contains the Comprehensive Antibiotic Resistance Database ontology.
+	-	`mesh-ontology/` directory contains the Medical Subject Headings ontology.
+	-	`ncbi-ontology/` directory contains the National Center for Biotechnology Information ontology.
 - `data/` contains all derived data including:
 	-	`coded_segments/` directory containing all exported segments from `.mex` files (exported using MAXQDA). These files are created via the applscript `scripts/01_export_segs_single_mex.scpt`.
 	-	Resulting data files `articles_db.rds`, `segments_db.rds`, and `events_db.rds` are the three primary components of the amr database and are placed in this directory when the appropriate `make` commands are run.
@@ -19,8 +22,6 @@ This repository contains code, data, and documentation for the AMR events databa
 	-	`03_clean_segments.R` - builds the `segments_db.rds` database using the `articles_db.rds` database and derived `coded_segments/` `.xlsx` files.
 	-	`04_clean_locations.R` -  builds the `events_db.rds` database using the `segments_db.rds` and `articles_db.rds` database. 
 	-	other scripts beginning with `check_` are used to curate and clean databases outside the data generation pipeline. 
-	-	`locations/` directory contains files to generate reports on study, residence, and travel locations of events.
-	-	`drugs/` directory contains files to generate reports on drugs resisted.
 
 ---
 
