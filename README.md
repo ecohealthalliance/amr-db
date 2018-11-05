@@ -15,13 +15,19 @@ This repository contains code, data, and documentation for the AMR events databa
 	-	`ncbi-ontology/` directory contains the National Center for Biotechnology Information ontology.
 - `data/` contains all derived data including:
 	-	`coded_segments/` directory containing all exported segments from `.mex` files (exported using MAXQDA). These files are created via the applscript `scripts/01_export_segs_single_mex.scpt`.
-	-	Resulting data files `articles_db.rds`, `segments_db.rds`, and `events_db.rds` are the three primary components of the amr database and are placed in this directory when the appropriate `make` commands are run.
+	-	`data_qa` directory containing outputs of QA checks.
+	-	`segments_raw.RData` is the raw segments database.
+	-	Resulting data files `articles_db.csv`, `segments.csv`, and `events_db.csv` are the three primary components of the amr database and are placed in this directory when the appropriate `make` commands are run.
+	-	Remaining csv files are intermediate steps created in the data cleaning process.
 - `scripts/` contains all scripts used to derive outputs. These are formulated in a pipeline and should be run sequentially (or run using the `Makefile`).
 	-	`01_export_segs_single_mex.scpt` - an applescript that uses the raw `.mex` files to create `coded_segments/` `.xlsx` files.
-	-	`02_index_articles.R` - builds the `articles_db.rds` database using the `art_index_csvs/` files and `coded_text_mex/` files.
-	-	`03_clean_segments.R` - builds the `segments_db.rds` database using the `articles_db.rds` database and derived `coded_segments/` `.xlsx` files.
-	-	`04_clean_locations.R` -  builds the `events_db.rds` database using the `segments_db.rds` and `articles_db.rds` database. 
-	-	other scripts beginning with `check_` are used to curate and clean databases outside the data generation pipeline. 
+	-	`02_index_articles.R` - builds the `articles_db.csv` database using the `art_index_csvs/` files and `coded_text_mex/` files.
+	-	`03_clean_segments.R` - builds the `segments.csv` database using the `articles_db.csv` database and derived `coded_segments/` `.xlsx` files.
+	-	`04_clean_locations.R` -  builds the `locations.csv` file from `segments.csv` using Google geocoding. 
+	-	`05_clean_drugs.R` -  builds the `drugs.csv` file from `segments.csv` based on MeSH ontology. 
+	-	`06_clean_bacteria.R` -  builds the `bacteria_genus_species.csv` and  `bacteria_strains_and_resistance_markers.csv` file from `segments.csv` based on NCBI and CARD ontologies, respectively. 
+	-	`07_clean_dates.R` -  builds the `dates.csv` file from `segments.csv`. 
+	-	`helper_scripts` contains functions to QA the data and to curate and clean the data outside the data generation pipeline. 
 
 ---
 
