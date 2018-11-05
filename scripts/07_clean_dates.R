@@ -12,6 +12,9 @@ library(here)
 # read in data
 segments <- read_csv(here::here("data", "segments.csv"))
 
+# Quick QA response - remove incorrectly coded segment
+segments %<>% filter(!c(study_id == 17611 & segment =="february" & code_main == "event year"))
+
 # structure segments database into dates codes dataframe 
 dates <- segments %>%
   filter(code_main %in% c("event month" , "event year", "event date" , "event day")) %>%
@@ -47,8 +50,6 @@ missing_year <- dates %>%
   select(study_id) %>%
   left_join(., articles_db %>% select(study_id, mex_name))
 
-# Quick QA response - remove incorrectly coded segment
-dates %<>% filter(!c(study_id==17611 & segment=="february"))
   
 # Handling of multiple events -----------------
 # some may be collapsed in the future if they are very close in time
@@ -57,13 +58,6 @@ dates %<>% filter(!c(study_id==17611 & segment=="february"))
 dates %<>%
   spread(key = code_main, value = segment) %>%
   clean_names()
-
-# create event ID - a lot of these are the same event and need to be combined (see dup_dates above)
-dates %<>%
-  group_by(study_id, code_identifiers) %>%
-  mutate(event_id = paste(study_id, row_number(), sep="_")) %>%
-  ungroup() %>%
-  select(-dup)
 
 # Lookups for manual cleaning ----------------
 
@@ -85,7 +79,7 @@ dates %<>%
 
 # for studies with multiple "events" and missing year for second entry, assume year of first entry
 dates %<>%
-  group_by(study_id) %>%
+  group_by(study_id, code_identifiers) %>%
   mutate(event_year = ifelse(is.na(event_year), paste(unique(event_year[!is.na(event_year)]), collapse=","), event_year)) %>%
   ungroup()
 
@@ -97,8 +91,7 @@ dates %<>%
          event_year = stri_replace_all_regex(event_year, cleaned_years$old, cleaned_years$new, vectorize_all = FALSE)) %>%
   mutate_at(vars(event_year, event_month, event_day), funs(as.numeric)) 
 
-##esm edited to this point
-
+# pad month and day with 0
 dates %<>%
   mutate(event_month = str_pad(event_month, width = 2, side = "left", pad = "0")) %>%
   mutate(event_day = str_pad(event_day, width = 2, side = "left", pad = "0"))
@@ -116,7 +109,7 @@ no_dayormonth <- dates %>%
   filter(is.na(event_month)) %>%
   mutate(new_date = event_year) 
 
-library(lubridate)  #use lubridate to put in right format, then change back to character for now
+# use lubridate to put in right format, then change back to character for now
 full_date <- dates %>%
   filter(!is.na(event_month)) %>%
   filter(!is.na(event_day)) %>%
@@ -128,10 +121,21 @@ full_date <- dates %>%
 clean_dates <-rbind(no_day, no_dayormonth, full_date) 
 clean_dates %<>%
   mutate(event_date = new_date) %>%
-  select(-new_date) %>%
-  arrange(study_id)
+  select(-new_date, -event_day, -event_year, -event_month) %>%
+  arrange(study_id, event_date)
 
-duplicated(clean_dates$event_id)
+# Combine two dates into start/finish dates----------------
 
-write.csv(clean_dates, P("data/clean_dates_db.csv"))
+# create date ID - a lot of these are the same event and need to be combined (see dup_dates above)
+clean_dates %<>%
+  group_by(study_id, code_identifiers) %>%
+  mutate(date_id = row_number()) %>%
+  ungroup() %>%
+  select(-dup)
+
+clean_dates %<>%
+  spread(key = date_id, value = event_date) %>%
+  rename(start_date = `1`, end_date = `2`)
+
+write_csv(clean_dates, here("data/clean_dates_db.csv"))
 
