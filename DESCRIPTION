@@ -23,6 +23,7 @@ Imports:
   googledrive, 
   ggmap, 
   janitor,
+  ontologyIndex,
   RSQLite
 Remotes: dkahle/ggmap
 Encoding: UTF-8

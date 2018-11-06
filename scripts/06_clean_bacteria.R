@@ -2,6 +2,7 @@ library(tidyverse)
 library(magrittr)
 library(stringi)
 library(here)
+library(janitor)
 library(googlesheets)
 
 # Structure Bacteria Data and Manual Corrections-----------------
