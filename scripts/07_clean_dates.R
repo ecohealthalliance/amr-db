@@ -137,5 +137,5 @@ clean_dates %<>%
   spread(key = date_id, value = event_date) %>%
   rename(start_date = `1`, end_date = `2`)
 
-write_csv(clean_dates, here("data/clean_dates_db.csv"))
+write_csv(clean_dates, here("data/dates.csv"))
 
