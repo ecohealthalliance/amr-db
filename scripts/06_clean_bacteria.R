@@ -138,6 +138,6 @@ no_match <- qa_match(bacteria_strain_marker, "card_select_id", group_vars = c("s
 
 
 # Separate DBs export-----------------
-write_csv(bacteria_genspe, here("data", "bacteria_genus_species_db.csv"))
+write_csv(bacteria_genspe, here("data", "bacteria_genus_species.csv"))
 
-write_csv(bacteria_strain_marker, here("data", "bacteria_strains_and_resistance_markers_db.csv"))
+write_csv(bacteria_strain_marker, here("data", "bacteria_strains_and_resistance_markers.csv"))
