@@ -1,8 +1,6 @@
 study_id,code_identifiers,code_identifiers_link,start_date,end_date
 9,NA,NA,2010,NA
 15,NA,NA,2015-01-29,NA
-137,NA,NA,2002-02,2004
-172,NA,NA,2011-04,NA
 183,NA,NA,2012-03,NA
 202,NA,NA,2011-10,NA
 261,NA,NA,2012-03-31,NA
@@ -24,7 +22,6 @@ study_id,code_identifiers,code_identifiers_link,start_date,end_date
 2628,NA,NA,2011-09-05,NA
 2889,NA,NA,2012-09,NA
 2963,NA,NA,2013-07-18,NA
-3060,NA,NA,2014-12,NA
 3095,NA,NA,2013-05,NA
 3235,NA,NA,2008-05,NA
 3374,NA,NA,2008-05,NA
@@ -60,7 +57,6 @@ study_id,code_identifiers,code_identifiers_link,start_date,end_date
 7369,NA,NA,2014-01-15,NA
 7437,NA,NA,2010-03,NA
 7440,NA,NA,2009-01-05,NA
-7482,NA,NA,2010-03,NA
 7494,NA,NA,2010-08,NA
 7585,NA,NA,2012-08,NA
 7620,NA,NA,2012,NA
@@ -90,7 +86,6 @@ study_id,code_identifiers,code_identifiers_link,start_date,end_date
 10260,NA,NA,2011-01-28,NA
 10443,NA,NA,2012-11,NA
 10445,NA,NA,2012-08,NA
-10622,NA,NA,2015-06,NA
 10634,NA,NA,2010-11-05,NA
 11201,NA,NA,2012,NA
 11395,NA,NA,2009-02,NA
@@ -118,7 +113,6 @@ study_id,code_identifiers,code_identifiers_link,start_date,end_date
 14740,NA,NA,2012-11,NA
 14751,NA,NA,2006-09,NA
 14823,NA,NA,2011-02-03,NA
-14906,NA,NA,2005-02,NA
 15256,NA,NA,2012-06-18,NA
 15268,NA,NA,2015-03,NA
 15331,NA,NA,2013-04,NA
@@ -168,5 +162,6 @@ study_id,code_identifiers,code_identifiers_link,start_date,end_date
 23107,NA,NA,2008-01-09,NA
 23248,NA,NA,2012-03,NA
 23251,NA,NA,2009-11,NA
-23314,NA,NA,2009-11,NA
+23314,a,age; city; event month; event year; hospital name; sex,2009-11,NA
+23314,b,age; city; country; country of residence; event month; event year; hospital name; sex,2010-08,NA
 23408,NA,NA,2009-09-13,NA
