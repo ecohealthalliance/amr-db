@@ -35,7 +35,7 @@ studies_with_mult_events <- qa_event(locations)
 studies_missing_locs <- qa_missing(locations)
 
 # Compare with list of studies that were evaluated for missing location codes (review 1)
-missing_list <- gs_read(gs_title("amr_db_missing_locations_study_id"), ws = "review_1") 
+missing_list <- gs_read(gs_title("amr_db_missing_locations_study_id"), ws = "review_2") 
 studies_missing_locs %<>% left_join(., missing_list)
 
 # Handling of multiple events -----------------
@@ -169,18 +169,56 @@ locations %<>%
          lat_study = lat)
 
 # Final QA check on data cleaning-----------------
+
+# all study locs
 study_locs <- locations %>% 
-  filter(!is.na(study_location)) %>% 
+  filter(study_location!="") %>%
   select(study_id, code_identifiers, study_location_basis, study_location, lat_study, lon_study) %>% 
   distinct() %>% 
-  mutate(study_id=as.numeric(study_id)) %>% 
+  mutate(study_id = as.integer(study_id)) %>% 
   arrange(study_id)
 
-filter(study_locs, is.na(study_locs$lat_study))
+filter(study_locs, is.na(study_locs$lat_study)) #these are study locations that were not geocoded
 
-# Find studies that were not checked in review_1
-clean_list <- gs_read(gs_title("amr_db_locations_qa"), ws = "review_1")  %>%
+# Find studies that were not checked in review_1 or review_2
+clean_list1 <- gs_read(gs_title("amr_db_locations_qa"), ws = "review_1")  %>%
+  select(study_id, study_location) %>% slice(-1:-5)
+clean_list2 <- gs_read(gs_title("amr_db_locations_qa"), ws = "review_2_study", skip=1) %>%
   select(study_id, study_location)
+clean_list <- bind_rows(clean_list1, clean_list2)
+
 updated_studies <- anti_join(study_locs, clean_list)
+
+# all residence locs
+res_locs <- locations %>% 
+  filter(residence_location!="") %>%
+  select(study_id, code_identifiers, residence_location, lat_residence, lon_residence) %>% 
+  distinct() %>% 
+  mutate(study_id = as.integer(study_id)) %>% 
+  arrange(study_id)
+
+filter(res_locs, is.na(res_locs$lat_residence)) #these are study locations that were not geocoded
+
+# Find studies that were not checked in review_2
+clean_list <- gs_read(gs_title("amr_db_locations_qa"), ws = "review_2_residence", skip=1) %>%
+  select(residence_location)
+
+updated_studies <- anti_join(res_locs, clean_list)
+
+# all travel locs
+trav_locs <- locations %>% 
+  filter(travel_location!="") %>%
+  select(study_id, code_identifiers, travel_location, lat_travel, lon_travel) %>% 
+  distinct() %>% 
+  mutate(study_id = as.integer(study_id)) %>% 
+  arrange(study_id)
+
+filter(trav_locs, is.na(trav_locs$lat_travel)) #these are study locations that were not geocoded
+
+# Find studies that were not checked in review_2
+clean_list <- gs_read(gs_title("amr_db_locations_qa"), ws = "review_2_travel", skip=1) %>%
+  select(travel_location)
+
+updated_studies <- anti_join(trav_locs, clean_list)
 
 write_csv(locations, here("data", "locations.csv"))
