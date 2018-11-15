@@ -363,6 +363,9 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 10634,cephalothin,NA,drug resisted,NA,NA
 10634,cefotaxime,NA,drug resisted,NA,NA
 10703,"this is the first study to report ctx-m-3, ctx-m-27, ctx-m-40, shv-27, shv-71, and shv-75 in thailand and to show that ctx-m esbl is highly endemic in the country.",NA,first surveillance study (of a particular resistance) in countr,NA,NA
+10703,may,NA,event month,b,event month; event year
+10703,2004,NA,event year,a,event month; event year
+10703,2005,NA,event year,b,event month; event year
 10703,thailand,location,country,NA,NA
 10703,ctx-m-27,bacteria,strain,NA,NA
 10703,-40,bacteria,strain,NA,NA
@@ -370,6 +373,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 10703,ctx-m-3,bacteria,strain,NA,NA
 10703,27,bacteria,strain,NA,NA
 10703,k. pneumoniae,bacteria,binomial (genus species),NA,NA
+10703,december,NA,event month,a,event month; event year
 1080,this is the first study to report the emergence of vancomycinand linezolid-resistant s aureus in egypt.,NA,first surveillance study (of a particular resistance) in countr,NA,NA
 1080,this study analyzed the distribution and the antimicrobial resistance of gram-positive bacteria isolated from cancer patients in egypt.,NA,first surveillance study (of a particular resistance) in countr,NA,NA
 1080,egypt,location,country,NA,NA
@@ -481,7 +485,10 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 11202,p. aeruginosa-bacteremia,bacteria,binomial (genus species),NA,NA
 11202,ndm-1positive strain,bacteria,strain,NA,NA
 11202,university hospital,location,hospital name,NA,NA
+11202,december,NA,event month,NA,NA
 11202,bratislava,location,city,NA,NA
+11202,2011,NA,event year,NA,NA
+11202,2012,NA,event year,NA,NA
 11202,acute respiratory failure,patient,symptoms/disease,NA,NA
 11303,"we describe the isolation ndm-1–producing organisms from two patients in toronto, ontario. to the best of our knowledge, this is the first report of an organism producing ndm-1 that was locally acquired in canada.",NA,article/study aim,NA,NA
 11303,toronto,location,city,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
@@ -2081,17 +2088,20 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 16801,imipenem,NA,drug resisted,NA,NA
 16801,meropenem,NA,drug resisted,NA,NA
 16837,"to our knowledge, this is the first isolation of m. europaeum from human clinical specimens in asia to be reported",NA,article/study aim,NA,NA
-16837,high temperature,patient,symptoms/disease,NA,NA
-16837,cough,patient,symptoms/disease,NA,NA
+16837,high temperature,patient,symptoms/disease,a,binomial (genus species); comorbidities; symptoms/disease
+16837,cough,patient,symptoms/disease,a,binomial (genus species); comorbidities; symptoms/disease
 16837,productive cough,patient,symptoms/disease,NA,NA
 16837,case 1,NA,notes,NA,NA
+16837,2009,NA,event year,b,age; binomial (genus species); comorbidities; event year
 16837,ethambutol,NA,drug resisted,NA,NA
+16837,13,patient,age,b,age; binomial (genus species); comorbidities; event year
+16837,chronic pulmonary disease,patient,comorbidities,b,age; binomial (genus species); comorbidities; event year
 16837,mycobacterium europaeum,bacteria,binomial (genus species),NA,NA
 16837,afp-0001,bacteria,strain,NA,NA
 16837,iran,location,country,NA,NA
 16837,48-year-old,patient,age,NA,NA
 16837,man,patient,sex,NA,NA
-16837,hiv,patient,comorbidities,NA,NA
+16837,hiv,patient,comorbidities,a,binomial (genus species); comorbidities; symptoms/disease
 16837,intravenous drug use,patient,comorbidities,NA,NA
 17068,61,patient,age,NA,NA
 17068,s. marcescens,bacteria,binomial (genus species),NA,NA
@@ -3106,8 +3116,13 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 20373,s. dysenteriae,bacteria,binomial (genus species),NA,NA
 20373,s. boydii,bacteria,binomial (genus species),NA,NA
 20373,s. flexneri untypeable,bacteria,strain,NA,NA
+20373,september,NA,event month,i,event month; event year
+20373,march,NA,event month,j,event month; event year
+20373,2008,NA,event year,i,event month; event year
+20373,2010,NA,event year,j,event month; event year
 20373,s. flexneri type 2b,bacteria,strain,NA,NA
 20401,"to investigate the trends of antimicrobial resistance in pathogens isolated from surgical site infections (ssi), a japanese surveillance committee conducted the first nationwide survey.",NA,first surveillance study (of a particular resistance) in countr,NA,NA
+20401,2010,NA,event year,NA,NA
 20553,first report,NA,article/study aim,NA,NA
 20553,penicillin,NA,drug resisted,NA,NA
 20553,ampicillin,NA,drug resisted,NA,NA
@@ -4097,6 +4112,9 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 2697,this is the first report of mrsa from this region of jamaica.,NA,first surveillance study (of a particular resistance) in countr,NA,NA
 2697,jamaica,location,country,NA,NA
 2697,staphylococcus aureus,bacteria,binomial (genus species),NA,NA
+2697,may,NA,event month,NA,NA
+2697,august,NA,event month,NA,NA
+2697,2002,NA,event year,NA,NA
 2791,oxacillin,NA,drug resisted,NA,NA
 2791,coronary atherosclerotic disease,patient,comorbidities,NA,NA
 2791,ischemic cardiomyopathy,patient,comorbidities,NA,NA
@@ -4125,6 +4143,8 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 2863,methicillin,NA,drug resisted,NA,NA
 2863,aminoglycoside,NA,drug resisted,NA,NA
 2863,staphylococcus capitis,bacteria,binomial (genus species),NA,NA
+2863,2000,NA,event year,NA,NA
+2863,2013,NA,event year,NA,NA
 2889,we present the first report in our country of a macrolideresistant m. pneumoniae (mr mpn) strain with a point mutation in its 23s rrna isolated from an adult patient with cap,NA,article/study aim,NA,NA
 2889,mycoplasma pneumoniae,bacteria,binomial (genus species),NA,NA
 2889,spain,location,country,NA,NA
@@ -4464,6 +4484,8 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 3651,"this is the first nationwide study, performed within the china gonococcal antimicrobial susceptibility programme (china-gasp), regarding amr, including ceftriaxone genetic resistance determinants, and molecular epidemiology of gonococci in china.",NA,first surveillance study (of a particular resistance) in countr,NA,NA
 3651,china,location,country,NA,NA
 3651,neisseria gonorrhoeae,bacteria,binomial (genus species),NA,NA
+3651,2013,NA,event year,NA,NA
+3651,2012,NA,event year,NA,NA
 3722,81,patient,age,NA,NA
 3722,ew york methodist hospital,location,hospital name,NA,NA
 3722,ny,location,city,NA,NA
@@ -4544,6 +4566,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 3910,macrolide,NA,drug resisted,NA,NA
 3910,azithromycin,NA,drug resisted,NA,NA
 3910,mycoplasma genitalium,bacteria,binomial (genus species),NA,NA
+3910,2006,NA,event year,NA,NA
 404,his letter describes the first isolation of s. maltophilia resistant to tmp – sxt from two patients treated at riyadh armed forces hospita,NA,article/study aim,NA,NA
 404,> 8 uglml,NA,mic,b,drug resisted; mic
 404,> 4 ug/ml,NA,mic,e,drug resisted; mic
@@ -4833,6 +4856,10 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 5362,czech republic,location,country,NA,NA
 5362,he university hospital brno,location,hospital name,NA,NA
 5362,brno,location,city,NA,NA
+5362,june,NA,event month,a,event month; event year
+5362,january,NA,event month,b,event month; event year
+5362,2009,NA,event year,a,event month; event year
+5362,2010,NA,event year,b,event month; event year
 5449,describe an outbreak caused by a pandrug-resistant providencia stuartii strain,NA,article/study aim,NA,NA
 5449,aminoglycosides,NA,drug resisted,NA,NA
 5449,ciprofloxacin,NA,drug resisted,NA,NA
@@ -5240,6 +5267,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 6454,this is the first clinical case of penicillin-resistant c. diphtheriae in the uk,NA,article/study aim,NA,NA
 6454,ethiopia,location,place traveled to,NA,NA
 6454,she was allowed go home,patient,outcome,NA,NA
+6454,07/04/2009,NA,event date,NA,NA
 6454,penicillin,NA,drug resisted,NA,NA
 6454,corynebacterium diphtheriae,bacteria,binomial (genus species),NA,NA
 6454,united kingdom,location,country,NA,NA
@@ -6439,6 +6467,8 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 16726,32 g/ml,NA,mic,b,drug resisted; mic
 16726,32 g/ml,NA,mic,c,drug resisted; mic
 16726,32 g/ml,NA,mic,d,drug resisted; mic
+16837,m. europaeum,bacteria,binomial (genus species),a,binomial (genus species); comorbidities; symptoms/disease
+16837,m. europaeum,bacteria,binomial (genus species),b,age; binomial (genus species); comorbidities; event year
 17169,>256 μg/ml,NA,mic,a,drug resisted; mic
 17169,>256 μg/ml,NA,mic,b,drug resisted; mic
 17169,>256 μg/ml,NA,mic,c,drug resisted; mic

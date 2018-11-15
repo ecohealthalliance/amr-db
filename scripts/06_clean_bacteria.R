@@ -22,6 +22,7 @@ bacteria <- segments %>%
   mutate(segment = stri_replace_all_regex(segment,
                                           c("\\(|\\)|\\:|\\;|\\.|\\,"),
                                           c(""), vectorize = FALSE)) %>%
+  mutate(segment = trimws(segment)) %>%
   mutate(
     segment = stri_replace_all_regex(
       segment,
@@ -32,9 +33,9 @@ bacteria <- segments %>%
   )
 
 # QA Checks-----------------
-# clean (amr_db_clean_bacteria - issue 11)
-# dups (NA)
-# missing (amr_db_missing_bacteria - issue 10)
+# clean 
+# dups (NA for bacteria)
+# missing 
 source(here("scripts", "helper_scripts", "functions_qa.R"))
 
 # Identify duplicate bacteria in studies 
@@ -86,6 +87,19 @@ bacteria_genspe %<>%
 # Check matches with NCBI ontology-----------------
 
 no_match <- qa_match(bacteria_genspe, "bacteria_id")
+
+# Compare with list of studies that were previously cleaned
+clean_list <- gs_read(gs_title("amr_db_clean_bacteria")) 
+no_match %<>% left_join(., clean_list)
+new_no_match <- no_match %>%
+  filter(is.na(new))
+
+# ID studies that do not have species (only genus or higher)
+articles_db <- read_csv(here("data", "articles_db.csv")) %>% select(study_id, mex_name)
+missing_species <- bacteria_genspe %>% 
+  filter(bacteria_rank!="species") %>%
+  left_join(articles_db) %>%
+  select(study_id, segment, bacteria_rank, mex_name)
 
 # CARD Ontology-----------------
 # for strains and markers

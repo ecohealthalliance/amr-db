@@ -1,21 +1,23 @@
 study_id,segment,code_identifiers,code_identifiers_link,mex_name
+202,cefalothin,g,drug resisted,zm_5_1.mex
+202,cefoxitin,h,drug resisted,zm_5_1.mex
+202,ertapenem,k,drug resisted,zm_5_1.mex
 202,amoxicillin + cla,b,drug resisted,zm_5_1.mex
 202,ticarcillin,c,drug resisted,zm_5_1.mex
 202,ticarcillin +cla,d,drug resisted,zm_5_1.mex
 202,piperacillin,e,drug resisted,zm_5_1.mex
 202,piperacillin + taz,f,drug resisted,zm_5_1.mex
-202,cefalothin,g,drug resisted,zm_5_1.mex
-202,cefoxitin,h,drug resisted,zm_5_1.mex
-202,ertapenem,k,drug resisted,zm_5_1.mex
-267,cefoxitin,c,drug resisted,zm_6_1.mex
-267,cefotetan,d,drug resisted,zm_6_1.mex
 267,cefpodoxime,h,drug resisted,zm_6_1.mex
 267,ampicillin,a,drug resisted,zm_6_1.mex
+267,cefoxitin,c,drug resisted,zm_6_1.mex
+267,cefotetan,d,drug resisted,zm_6_1.mex
 345,128 g/ml,a,mic,md_4_1.mex
 345,8 g/ml,e,mic,md_4_1.mex
 360,cmul332,a,strain,bw_1_1.mex
-591,ampicillin-sulbactam,b,drug resisted,zm_4_1.mex
-591,piperacillin-tazobactam,c,drug resisted,zm_4_1.mex
+580,gentamicin,a,drug resisted,md_2_1.mex
+580,cephalothin,b,drug resisted,md_2_1.mex
+580,cefotaxime,c,drug resisted,md_2_1.mex
+580,ceftriaxone,d,drug resisted,md_2_1.mex
 591,cefoxitin,e,drug resisted,zm_4_1.mex
 591,cefotaxime,f,drug resisted,zm_4_1.mex
 591,ceftazidime,g,drug resisted,zm_4_1.mex
@@ -25,37 +27,40 @@ study_id,segment,code_identifiers,code_identifiers_link,mex_name
 591,gentamicin,n,drug resisted,zm_4_1.mex
 591,ciprofloxacin,o,drug resisted,zm_4_1.mex
 591,colistin,p,drug resisted,zm_4_1.mex
+591,ampicillin-sulbactam,b,drug resisted,zm_4_1.mex
+591,piperacillin-tazobactam,c,drug resisted,zm_4_1.mex
 1288,sulbactam-ampicillin,b,drug resisted,zm_3_1.mex
 1652,ceftazidime,g,drug resisted,md_2_1.mex
 1652,cefepime,i,drug resisted,md_2_1.mex
-1786,amoxycillin,a,drug resisted,zm_4_1.mex
-1786,cefazoline,b,drug resisted,zm_4_1.mex
-1786,cefuroxime,c,drug resisted,zm_4_1.mex
 1786,ceftriaxone,g,drug resisted,zm_4_1.mex
 1786,cefepime,h,drug resisted,zm_4_1.mex
 1786,imipenem,i,drug resisted,zm_4_1.mex
 1786,meropenem,j,drug resisted,zm_4_1.mex
 1786,ertapenem,k,drug resisted,zm_4_1.mex
 1786,gentamicin,m,drug resisted,zm_4_1.mex
+1786,amoxycillin,a,drug resisted,zm_4_1.mex
+1786,cefazoline,b,drug resisted,zm_4_1.mex
+1786,cefuroxime,c,drug resisted,zm_4_1.mex
 1806,>16 毺 g/ml,a,mic,md_4_1.mex
+1887,tobramycin,i,drug resisted,zm_4_1.mex
+1887,ertapenem,j,drug resisted,zm_4_1.mex
+1887,meropenem,l,drug resisted,zm_4_1.mex
 1887,cefoxitin,b,drug resisted,zm_4_1.mex
 1887,ceftazidime,c,drug resisted,zm_4_1.mex
 1887,ceftriaxone,d,drug resisted,zm_4_1.mex
 1887,gentamicin,h,drug resisted,zm_4_1.mex
-1887,tobramycin,i,drug resisted,zm_4_1.mex
-1887,ertapenem,j,drug resisted,zm_4_1.mex
-1887,meropenem,l,drug resisted,zm_4_1.mex
 2302,ticarcillin-clavulanate,b,drug resisted,zm_7_1.mex
-2303,cefepime,b,drug resisted,zm_4_1.mex
-2303,aztreonam,c,drug resisted,zm_4_1.mex
-2303,imipenem,g,drug resisted,zm_4_1.mex
 2303,meropenem,h,drug resisted,zm_4_1.mex
 2303,doripenem,i,drug resisted,zm_4_1.mex
 2303,ertapenem,j,drug resisted,zm_4_1.mex
+2303,cefepime,b,drug resisted,zm_4_1.mex
+2303,aztreonam,c,drug resisted,zm_4_1.mex
+2303,imipenem,g,drug resisted,zm_4_1.mex
+2389,fosfomycin,g,drug resisted,zm_5_1.mex
 2389,imipenem,e,drug resisted,zm_5_1.mex
 2389,meropenem,f,drug resisted,zm_5_1.mex
-2389,fosfomycin,g,drug resisted,zm_5_1.mex
-2418,daptomycin,e,drug resisted,bw_1_1.mex
+2418,oxacillin,a,drug resisted,bw_1_1.mex
+2418,gentamicin,b,drug resisted,bw_1_1.mex
 2419,levofloxacin,n,drug resisted,zm_2_1.mex
 2419,tetracycline,o,drug resisted,zm_2_1.mex
 2419,colistin,q,drug resisted,zm_2_1.mex
@@ -69,22 +74,22 @@ study_id,segment,code_identifiers,code_identifiers_link,mex_name
 3095,gentamicin,f,drug resisted,md_3_2.mex
 3235,imipenem,f,drug resisted,zm_7_1.mex
 3872,ampicillin,b,drug resisted,zm_7_1.mex
+3882,ceftriaxone,j,drug resisted,zm_6_1.mex
+3882,chloramphenicol,m,drug resisted,zm_6_1.mex
+3882,tetracycline,o,drug resisted,zm_6_1.mex
+3882,oxacillin,b,drug resisted,zm_6_1.mex
 3882,ticarcillin,c,drug resisted,zm_6_1.mex
 3882,benzylpenicillin,e,drug resisted,zm_6_1.mex
 3882,cephalothin,f,drug resisted,zm_6_1.mex
 3882,cephaloridine,g,drug resisted,zm_6_1.mex
 3882,cefotaxime,h,drug resisted,zm_6_1.mex
 3882,ceftazidime,i,drug resisted,zm_6_1.mex
-3882,ceftriaxone,j,drug resisted,zm_6_1.mex
-3882,chloramphenicol,m,drug resisted,zm_6_1.mex
-3882,tetracycline,o,drug resisted,zm_6_1.mex
-3882,oxacillin,b,drug resisted,zm_6_1.mex
-4519,ampicillin,c,drug resisted,zm_6_1.mex
-4519,cefotaxime,e,drug resisted,zm_6_1.mex
-4519,ceftazidime,f,drug resisted,zm_6_1.mex
 4519,piperacillin-tazobactam,h,drug resisted,zm_6_1.mex
 4519,meropenem,j,drug resisted,zm_6_1.mex
 4519,ertapenem,k,drug resisted,zm_6_1.mex
+4519,ampicillin,c,drug resisted,zm_6_1.mex
+4519,cefotaxime,e,drug resisted,zm_6_1.mex
+4519,ceftazidime,f,drug resisted,zm_6_1.mex
 4642,ceftazidime-clavulanic acid,k,drug resisted,zm_4_1.mex
 5005,amoxicillin/clavulanic acid,b,drug resisted,zm_5_1.mex
 5005,cefuroxime,e,drug resisted,zm_5_1.mex
@@ -104,27 +109,27 @@ study_id,segment,code_identifiers,code_identifiers_link,mex_name
 6314,piperacillin,c,drug resisted,zm_6_2.mex
 6314,cefotaxime,d,drug resisted,zm_6_2.mex
 6350,ampicillin/ sulbactam,b,drug resisted,md_1_1.mex
-6467,ticarcillin/clavulanic acid,b,drug resisted,zm_3_2.mex
-6467,ceftazidime,c,drug resisted,zm_3_2.mex
-6467,cefepime,d,drug resisted,zm_3_2.mex
-6467,meropeneme,f,drug resisted,zm_3_2.mex
 6467,doripenem,g,drug resisted,zm_3_2.mex
 6467,tobramycin,h,drug resisted,zm_3_2.mex
 6467,gentamicin,i,drug resisted,zm_3_2.mex
 6467,ciprofloxacin,k,drug resisted,zm_3_2.mex
-6492,ceftazidime,d,drug resisted,zm_3_2.mex
+6467,ticarcillin/clavulanic acid,b,drug resisted,zm_3_2.mex
+6467,ceftazidime,c,drug resisted,zm_3_2.mex
+6467,cefepime,d,drug resisted,zm_3_2.mex
+6467,meropeneme,f,drug resisted,zm_3_2.mex
 6492,gentamicin,g,drug resisted,zm_3_2.mex
-6505,"7 deleo fr, otto m, kreiswirth bn et al. community-associated meticillinresistant staphylococcus aureus. lancet 2010; 375: 1557–68",a,references for follow up,zm_3_2.mex
-6505,"8 diep ba, gill sr, chang rf et al. complete genome sequence of usa300, an epidemic clone of community-acquired meticillin-resistant staphylococcus aureus. lancet 2006; 367: 731–9",a,references for follow up,zm_3_2.mex
-6505,"9 nygaard tk, deleo fr, voyich jm. community-associated methicillinresistant staphylococcus aureus skin infections: advances toward identifying the key virulence factors. curr opin infect dis 2004; 21: 147–52",a,references for follow up,zm_3_2.mex
+6492,ceftazidime,d,drug resisted,zm_3_2.mex
 6505,"the first widely recognized ca-mrsa clone in the usa was the midwestern clone with st1, also known as usa400, named after its unique pfge type. after the turn of the century, usa300 (st8) emerged and replaced usa400 as the dominant clone responsible for the majority of skin and soft tissue infections in the usa.7–1",a,references for follow up,zm_3_2.mex
-6505,"10 wannet wj, heck me, pluister et al. panton-valentine leukocidin positive mrsa in 2003: the dutch situation. euro surveill 2003; 9: 28 –9",a,references for follow up,zm_3_2.mex
+6505,"ca-mrsa st80, first described in europe, has now also been isolated from the northern part of africa, the middle east and australia but so far never from patients in the usa.21–2",b,references for follow up,zm_3_2.mex
 6505,"21 antri k, rouzic n, dauwalder o et al. high prevalence of methicillinresistant staphylococcus aureus clone st80-iv in hospital and community settings in algiers. clin microbiol infect 2011; 17: 526–32",b,references for follow up,zm_3_2.mex
 6505,"22 ben nejma m, mastouri m, bel hadj jrad b et al. characterization of st80 panton-valentine leukocidin-positive community-acquired methicillin-resistant staphylococcus aureus clone in tunisia. diagn microbiol infect dis 2013; 77: 20–4",b,references for follow up,zm_3_2.mex
 6505,"23 el-mahdy ts, el-ahmady m, goering rv. molecular characterization of methicillin-resistant staphylococcus aureus isolated over a 2-year period in a qatari hospital from multinational patients. clin microbiol infect 2014; 20: 169–73",b,references for follow up,zm_3_2.mex
 6505,"24 udo ee, sarkhoo e. the dissemination of st80-sccmec-iv communityassociated methicillin resistant staphylococcus aureus clone in kuwait hospitals. ann clin microbiol antimicrob 2010; 9: 31",b,references for follow up,zm_3_2.mex
 6505,"25 vandenesch f, naimi t, enright mc et al. community-acquired methicillin-resistant staphylococcus aureus carrying panton-valentine leukocidin genes: worldwide emergence. emerg infect dis 2003; 9: 978–84",b,references for follow up,zm_3_2.mex
-6505,"ca-mrsa st80, first described in europe, has now also been isolated from the northern part of africa, the middle east and australia but so far never from patients in the usa.21–2",b,references for follow up,zm_3_2.mex
+6505,"7 deleo fr, otto m, kreiswirth bn et al. community-associated meticillinresistant staphylococcus aureus. lancet 2010; 375: 1557–68",a,references for follow up,zm_3_2.mex
+6505,"8 diep ba, gill sr, chang rf et al. complete genome sequence of usa300, an epidemic clone of community-acquired meticillin-resistant staphylococcus aureus. lancet 2006; 367: 731–9",a,references for follow up,zm_3_2.mex
+6505,"9 nygaard tk, deleo fr, voyich jm. community-associated methicillinresistant staphylococcus aureus skin infections: advances toward identifying the key virulence factors. curr opin infect dis 2004; 21: 147–52",a,references for follow up,zm_3_2.mex
+6505,"10 wannet wj, heck me, pluister et al. panton-valentine leukocidin positive mrsa in 2003: the dutch situation. euro surveill 2003; 9: 28 –9",a,references for follow up,zm_3_2.mex
 6842,16g/ml,a,mic,zm_1_1.mex
 6842,12 g/ml,b,mic,zm_1_1.mex
 7108,gentamicin,f,drug resisted,zm_5_2.mex
@@ -132,10 +137,10 @@ study_id,segment,code_identifiers,code_identifiers_link,mex_name
 7585,ceftazidime,g,drug resisted,zm_2_1.mex
 7585,doripenem,l,drug resisted,zm_2_1.mex
 7585,aztreonam,m,drug resisted,zm_2_1.mex
+7620,meropenem,i,drug resisted,zm_3_2.mex
 7620,amoxicillin-clavulanic acid,b,drug resisted,zm_3_2.mex
 7620,cefuroxime axetil,e,drug resisted,zm_3_2.mex
 7620,cefoxitin,f,drug resisted,zm_3_2.mex
-7620,meropenem,i,drug resisted,zm_3_2.mex
 7904,tetracycline,e,drug resisted,zm_5_2.mex
 7968,≥64 毺g/ml,a,mic,zm_3_2.mex
 8181,amoxicillin/clavulate,b,drug resisted,zm_7_2.mex
@@ -143,19 +148,14 @@ study_id,segment,code_identifiers,code_identifiers_link,mex_name
 8181,piperacillin/tazobactam,d,drug resisted,zm_7_2.mex
 8181,ceftazidime,e,drug resisted,zm_7_2.mex
 8181,cefotaxime,f,drug resisted,zm_7_2.mex
-8591,cefepime,c,drug resisted,zm_3_2.mex
 8591,cefoperazone/sulbactam,d,drug resisted,zm_3_2.mex
 8591,ceftazidime,e,drug resisted,zm_3_2.mex
 8591,imipenem,h,drug resisted,zm_3_2.mex
 8591,meropenem,j,drug resisted,zm_3_2.mex
 8591,netilmicin,k,drug resisted,zm_3_2.mex
 8591,tetracycline,m,drug resisted,zm_3_2.mex
+8591,cefepime,c,drug resisted,zm_3_2.mex
 8653,penicillin g,a,drug resisted,zm_3_2.mex
-8950,ampicillin-sulbactam,b,drug resisted,zm_4_2.mex
-8950,piperacillin,c,drug resisted,zm_4_2.mex
-8950,piperacillin-tazobactam,d,drug resisted,zm_4_2.mex
-8950,cefuroxime,e,drug resisted,zm_4_2.mex
-8950,ceftazidime,g,drug resisted,zm_4_2.mex
 8950,cefoperazone,h,drug resisted,zm_4_2.mex
 8950,cefepime,i,drug resisted,zm_4_2.mex
 8950,imipenem,j,drug resisted,zm_4_2.mex
@@ -164,9 +164,12 @@ study_id,segment,code_identifiers,code_identifiers_link,mex_name
 8950,nalidixic acid,n,drug resisted,zm_4_2.mex
 8950,ciprofloxacin,o,drug resisted,zm_4_2.mex
 8950,trimethoprim,q,drug resisted,zm_4_2.mex
+8950,ampicillin-sulbactam,b,drug resisted,zm_4_2.mex
+8950,piperacillin,c,drug resisted,zm_4_2.mex
+8950,piperacillin-tazobactam,d,drug resisted,zm_4_2.mex
+8950,cefuroxime,e,drug resisted,zm_4_2.mex
+8950,ceftazidime,g,drug resisted,zm_4_2.mex
 9010,cefepime,h,drug resisted,zm_2_2.mex
-9075,cefotaxime,d,drug resisted,zm_3_2.mex
-9075,aztreonam,f,drug resisted,zm_3_2.mex
 9075,meropenem,h,drug resisted,zm_3_2.mex
 9075,imipenem,i,drug resisted,zm_3_2.mex
 9075,amikacin,j,drug resisted,zm_3_2.mex
@@ -174,9 +177,8 @@ study_id,segment,code_identifiers,code_identifiers_link,mex_name
 9075,ampicillin,a,drug resisted,zm_3_2.mex
 9075,cefoxitin,b,drug resisted,zm_3_2.mex
 9075,ceftazidime,c,drug resisted,zm_3_2.mex
-9628,piperacillin-tazobactam,d,drug resisted,md_2_1.mex
-9628,cefepime,f,drug resisted,md_2_1.mex
-9628,imipenem,g,drug resisted,md_2_1.mex
+9075,cefotaxime,d,drug resisted,zm_3_2.mex
+9075,aztreonam,f,drug resisted,zm_3_2.mex
 9733,piperacillin,b,drug resisted,zm_7_2.mex
 9733,ceftriaxone,d,drug resisted,zm_7_2.mex
 9989,ticarcillin–clavulanic acid,d,drug resisted,zm_3_2.mex
@@ -292,7 +294,11 @@ study_id,segment,code_identifiers,code_identifiers_link,mex_name
 13465,ceftriaxone,d,drug resisted,zm_4_3.mex
 13465,nalidixic acid,d,drug resisted,zm_4_3.mex
 13465,aztreonam,d,drug resisted,zm_4_3.mex
-13490,>256 mg/l,a,mic,md_4_2.mex
+13490,ticarcillin,c,drug resisted,md_4_2.mex
+13490,mezlocillin,d,drug resisted,md_4_2.mex
+13490,kanamycin,f,drug resisted,md_4_2.mex
+13490,trimethoprim/sulfamethoxazole,g,drug resisted,md_4_2.mex
+13490,metronidazole,h,drug resisted,md_4_2.mex
 13741,>8,c,mic,md_2_1.mex
 13794,tobramicin,g,drug resisted,zm_3_3.mex
 13794,amikacin,h,drug resisted,zm_3_3.mex
@@ -318,30 +324,32 @@ study_id,segment,code_identifiers,code_identifiers_link,mex_name
 15331,penicillin,d,drug resisted,zm_6_3.mex
 15331,clindamycin,e,drug resisted,zm_6_3.mex
 15331,ciprofloxacin,f,drug resisted,zm_6_3.mex
+15378,rifampin,h,drug resisted,zm_3_4.mex
+15378,erythromycin,i,drug resisted,zm_3_4.mex
+15378,vancomycin,j,drug resisted,zm_3_4.mex
+15378,teicoplanin,k,drug resisted,zm_3_4.mex
 15378,ampicillin,a,drug resisted,zm_3_4.mex
 15378,amoxacillin/clavulanate,b,drug resisted,zm_3_4.mex
 15378,clindamycin,d,drug resisted,zm_3_4.mex
 15378,gentamicin,f,drug resisted,zm_3_4.mex
 15378,streptomycin,g,drug resisted,zm_3_4.mex
-15378,rifampin,h,drug resisted,zm_3_4.mex
-15378,erythromycin,i,drug resisted,zm_3_4.mex
-15378,vancomycin,j,drug resisted,zm_3_4.mex
-15378,teicoplanin,k,drug resisted,zm_3_4.mex
 15632,minocycline,k,drug resisted,bw_1_1.mex
 15632,>256,b,mic,bw_1_1.mex
 16726,rifampin,e,drug resisted,zm_3_4.mex
-18418,"st2659 has been reported only once, from a domesticated cat",p,references for follow up,zm_2_2.mex
-18418,in germany (http://mlst.warwick.ac.uk/mlst/dbs/ecoli),p,references for follow up,zm_2_2.mex
-18418,amoxicillin-clavulanate,b,drug resisted,zm_2_2.mex
-18418,piperacillin-tazobactam,c,drug resisted,zm_2_2.mex
-18418,cefoxitin,d,drug resisted,zm_2_2.mex
-18418,cefotaxime,e,drug resisted,zm_2_2.mex
+17819,2012,b,event year,md_1_1.mex
+17819,2010,a,event year,md_1_1.mex
 18418,cefuroxime,f,drug resisted,zm_2_2.mex
 18418,ceftazidime,g,drug resisted,zm_2_2.mex
 18418,aztreonam,h,drug resisted,zm_2_2.mex
 18418,amikacin,k,drug resisted,zm_2_2.mex
 18418,tobramycin,l,drug resisted,zm_2_2.mex
 18418,ciprofloxacin,m,drug resisted,zm_2_2.mex
+18418,amoxicillin-clavulanate,b,drug resisted,zm_2_2.mex
+18418,"st2659 has been reported only once, from a domesticated cat",p,references for follow up,zm_2_2.mex
+18418,in germany (http://mlst.warwick.ac.uk/mlst/dbs/ecoli),p,references for follow up,zm_2_2.mex
+18418,piperacillin-tazobactam,c,drug resisted,zm_2_2.mex
+18418,cefoxitin,d,drug resisted,zm_2_2.mex
+18418,cefotaxime,e,drug resisted,zm_2_2.mex
 19093,meropenem,h,drug resisted,zm_5_3.mex
 19093,chloramphenicol,j,drug resisted,zm_5_3.mex
 19093,cefoxitin,f,drug resisted,zm_5_3.mex
@@ -360,12 +368,12 @@ study_id,segment,code_identifiers,code_identifiers_link,mex_name
 19607,cefotaxime,e,drug resisted,zm_6_3.mex
 19607,ceftazidime,f,drug resisted,zm_6_3.mex
 19607,meropenem,i,drug resisted,zm_6_3.mex
+19609,aztreonam,l,drug resisted,zm_5_4.mex
+19609,ciprofloxacin,p,drug resisted,zm_5_4.mex
 19609,piperacillin  tazobactam,c,drug resisted,zm_5_4.mex
 19609,cefoxitin,d,drug resisted,zm_5_4.mex
 19609,cefotaxime,e,drug resisted,zm_5_4.mex
 19609,ceftazidime,f,drug resisted,zm_5_4.mex
-19609,aztreonam,l,drug resisted,zm_5_4.mex
-19609,ciprofloxacin,p,drug resisted,zm_5_4.mex
 19615,amoxicillin,e,drug resisted,zm_3_5.mex
 19615,cefotaxime,f,drug resisted,zm_3_5.mex
 19615,ceftazidime,g,drug resisted,zm_3_5.mex
@@ -386,9 +394,16 @@ study_id,segment,code_identifiers,code_identifiers_link,mex_name
 20331,cefotaxime,e,drug resisted,zm_3_5.mex
 20331,cefoxitin,f,drug resisted,zm_3_5.mex
 20331,ceftazidime,g,drug resisted,zm_3_5.mex
-20332,doripenem,f,drug resisted,zm_5_4.mex
 20332,gentamicin,k,drug resisted,zm_5_4.mex
 20332,fosfomycin;,n,drug resisted,zm_5_4.mex
+20332,doripenem,f,drug resisted,zm_5_4.mex
+20339,cefoxitin,b,drug resisted,md_2_2.mex
+20373,s. boydii type 2,f,strain,zm_6_4.mex
+20373,s. flexneri type 1b,b,strain,zm_6_4.mex
+20373,s. flexneri untypeable,c,strain,zm_6_4.mex
+20373,s. flexneri type 2b,d,strain,zm_6_4.mex
+20373,s. dysenteriae type 2,d,strain,zm_6_4.mex
+20373,s. dysenteriae type 2,e,strain,zm_6_4.mex
 20553,linezolid,a,drug resisted,zm_1_1.mex
 20639,64,b,mic,zm_4_4.mex
 20899,meropenem,h,drug resisted,zm_7_3.mex
@@ -398,21 +413,18 @@ study_id,segment,code_identifiers,code_identifiers_link,mex_name
 20899,trimethoprim/sulfamethoxazole,n,drug resisted,zm_7_3.mex
 20899,cefepime,e,drug resisted,zm_7_3.mex
 20899,aztreonam,f,drug resisted,zm_7_3.mex
-21149,meropenem,b,drug resisted,zm_4_4.mex
-21149,cefepime,f,drug resisted,zm_4_4.mex
 21149,ceftazidime,g,drug resisted,zm_4_4.mex
 21149,cefoxitin,h,drug resisted,zm_4_4.mex
 21149,amoxicillin,i,drug resisted,zm_4_4.mex
 21149,piperacillin,k,drug resisted,zm_4_4.mex
 21149,piperacillin þ tzb,l,drug resisted,zm_4_4.mex
+21149,meropenem,b,drug resisted,zm_4_4.mex
+21149,cefepime,f,drug resisted,zm_4_4.mex
 21824,ciprofloxacin,i,drug resisted,zm_3_5.mex
 21824,tobramycin,k,drug resisted,zm_3_5.mex
 21824,amikacin,l,drug resisted,zm_3_5.mex
 21824,icarcillin/clavulanic acid,b,drug resisted,zm_3_5.mex
 21824,cefepime,f,drug resisted,zm_3_5.mex
-23107,piperacillin,b,drug resisted,zm_4_4.mex
-23107,cephalothin,c,drug resisted,zm_4_4.mex
-23107,cefoxitin,d,drug resisted,zm_4_4.mex
 23107,cefotaxime,e,drug resisted,zm_4_4.mex
 23107,cefuroxime,f,drug resisted,zm_4_4.mex
 23107,ceftazidime,g,drug resisted,zm_4_4.mex
@@ -421,12 +433,15 @@ study_id,segment,code_identifiers,code_identifiers_link,mex_name
 23107,imipenem,k,drug resisted,zm_4_4.mex
 23107,meropenem,l,drug resisted,zm_4_4.mex
 23107,ciprofloxacin,m,drug resisted,zm_4_4.mex
-23248,ceftazidime,c,drug resisted,zm_5_4.mex
-23248,ceftazidime/clavulanic acid,d,drug resisted,zm_5_4.mex
+23107,piperacillin,b,drug resisted,zm_4_4.mex
+23107,cephalothin,c,drug resisted,zm_4_4.mex
+23107,cefoxitin,d,drug resisted,zm_4_4.mex
 23248,amikacin,f,drug resisted,zm_5_4.mex
 23248,gentamicin,g,drug resisted,zm_5_4.mex
 23248,imipenem,h,drug resisted,zm_5_4.mex
 23248,cefotaxime,i,drug resisted,zm_5_4.mex
+23248,ceftazidime,c,drug resisted,zm_5_4.mex
+23248,ceftazidime/clavulanic acid,d,drug resisted,zm_5_4.mex
 23491,ne (>32 ��,c,mic,zm_3_5.mex
 23549,ampicillin,a,drug resisted,zm_7_3.mex
 23549,cefazolin,b,drug resisted,zm_7_3.mex

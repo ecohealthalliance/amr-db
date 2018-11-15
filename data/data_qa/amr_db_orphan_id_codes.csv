@@ -131,7 +131,6 @@ study_id,segment,code_identifiers,code_main,mex_name
 13465,>16,D,,zm_4_3.mex
 13465,>16,D,,zm_4_3.mex
 13465,>16,D,,zm_4_3.mex
-13490,penicillins,A,,md_4_2.mex
 13772,amoxicillin,B,,zm_7_2.mex
 13772,amoxicillin/clavulanic acid,B,,zm_7_2.mex
 13772,ceftazidime,B,,zm_7_2.mex
@@ -173,6 +172,8 @@ study_id,segment,code_identifiers,code_main,mex_name
 1652,> 256,G,,md_2_1.mex
 1652,> 256,I,,md_2_1.mex
 16726,32 g/ml,E,,zm_3_4.mex
+16837,48,A,,zm_3_4.mex
+16837,man,A,,zm_3_4.mex
 17222,n,A,,zm_5_3.mex
 1786,6,A,,zm_4_1.mex
 1786,>256,B,,zm_4_1.mex
@@ -184,8 +185,6 @@ study_id,segment,code_identifiers,code_main,mex_name
 1786,16,K,,zm_4_1.mex
 1786,32,M,,zm_4_1.mex
 1806,ceftazidime,A,,md_4_1.mex
-18418,75-year-old,O,,zm_2_2.mex
-18418,man,O,,zm_2_2.mex
 18418,256,B,,zm_2_2.mex
 18418,256,C,,zm_2_2.mex
 18418,256,D,,zm_2_2.mex
@@ -196,6 +195,8 @@ study_id,segment,code_identifiers,code_main,mex_name
 18418,512,K,,zm_2_2.mex
 18418,512,L,,zm_2_2.mex
 18418,32,M,,zm_2_2.mex
+18418,75-year-old,O,,zm_2_2.mex
+18418,man,O,,zm_2_2.mex
 1887,32,B,,zm_4_1.mex
 1887,32,C,,zm_4_1.mex
 1887,32,D,,zm_4_1.mex
@@ -267,6 +268,21 @@ study_id,segment,code_identifiers,code_main,mex_name
 20332,16,F,,zm_5_4.mex
 20332,">1,024",K,,zm_5_4.mex
 20332,512,N,,zm_5_4.mex
+20339,>128,B,,md_2_2.mex
+20373,amoxicillin/clavulanic acid,"A, B, C, D, E, F",,zm_6_4.mex
+20373,ampicillin,"A, B, C, D, E",,zm_6_4.mex
+20373,ceftiofur,"A, B",,zm_6_4.mex
+20373,gentamicin,"A, E",,zm_6_4.mex
+20373,cefotaxime,"A, B",,zm_6_4.mex
+20373,nalidixic acid;,"A, F",,zm_6_4.mex
+20373,neomycin,"A, E",,zm_6_4.mex
+20373,spectinomycin,"A, B, C, D, E, F",,zm_6_4.mex
+20373,streptomycin,"A, B, C, D, E, F",,zm_6_4.mex
+20373,sulfamethoxazole,"A, F, B, D, E",,zm_6_4.mex
+20373,tetracycline,"A, B, C, D, E",,zm_6_4.mex
+20373,trimethoprim,"A, B, C, D, E, F",,zm_6_4.mex
+20373,chloramphenicol,"B, C, D, E",,zm_6_4.mex
+20373,ciprofloxacin,"B, F",,zm_6_4.mex
 20553,MIC = 12 mg/L,A,,zm_1_1.mex
 20899,>16,E,,zm_7_3.mex
 20899,>16,F,,zm_7_3.mex
@@ -282,11 +298,11 @@ study_id,segment,code_identifiers,code_main,mex_name
 21149,.256,I,,zm_4_4.mex
 21149,.256,K,,zm_4_4.mex
 21149,.256,L,,zm_4_4.mex
-21192,o daptomycin,E,,bw_1_1.mex
-21192,Isolate 4,E,,bw_1_1.mex
-21192,"MicroScan (Siemens, Tokyo, Japan)",E,,bw_1_1.mex
-21192,>1 [NS],E,,bw_1_1.mex
 21192,Isolate 3: blood culture on the 40th hospital day; Isolate 4: pus from the abscess on the 55th hospital day. S: Susceptible; NS: Nonsusceptible,E,,bw_1_1.mex
+21192,Isolate 4,E,,bw_1_1.mex
+21192,>1 [NS],E,,bw_1_1.mex
+21192,o daptomycin,E,,bw_1_1.mex
+21192,"MicroScan (Siemens, Tokyo, Japan)",E,,bw_1_1.mex
 21824,"≥1,024",B,,zm_3_5.mex
 21824,128,F,,zm_3_5.mex
 21824,32,I,,zm_3_5.mex
@@ -328,11 +344,8 @@ doxycyc",C,,zm_3_5.mex
 2389,64,E,,zm_5_1.mex
 2389,16,F,,zm_5_1.mex
 2389,64,G,,zm_5_1.mex
-2418,(μg/ml),D,,bw_1_1.mex
 2418,>4,A,,bw_1_1.mex
 2418,>8,B,,bw_1_1.mex
-2418,μg/ml),E,,bw_1_1.mex
-2418,1.5,E,,bw_1_1.mex
 2419,8,N,,zm_2_1.mex
 2419,8,Q,,zm_2_1.mex
 2419,4,O,,zm_2_1.mex
@@ -354,20 +367,20 @@ doxycyc",C,,zm_3_5.mex
 360,15-year-old,B,,bw_1_1.mex
 360,>32 mg/L,C,,bw_1_1.mex
 360,CMUL332,D,,bw_1_1.mex
-360,16 mg/L,E,,bw_1_1.mex
 360,CMUL334,E,,bw_1_1.mex
+360,16 mg/L,E,,bw_1_1.mex
 360,NDM-1,D,,bw_1_1.mex
 360,OXA-72,E,,bw_1_1.mex
 360,4-month-old,A,,bw_1_1.mex
 3799,clindamycin,C,,bw_1_1.mex
-3799,.256 mg/L,"B, C",,bw_1_1.mex
 3799,tetracycline,D,,bw_1_1.mex
 3799,4– 8 mg/L,D,,bw_1_1.mex
-3799,azithromycin,A,,bw_1_1.mex
 3799,MIC,A,,bw_1_1.mex
 3799,4096,A,,bw_1_1.mex
+3799,azithromycin,A,,bw_1_1.mex
 3799,"erythromy- 
 cin",B,,bw_1_1.mex
+3799,.256 mg/L,"B, C",,bw_1_1.mex
 3872,‡32,B,,zm_7_1.mex
 3882,>256,B,,zm_6_1.mex
 3882,>256,C,,zm_6_1.mex
@@ -403,6 +416,8 @@ cin",B,,bw_1_1.mex
 5774,>32,B,,zm_5_2.mex
 5774,Klebsiella pneumoniae,BB,,zm_5_2.mex
 5774,>32,"BB, A",,zm_5_2.mex
+580,256,C,,md_2_1.mex
+580,128,D,,md_2_1.mex
 591,32,B,,zm_4_1.mex
 591,32,C,,zm_4_1.mex
 591,64,E,,zm_4_1.mex
@@ -481,10 +496,13 @@ cin",B,,bw_1_1.mex
 9010,12,"H, B",,zm_2_2.mex
 9010,≥32,"L, A",,zm_2_2.mex
 9045,cefotetan,A,,md_4_3.mex
-9075,256,A,,zm_3_2.mex
-9075,256,B,,zm_3_2.mex
-9075,256,"AA, C",,zm_3_2.mex
+9075,256,K,,zm_3_2.mex
+9075,256,D,,zm_3_2.mex
+9075,256,F,,zm_3_2.mex
 9075,256,D,,zm_3_2.mex
+9075,256,F,,zm_3_2.mex
+9075,64,G,,zm_3_2.mex
+9075,256,"AA, C",,zm_3_2.mex
 9075,256,"AA, E",,zm_3_2.mex
 9075,64,"AA, F",,zm_3_2.mex
 9075,64,"AA, G",,zm_3_2.mex
@@ -492,34 +510,32 @@ cin",B,,bw_1_1.mex
 9075,64,"AA, I",,zm_3_2.mex
 9075,256,"AA, J",,zm_3_2.mex
 9075,256,AA,,zm_3_2.mex
-9075,256,K,,zm_3_2.mex
 9075,256,"BB, A",,zm_3_2.mex
 9075,256,"BB, B",,zm_3_2.mex
 9075,256,"BB, C",,zm_3_2.mex
 9075,256,BB,,zm_3_2.mex
-9075,256,D,,zm_3_2.mex
 9075,256,"BB, E",,zm_3_2.mex
 9075,256,BB,,zm_3_2.mex
-9075,256,F,,zm_3_2.mex
 9075,64,"BB, H",,zm_3_2.mex
 9075,64,"BB, I",,zm_3_2.mex
 9075,256,"CC, A",,zm_3_2.mex
 9075,256,"CC, B",,zm_3_2.mex
 9075,256,"CC, C",,zm_3_2.mex
 9075,256,CC,,zm_3_2.mex
-9075,256,D,,zm_3_2.mex
 9075,256,CC,,zm_3_2.mex
-9075,256,F,,zm_3_2.mex
 9075,64,CC,,zm_3_2.mex
-9075,64,G,,zm_3_2.mex
 9075,64,"CC, H",,zm_3_2.mex
 9075,64,"CC, I",,zm_3_2.mex
 9075,256,"CC, J",,zm_3_2.mex
 9075,256,"CC, K",,zm_3_2.mex
-9628,0,A,,md_2_1.mex
-9628,t,B,,md_2_1.mex
+9075,256,A,,zm_3_2.mex
+9075,256,B,,zm_3_2.mex
+9075,256,D,,zm_3_2.mex
 9733,>128,B,,zm_7_2.mex
 9733,64,D,,zm_7_2.mex
+9885,63-,B,,kw_1_1.mex
+9885,Meropenem,"B, A",,kw_1_1.mex
+9885,Imipenem,"B, A",,kw_1_1.mex
 9989,256,D,,zm_3_2.mex
 9989,512,E,,zm_3_2.mex
 9989,256,F,,zm_3_2.mex
