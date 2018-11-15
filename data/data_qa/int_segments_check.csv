@@ -674,6 +674,9 @@ CTX-M-40, SHV-27, SHV-71, and SHV-75 in Thailand and to show that CTX-M ESBL is 
 country.","This is the first study to report CTX-M-3, CTX-M-27, 
 CTX-M-40, SHV-27, SHV-71, and SHV-75 in Thailand and to show that CTX-M ESBL is highly endemic in the 
 country.",2614:2778
+10703,"10, 15","Event month, B",2,"May, May",May,"1431:1433, 1431:1433"
+10703,"11, 14","Event year, A",2,"2004, 2004",2004,"1423:1426, 1423:1426"
+10703,"12, 16","Event year, B",2,"2005, 2005",2005,"1435:1438, 1435:1438"
 10703,2,Location:Country,1,"Thai- 
 land","Thai- 
 land",617:627
@@ -683,6 +686,7 @@ land",617:627
 10703,6,Bacteria:Strain,1,CTX-M-3,CTX-M-3,298:304
 10703,7,Bacteria:Strain,1,27,27,311:312
 10703,8,Bacteria:Binomial (genus species),1,K. pneumoniae,K. pneumoniae,332:344
+10703,"9, 13","Event month, A",2,"December, December",December,"1414:1421, 1414:1421"
 10743,1,Exclusion: Not first case in country,1,"Emergence of a novel multidrug-resistant Pseudomonas aeruginosa strain 
 producing IMP-type metallo--lactamases and AAC(6 
 )-Iae in Japan","Emergence of a novel multidrug-resistant Pseudomonas aeruginosa strain 
@@ -968,7 +972,11 @@ sulfamethoxazole","5838:5868, 5838:5868"
 positive strain","NDM-1- 
 positive strain",2603:2625
 11202,7,Location:Hospital name,1,University Hospital,University Hospital,2889:2907
+11202,79,Event month,1,December,December,506:513
 11202,8,Location:City,1,Bratislava,Bratislava,2932:2941
+11202,80,Event month,1,December,December,523:530
+11202,81,Event year,1,2011,2011,515:518
+11202,82,Event year,1,2012,2012,532:535
 11202,9,Patient:Symptoms/Disease,1,"acute respi- 
 ratory failure","acute respi- 
 ratory failure",2959:2986
@@ -4370,17 +4378,23 @@ nem",4147:4159
 16837,1,Article/Study Aim,1,"To our knowledge, this is the first isolation of M. europaeum from human 
 clinical specimens in Asia to be reported","To our knowledge, this is the first isolation of M. europaeum from human 
 clinical specimens in Asia to be reported",959:1073
-16837,10,Patient:Symptoms/Disease,1,high temperature,high temperature,1784:1800
-16837,11,Patient:Symptoms/Disease,1,cough,cough,1805:1809
+16837,"10, 17","Patient:Symptoms/Disease, A",2,"high temperature, high temperature",high temperature,"1784:1800, 1784:1800"
+16837,"11, 18","Patient:Symptoms/Disease, A",2,"cough, cough",cough,"1805:1809, 1805:1809"
 16837,12,Patient:Symptoms/Disease,1,productive cough,productive cough,2045:2061
 16837,13,Notes,1,Case 1,Case 1,1629:1634
+16837,14,A,1,48,48,1639:1640
+16837,15,A,1,man,man,1651:1653
+16837,"19, 20","Event year, B",2,"2009, 2009",2009,"3610:3613, 3610:3613"
 16837,2,Drug Resisted,1,ethambutol,ethambutol,1910:1919
+16837,"21, 22","B, Patient:Age",2,"13, 13",13,"3671:3672, 3671:3672"
+16837,"23, 24","Patient:Comorbidities, B",2,"chronic pulmonary disease, chronic pulmonary disease",chronic pulmonary disease,"3703:3727, 3703:3727"
+16837,"25, 26, 27","Bacteria:Binomial (genus species), A, B",3,"M. europaeum, M. europaeum, M. europaeum",M. europaeum,"519:530, 519:530, 519:530"
 16837,3,Bacteria:Binomial (genus species),1,Mycobacterium europaeum,Mycobacterium europaeum,1077:1099
 16837,4,Bacteria:Strain,1,AFP-0001,AFP-0001,3150:3158
 16837,5,Location:Country,1,Iran,Iran,288:293
 16837,6,Patient:Age,1,48-year-old,48-year-old,1639:1650
 16837,7,Patient:Sex,1,man,man,1651:1654
-16837,8,Patient:Comorbidities,1,HIV,HIV,1704:1706
+16837,"8, 16","Patient:Comorbidities, A",2,"HIV, HIV",HIV,"1704:1706, 1704:1706"
 16837,9,Patient:Comorbidities,1,"intra- 
 venous drug use","intra- 
 venous drug use",1723:1746
@@ -6356,6 +6370,10 @@ type 2","3912:3933, 3912:3933, 3912:3933"
 untypeable, S. flexneri 
 untypeable","S. flexneri 
 untypeable","3715:3737, 3715:3737"
+20373,"80, 84","Event month, I",2,"September, September",September,"1538:1546, 1538:1546"
+20373,"81, 86","Event month, J",2,"March, March",March,"1557:1561, 1557:1561"
+20373,"82, 85","Event year, I",2,"2008, 2008",2008,"1548:1551, 1548:1551"
+20373,"83, 87","Event year, J",2,"2010, 2010",2010,"1563:1566, 1563:1566"
 20373,"9, 73","Bacteria:Strain, D",2,"S. flexneri type 2b, S. flexneri type 2b",S. flexneri type 2b,"3819:3837, 3819:3837"
 20401,1,First Surveillance Study (of a particular resistance) in Countr,1,"To investigate the trends of antimicrobial 
 resistance in pathogens isolated from surgical site infec- 
@@ -6364,6 +6382,7 @@ the first nationwide survey.","To investigate the trends of antimicrobial
 resistance in pathogens isolated from surgical site infec- 
 tions (SSI), a Japanese surveillance committee conducted 
 the first nationwide survey.",949:1138
+20401,2,Event year,1,2010,2010,1211:1214
 20403,1,Exclusion: Not first case in country,1,"The clinical isolate reported here did 
 not show multiple antimicrobial resistance and was colistin- 
 resistant in a patient with no history of colistin treatment.","The clinical isolate reported here did 
@@ -8834,6 +8853,9 @@ infection (UTI)",1450:1479
 2697,2,Location:Country,1,Jamaica,Jamaica,2229:2235
 2697,3,Location:Country,1,Jamaica,Jamaica,2337:2343
 2697,4,Bacteria:Binomial (genus species),1,Staphylococcus aureus,Staphylococcus aureus,1003:1023
+2697,5,Event month,1,May,May,2572:2574
+2697,6,Event month,1,August,August,2580:2585
+2697,7,Event year,1,2002,2002,2587:2590
 274,1,Exclusion: not full text article,1,Poster Presentation,Poster Presentation,4536:4554
 2750,1,Exclusion: not full text article,1,Abstract (poster session),Abstract (poster session),7:32
 2791,1,Drug Resisted,1,Oxacillin,Oxacillin,15:23
@@ -8873,6 +8895,8 @@ dissemination of methicillin-resistant coagulase-negative Staphylococcus clone o
 2863,2,Drug Resisted,1,methicillin,methicillin,1824:1834
 2863,3,Drug Resisted,1,aminoglycoside,aminoglycoside,2858:2872
 2863,4,Bacteria:Binomial (genus species),1,Staphylococcus capitis,Staphylococcus capitis,1526:1547
+2863,5,Event year,1,2000,2000,1933:1936
+2863,6,Event year,1,2013,2013,1942:1945
 2889,1,Article/Study Aim,1,"We present the first report in our country of a macrolide- 
 resistant M. pneumoniae (MR 
 Mpn) strain with a point mutation 
@@ -9520,6 +9544,8 @@ ology of gonococci in China.","This is the first nationwide study, performed wit
 ology of gonococci in China.",1048:1297
 3651,2,Location:Country,1,China,China,1292:1296
 3651,3,Bacteria:Binomial (genus species),1,Neisseria gonorrhoeae,Neisseria gonorrhoeae,3451:3471
+3651,4,Event year,1,2013,2013,665:668
+3651,5,Event year,1,2012,2012,655:658
 3659,1,Exclusion: not full text article,1,Letter to the Editor,Letter to the Editor,0:21
 3688,1,Exclusion: Not first case in country,1,"Coexistence of blaNDM-1 and blaIMP-4 in these clinical isolates may herald the emergence of a new 
 pattern of drug resistance.","Coexistence of blaNDM-1 and blaIMP-4 in these clinical isolates may herald the emergence of a new 
@@ -9687,6 +9713,7 @@ that its detection has increased since 2006.",2489:2630
 3910,3,Drug Resisted,1,macrolide,macrolide,1973:1981
 3910,4,Drug Resisted,1,azithromycin,azithromycin,2461:2472
 3910,5,Bacteria:Binomial (genus species),1,Mycoplasma genitalium,Mycoplasma genitalium,1015:1035
+3910,6,Event year,1,2006,2006,2261:2264
 3927,1,Exclusion: Not first case in country,1,"In Australia, we are fortunate that such organisms are not 
 yet endemic, but many of these organisms and their resist- 
 ance mechanisms have been reported locally","In Australia, we are fortunate that such organisms are not 
@@ -10614,6 +10641,10 @@ ment",3064:3253
 tal Brno","he University Hospi- 
 tal Brno",1179:1208
 5362,5,Location:City,1,Brno,Brno,1211:1214
+5362,"6, 13","Event month, A",2,"June, June",June,"1890:1893, 1890:1893"
+5362,"7, 11","Event month, B",2,"January, January",January,"1903:1909, 1903:1909"
+5362,"8, 12","Event year, A",2,"2009, 2009",2009,"1895:1898, 1895:1898"
+5362,"9, 10","Event year, B",2,"2010, 2010",2010,"1911:1914, 1911:1914"
 538,1,Exclusion: Not first case in country,1,"Our results confirm the predominance of CTX-M-15 in Tunisia. To our knowledge, this is the first report of TEM-158 and 
 TEM-53 in Tunisia.","Our results confirm the predominance of CTX-M-15 in Tunisia. To our knowledge, this is the first report of TEM-158 and 
 TEM-53 in Tunisia.",2025:2162
@@ -11475,6 +11506,7 @@ S aureus",897:1004
 6454,1,Article/Study Aim,1,This is the first clinical case of penicillin-resistant C. diphtheriae in the UK,This is the first clinical case of penicillin-resistant C. diphtheriae in the UK,885:964
 6454,10,Location:Place traveled to,1,Ethiopia,Ethiopia,2083:2090
 6454,11,Patient:Outcome,1,she was allowed go home,she was allowed go home,3160:3182
+6454,12,Event date,1,07/04/2009,07/04/2009,1981:1990
 6454,2,Drug Resisted,1,penicillin,penicillin,3318:3327
 6454,3,Bacteria:Binomial (genus species),1,Corynebacterium diphtheriae,Corynebacterium diphtheriae,761:787
 6454,4,Location:Country,1,United Kingdom,United Kingdom,528:541

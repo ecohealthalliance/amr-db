@@ -41,9 +41,9 @@ drugs %<>%
   unnest()
 
 # QA Checks-----------------
-# clean (amr_db_clean_drugs - issue 7)
-# dups (amr_db_field_corrections - issue 2)
-# missing (amr_db_missing_drugs - issue 2)
+# clean 
+# dups 
+# missing 
 source(here("scripts", "helper_scripts", "functions_qa.R"))
 
 # Identify duplicate drugs in studies
@@ -55,9 +55,21 @@ studies_with_dups <- qa_duplicate(drugs, group_vars = c("study_id", "segment_dru
 studies_missing_drugs <- qa_missing(drugs)
 #gs_new("amr_db_missing_drugs_study_id", input=studies_missing_drugs)
 
-# Compare with list of studies that were evaluated for missing drug codes (review 1)
-missing_list <- gs_read(gs_title("amr_db_missing_drugs_study_id"), ws = "review_1") 
+# Compare with list of studies that were evaluated for missing drug codes (review 2)
+missing_list <- gs_read(gs_title("amr_db_missing_drugs_study_id"), ws = "review_2") 
 studies_missing_drugs %<>% left_join(., missing_list)
+
+# QA Response-----------------
+
+# Remove NAs from dups
+studies_with_dups2 <- studies_with_dups %>%
+  filter(code_identifiers_conc!="NA|NA")
+
+drugs %<>%
+  left_join(studies_with_dups2) %>%
+  distinct() %>% #removes 2 true duplicates
+  filter(!(!is.na(code_identifiers_conc) & is.na(code_identifiers))) %>%
+  select(-code_identifiers_conc, -mex_name)
 
 # MESH drug ontology-----------------
 
@@ -132,5 +144,7 @@ no_match <- qa_match(drugs, "drug_id")
 # Compare with list of studies that were previously cleaned
 clean_list <- gs_read(gs_title("amr_db_clean_drugs")) 
 no_match %<>% left_join(., clean_list)
-
+new_no_match <- no_match %>%
+  filter(is.na(new))
+  
 write_csv(drugs, here("data", "drugs.csv"))
