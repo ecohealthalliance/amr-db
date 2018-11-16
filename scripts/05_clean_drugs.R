@@ -142,8 +142,22 @@ drugs %<>%
 no_match <- qa_match(drugs, "drug_id")
 
 # Compare with list of studies that were previously cleaned
+articles_db <- read_csv(here("data", "articles_db.csv"))  %>% 
+  select(study_id, mex_name) %>%
+  mutate(study_id = as.character(study_id))
+
 clean_list <- gs_read(gs_title("amr_db_clean_drugs")) 
+
+clean_list_with_mex <- clean_list %>%
+  filter(is.na(`Confirmed Y/N`)) %>%
+  mutate(study_id = stri_split_regex(study_id, "\\, ")) %>%
+  unnest() %>%
+  left_join(articles_db) %>%
+  group_by(segment) %>%
+  summarize(study_id = paste(study_id, collapse = ", "), mex_name = paste(mex_name, collapse = ", ")) %>% ungroup
+
 no_match %<>% left_join(., clean_list)
+
 new_no_match <- no_match %>%
   filter(is.na(new))
   
