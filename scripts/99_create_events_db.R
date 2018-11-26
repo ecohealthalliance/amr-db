@@ -1,22 +1,27 @@
 library(tidyverse)
 library(here)
+library(stringdist)
 
 #-----------------All data-----------------
-articles_db <- read_csv(here("data", "articles_db.csv")) %>%
-  mutate(title = tolower(title))
-
 segments <- read_csv(here("data", "segments.csv"))
 
+articles_db <- read_csv(here("data", "articles_db.csv")) %>%
+  mutate(title = tolower(title)) %>%
+  filter(study_id %in% unique(segments$study_id)) 
+
 locations <- read_csv(here("data", "locations.csv")) %>%
-  select(
+  group_by(
     study_id,
     code_identifiers,
     code_identifiers_link,
     study_location_basis,
     study_location,
-    study_country
+    study_country,
+    residence_location
   ) %>%
-  distinct()
+  summarize(travel_location = paste(unique(travel_location), collapse =
+                                      ", ")) %>%
+  ungroup()
 
 bacteria <- read_csv(here("data", "bacteria_genus_species.csv")) %>%
   select(
@@ -26,6 +31,7 @@ bacteria <- read_csv(here("data", "bacteria_genus_species.csv")) %>%
     code_identifiers_link,
     bacteria_rank,
     bacteria_preferred_label,
+    bacteria_preferred_label_abbr,
     bacteria_parent_rank,
     bacteria_parent_name
   )
@@ -56,13 +62,14 @@ paired_bac_drugs <- list(bacteria, drugs) %>%
   ))) %>%
   map(., ~ select(.x, -code_identifiers, -code_identifiers_link, -code_main)) %>%
   reduce(full_join) %>%
-  filter(!is.na(bacteria_preferred_label), !is.na(drug_preferred_label)) %>% 
-  mutate(bacteria_drug_pair = paste(bacteria_preferred_label, drug_preferred_label, sep = " - "))
+  mutate(bacteria_drug_pair = ifelse(!is.na(bacteria_preferred_label) & !is.na(drug_preferred_label), 
+                                     paste(bacteria_preferred_label_abbr, drug_preferred_label, sep = " - "),
+                                     NA))
 
 #-----------------Bring in locations & dates to create base events db-----------------
 # ignoring loctions and dates identifiers for now
 locations2 <- locations %>%
-  select(study_id, study_country)
+  select(-code_identifiers, -code_identifiers_link)
 
 dates2 <- dates %>%
   select(study_id, start_date, end_date)
@@ -88,12 +95,7 @@ articles_dups <- articles_db %>%
             mex_name = paste(mex_name, collapse = ", "))
 
 # Any fuzzy duplicated titles?
-library(stringdist)
-
-articles_dups_fuzz <-articles_db %>%
-  filter(study_id %in% unique(segments$study_id)) 
-
-articles_dups_fuzz <- expand.grid(articles_dups_fuzz$title, articles_dups_fuzz$title) %>%
+articles_dups_fuzz <- expand.grid(articles_db$title, articles_db$title) %>%
   filter(Var1 != Var2) %>%
   left_join(articles_db %>% select(title, study_id), by = c("Var1" = "title")) %>%
   left_join(articles_db %>% select(title, study_id), by = c("Var2" = "title")) %>%

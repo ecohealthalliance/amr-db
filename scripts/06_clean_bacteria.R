@@ -74,7 +74,17 @@ bacteria_genspe %<>%
   left_join(.,
             ncbi0 %>% select(class_id, preferred_label),
             by = c("bacteria_id" = "class_id")) %>%
-  rename(bacteria_preferred_label = preferred_label)
+  rename(bacteria_preferred_label = preferred_label) %>%
+  mutate(bacteria_preferred_label_abbr = ifelse(grepl("\\ ", bacteria_preferred_label),
+    paste0(substring(bacteria_preferred_label, 1, 1), ". ", gsub("^\\S+\\s+", '', bacteria_preferred_label)),
+    bacteria_preferred_label))
+
+# Check for ambiguous abbreviation matches
+bacteria_genspe_check <- bacteria_genspe %>%
+  filter(bacteria_segment_name_class == "abbreviation") %>%
+  select(study_id, code_identifiers, segment, bacteria_preferred_label) %>%
+  distinct() 
+#gs_new("amr_db_bacteria_abbr", input = bacteria_genspe_check)
 
 # Get ncbi parent name and rank
 bacteria_genspe %<>%
@@ -155,7 +165,6 @@ bacteria_strain_marker %<>%
   mutate(card_select_id = ifelse(card_select_id=="no exact match", NA, card_select_id))
 
 no_match <- qa_match(bacteria_strain_marker, "card_select_id", group_vars = c("segment", "code_main"))
-
 
 # Separate DBs export-----------------
 write_csv(bacteria_genspe, here("data", "bacteria_genus_species.csv"))
