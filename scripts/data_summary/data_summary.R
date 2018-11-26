@@ -17,7 +17,12 @@ library(sf)
 library(mapview)
 library(igraph)
 
-
+events <- read_csv(here("data", "events_db.csv"))
+segments <- read_csv(here("data", "segments.csv"))
+segments_excluded <- read_csv(here("data", "segments_excluded.csv"))
+articles_db <- read_csv(here("data", "articles_db.csv")) %>%
+  mutate(title = tolower(title)) %>%
+  filter(study_id %in% unique(segments$study_id)) 
 #+ r setup, include = FALSE
 
 #' -----------------Locations-----------------
@@ -27,7 +32,6 @@ locs <- read_csv(here("data", "locations.csv")) %>%
 study_locs <- st_as_sf(locs %>% filter(!is.na(study_location)) , coords = c("lon_study", "lat_study"), crs = 4326)
 travel_locs <- st_as_sf(locs %>% filter(!is.na(travel_location)) , coords = c("lon_travel", "lat_travel"), crs = 4326)
 residence_locs <- st_as_sf(locs %>% filter(!is.na(residence_location)) , coords = c("lon_residence", "lat_residence"), crs = 4326)
-
 #+ r locations, include = FALSE
 
 #' Study Locations
@@ -47,29 +51,28 @@ mapview(residence_locs)
 
 #' -----------------Bacteria-----------------
 ```{r bacteria, include = FALSE}
-bacteria <- read_csv(here("data", "bacteria_genus_species_db.csv")) %>%
+bacteria <- events %>%
   select(
     study_id,
-    segment,
-    code_main,
-    code_identifiers,
-    code_identifiers_link,
     bacteria_rank,
     bacteria_preferred_label,
+    bacteria_preferred_label_abbr,
     bacteria_parent_rank,
     bacteria_parent_name
-  )
+  ) %>% distinct()
 
 bacteria_by_rank <- bacteria %>%
+  select(-bacteria_parent_rank, -bacteria_parent_name) %>%
   group_by(bacteria_rank) %>%
   count() %>% 
   spread(bacteria_rank, n) 
 
 bacteria_sum <- bacteria %>%
-  group_by(bacteria_rank, bacteria_preferred_label, bacteria_parent_rank, bacteria_parent_name) %>%
+  group_by(bacteria_rank, bacteria_preferred_label, bacteria_preferred_label_abbr, bacteria_parent_rank, bacteria_parent_name) %>%
   count(sort = TRUE) %>%
   mutate(percent = round(100*n/nrow(bacteria), 1)) %>%
-  ungroup()
+  ungroup() %>%
+  filter(!is.na(bacteria_preferred_label))
 #+ r bacteria, include = FALSE
 
 #' Count by rank
@@ -79,31 +82,28 @@ kable(bacteria_by_rank)
 
 #' Count by name and parent
 ```{r bacteria3, echo = FALSE}
-kable(bacteria_sum %>% slice(1:5))
+kable(bacteria_sum %>% slice(1:5), format = "markdown")
 
-ggplot(bacteria_sum[bacteria_sum$n > 4,], aes(x = reorder(bacteria_preferred_label, -n), y = n)) +
+ggplot(bacteria_sum[bacteria_sum$n > 4,], aes(x = reorder(bacteria_preferred_label_abbr, -n), y = n)) +
   geom_bar(stat = "identity", fill = "green3") +
-  labs(x = "Most common species", y = "Number of studies") +
+  labs(title = "Most common bacteria", x = "", y = "Number of studies") +
   theme_bw() +
-  theme(axis.text.x = element_text(angle = 60, hjust = 1, size = 12))
+  theme(axis.text.x = element_text(angle = 60, hjust = 1, size = 12,face = "italic"))
 #+ r bacteria3, echo = FALSE
 
 #' -----------------Drugs-----------------
 ```{r drugs, include = FALSE}
-drugs <- read_csv(here("data", "drugs.csv")) %>%  
+drugs <- events %>%  
   group_by(
     study_id,
-    segment,
-    code_main,
-    code_identifiers,
-    code_identifiers_link,
     segment_drug_combo,
     drug_rank,
-    drug_preferred_label
-  ) %>%
+    drug_preferred_label, 
+  ) %>% 
   summarize(drug_parent_name = paste(unique(drug_parent_name), collapse =
-                                       ", ")) %>%
-  ungroup()
+                                       ", ")) %>% 
+  ungroup() %>%
+  distinct()
 
 drugs_by_rank <- drugs %>%
   group_by(drug_rank) %>%
@@ -114,14 +114,17 @@ drugs_sum <- drugs %>%
   group_by(drug_rank, drug_preferred_label, drug_parent_name) %>%
   count(sort = TRUE) %>%
   mutate(percent = round(100*n/nrow(drugs), 1)) %>%
-  ungroup()
+  ungroup() %>%
+  filter(!is.na(drug_preferred_label))
 
 drugs_sum2 <- drugs %>%
   mutate(drug_group = ifelse(drug_rank=="drug name", drug_parent_name, drug_preferred_label)) %>%
   group_by(drug_group) %>%
   count(sort = TRUE) %>%
   mutate(percent = round(100*n/nrow(drugs), 1)) %>%
-  ungroup()
+  ungroup() %>%
+  filter(!is.na(drug_group))
+
 #+ r drugs, include = FALSE
 
 #' Count by rank
@@ -135,7 +138,7 @@ kable(drugs_sum %>% slice(1:5))
 
 ggplot(drugs_sum[drugs_sum$percent > 1,], aes(x = reorder(drug_preferred_label, -n), y = n, fill = drug_rank)) +
   geom_bar(stat = "identity") +
-  labs(x = "Most common drugs", y = "Number of studies") +
+  labs(title = "Most common drugs", x = "", y = "Number of studies", fill = "") +
   theme_bw() +
   theme(axis.text.x = element_text(angle = 60, hjust = 1, size = 12))
 #+ r drugs2, echo = FALSE
@@ -145,35 +148,24 @@ ggplot(drugs_sum[drugs_sum$percent > 1,], aes(x = reorder(drug_preferred_label, 
 kable(drugs_sum2 %>% slice(1:5)) 
 
 ggplot(drugs_sum2[drugs_sum2$percent > 1,], aes(x = reorder(drug_group, -n), y = n)) +
-  geom_bar(stat = "identity") +
-  labs(x = "Most common drug groups", y = "Number of studies") +
+  geom_bar(stat = "identity", fill = "green3") +
+  labs(title = "Most common drug groups", x = "", y = "Number of studies") +
   theme_bw() +
   theme(axis.text.x = element_text(angle = 60, hjust = 1, size = 12))
 #+ r drugs3, echo = FALSE
 
 #' -----------------Bacteria + Drugs Paired-----------------
 ```{r bacteria_drugs, include = FALSE}
-paired_segments <- list(bacteria, drugs) %>%
-  map(., ~ mutate(.x, join_id = ifelse(
-    c(
-      grepl("drug resisted", code_identifiers_link) &
-        grepl("binomial", code_identifiers_link)
-    ), code_identifiers, NA
-  ))) %>%
-  map(., ~ select(.x, -code_identifiers, -code_identifiers_link, -segment, -code_main)) %>%
-  reduce(full_join) %>%
-  filter(!is.na(bacteria_preferred_label), !is.na(drug_preferred_label)) %>%
-  mutate(bacteria_drug_pair = paste(bacteria_preferred_label, drug_preferred_label, sep = " - "))
-
-paired_segments_count <- paired_segments %>%
+paired_segments_count <- events %>%
   group_by(bacteria_drug_pair) %>%
   count(sort = TRUE) %>%
-  ungroup() 
+  ungroup() %>%
+  filter(!is.na(bacteria_drug_pair))
 
-sub_paired_segments <- paired_segments %>%
+sub_paired_segments <- events %>%
   left_join(paired_segments_count) %>%
-  select(bacteria_preferred_label, drug_preferred_label, bacteria_drug_pair, n) %>%
-  rename(bacteria = bacteria_preferred_label, drug = drug_preferred_label) %>%
+  select(bacteria_preferred_label_abbr, drug_preferred_label, bacteria_drug_pair, n) %>%
+  rename(bacteria = bacteria_preferred_label_abbr, drug = drug_preferred_label) %>%
   arrange(-n) 
 
 idat <- sub_paired_segments %>% filter(n>15)  %>% select(-bacteria_drug_pair, -n) 
@@ -195,9 +187,9 @@ E(g2)$color <- "lightgray"
 
 #' Count by linkages (12 most common linkages)
 ```{r bacteria_drugs2, echo = FALSE}
-# paired_segments_count %>%
-#   slice(1:5) %>%
-#   kable() 
+paired_segments_count %>%
+  slice(1:10) %>%
+  kable(format = "markdown") 
 
 ggparallel(list("drug", "bacteria"), 
            data=as.data.frame(sub_paired_segments %>% filter(n>15)), 
@@ -209,3 +201,41 @@ ggparallel(list("drug", "bacteria"),
 
 plot(g, vertex.label.cex = 0.8, vertex.label.color = "black")
 #+ r bacteria_drugs2, echo = FALSE
+
+#' Count by pub date
+```{r pub_date, echo = FALSE}
+pub_date_count <- articles_db %>%
+  group_by(year) %>%
+  count()
+
+ggplot(pub_date_count, aes(x = year, y = n)) +
+  geom_bar(stat = "identity", fill = "green3") +
+  labs(title = "Publications by Year", x = "", y = "") +
+  scale_x_continuous(breaks = unique(pub_date_count$year)) +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 60, hjust = 1, size = 12))
+#+ r pub_date, echo = FALSE
+
+#' Count by exclusion criteria
+```{r exclusion, echo = FALSE}
+segments_excluded_count <- segments_excluded %>%
+  filter(code_main_cat=="exclusion") %>%
+  group_by(code_main) %>%
+  count()
+
+# check for studies with more than one exclusion criteria
+segments_excluded_check <- segments_excluded %>%
+  filter(code_main_cat=="exclusion") %>%
+  mutate(dup = duplicated(study_id) | 
+           duplicated(study_id, fromLast = TRUE)) %>%
+  filter(dup == TRUE) %>%
+  group_by(study_id) %>%
+  count() #27 studies with 2 exclusion criteria
+
+ggplot(segments_excluded_count, aes(x = reorder(code_main, -n), y = n)) +
+  geom_bar(stat = "identity", fill = "green3") +
+  labs(title = "Count of Studies by Exclusion Criteria", x = "", y = "", caption = "27 studies had 2 exclusion criteria") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 60, hjust = 1, size = 12))
+#+ r exclusion, echo = FALSE
+

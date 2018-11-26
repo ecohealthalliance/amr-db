@@ -151,6 +151,10 @@ excluded_studies <- segments %>%
   pull(study_id) %>% 
   unique()
 
+# excluded segments export
+write_csv(segments %>%
+            filter(study_id %in% excluded_studies), path = here("data", "segments_excluded.csv"))
+
 # omit excluded study Ds from final database
 segments %<>%
   filter(!study_id %in% excluded_studies)

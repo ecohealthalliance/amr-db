@@ -58,7 +58,7 @@ australia,moxifloxacin,clostridioides difficile,17611
 austria,cefixime,neisseria gonorrhoeae,21347
 austria,ceftriaxone,neisseria gonorrhoeae,21347
 austria,ciprofloxacin,neisseria gonorrhoeae,21347
-austria,NA,NA,23314
+austria,NA,klebsiella pneumoniae,23314
 belgium,amikacin,escherichia coli,2303
 belgium,aztreonam,escherichia coli,2303
 belgium,cefepime,escherichia coli,2303
@@ -157,20 +157,24 @@ canada,amikacin,klebsiella pneumoniae,2419
 canada,amikacin,morganella morganii,11303
 canada,amikacin,providencia rettgeri,11303
 canada,amikacin,pseudomonas aeruginosa,13370
+canada,amikacin,NA,11303
 canada,aminoglycosides,klebsiella pneumoniae,20841
 canada,amoxicillin-potassium clavulanate combination,enterobacteriaceae,16248
 canada,amoxicillin-potassium clavulanate combination,morganella morganii,11303
 canada,amoxicillin-potassium clavulanate combination,providencia rettgeri,11303
+canada,amoxicillin-potassium clavulanate combination,NA,11303
 canada,ampicillin,escherichia fergusonii,11384
 canada,ampicillin,klebsiella pneumoniae,2419
 canada,ampicillin,morganella morganii,11303
 canada,ampicillin,providencia rettgeri,11303
+canada,ampicillin,NA,11303
 canada,aztreonam,enterobacteriaceae,16248
 canada,aztreonam,escherichia fergusonii,11384
 canada,beta-lactams,klebsiella pneumoniae,20841
 canada,carbapenems,klebsiella pneumoniae,20841
 canada,cefazolin,morganella morganii,11303
 canada,cefazolin,providencia rettgeri,11303
+canada,cefazolin,NA,11303
 canada,cefepime,klebsiella pneumoniae,2419
 canada,cefepime,morganella morganii,11303
 canada,cefepime,providencia rettgeri,11303
@@ -191,6 +195,7 @@ canada,ceftriaxone,pseudomonas aeruginosa,13370
 canada,chloramphenicol,corynebacterium diphtheriae,13994
 canada,chloramphenicol,klebsiella pneumoniae,14571
 canada,chloramphenicol,morganella morganii,11303
+canada,chloramphenicol,NA,11303
 canada,ciprofloxacin,enterobacteriaceae,16248
 canada,ciprofloxacin,klebsiella pneumoniae,2419
 canada,ciprofloxacin,morganella morganii,11303
@@ -200,12 +205,15 @@ canada,clindamycin,corynebacterium diphtheriae,13994
 canada,colistin,klebsiella pneumoniae,2419
 canada,colistin,morganella morganii,11303
 canada,colistin,providencia rettgeri,11303
+canada,colistin,NA,11303
 canada,doripenem,morganella morganii,11303
 canada,doripenem,providencia rettgeri,11303
+canada,doripenem,NA,11303
 canada,ertapenem,enterobacteriaceae,16248
 canada,ertapenem,klebsiella pneumoniae,2419
 canada,ertapenem,morganella morganii,11303
 canada,ertapenem,providencia rettgeri,11303
+canada,ertapenem,NA,11303
 canada,erythromycin,corynebacterium diphtheriae,13994
 canada,gentamicins,cupriavidus metallidurans,11510
 canada,gentamicins,enterobacteriaceae,16248
@@ -216,16 +224,19 @@ canada,gentamicins,pseudomonas aeruginosa,13370
 canada,imipenem,klebsiella pneumoniae,2419
 canada,imipenem,morganella morganii,11303
 canada,imipenem,providencia rettgeri,11303
+canada,imipenem,NA,11303
 canada,levofloxacin,klebsiella pneumoniae,2419
 canada,meropenem,enterobacteriaceae,16248
 canada,meropenem,klebsiella pneumoniae,2419
 canada,meropenem,morganella morganii,11303
 canada,meropenem,providencia rettgeri,11303
 canada,meropenem,pseudomonas aeruginosa,13370
+canada,meropenem,NA,11303
 canada,nalidixic acid,klebsiella pneumoniae,2419
 canada,nitrofurantoin,klebsiella pneumoniae,20841
 canada,nitrofurantoin,morganella morganii,11303
 canada,nitrofurantoin,providencia rettgeri,11303
+canada,nitrofurantoin,NA,11303
 canada,"piperacillin, tazobactam drug combination",enterobacteriaceae,16248
 canada,"piperacillin, tazobactam drug combination",pseudomonas aeruginosa,13370
 canada,quinolones,klebsiella pneumoniae,20841
@@ -247,7 +258,9 @@ canada,"trimethoprim, sulfamethoxazole drug combination",enterobacteriaceae,1624
 canada,"trimethoprim, sulfamethoxazole drug combination",escherichia fergusonii,11384
 canada,"trimethoprim, sulfamethoxazole drug combination",klebsiella pneumoniae,"2419,20841"
 canada,"trimethoprim, sulfamethoxazole drug combination",pseudomonas aeruginosa,13370
-canada,NA,NA,261
+canada,NA,acinetobacter baumannii,261
+canada,NA,escherichia coli,261
+canada,NA,klebsiella pneumoniae,261
 china,amikacin,acinetobacter baumannii,9075
 china,amikacin,escherichia coli,"9075,12065,12359"
 china,amikacin,klebsiella pneumoniae,9010
@@ -283,6 +296,7 @@ china,cefepime,klebsiella pneumoniae,"9010,9045"
 china,cefepime,nocardia otitidiscaviarum,23039
 china,cefepime,rhodoplanes,23408
 china,cefepime,staphylococcus capitis,9081
+china,cefepime,NA,9075
 china,cefoperazone,rhodoplanes,23408
 china,cefotaxime,acinetobacter baumannii,9075
 china,cefotaxime,aeromonas caviae,23039
@@ -331,6 +345,7 @@ china,ertapenem,acinetobacter soli,3060
 china,ertapenem,citrobacter freundii,9075
 china,ertapenem,escherichia coli,"9075,12065,12344"
 china,ertapenem,klebsiella pneumoniae,9045
+china,ertapenem,NA,9075
 china,fosfomycin,klebsiella pneumoniae,9010
 china,gentamicins,acinetobacter baumannii,9075
 china,gentamicins,aeromonas caviae,23039
@@ -387,7 +402,8 @@ china,"trimethoprim, sulfamethoxazole drug combination",escherichia coli,"12065,
 china,"trimethoprim, sulfamethoxazole drug combination",klebsiella pneumoniae,9010
 china,"trimethoprim, sulfamethoxazole drug combination",salmonella enterica,9733
 china,"trimethoprim, sulfamethoxazole drug combination",stenotrophomonas maltophilia,23491
-china,NA,NA,3651
+china,NA,neisseria gonorrhoeae,3651
+china,NA,stenotrophomonas maltophilia,23491
 colombia,cefotaxime,klebsiella pneumoniae,5934
 colombia,clindamycin,staphylococcus aureus,9727
 colombia,ertapenem,klebsiella pneumoniae,5934
@@ -404,7 +420,7 @@ colombia,rifampin,mycobacterium tuberculosis,14616
 colombia,streptomycin,mycobacterium tuberculosis,14616
 colombia,tetracycline,staphylococcus aureus,"661,9727"
 colombia,"trimethoprim, sulfamethoxazole drug combination",staphylococcus aureus,9727
-congo,NA,NA,1151
+congo,NA,mycobacterium tuberculosis,1151
 croatia,amoxicillin,klebsiella pneumoniae,1786
 croatia,ampicillin,enterobacter cloacae,15256
 croatia,cefazolin,klebsiella pneumoniae,1786
@@ -427,7 +443,7 @@ croatia,"piperacillin, tazobactam drug combination",klebsiella pneumoniae,1786
 croatia,quinolones,enterobacter cloacae,15256
 croatia,tobramycin,enterobacter cloacae,15256
 croatia,"trimethoprim, sulfamethoxazole drug combination",enterobacter cloacae,15256
-croatia,NA,NA,7440
+croatia,NA,acinetobacter baumannii,7440
 cuba,amoxicillin,klebsiella pneumoniae,1652
 cuba,amoxicillin-potassium clavulanate combination,klebsiella pneumoniae,1652
 cuba,cefepime,klebsiella pneumoniae,1652
@@ -455,7 +471,8 @@ czech republic,sultamicillin,klebsiella pneumoniae,8950
 czech republic,tetracycline,klebsiella pneumoniae,8950
 czech republic,trimethoprim,klebsiella pneumoniae,8950
 czech republic,"trimethoprim, sulfamethoxazole drug combination",klebsiella pneumoniae,8950
-czech republic,NA,NA,"5362,8948"
+czech republic,NA,pseudomonas aeruginosa,8948
+czech republic,NA,NA,5362
 denmark,amoxicillin-potassium clavulanate combination,escherichia coli,7108
 denmark,ampicillin,escherichia coli,7108
 denmark,cefoxitin,escherichia coli,7108
@@ -825,45 +842,60 @@ india,"trimethoprim, sulfamethoxazole drug combination",salmonella enterica,1346
 india,"trimethoprim, sulfamethoxazole drug combination",staphylococcus haemolyticus,"7968,17169"
 india,"trimethoprim, sulfamethoxazole drug combination",vibrio cholerae,13015
 india,vancomycin,kocuria kristinae,5553
-india,NA,NA,4578
+india,NA,mycobacterium tuberculosis,4578
 indonesia,cefotaxime,staphylococcus aureus,7090
 indonesia,cefoxitin,staphylococcus aureus,7090
 indonesia,ciprofloxacin,staphylococcus aureus,7090
 indonesia,gentamicins,staphylococcus aureus,7090
 iran,amikacin,klebsiella pneumoniae,"18946,18947"
+iran,amikacin,NA,18947
 iran,amoxicillin,helicobacter pylori,9
 iran,amoxicillin,shewanella algae,20350
 iran,amoxicillin-potassium clavulanate combination,nocardia cyriacigeorgica,19196
 iran,ampicillin,nocardia cyriacigeorgica,19196
 iran,ampicillin,shewanella algae,20350
 iran,aztreonam,klebsiella pneumoniae,"18946,18947"
+iran,aztreonam,NA,18947
 iran,cefepime,klebsiella pneumoniae,"18946,18947"
+iran,cefepime,NA,18947
 iran,cefotaxime,klebsiella pneumoniae,"18946,18947"
+iran,cefotaxime,NA,18947
 iran,ceftazidime,klebsiella pneumoniae,"18946,18947"
+iran,ceftazidime,NA,18947
 iran,ceftizoxime,shewanella algae,20350
 iran,cephalexin,shewanella algae,20350
 iran,cephalothin,shewanella algae,20350
 iran,ciprofloxacin,helicobacter pylori,9
 iran,ciprofloxacin,klebsiella pneumoniae,"18946,18947"
 iran,ciprofloxacin,nocardia cyriacigeorgica,19196
+iran,ciprofloxacin,NA,18947
 iran,clarithromycin,helicobacter pylori,9
 iran,clarithromycin,nocardia cyriacigeorgica,19196
 iran,doxycycline,shewanella algae,20350
 iran,ertapenem,klebsiella pneumoniae,"18946,18947"
+iran,ertapenem,NA,18947
 iran,erythromycin,helicobacter pylori,9
 iran,ethambutol,mycobacterium europaeum,16837
 iran,furazolidone,helicobacter pylori,9
 iran,imipenem,klebsiella pneumoniae,"18946,18947"
+iran,imipenem,NA,18947
 iran,kanamycin,klebsiella pneumoniae,"18946,18947"
 iran,kanamycin,nocardia cyriacigeorgica,19196
+iran,kanamycin,NA,18947
 iran,meropenem,klebsiella pneumoniae,"18946,18947"
+iran,meropenem,NA,18947
 iran,metronidazole,helicobacter pylori,9
 iran,penicillin g,nocardia cyriacigeorgica,19196
 iran,tetracycline,helicobacter pylori,9
 iran,tetracycline,shewanella algae,20350
 iran,"trimethoprim, sulfamethoxazole drug combination",klebsiella pneumoniae,"18946,18947"
+iran,"trimethoprim, sulfamethoxazole drug combination",NA,18947
 iran,vancomycin,shewanella algae,20350
-iran,NA,NA,"18945,20373,21726"
+iran,NA,mycobacterium tuberculosis,21726
+iran,NA,pseudomonas aeruginosa,18945
+iran,NA,shigella boydii,20373
+iran,NA,shigella dysenteriae,20373
+iran,NA,shigella flexneri,20373
 ireland,amikacin,klebsiella pneumoniae,13548
 ireland,amoxicillin-potassium clavulanate combination,aeromonas,4776
 ireland,amoxicillin-potassium clavulanate combination,enterobacter asburiae,2389
@@ -984,8 +1016,9 @@ italy,"trimethoprim, sulfamethoxazole drug combination",enterococcus raffinosus,
 italy,"trimethoprim, sulfamethoxazole drug combination",escherichia coli,4519
 italy,"trimethoprim, sulfamethoxazole drug combination",klebsiella oxytoca,2963
 italy,"trimethoprim, sulfamethoxazole drug combination",listeria monocytogenes,1566
-italy,NA,NA,"1198,6655"
-jamaica,NA,NA,2697
+italy,NA,aeromonas hydrophila,1198
+italy,NA,klebsiella pneumoniae,6655
+jamaica,NA,staphylococcus aureus,2697
 japan,amikacin,achromobacter xylosoxidans,6737
 japan,amikacin,acinetobacter baumannii,14823
 japan,amikacin,delftia acidovorans,10300
@@ -1051,6 +1084,8 @@ japan,tobramycin,nocardia mexicana,11176
 japan,"trimethoprim, sulfamethoxazole drug combination",nocardia mexicana,11176
 japan,vancomycin,staphylococcus aureus,2418
 japan,zidovudine,delftia acidovorans,10300
+japan,NA,delftia acidovorans,10300
+japan,NA,staphylococcus aureus,8619
 kenya,aminoglycosides,klebsiella pneumoniae,16726
 kenya,chloramphenicol,klebsiella pneumoniae,16726
 kenya,doripenem,klebsiella pneumoniae,16726
@@ -1070,19 +1105,28 @@ kuwait,cephalothin,salmonella enterica,5251
 kuwait,piperacillin,salmonella enterica,5251
 kuwait,"trimethoprim, sulfamethoxazole drug combination",salmonella enterica,5251
 lebanon,aztreonam,klebsiella pneumoniae,"4641,4642"
+lebanon,aztreonam,NA,5774
 lebanon,cefepime,klebsiella pneumoniae,"4641,4642"
+lebanon,cefepime,NA,5774
 lebanon,cefotaxime,klebsiella pneumoniae,"4641,4642"
+lebanon,cefotaxime,NA,5774
 lebanon,cefoxitin,klebsiella pneumoniae,"4641,4642"
 lebanon,cefpodoxime,klebsiella pneumoniae,"4641,4642"
+lebanon,cefpodoxime,NA,5774
 lebanon,ceftazidime,acinetobacter baumannii,17121
 lebanon,ceftazidime,acinetobacter pittii,360
 lebanon,ceftazidime,klebsiella pneumoniae,"4641,4642"
+lebanon,ceftazidime,NA,5774
 lebanon,ceftriaxone,klebsiella pneumoniae,"4641,4642"
+lebanon,cefuroxime,NA,5774
 lebanon,ciprofloxacin,acinetobacter baumannii,17121
 lebanon,ciprofloxacin,klebsiella pneumoniae,"4641,4642"
+lebanon,ciprofloxacin,NA,5774
 lebanon,clavulanic acid,klebsiella pneumoniae,"4641,4642"
 lebanon,doripenem,acinetobacter baumannii,17121
+lebanon,doripenem,NA,5774
 lebanon,ertapenem,escherichia coli,5774
+lebanon,ertapenem,NA,5774
 lebanon,imipenem,acinetobacter baumannii,17121
 lebanon,imipenem,acinetobacter pittii,360
 lebanon,imipenem,escherichia coli,5774
@@ -1091,12 +1135,15 @@ lebanon,levofloxacin,streptococcus pneumoniae,14751
 lebanon,meropenem,acinetobacter baumannii,17121
 lebanon,meropenem,acinetobacter pittii,360
 lebanon,meropenem,escherichia coli,5774
+lebanon,meropenem,NA,5774
 lebanon,netilmicin,acinetobacter pittii,360
 lebanon,piperacillin,klebsiella pneumoniae,"4641,4642"
 lebanon,"piperacillin, tazobactam drug combination",klebsiella pneumoniae,"4641,4642"
 lebanon,ticarcillin,acinetobacter pittii,360
 lebanon,ticarcillin-clavulanic acid,acinetobacter pittii,360
 lebanon,tobramycin,acinetobacter pittii,360
+lebanon,tobramycin,NA,5774
+lebanon,"trimethoprim, sulfamethoxazole drug combination",NA,5774
 malaysia,ampicillin,enterococcus faecium,23647
 malaysia,gentamicins,enterococcus faecium,23647
 malaysia,vancomycin,enterococcus faecium,"16713,23647"
@@ -1306,7 +1353,7 @@ serbia,"piperacillin, tazobactam drug combination",escherichia coli,15268
 serbia,streptomycin,mycobacterium kansasii,5091
 serbia,sultamicillin,escherichia coli,15268
 serbia,"trimethoprim, sulfamethoxazole drug combination",escherichia coli,15268
-serbia,NA,NA,9885
+serbia,NA,pseudomonas aeruginosa,9885
 singapore,methicillin,staphylococcus aureus,8982
 singapore,oxacillin,staphylococcus aureus,8982
 slovakia,amikacin,pseudomonas aeruginosa,"11201,11202"
@@ -1395,7 +1442,7 @@ south korea,piperacillin,leclercia adecarboxylata,19152
 south korea,tetracycline,streptococcus pneumoniae,10083
 south korea,tobramycin,leclercia adecarboxylata,19152
 south korea,"trimethoprim, sulfamethoxazole drug combination",leclercia adecarboxylata,19152
-south korea,NA,NA,281
+south korea,NA,neisseria meningitidis,281
 spain,amikacin,acinetobacter baumannii,"5961,13794"
 spain,amikacin,enterobacter cloacae,6314
 spain,amikacin,escherichia coli,"19607,19609"
@@ -1494,7 +1541,8 @@ taiwan,fosfomycin,klebsiella oxytoca,11406
 taiwan,imipenem,klebsiella oxytoca,11406
 taiwan,imipenem,nocardia abscessus,11413
 taiwan,meropenem,klebsiella oxytoca,11406
-thailand,NA,NA,10703
+thailand,NA,escherichia coli,10703
+thailand,NA,klebsiella pneumoniae,10703
 the netherlands,amoxicillin,actinotignum schaalii,21464
 the netherlands,amoxicillin-potassium clavulanate combination,actinotignum schaalii,21464
 the netherlands,ciprofloxacin,actinotignum schaalii,21464
@@ -1718,7 +1766,8 @@ united states,"trimethoprim, sulfamethoxazole drug combination",rhodococcus equi
 united states,"trimethoprim, sulfamethoxazole drug combination",sphingobacterium multivorum,1495
 united states,vancomycin,enterococcus raffinosus,4581
 united states,vancomycin,staphylococcus aureus,19267
-united states,NA,NA,"3722,5804"
+united states,NA,klebsiella pneumoniae,5804
+united states,NA,lactobacillus fermentum,3722
 unites states,fluoroquinolones,corynebacterium macginleyi,17998
 unites states,sulbenicillin,corynebacterium macginleyi,17998
 uruguay,ampicillin,salmonella enterica,1288
@@ -1776,8 +1825,10 @@ NA,cefoxitin,stenotrophomonas maltophilia,1216
 NA,ciprofloxacin,aeromonas hydrophila,7482
 NA,ciprofloxacin,cellulosimicrobium funkei,16438
 NA,ciprofloxacin,enterococcus raffinosus,18469
+NA,ciprofloxacin,NA,1360
 NA,clarithromycin,mycobacterium simiae,9669
 NA,clindamycin,enterococcus raffinosus,18469
+NA,colistin,NA,1360
 NA,daptomycin,corynebacterium jeikeium,18631
 NA,daptomycin,staphylococcus aureus,21192
 NA,erythromycin,cellulosimicrobium funkei,16438
@@ -1789,6 +1840,7 @@ NA,gentamicins,aeromonas hydrophila,7482
 NA,gentamicins,enterococcus raffinosus,18469
 NA,gentamicins,nocardia transvalensis,15902
 NA,gentamicins,staphylococcus aureus,21192
+NA,gentamicins,NA,1360
 NA,imipenem,cellulosimicrobium funkei,16438
 NA,imipenem,enterococcus raffinosus,18469
 NA,imipenem,stenotrophomonas maltophilia,1216
@@ -1828,4 +1880,9 @@ NA,"trimethoprim, sulfamethoxazole drug combination",mycobacterium simiae,9669
 NA,"trimethoprim, sulfamethoxazole drug combination",stenotrophomonas maltophilia,22121
 NA,vancomycin,mycobacterium septicum,137
 NA,vancomycin,staphylococcus aureus,21192
-NA,NA,NA,"9340,23314,1360,10335,16264,20401"
+NA,NA,acinetobacter baumannii,"18527,16264"
+NA,NA,enterococcus raffinosus,18469
+NA,NA,klebsiella pneumoniae,23314
+NA,NA,salmonella enterica,9340
+NA,NA,staphylococcus aureus,4471
+NA,NA,NA,"10335,20401"
