@@ -140,19 +140,19 @@ drug name
 
 <td style="text-align:right;">
 
-562
+652
 
 </td>
 
 <td style="text-align:right;">
 
-1384
+1723
 
 </td>
 
 <td style="text-align:right;">
 
-30
+52
 
 </td>
 
@@ -178,13 +178,13 @@ drug\_rank
 
 <th style="text-align:left;">
 
-drug\_preferred\_label
+drug\_preferred\_label\_abbr
 
 </th>
 
 <th style="text-align:left;">
 
-drug\_parent\_name
+drug\_parent\_name\_abbr
 
 </th>
 
@@ -216,6 +216,40 @@ drug name
 
 <td style="text-align:left;">
 
+imipenem
+
+</td>
+
+<td style="text-align:left;">
+
+thienamycins
+
+</td>
+
+<td style="text-align:right;">
+
+119
+
+</td>
+
+<td style="text-align:right;">
+
+4.9
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+drug name
+
+</td>
+
+<td style="text-align:left;">
+
 ceftazidime
 
 </td>
@@ -228,13 +262,13 @@ cephaloridine
 
 <td style="text-align:right;">
 
-100
+118
 
 </td>
 
 <td style="text-align:right;">
 
-5.1
+4.9
 
 </td>
 
@@ -262,7 +296,7 @@ aminoglycosides
 
 <td style="text-align:right;">
 
-92
+114
 
 </td>
 
@@ -284,7 +318,7 @@ drug name
 
 <td style="text-align:left;">
 
-imipenem
+meropenem
 
 </td>
 
@@ -296,7 +330,7 @@ thienamycins
 
 <td style="text-align:right;">
 
-92
+114
 
 </td>
 
@@ -330,47 +364,13 @@ fluoroquinolones
 
 <td style="text-align:right;">
 
-91
+112
 
 </td>
 
 <td style="text-align:right;">
 
 4.6
-
-</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align:left;">
-
-drug name
-
-</td>
-
-<td style="text-align:left;">
-
-meropenem
-
-</td>
-
-<td style="text-align:left;">
-
-thienamycins
-
-</td>
-
-<td style="text-align:right;">
-
-83
-
-</td>
-
-<td style="text-align:right;">
-
-4.2
 
 </td>
 
@@ -424,13 +424,13 @@ thienamycins
 
 <td style="text-align:right;">
 
-175
+233
 
 </td>
 
 <td style="text-align:right;">
 
-8.9
+9.6
 
 </td>
 
@@ -446,35 +446,13 @@ cefotaxime
 
 <td style="text-align:right;">
 
-140
+167
 
 </td>
 
 <td style="text-align:right;">
 
-7.1
-
-</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align:left;">
-
-cephaloridine
-
-</td>
-
-<td style="text-align:right;">
-
-101
-
-</td>
-
-<td style="text-align:right;">
-
-5.1
+6.9
 
 </td>
 
@@ -490,13 +468,35 @@ cephalosporins
 
 <td style="text-align:right;">
 
-100
+156
 
 </td>
 
 <td style="text-align:right;">
 
-5.1
+6.4
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+cephaloridine
+
+</td>
+
+<td style="text-align:right;">
+
+119
+
+</td>
+
+<td style="text-align:right;">
+
+4.9
 
 </td>
 
@@ -512,13 +512,13 @@ ampicillin
 
 <td style="text-align:right;">
 
-98
+117
 
 </td>
 
 <td style="text-align:right;">
 
-5.0
+4.8
 
 </td>
 
@@ -549,9 +549,14 @@ Count by linkages (12 most common linkages)
 
 ![](data_summary_files/figure-gfm/bacteria_drugs2-1.png)<!-- -->![](data_summary_files/figure-gfm/bacteria_drugs2-2.png)<!-- -->
 
-Count by pub date
+Count by pub
+date
 
-![](data_summary_files/figure-gfm/pub_date-1.png)<!-- -->
+![](data_summary_files/figure-gfm/pub_date-1.png)<!-- -->![](data_summary_files/figure-gfm/pub_date-2.png)<!-- -->
+
+    ## Warning: Removed 2 rows containing missing values (position_stack).
+
+![](data_summary_files/figure-gfm/pub_date-3.png)<!-- -->
 
 Count by exclusion criteria
 
