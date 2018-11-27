@@ -23,6 +23,7 @@ segments_excluded <- read_csv(here("data", "segments_excluded.csv"))
 articles_db <- read_csv(here("data", "articles_db.csv")) %>%
   mutate(title = tolower(title)) %>%
   filter(study_id %in% unique(segments$study_id)) 
+articles_db17 <- read_csv(here("data", "amr-dd.csv")) #articles from 2017 review
 #+ r setup, include = FALSE
 
 #' -----------------Locations-----------------
@@ -94,16 +95,17 @@ ggplot(bacteria_sum[bacteria_sum$n > 4,], aes(x = reorder(bacteria_preferred_lab
 #' -----------------Drugs-----------------
 ```{r drugs, include = FALSE}
 drugs <- events %>%  
-  group_by(
+  mutate(drug_preferred_label_abbr = gsub("drug|combination|drug combinations, ", "", drug_preferred_label),
+         drug_preferred_label_abbr = trimws(drug_preferred_label_abbr),
+         drug_parent_name_abbr = gsub("drug|combination|drug combinations, ", "", drug_parent_name),
+         drug_parent_name_abbr = trimws(drug_parent_name_abbr)) %>%
+  select(
     study_id,
     segment_drug_combo,
     drug_rank,
-    drug_preferred_label, 
-  ) %>% 
-  summarize(drug_parent_name = paste(unique(drug_parent_name), collapse =
-                                       ", ")) %>% 
-  ungroup() %>%
-  distinct()
+    drug_preferred_label_abbr,
+    drug_parent_name_abbr 
+  ) 
 
 drugs_by_rank <- drugs %>%
   group_by(drug_rank) %>%
@@ -111,14 +113,14 @@ drugs_by_rank <- drugs %>%
   spread(drug_rank, n)
 
 drugs_sum <- drugs %>%
-  group_by(drug_rank, drug_preferred_label, drug_parent_name) %>%
+  group_by(drug_rank, drug_preferred_label_abbr, drug_parent_name_abbr) %>%
   count(sort = TRUE) %>%
   mutate(percent = round(100*n/nrow(drugs), 1)) %>%
   ungroup() %>%
-  filter(!is.na(drug_preferred_label))
+  filter(!is.na(drug_preferred_label_abbr))
 
 drugs_sum2 <- drugs %>%
-  mutate(drug_group = ifelse(drug_rank=="drug name", drug_parent_name, drug_preferred_label)) %>%
+  mutate(drug_group = ifelse(drug_rank=="drug name", drug_parent_name_abbr, drug_preferred_label_abbr)) %>%
   group_by(drug_group) %>%
   count(sort = TRUE) %>%
   mutate(percent = round(100*n/nrow(drugs), 1)) %>%
@@ -136,8 +138,9 @@ kable(drugs_by_rank)
 ```{r drugs2, echo = FALSE}
 kable(drugs_sum %>% slice(1:5)) 
 
-ggplot(drugs_sum[drugs_sum$percent > 1,], aes(x = reorder(drug_preferred_label, -n), y = n, fill = drug_rank)) +
+ggplot(drugs_sum[drugs_sum$percent > 1,], aes(x = reorder(drug_preferred_label_abbr, -n), y = n, fill = drug_rank)) +
   geom_bar(stat = "identity") +
+  
   labs(title = "Most common drugs", x = "", y = "Number of studies", fill = "") +
   theme_bw() +
   theme(axis.text.x = element_text(angle = 60, hjust = 1, size = 12))
@@ -206,7 +209,12 @@ plot(g, vertex.label.cex = 0.8, vertex.label.color = "black")
 ```{r pub_date, echo = FALSE}
 pub_date_count <- articles_db %>%
   group_by(year) %>%
-  count()
+  count() %>% ungroup()
+
+pub_date_count17 <- articles_db17 %>%
+  group_by(year) %>%
+  count() %>%
+  filter(!is.na(year)) %>% ungroup()
 
 ggplot(pub_date_count, aes(x = year, y = n)) +
   geom_bar(stat = "identity", fill = "green3") +
@@ -214,6 +222,31 @@ ggplot(pub_date_count, aes(x = year, y = n)) +
   scale_x_continuous(breaks = unique(pub_date_count$year)) +
   theme_bw() +
   theme(axis.text.x = element_text(angle = 60, hjust = 1, size = 12))
+
+ggplot(pub_date_count17, aes(x = year, y = n)) +
+  geom_bar(stat = "identity", fill = "green3") +
+  labs(title = "Publications by Year - Pre-filtering", x = "", y = "") +
+  scale_x_continuous(breaks = unique(pub_date_count17$year)) +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 60, hjust = 1, size = 12))
+
+# combine
+pub_date_count_all <- full_join(pub_date_count, pub_date_count17, by="year") %>%
+  rename(current = n.x, prev = n.y) %>%
+  mutate(total = prev - current) %>%
+  select(-prev) %>%
+  gather(key = case, value = n, -year ) %>%
+  mutate(case = factor(case, levels = c("total", "current")))
+
+ggplot(pub_date_count_all, aes(x = year, y = n, fill = case)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Publications by Year", x = "", y = "", fill = "") +
+  scale_x_continuous(breaks = unique(pub_date_count17$year)) +
+  scale_fill_manual(values = c(total = "gray", current = "green3")) +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 60, hjust = 1, size = 12))
+#broken axis?
+
 #+ r pub_date, echo = FALSE
 
 #' Count by exclusion criteria
