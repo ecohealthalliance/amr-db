@@ -125,7 +125,8 @@ drugs_sum2 <- drugs %>%
   count(sort = TRUE) %>%
   mutate(percent = round(100*n/nrow(drugs), 1)) %>%
   ungroup() %>%
-  filter(!is.na(drug_group))
+  filter(!is.na(drug_group)) %>%
+  mutate(drug_group_lab = gsub(", ", "&\n", drug_group))
 
 #+ r drugs, include = FALSE
 
@@ -148,13 +149,15 @@ ggplot(drugs_sum[drugs_sum$percent > 1,], aes(x = reorder(drug_preferred_label_a
 
 #' Count by group only
 ```{r drugs3, echo = FALSE}
-kable(drugs_sum2 %>% slice(1:5)) 
+kable(drugs_sum2 %>% slice(1:5) %>% select(-drug_group_lab)) 
 
 ggplot(drugs_sum2[drugs_sum2$percent > 1,], aes(x = reorder(drug_group, -n), y = n)) +
   geom_bar(stat = "identity", fill = "green3") +
   labs(title = "Most common drug groups", x = "", y = "Number of studies") +
+  coord_fixed(ratio = 0.01) +
   theme_bw() +
-  theme(axis.text.x = element_text(angle = 60, hjust = 1, size = 12))
+  theme(axis.text.x = element_text(angle = 60, hjust = 1, size = 8),
+        title = element_text(size = 12)) 
 #+ r drugs3, echo = FALSE
 
 #' -----------------Bacteria + Drugs Paired-----------------
@@ -218,14 +221,14 @@ pub_date_count17 <- articles_db17 %>%
 
 ggplot(pub_date_count, aes(x = year, y = n)) +
   geom_bar(stat = "identity", fill = "green3") +
-  labs(title = "Publications by Year", x = "", y = "") +
+  labs(title = "Publications by year", x = "", y = "") +
   scale_x_continuous(breaks = unique(pub_date_count$year)) +
   theme_bw() +
   theme(axis.text.x = element_text(angle = 60, hjust = 1, size = 12))
 
 ggplot(pub_date_count17, aes(x = year, y = n)) +
   geom_bar(stat = "identity", fill = "green3") +
-  labs(title = "Publications by Year - Pre-filtering", x = "", y = "") +
+  labs(title = "Publications by year", x = "", y = "") +
   scale_x_continuous(breaks = unique(pub_date_count17$year)) +
   theme_bw() +
   theme(axis.text.x = element_text(angle = 60, hjust = 1, size = 12))
@@ -240,7 +243,7 @@ pub_date_count_all <- full_join(pub_date_count, pub_date_count17, by="year") %>%
 
 ggplot(pub_date_count_all, aes(x = year, y = n, fill = case)) +
   geom_bar(stat = "identity") +
-  labs(title = "Publications by Year", x = "", y = "", fill = "") +
+  labs(title = "Publications by year", x = "", y = "", fill = "") +
   scale_x_continuous(breaks = unique(pub_date_count17$year)) +
   scale_fill_manual(values = c(total = "gray", current = "green3")) +
   theme_bw() +

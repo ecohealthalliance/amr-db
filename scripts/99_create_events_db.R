@@ -90,24 +90,24 @@ articles_dups <- articles_db %>%
   mutate(dup_title = duplicated(title) | 
            duplicated(title, fromLast = TRUE)) %>%
   filter(dup_title==TRUE) %>%
-  group_by(title) %>%
-  summarize(study_id = paste(study_id, collapse = ", "),
-            mex_name = paste(mex_name, collapse = ", "))
+  select(study_id, title, author, year, url, volume, doi, edition, language, mex_name) #%>%
+  #summarize(study_id = paste(study_id, collapse = ", "),
+  #          mex_name = paste(mex_name, collapse = ", "))
 
 # Any fuzzy duplicated titles?
 articles_dups_fuzz <- expand.grid(articles_db$title, articles_db$title) %>%
   filter(Var1 != Var2) %>%
-  left_join(articles_db %>% select(title, study_id), by = c("Var1" = "title")) %>%
-  left_join(articles_db %>% select(title, study_id), by = c("Var2" = "title")) %>%
-  left_join(articles_db %>% select(title, mex_name), by = c("Var1" = "title")) %>%
-  left_join(articles_db %>% select(title, mex_name), by = c("Var2" = "title")) %>% 
+  left_join(articles_db %>% select(title, study_id, author, year, url, volume, doi, edition, language, mex_name), by = c("Var1" = "title")) %>%
+  left_join(articles_db %>% select(title, study_id, author, year, url, volume, doi, edition, language, mex_name), by = c("Var2" = "title")) %>%
   mutate(comp = stringdist(tolower(Var1),tolower(Var2), method = "osa")) %>%
   filter(comp <= 20) %>%
   arrange(comp) %>%
   mutate(tmp = apply(cbind(Var1, Var2), 1, function(x) paste(sort(x), collapse=" "))) %>%
   filter(!duplicated(tmp)) %>%
   select(-tmp, -comp) %>%
-  rename(title1 = Var1, title2 = Var2, study_id1 = study_id.x, study_id2 = study_id.y, mex_name1 = mex_name.x, mex_name2 = mex_name.y)
+  setNames(gsub("\\.x", "1", colnames(.) )) %>%
+  setNames(gsub("\\.y", "2", colnames(.) ))
+
 
 write_csv(events, here("data", "events_db.csv"))
 write_csv(events_qa, here("data", "data_qa", "events_qa.csv"))
