@@ -73,30 +73,6 @@ bapenemase-producing  K. pneumoniae  (KPC-KP) has
 previously been sporadic and related to travel.","In Finland, occurrence of  Klebsiella pneumoniae  car- 
 bapenemase-producing  K. pneumoniae  (KPC-KP) has  
 previously been sporadic and related to travel.",1444:1598
-10081,1,Article/Study Aim,1,Case Report,Case Report,198:210
-10081,10,Patient:Sex,1,man,man,234:237
-10081,11,Patient:Comorbidities,1,advanced AIDS,advanced AIDS,95:108
-10081,12,Patient:Symptoms/Disease,1,"persistent 
-productive cough","persistent 
-productive cough",279:307
-10081,13,Patient:Symptoms/Disease,1,worsening dyspnea,worsening dyspnea,312:328
-10081,14,Patient:Symptoms/Disease,1,fever,fever,365:370
-10081,15,Patient:Symptoms/Disease,1,"weight 
-loss of 7.3 kg over the past 4 weeks","weight 
-loss of 7.3 kg over the past 4 weeks",375:418
-10081,16,Patient:Country of Residence,1,Mexico,Mexico,678:683
-10081,2,Drug Resisted,1,isoniazid,isoniazid,333:341
-10081,3,Drug Resisted,1,rifampin,rifampin,345:352
-10081,4,Drug Resisted,1,pyrazinamide,pyrazinamide,355:366
-10081,5,Drug Resisted,1,ethambutol,ethambutol,373:382
-10081,6,Bacteria:Binomial (genus species),1,Mycobacterium szulgai,Mycobacterium szulgai,585:606
-10081,7,Notes,1,"this is 
-the first reported case of M. szulgai with resistance to all primary 
-antituberculosis drugs","this is 
-the first reported case of M. szulgai with resistance to all primary 
-antituberculosis drugs",1100:1200
-10081,8,Location:State/Province/District,1,California,California,3251:3261
-10081,9,Patient:Age,1,37-year-old,37-year-old,213:223
 10082,1,Exclusion:Not clinical case in human patient,1,"Persistent methicillin-resistant Staphylococcus  
 aureus bacteremia: do we need a new therapeutic  
 strategy? 
@@ -143,7 +119,6 @@ case of secondary bacterial infection due to Roseomonas genomospecies 6 in a pat
 the Indian subcontinent.","This is a first ever reported  
 case of secondary bacterial infection due to Roseomonas genomospecies 6 in a patient of pulmonary tuberculosis from  
 the Indian subcontinent.",1807:1980
-10125,1,Exclusion: not full text article,1,Letter to the Editor,Letter to the Editor,0:21
 10127,1,Exclusion: Not first case in country,1,"This study was planned to determine profile of bacterial isolates and their antibiotic  
 resistance pattern among pediatric cancer patients. DESIGN: It was a retrospective, single institutional study","This study was planned to determine profile of bacterial isolates and their antibiotic  
 resistance pattern among pediatric cancer patients. DESIGN: It was a retrospective, single institutional study",651:849
@@ -538,7 +513,6 @@ cycline",2360:2374
 10460,1,Exclusion:Review article,1,"Dissemination and spread of New Delhi Metallo-beta-lactamase-1 Superbugs in 
 hospital settings","Dissemination and spread of New Delhi Metallo-beta-lactamase-1 Superbugs in 
 hospital settings",2221:2314
-10462,1,Exclusion: not full text article,1,Short Communication,Short Communication,0:20
 10513,1,Exclusion: no resistance or did not name antibiotic/antibiotic,1,"To our knowledge, there is only 1 prior case of 
 thoracic empyema caused by H. parainfluenzae. We report a second 
 such case of a woman who developed a thoracic empyema due to H. 
@@ -692,7 +666,6 @@ producing IMP-type metallo--lactamases and AAC(6
 )-Iae in Japan","Emergence of a novel multidrug-resistant Pseudomonas aeruginosa strain 
 producing IMP-type metallo--lactamases and AAC(6 
 )-Iae in Japan",250:387
-10780,1,Exclusion: not full text article,1,Morbidity and Mortality Weekly Report,Morbidity and Mortality Weekly Report,0:37
 1080,1,First Surveillance Study (of a particular resistance) in Countr,1,"This is the first study to report the emergence of vancomycin- and linezolid-resistant S aureus in 
 Egypt.","This is the first study to report the emergence of vancomycin- and linezolid-resistant S aureus in 
 Egypt.",1812:1917
@@ -2778,11 +2751,9 @@ highly virulent",1478:1532
 13994,"7, 14","MIC, A",2,"32, 32",32,"6720:6722, 6720:6722"
 13994,"8, 16","MIC, B",2,"2.0, 2.0",2.0,"6746:6749, 6746:6749"
 13994,"9, 18","MIC, C",2,"2.0, 2.0",2.0,"6778:6780, 6778:6780"
-14001,1,Exclusion: not full text article,1,LETTERS TO THE EDITOR,LETTERS TO THE EDITOR,3273:3294
 14002,1,Exclusion: Not first case in country,1,"Two hundred fifty-seven nalidixic acid-resistant enterobacterial isolates were collected in a Brazilian community from January 2000 to May 
 2005 to determine the prevalence of plasmid-encoded extended-spectrum β-lactamases.","Two hundred fifty-seven nalidixic acid-resistant enterobacterial isolates were collected in a Brazilian community from January 2000 to May 
 2005 to determine the prevalence of plasmid-encoded extended-spectrum β-lactamases.",707:929
-14044,1,Exclusion: not full text article,1,Editorial,Editorial,0:10
 1405,1,Exclusion: no resistance or did not name antibiotic/antibiotic,1,"The purpose of this investigation was to de- 
 scribe the first documented carbapenem-resistant Klebsi- 
 ella pneumoniae (CRKP) outbreak in a tertiary care 
@@ -2791,7 +2762,7 @@ scribe the first documented carbapenem-resistant Klebsi-
 ella pneumoniae (CRKP) outbreak in a tertiary care 
 facility in Saudi Arabia.",438:618
 1406,1,Exclusion: not full text article,1,PO ST ER PR E S EN TA TION,PO ST ER PR E S EN TA TION,0:26
-14062,1,Exclusion:Not clinical case in human patient,1,Emerging,Emerging,38:45
+14062,"1, 2","Exclusion:Not clinical case in human patient, Exclusion:Not clinical case in human patient",2,"Emerging, Emerging",Emerging,"38:45, 38:45"
 14082,1,Bacteria:Binomial (genus species),1,Nocardia yamanashiensis,Nocardia yamanashiensis,1257:1279
 14082,"11, 12","MIC, A",2,"> 16, > 16",> 16,"5112:5115, 5112:5115"
 14082,"13, 14","Drug Resisted, B",2,"Ciprofloxacin, Ciprofloxacin",Ciprofloxacin,"5120:5132, 5120:5132"
@@ -3020,11 +2991,6 @@ sulfonamide (0.002 µg/mL).",2808:3059
 14287,9,Patient:Symptoms/Disease,1,"sudden onset clonic  
 seizures","sudden onset clonic  
 seizures",2210:2239
-14299,1,Exclusion: Not first case in country,1,"We report on the first identification of VRE infections in the  
-paediatric oncology ward at a tertiary-level paediatric hospital in  
-Cape Town, SA, over two time periods in 2013","We report on the first identification of VRE infections in the  
-paediatric oncology ward at a tertiary-level paediatric hospital in  
-Cape Town, SA, over two time periods in 2013",1095:1273
 14311,1,Exclusion: Not first case in country,1,"We identified the etiologies of 
 community-acquired bacterial meningitis in Korean adults 
 and the associated epidemiological factors. A retrospective, 
@@ -3351,18 +3317,18 @@ potential danger and underestimated risk associated
 with untreated dental infections.","the case illustrates the 
 potential danger and underestimated risk associated 
 with untreated dental infections.",785:896
-15,1,Patient:Age,1,40,40,1611:1612
-15,10,Event date,1,29 January 2015,29 January 2015,2178:2192
-15,11,Drug Resisted,1,clindamycin,clindamycin,2752:2762
-15,12,Bacteria:Binomial (genus species),1,F. hominis,F. hominis,2840:2850
-15,2,Patient:Sex,1,woman,woman,1623:1627
-15,3,Location:Hospital name,1,Casamance Hospital,Casamance Hospital,1674:1691
-15,4,Location:City,1,Marseille,Marseille,1694:1702
-15,5,Location:Country,1,France,France,509:514
-15,6,Patient:Symptoms/Disease,1,pain,pain,1721:1724
-15,7,Event day,1,29,29,2178:2179
-15,8,Event month,1,January,January,2181:2187
-15,9,Event year,1,2015,2015,2189:2192
+15,"1, 13","Patient:Age, Patient:Age",2,"40, 40",40,"1611:1612, 1611:1612"
+15,"10, 22","Event date, Event date",2,"29 January 2015, 29 January 2015",29 January 2015,"2178:2192, 2178:2192"
+15,"11, 23","Drug Resisted, Drug Resisted",2,"clindamycin, clindamycin",clindamycin,"2752:2762, 2752:2762"
+15,"12, 24","Bacteria:Binomial (genus species), Bacteria:Binomial (genus species)",2,"F. hominis, F. hominis",F. hominis,"2840:2850, 2840:2850"
+15,"2, 14","Patient:Sex, Patient:Sex",2,"woman, woman",woman,"1623:1627, 1623:1627"
+15,"3, 15","Location:Hospital name, Location:Hospital name",2,"Casamance Hospital, Casamance Hospital",Casamance Hospital,"1674:1691, 1674:1691"
+15,"4, 16","Location:City, Location:City",2,"Marseille, Marseille",Marseille,"1694:1702, 1694:1702"
+15,"5, 17","Location:Country, Location:Country",2,"France, France",France,"509:514, 509:514"
+15,"6, 18","Patient:Symptoms/Disease, Patient:Symptoms/Disease",2,"pain, pain",pain,"1721:1724, 1721:1724"
+15,"7, 19","Event day, Event day",2,"29, 29",29,"2178:2179, 2178:2179"
+15,"8, 20","Event month, Event month",2,"January, January",January,"2181:2187, 2181:2187"
+15,"9, 21","Event year, Event year",2,"2015, 2015",2015,"2189:2192, 2189:2192"
 15008,1,Exclusion: not full text article,1,To the Editor,To the Editor,4894:4906
 15012,1,Exclusion: Not first case in country,1,"C. difficile isolates from Thai patients were high- 
 ly susceptible to standard antimicrobial agents.","C. difficile isolates from Thai patients were high- 
@@ -3379,13 +3345,6 @@ all new TB cases are caused by MDR strains",2347:2414
 pneumoniae (TR-MDRKP) isolates among patients who initially presented with a tigecycline-susceptible MDRKP isolate","We performed a nested case-control study (ratio of 1:4) on the emergence of tigecycline-resistant multidrug-resistant Klebsiella 
 pneumoniae (TR-MDRKP) isolates among patients who initially presented with a tigecycline-susceptible MDRKP isolate",540:783
 1513,1,Exclusion: not full text article,1,Oral Presentation,Oral Presentation,943:959
-1518,1,Exclusion: Not first case in country,1,"We document here the in vivo transfer of blaKPC-2  
-between intensive care unit-acquired and a com- 
-mensal strain of Klebsiella pneumoniae in a French  
-patient after his repatriation from Greece.","We document here the in vivo transfer of blaKPC-2  
-between intensive care unit-acquired and a com- 
-mensal strain of Klebsiella pneumoniae in a French  
-patient after his repatriation from Greece.",1381:1578
 15182,1,Exclusion: Not first case in country,1,"Artemisinin Resistance in Cambodia: 
 A Clinical Trial Designed to Address 
 an Emerging Problem in Southeast Asi","Artemisinin Resistance in Cambodia: 
@@ -3564,16 +3523,6 @@ epidermidis",1283:1309
 15331,"7, 24","Drug Resisted, E",2,"clindamycin, clindamycin",clindamycin,"4884:4894, 4884:4894"
 15331,"8, 25","Drug Resisted, F",2,"ciprofloxacin, ciprofloxacin",ciprofloxacin,"4937:4949, 4937:4949"
 15331,"9, 10","Drug Resisted, A",2,"linezolid, linezolid",linezolid,"4920:4929, 4920:4929"
-15337,1,Event year,1,2014,2014,766:769
-15337,2,Event date,1,"between February 
-and September 2014","between February 
-and September 2014",734:769
-15337,3,Drug Resisted,1,linezolid,linezolid,3283:3291
-15337,4,Bacteria:Binomial (genus species),1,Enterococcus faecium,Enterococcus faecium,627:647
-15337,5,Location:Country,1,Ireland,Ireland,1991:1997
-15337,6,Notes,1,"This is the first report of an outbreak of 
-linezolid-resistant vancomycin-resistant enterococcus in Ireland","This is the first report of an outbreak of 
-linezolid-resistant vancomycin-resistant enterococcus in Ireland",883:990
 15343,1,Exclusion: Not first case in country,1,"Novel 16S rRNA Methyltransferase RmtH Produced by Klebsiella 
 pneumoniae Associated with War-Related Trauma","Novel 16S rRNA Methyltransferase RmtH Produced by Klebsiella 
 pneumoniae Associated with War-Related Trauma",0:106
@@ -3638,7 +3587,6 @@ shows that pilgrims acquired Salmonella bacteria, including anovelMDRclone, duri
 15475,7,Drug Resisted,1,ceftriaxone,ceftriaxone,658:668
 15475,8,Drug Resisted,1,aztreonam,aztreonam,676:684
 15475,9,Drug Resisted,1,ceftazidime,ceftazidime,692:702
-15476,1,Exclusion:Review article,1,Hot Topic,Hot Topic,216:226
 15484,1,Exclusion: Not first case in country,1,"We found a sharp increase in the proportion of isolates that were resistant to 
 moxifloxacin from 2007 to 2009.","We found a sharp increase in the proportion of isolates that were resistant to 
 moxifloxacin from 2007 to 2009.",1877:1987
@@ -4038,7 +3986,7 @@ triaxone","449:462, 449:462"
 16251,"7, 25","Drug Resisted, F",2,"ertapenem, ertapenem",ertapenem,"526:534, 526:534"
 16251,"8, 14","MIC, A",2," 128/4 μg/ml,  128/4 μg/ml", 128/4 μg/ml,"4359:4371, 4359:4371"
 16251,"9, 16","MIC, B",2," 32 μg/ml,  32 μg/ml", 32 μg/ml,"4405:4414, 4405:4414"
-16252,1,Exclusion:Review article,1,The,The,0:2
+16252,"1, 2","Exclusion:Review article, Exclusion:Review article",2,"The, The",The,"0:2, 0:2"
 16264,1,Article/Study Aim,1,"We describe the first emergence of carbapenem-resistant Acineto- 
 bacter baumannii in Australia.","We describe the first emergence of carbapenem-resistant Acineto- 
 bacter baumannii in Australia.",287:382
@@ -4277,7 +4225,7 @@ may circulate worldwide further than expected",5321:5681
 16715,7,Drug Resisted,1,rifampicin,rifampicin,2782:2791
 16715,8,Bacteria:Resistance Marker,1,NDM-1,NDM-1,2974:2978
 16715,"9, 10","MIC, A",2,"4 mg/L, 4 mg/L",4 mg/L,"2615:2620, 2615:2620"
-16716,1,Exclusion:Not clinical case in human patient,1,Tn125-Related Acquisition of blaNDM-Like Genes in,Tn125-Related Acquisition of blaNDM-Like Genes in,0:50
+16716,"1, 2","Exclusion:Not clinical case in human patient, Exclusion:Not clinical case in human patient",2,"Tn125-Related Acquisition of blaNDM-Like Genes in, Tn125-Related Acquisition of blaNDM-Like Genes in",Tn125-Related Acquisition of blaNDM-Like Genes in,"0:50, 0:50"
 16718,1,Exclusion: not full text article,1,Research letters,Research letters,6130:6145
 16719,1,Exclusion: not full text article,1,Research letters,Research letters,6067:6082
 16721,1,Exclusion: not full text article,1,Correspondence,Correspondence,0:13
@@ -4543,11 +4491,6 @@ infection in transplant recipients","We report an isolated fatal
 case of disseminated Elizabethkingia species infection in a lung 
 transplant recipient and review the literature of this bacterial 
 infection in transplant recipients",467:661
-17215,1,Exclusion: Not first case in country,1,"The aim of this study was to determine the prevalence  
-of drug-resistant tuberculosis (TB) and its associated risk  
-factors.","The aim of this study was to determine the prevalence  
-of drug-resistant tuberculosis (TB) and its associated risk  
-factors.",2149:2275
 17222,"1, 4","Exclusion: Not first case in country, A",2,"The latest consensus of 
 Indian experts12 estimated the prevalence of MDRTB to, The latest consensus of 
 Indian experts12 estimated the prevalence of MDRTB to","The latest consensus of 
@@ -4961,9 +4904,9 @@ lactamase in Brazil. J Med Microbiol. 2008; 57(Pt 12):1590-2.",973:1156
 18184,31,Patient:Country of Residence,1,USA,USA,5628:5630
 18184,32,Location:Place traveled to,1,India,India,5714:5718
 18184,33,Patient:Symptoms,1,fevers,fevers,5680:5685
-18184,34,Bacteria:Binomial (genus species),1,drug-resistant tuberculosis,drug-resistant tuberculosis,1374:1401
-18184,35,Event year,1,2015,2015,6031:6034
-18184,36,Event month,1,Sept,Sept,6023:6026
+18184,34,Event year,1,2015,2015,6031:6034
+18184,35,Event month,1,Sept,Sept,6023:6026
+18184,36,Bacteria:Strain,1,Mycobacterium tuberculosis,Mycobacterium tuberculosis,2052:2077
 18184,"5, 8","B, Drug Resisted",2,"Isoniazid, Isoniazid",Isoniazid,"3161:3169, 3161:3169"
 18184,"6, 7","B, MIC",2,"2 μg/m, 2 μg/m",2 μg/m,"3236:3241, 3236:3241"
 18184,"9, 10","Drug Resisted, C",2,"Rifabutin, Rifabutin",Rifabutin,"3504:3512, 3504:3512"
@@ -4995,35 +4938,6 @@ complement was determined by DNA microarray.",2079:2243
 18227,3,Exclusion:Not clinical case in human patient,1,"Chronic colonization of Inquilinus limosus in a patient with 
 cystic fibrosis: First report in Spain","Chronic colonization of Inquilinus limosus in a patient with 
 cystic fibrosis: First report in Spain",392:491
-18265,1,Article/Study Aim,1,"This report describes the first KPC-producing Klebsiella 
-pneumoniae isolates identified in Norway (n56) and the second isolate from Sweden","This report describes the first KPC-producing Klebsiella 
-pneumoniae isolates identified in Norway (n56) and the second isolate from Sweden",1263:1401
-18265,"10, 33","Drug Resisted, G",2,"cefotetan/cloxacillin, cefotetan/cloxacillin",cefotetan/cloxacillin,"3504:3525, 3504:3525"
-18265,"11, 35","Drug Resisted, H",2,"aztreonam, aztreonam",aztreonam,"3581:3590, 3581:3590"
-18265,"12, 22","MIC, A",2,".256, .256",.256,"3072:3076, 3072:3076"
-18265,13,Notes,1,MICs of antibiotics are given in terms of mg/L,MICs of antibiotics are given in terms of mg/L,3927:3972
-18265,"14, 24","MIC, B",2,".256, .256",.256,"3157:3161, 3157:3161"
-18265,"15, 26","MIC, C",2,".16/.1, .16/.1",.16/.1,"3253:3259, 3253:3259"
-18265,"16, 28","MIC, D",2,".256, .256",.256,"3315:3319, 3315:3319"
-18265,"17, 30","MIC, E",2,".32/.4, .32/.4",.32/.4,"3379:3385, 3379:3385"
-18265,"18, 32","MIC, F",2,".16/.4, .16/.4",.16/.4,"3454:3460, 3454:3460"
-18265,"19, 34","MIC, G",2,".32/.32, .32/.32",.32/.32,"3526:3533, 3526:3533"
-18265,2,Event year,1,07,07,2790:2792
-18265,"20, 36","MIC, H",2,".256, .256",.256,"3591:3595, 3591:3595"
-18265,3,Event month,1,Nov,Nov,2785:2787
-18265,37,Bacteria:Binomial (genus species),1,Klebsiella pneumoniae,Klebsiella pneumoniae,3150:3171
-18265,38,Notes,1,K47-25,K47-25,2590:2596
-18265,39,Bacteria:Strain,1,ST258,ST258,1578:1582
-18265,"4, 21","Drug Resisted, A",2,"piperacillin/tazobactam, piperacillin/tazobactam",piperacillin/tazobactam,"3048:3071, 3048:3071"
-18265,40,Bacteria:Resistance Marker,1,KPC-2,KPC-2,1908:1912
-18265,41,Location:Country,1,Norway,Norway,1355:1361
-18265,42,Location:Place traveled to,1,Greece,Greece,6158:6163
-18265,"5, 23","Drug Resisted, B",2,"cefpodoxime, cefpodoxime",cefpodoxime,"3145:3156, 3145:3156"
-18265,"6, 25","Drug Resisted, C",2,"cefotaxime/clavulanic acid, cefotaxime/clavulanic acid",cefotaxime/clavulanic acid,"3226:3252, 3226:3252"
-18265,"7, 27","Drug Resisted, D",2,"ceftazidime, ceftazidime",ceftazidime,"3303:3314, 3303:3314"
-18265,"8, 29","Drug Resisted, E",2,"ceftazidime/clavulanic acid, ceftazidime/clavulanic acid",ceftazidime/clavulanic acid,"3351:3378, 3351:3378"
-18265,"9, 31","Drug Resisted, F",2,"cefepime/clavulanic acid, cefepime/clavulanic acid",cefepime/clavulanic acid,"3429:3453, 3429:3453"
-18266,1,Exclusion: not full text article,1,Research letter,Research letter,5491:5505
 1829,1,Exclusion:Not clinical case in human patient,1,observational study,observational study,150:168
 183,1,Article/Study Aim,1,"assess the frequency 
 and diversity of carbapenemases and extended-spectrum β- 
@@ -5066,7 +4980,6 @@ bacteria being isolated from patients with endophthalmitis.4
 18329,2,Notes,1,"Table 2 Antibiotic susceptibility patterns of Klebsiella pneumoniae 
 isolate","Table 2 Antibiotic susceptibility patterns of Klebsiella pneumoniae 
 isolate",3868:3943
-18339,1,Exclusion: not full text article,1,Letter to the Editor,Letter to the Editor,0:21
 18358,1,Exclusion:Not clinical case in human patient,1,Genetically,Genetically,21:31
 18363,1,Patient:Age,1,a year,a year,2077:2082
 18363,2,Patient:Sex,1,his,his,2092:2094
@@ -5085,77 +4998,6 @@ Turkey.",796:927
 18401,1,Exclusion:Not clinical case in human patient,1,"Development of ceftazidime resistance in an acute  
 Burkholderia pseudomallei infection","Development of ceftazidime resistance in an acute  
 Burkholderia pseudomallei infection",273:359
-18418,1,Article/Study Aim,1,"we report the first autochthonous cases of infections caused by blaNDM-5 New Delhi metallo--lactamase-producing Esche- 
-richia coli strains recovered from urine and blood specimens of three patients from Algeria between January 2012 and February 
-2013.","we report the first autochthonous cases of infections caused by blaNDM-5 New Delhi metallo--lactamase-producing Esche- 
-richia coli strains recovered from urine and blood specimens of three patients from Algeria between January 2012 and February 
-2013.",596:848
-18418,"10, 31","Drug Resisted, F",2,"Cefuroxime, Cefuroxime",Cefuroxime,"2195:2205, 2195:2205"
-18418,"11, 33","Drug Resisted, G",2,"Ceftazidime, Ceftazidime",Ceftazidime,"2219:2230, 2219:2230"
-18418,"12, 35","Drug Resisted, H",2,"Aztreonam, Aztreonam",Aztreonam,"2248:2257, 2248:2257"
-18418,"13, 37","Drug Resisted, I",2,"Imipenem, Imipenem",Imipenem,"2276:2284, 2276:2284"
-18418,"14, 39","Drug Resisted, J",2,"Gentamicin, Gentamicin",Gentamicin,"2299:2309, 2299:2309"
-18418,"15, 41","Drug Resisted, K",2,"Amikacin, Amikacin",Amikacin,"2324:2332, 2324:2332"
-18418,"16, 43","Drug Resisted, L",2,"Tobramycin, Tobramycin",Tobramycin,"2347:2357, 2347:2357"
-18418,"17, 45","Drug Resisted, M",2,"Ciprofloxacin, Ciprofloxacin",Ciprofloxacin,"2372:2385, 2372:2385"
-18418,"18, 22","MIC, A",2,"256, 256",256,"2063:2067, 2063:2067"
-18418,"19, 38","MIC, I",2,"32, 32",32,"2290:2293, 2290:2293"
-18418,2,Event date,1,"January 2012 and 
-February 2013","January 2012 and 
-February 2013",2599:2629
-18418,"20, 40","MIC, J",2,"512, 512",512,"2313:2317, 2313:2317"
-18418,24,B,1,256,256,2100:2104
-18418,26,C,1,256,256,2137:2141
-18418,28,D,1,256,256,2160:2164
-18418,3,Event year,1,2012,2012,2607:2611
-18418,30,E,1,256,256,2184:2188
-18418,32,F,1,256,256,2208:2212
-18418,34,G,1,256,256,2237:2241
-18418,36,H,1,256,256,2264:2268
-18418,4,Event year,1,2013,2013,2626:2629
-18418,42,K,1,512,512,2336:2340
-18418,44,L,1,512,512,2361:2365
-18418,46,M,1,32,32,2392:2395
-18418,47,Notes,1,MIC (g/ml),MIC (g/ml),1969:1979
-18418,48,Bacteria:Binomial (genus species),1,"Esche- 
-richia coli","Esche- 
-richia coli",709:728
-18418,49,Bacteria:Strain,1,ST2659,ST2659,5840:5846
-18418,"5, 21","Drug Resisted, A",2,"Ampicillin, Ampicillin",Ampicillin,"2050:2060, 2050:2060"
-18418,50,Bacteria:Resistance Marker,1,NDM-5,NDM-5,5876:5881
-18418,51,Location:Country,1,Algeria,Algeria,801:808
-18418,52,Location:City,1,Annaba,Annaba,2529:2534
-18418,53,Location:Hospital name,1,University Hospital of Annaba,University Hospital of Annaba,2506:2534
-18418,54,Patient:Age,1,5-month-old,5-month-old,2815:2825
-18418,55,Patient:Age,1,75-year-old man,75-year-old man,2943:2957
-18418,"56, 58","Patient:Age, N",2,"63-year-old, 63-year-old",63-year-old,"2920:2931, 2920:2931"
-18418,"57, 59","Patient:Sex, N",2,"man, man",man,"2932:2935, 2932:2935"
-18418,"6, 23","Drug Resisted, B",2,"Amoxicillin-clavulanate, Amoxicillin-clavulanate",Amoxicillin-clavulanate,"2074:2097, 2074:2097"
-18418,60,O,1,75-year-old,75-year-old,2943:2954
-18418,61,O,1,man,man,2955:2957
-18418,62,References for follow up,1,"a previous 
-report on NDM-5-producing E. coli sequence type 648 (ST648) 
-(GenBank accession no. JN104597) demonstrated that the strain 
-was resistant to all available antimicrobials except tigecycline and 
-colistin (4),","a previous 
-report on NDM-5-producing E. coli sequence type 648 (ST648) 
-(GenBank accession no. JN104597) demonstrated that the strain 
-was resistant to all available antimicrobials except tigecycline and 
-colistin (4),",3475:3694
-18418,63,References for follow up,1,"4. Hornsey M, Phee L, Wareham DW. 2011. A novel variant, NDM-5, of 
-the New Delhi metallo--lactamase in a multidrug-resistant Esche- 
-richia coli ST648 isolate recovered from a patient in the United Kingdom. 
-Antimicrob. Agents Chemother. 55:5952–5954. http://dx.doi.org/10.1128 
-/AAC.05108-11","4. Hornsey M, Phee L, Wareham DW. 2011. A novel variant, NDM-5, of 
-the New Delhi metallo--lactamase in a multidrug-resistant Esche- 
-richia coli ST648 isolate recovered from a patient in the United Kingdom. 
-Antimicrob. Agents Chemother. 55:5952–5954. http://dx.doi.org/10.1128 
-/AAC.05108-11",1509:1802
-18418,"64, 66","References for follow up, P",2,"ST2659 has been reported only once, from a domesticated cat, ST2659 has been reported only once, from a domesticated cat","ST2659 has been reported only once, from a domesticated cat","5912:5972, 5912:5972"
-18418,"65, 67","References for follow up, P",2,"in Germany (http://mlst.warwick.ac.uk/mlst/dbs/Ecoli), in Germany (http://mlst.warwick.ac.uk/mlst/dbs/Ecoli)",in Germany (http://mlst.warwick.ac.uk/mlst/dbs/Ecoli),"0:52, 0:52"
-18418,"7, 25","Drug Resisted, C",2,"Piperacillin-tazobactam, Piperacillin-tazobactam",Piperacillin-tazobactam,"2111:2134, 2111:2134"
-18418,"8, 27","Drug Resisted, D",2,"Cefoxitin, Cefoxitin",Cefoxitin,"2148:2157, 2148:2157"
-18418,"9, 29","Drug Resisted, E",2,"Cefotaxime, Cefotaxime",Cefotaxime,"2171:2181, 2171:2181"
 18437,1,Bacteria:Binomial (genus species),1,B cenocepacia,B cenocepacia,2359:2371
 18437,10,Patient:Symptoms/Disease,1,abdominal distress,abdominal distress,3253:3271
 18437,11,Patient:Outcome,1,discharge,discharge,516:524
@@ -5210,30 +5052,30 @@ among healthy newborns and postpartum mothers in Canada is
 described.","The first nosocomial outbreak of CA-MRSA 
 among healthy newborns and postpartum mothers in Canada is 
 described.",2916:3028
-1845,1,Exclusion:Not clinical case in human patient,1,E´ volution de,E´ volution de,18:31
+1845,"1, 2","Exclusion:Not clinical case in human patient, Exclusion:Not clinical case in human patient",2,"E´ volution de, E´ volution de",E´ volution de,"18:31, 18:31"
 18461,1,Exclusion: not full text article,1,LETTERS TO THE EDITOR,LETTERS TO THE EDITOR,2216:2236
-18469,1,Drug Resisted,1,Enterococcus raffinosus,Enterococcus raffinosus,157:179
-18469,10,Drug Resisted,1,meropenem,meropenem,3314:3322
-18469,11,Drug Resisted,1,ciprofloxacin,ciprofloxacin,3325:3337
-18469,12,Drug Resisted,1,clindamycin,clindamycin,3340:3350
-18469,13,Drug Resisted,1,erythromycin,erythromycin,3353:3364
-18469,14,Drug Resisted,1,cotrimoxazole,cotrimoxazole,3368:3380
-18469,15,Drug Resisted,1,tetracycline,tetracycline,3383:3394
-18469,16,Drug Resisted,1,amikacin,amikacin,3397:3404
-18469,17,Drug Resisted,1,gentamicin,gentamicin,3407:3416
-18469,18,Drug Resisted,1,"netilmi- 
+18469,1,Patient:Age,1,50,50,1362:1363
+18469,10,Drug Resisted,1,ciprofloxacin,ciprofloxacin,3325:3337
+18469,11,Drug Resisted,1,clindamycin,clindamycin,3340:3350
+18469,12,Drug Resisted,1,erythromycin,erythromycin,3353:3364
+18469,13,Drug Resisted,1,cotrimoxazole,cotrimoxazole,3368:3380
+18469,14,Drug Resisted,1,tetracycline,tetracycline,3383:3394
+18469,15,Drug Resisted,1,amikacin,amikacin,3397:3404
+18469,16,Drug Resisted,1,gentamicin,gentamicin,3407:3416
+18469,17,Drug Resisted,1,"netilmi- 
 cin","netilmi- 
 cin",3419:3431
-18469,19,Drug Resisted,1,tobramicin,tobramicin,3437:3446
-18469,2,Patient:Age,1,50,50,1362:1363
-18469,20,Bacteria:Binomial (genus species),1,Enterococcus raffinosus,Enterococcus raffinosus,2701:2723
-18469,3,Patient:Comorbidities,1,leukaemia,leukaemia,1414:1422
-18469,4,Drug Resisted,1,penicillin,penicillin,3206:3215
-18469,5,Drug Resisted,1,ampicillin,ampicillin,3218:3227
-18469,6,Drug Resisted,1,amoxicillin/clavulanate,amoxicillin/clavulanate,3230:3252
-18469,7,Drug Resisted,1,ampicillin/sulbactam,ampicillin/sulbactam,3256:3275
-18469,8,Drug Resisted,1,piperacillin/tazobactam,piperacillin/tazobactam,3278:3300
-18469,9,Drug Resisted,1,imipenem,imipenem,3303:3310
+18469,18,Drug Resisted,1,tobramicin,tobramicin,3437:3446
+18469,19,Bacteria:Binomial (genus species),1,Enterococcus raffinosus,Enterococcus raffinosus,2701:2723
+18469,2,Patient:Comorbidities,1,leukaemia,leukaemia,1414:1422
+18469,20,Bacteria:Binomial (genus species),1,Enterococcus raffinosus,Enterococcus raffinosus,157:179
+18469,3,Drug Resisted,1,penicillin,penicillin,3206:3215
+18469,4,Drug Resisted,1,ampicillin,ampicillin,3218:3227
+18469,5,Drug Resisted,1,amoxicillin/clavulanate,amoxicillin/clavulanate,3230:3252
+18469,6,Drug Resisted,1,ampicillin/sulbactam,ampicillin/sulbactam,3256:3275
+18469,7,Drug Resisted,1,piperacillin/tazobactam,piperacillin/tazobactam,3278:3300
+18469,8,Drug Resisted,1,imipenem,imipenem,3303:3310
+18469,9,Drug Resisted,1,meropenem,meropenem,3314:3322
 18470,1,Article/Study Aim,1,Case Report,Case Report,72:84
 18470,10,Drug Resisted,1,carbapenems,carbapenems,1119:1129
 18470,11,Drug Resisted,1,gentamicin,gentamicin,1133:1142
@@ -5296,15 +5138,13 @@ aetiological agent",2840:3104
 18527,2,Patient:Sex,1,man,man,3280:3282
 18527,3,Location:Place traveled to,1,Iraq,Iraq,3316:3319
 18527,4,Patient:Symptoms/Disease,1,grenade injury,grenade injury,3343:3356
-18527,5,Drug Resisted,1,"Acinetobacter  
-baumannii  
-Osteomyelitis","Acinetobacter  
-baumannii  
-Osteomyelitis",2895:2935
-18527,6,Drug Resisted,1,methicillin,methicillin,1650:1660
-18527,7,Bacteria:Binomial (genus species),1,"cinetobacter  
+18527,5,Drug Resisted,1,methicillin,methicillin,1650:1660
+18527,6,Bacteria:Binomial (genus species),1,"cinetobacter  
 baumannii","cinetobacter  
 baumannii",2966:2990
+18527,7,Bacteria:Binomial (genus species),1,"Acinetobacter  
+baumannii","Acinetobacter  
+baumannii",2895:2919
 1855,"1, 2","Exclusion: Not first case in country, Notes",2,"First detection of CTX-M-28 in a Tunisian hospital from 
 a cefotaxime-resistant Klebsiella pneumoniae strain, First detection of CTX-M-28 in a Tunisian hospital from 
 a cefotaxime-resistant Klebsiella pneumoniae strain","First detection of CTX-M-28 in a Tunisian hospital from 
@@ -5380,21 +5220,22 @@ lished origin in India","Despite the concern generated by the world-
 wide spread of NDM-type carbapenemases, few cases have been 
 detected in Spain [5–8]; all have been NDM-1 and had an estab- 
 lished origin in India",3999:4190
-1874,1,Patient:Age,1,18,18,1030:1031
-1874,10,Drug Resisted,1,amikacin,amikacin,3849:3856
-1874,11,Drug Resisted,1,carbapenems,carbapenems,3891:3901
-1874,12,Location:Country,1,Israel,Israel,1570:1575
-1874,13,First Surveillance Study (of a particular resistance) in Countr,1,first,first,2115:2119
-1874,2,Patient:Sex,1,man,man,1042:1044
-1874,3,Patient:Symptoms/Disease,1,high fever,high fever,1365:1375
-1874,4,Patient:Symptoms/Disease,1,"chest 
+1874,"1, 14","Patient:Age, Patient:Age",2,"18, 18",18,"1030:1031, 1030:1031"
+1874,"10, 23","Drug Resisted, Drug Resisted",2,"amikacin, amikacin",amikacin,"3849:3856, 3849:3856"
+1874,"11, 24","Drug Resisted, Drug Resisted",2,"carbapenems, carbapenems",carbapenems,"3891:3901, 3891:3901"
+1874,"12, 25","Location:Country, Location:Country",2,"Israel, Israel",Israel,"1570:1575, 1570:1575"
+1874,"13, 26","First Surveillance Study (of a particular resistance) in Countr, First Surveillance Study (of a particular resistance) in Countr",2,"first, first",first,"2115:2119, 2115:2119"
+1874,"2, 15","Patient:Sex, Patient:Sex",2,"man, man",man,"1042:1044, 1042:1044"
+1874,"3, 16","Patient:Symptoms/Disease, Patient:Symptoms/Disease",2,"high fever, high fever",high fever,"1365:1375, 1365:1375"
+1874,"4, 17","Patient:Symptoms/Disease, Patient:Symptoms/Disease",2,"chest 
+pain, chest 
 pain","chest 
-pain",1378:1388
-1874,5,Patient:Symptoms/Disease,1,shortness of breath,shortness of breath,1395:1413
-1874,6,Bacteria:Binomial (genus species),1,K. pneumoniae,K. pneumoniae,3712:3724
-1874,7,Drug Resisted,1,cephalosporins,cephalosporins,3791:3805
-1874,8,Drug Resisted,1,"piperacillin/tazobactam,","piperacillin/tazobactam,",3809:3832
-1874,9,Drug Resisted,1,quinolones,quinolones,3834:3843
+pain","1378:1388, 1378:1388"
+1874,"5, 18","Patient:Symptoms/Disease, Patient:Symptoms/Disease",2,"shortness of breath, shortness of breath",shortness of breath,"1395:1413, 1395:1413"
+1874,"6, 19","Bacteria:Binomial (genus species), Bacteria:Binomial (genus species)",2,"K. pneumoniae, K. pneumoniae",K. pneumoniae,"3712:3724, 3712:3724"
+1874,"7, 20","Drug Resisted, Drug Resisted",2,"cephalosporins, cephalosporins",cephalosporins,"3791:3805, 3791:3805"
+1874,"8, 21","Drug Resisted, Drug Resisted",2,"piperacillin/tazobactam,, piperacillin/tazobactam,","piperacillin/tazobactam,","3809:3832, 3809:3832"
+1874,"9, 22","Drug Resisted, Drug Resisted",2,"quinolones, quinolones",quinolones,"3834:3843, 3834:3843"
 18777,1,Exclusion: not full text article,1,Abstract (poster session),Abstract (poster session),7:32
 18777,2,Location:City,1,New Delhi,New Delhi,327:335
 18778,1,Patient:Age,1,16,16,749:750
@@ -5419,9 +5260,6 @@ Dr A. Jurasz University Hospital in Bydgoszcz. The
 group included the first K. pneumoniae isolates with 
 MBL identified in Poland",1227:1510
 18793,1,Exclusion: not full text article,1,To the Editor,To the Editor,187:199
-18812,1,Exclusion: Not first case in country,1,"We therefore performed a multicenter study to determine the frequency of HLGR GBS isolates and to elucidate 
-the molecular mechanisms leading to gentamicin resistance.","We therefore performed a multicenter study to determine the frequency of HLGR GBS isolates and to elucidate 
-the molecular mechanisms leading to gentamicin resistance.",1329:1496
 18818,1,Article/Study Aim,1,"We reporf a case and review fhe liferafure in an 
 immunocompromised HIV-1 individual wifh a firsf reported case of a rifampicin-resisfanf M. marinum organism in fhe liferafure.","We reporf a case and review fhe liferafure in an 
 immunocompromised HIV-1 individual wifh a firsf reported case of a rifampicin-resisfanf M. marinum organism in fhe liferafure.",451:627
@@ -5588,36 +5426,35 @@ year-old",2862:2874
 18946,8,Drug Resisted,1,ertapenem,ertapenem,4310:4318
 18946,9,Drug Resisted,1,ciprofloxacin,ciprofloxacin,4326:4338
 18947,1,Location:Country,1,Iran,Iran,102:105
-18947,10,Bacteria:Resistance Marker,1,blaNDM-1,blaNDM-1,1320:1327
-18947,11,Bacteria:Resistance Marker,1,blaSHV,blaSHV,1338:1343
-18947,12,Bacteria:Resistance Marker,1,blaCTX-M,blaCTX-M,1350:1357
-18947,13,Patient:Age,1,52,52,2862:2863
-18947,14,Patient:Sex,1,male,male,2876:2879
-18947,15,Patient:Symptoms/Disease,1,fever,fever,2899:2903
-18947,16,Patient:Comorbidities,1,transplant rejection,transplant rejection,0:19
-18947,17,Drug Resisted,1,meropenem,meropenem,240:248
-18947,18,Drug Resisted,1,ertapenem,ertapenem,251:259
-18947,19,Drug Resisted,1,cefepime,cefepime,262:269
+18947,10,Bacteria:Resistance Marker,1,blaCTX-M,blaCTX-M,1350:1357
+18947,11,Patient:Age,1,52,52,2862:2863
+18947,12,Patient:Sex,1,male,male,2876:2879
+18947,13,Patient:Symptoms/Disease,1,fever,fever,2899:2903
+18947,14,Patient:Comorbidities,1,transplant rejection,transplant rejection,0:19
+18947,15,Drug Resisted,1,meropenem,meropenem,240:248
+18947,16,Drug Resisted,1,ertapenem,ertapenem,251:259
+18947,17,Drug Resisted,1,cefepime,cefepime,262:269
+18947,18,Drug Resisted,1,cefotaxime,cefotaxime,272:281
+18947,19,Drug Resisted,1,ceftazidime,ceftazidime,284:294
 18947,2,Bacteria:Binomial (genus species),1,Klebsiella pneumoniae,Klebsiella pneumoniae,77:98
-18947,20,Drug Resisted,1,cefotaxime,cefotaxime,272:281
-18947,21,Drug Resisted,1,ceftazidime,ceftazidime,284:294
-18947,22,Drug Resisted,1,amikacin,amikacin,298:305
-18947,23,Drug Resisted,1,kanamycin,kanamycin,308:316
-18947,24,Drug Resisted,1,ciprofloxacin,ciprofloxacin,319:331
-18947,25,Drug Resisted,1,aztreonam,aztreonam,334:342
-18947,26,Drug Resisted,1,"tri- 
+18947,20,Drug Resisted,1,amikacin,amikacin,298:305
+18947,21,Drug Resisted,1,kanamycin,kanamycin,308:316
+18947,22,Drug Resisted,1,ciprofloxacin,ciprofloxacin,319:331
+18947,23,Drug Resisted,1,aztreonam,aztreonam,334:342
+18947,24,Drug Resisted,1,"tri- 
 methoprim-sulfamethoxazole","tri- 
 methoprim-sulfamethoxazole",349:380
-18947,27,Drug Resisted,1,imipenem,imipenem,479:486
+18947,25,Drug Resisted,1,imipenem,imipenem,479:486
+18947,26,Bacteria:Resistance Marker,1,"Metallo-Beta-Lactamase- 
+1-Producing","Metallo-Beta-Lactamase- 
+1-Producing",39:75
 18947,3,Bacteria:Resistance Marker,1,NDM-1,NDM-1,296:300
-18947,4,Bacteria:Binomial (genus species),1,"New Delhi Metallo-Beta-Lactamase- 
-1","New Delhi Metallo-Beta-Lactamase- 
-1",30:65
-18947,5,Location:City,1,Tehran,Tehran,567:572
-18947,6,Bacteria:Binomial (genus species),1,blaKPC,blaKPC,862:868
-18947,7,Event year,1,2011,2011,1141:1144
-18947,8,Event month,1,March,March,1135:1139
-18947,9,Bacteria:Resistance Marker,1,blaTEM,blaTEM,1330:1335
+18947,4,Location:City,1,Tehran,Tehran,567:572
+18947,5,Event year,1,2011,2011,1141:1144
+18947,6,Event month,1,March,March,1135:1139
+18947,7,Bacteria:Resistance Marker,1,blaTEM,blaTEM,1330:1335
+18947,8,Bacteria:Resistance Marker,1,blaNDM-1,blaNDM-1,1320:1327
+18947,9,Bacteria:Resistance Marker,1,blaSHV,blaSHV,1338:1343
 18956,1,Exclusion:Not clinical case in human patient,1,F,F,241
 18963,1,Patient:Age,1,35,35,1020:1021
 18963,10,Drug Resisted,1,ceftazidime,ceftazidime,3406:3416
@@ -6295,11 +6132,6 @@ cin","2437:2450, 2437:2450"
 20339,7,Location:Country,1,Korea,Korea,3706:3710
 20339,"8, 20","Drug Resisted, A",2,"ampicillin, ampicillin",ampicillin,"2356:2365, 2356:2365"
 20339,"9, 21","Drug Resisted, B",2,"cefoxitin, cefoxitin",cefoxitin,"2382:2390, 2382:2390"
-20344,1,Exclusion: Not first case in country,1,"The profiles of the 
-enzymatic activities of NDM-3 against -lactams tested were sim- 
-ilar to those of NDM-1","The profiles of the 
-enzymatic activities of NDM-3 against -lactams tested were sim- 
-ilar to those of NDM-1",786:894
 20350,1,Article/Study Aim,1,"We report here on a case of wound infection due to 
 Shewanella algae in the navel area of a patient.","We report here on a case of wound infection due to 
 Shewanella algae in the navel area of a patient.",1537:1636
@@ -6473,10 +6305,10 @@ worldwide public health problem? J Travel Med 15: 137 – 139",1501:1820
 Sir","Staphylococcus haemolyticus 
 Sir",3324:3355
 20553,8,Bacteria:Resistance Marker,1,G2576T,G2576T,2121:2126
-20588,1,Exclusion:Not clinical case in human patient,1,Complex,Complex,85:91
-20588,2,Location:Hospital name,1,Ramo´ n y Cajal University Hospital,Ramo´ n y Cajal University Hospital,733:768
-20588,3,Location:State/Province/District,1,Madrid,Madrid,771:776
-20588,4,Location:Country,1,Spain,Spain,779:783
+20588,"1, 5","Exclusion:Not clinical case in human patient, Exclusion:Not clinical case in human patient",2,"Complex, Complex",Complex,"85:91, 85:91"
+20588,"2, 6","Location:Hospital name, Location:Hospital name",2,"Ramo´ n y Cajal University Hospital, Ramo´ n y Cajal University Hospital",Ramo´ n y Cajal University Hospital,"733:768, 733:768"
+20588,"3, 7","Location:State/Province/District, Location:State/Province/District",2,"Madrid, Madrid",Madrid,"771:776, 771:776"
+20588,"4, 8","Location:Country, Location:Country",2,"Spain, Spain",Spain,"779:783, 779:783"
 20590,1,Exclusion:Not clinical case in human patient,1,Epidemiological,Epidemiological,40:54
 2061,1,Exclusion: no resistance or did not name antibiotic/antibiotic,1,"Antimicrobial susceptibility was 
 performed on Mueller-Hinton agar plates by the standard 
@@ -6633,7 +6465,6 @@ formation of a susceptible Escherichia coli host with plasmid preparations from 
 transformant for which the MICs of all of the carbapenems tested were increased three- to fourfold.",1324:1535
 20828,1,Exclusion:Review article,1,Bedaquiline,Bedaquiline,1645:1655
 20835,1,Exclusion:Not clinical case in human patient,1,Comparative,Comparative,18:28
-20840,1,Exclusion: not full text article,1,To the Editor:,To the Editor:,61:74
 20841,1,Event year,1,2010,2010,778:781
 20841,10,Bacteria:Binomial (genus species),1,"Kleb- 
 siella pneumoniae","Kleb- 
@@ -6981,15 +6812,6 @@ Hospital",3203:3226
 infections caused by such microorganisms in the extrahospital setting.","The high rate of recurrent infections in the community underlies the difficulty of constraining 
 infections caused by such microorganisms in the extrahospital setting.",2253:2419
 21160,1,Exclusion:Not clinical case in human patient,1,"The investigation included environmental cultures for source investigation,","The investigation included environmental cultures for source investigation,",584:658
-21164,1,Exclusion: Not first case in country,1,"To date, there are isolates of Raoultella 
-ornithinolytica and R. planticolawhich are resistant to carbapenem 
-and carry different carbapenemases, including blaKPC, blaOXA-48, 
-and blaOXA-162 genes (2, 5, 6). However, blaIMP-8-producing R. 
-planticola has not been reported in the literature","To date, there are isolates of Raoultella 
-ornithinolytica and R. planticolawhich are resistant to carbapenem 
-and carry different carbapenemases, including blaKPC, blaOXA-48, 
-and blaOXA-162 genes (2, 5, 6). However, blaIMP-8-producing R. 
-planticola has not been reported in the literature",1873:2163
 21173,1,Exclusion:Review article,1,review,review,1162:1167
 21192,1,Bacteria:Binomial (genus species),1,Staphylococcus aureus,Staphylococcus aureus,93:113
 21192,10,Patient:Symptoms/Disease,1,"disturb- 
@@ -7113,14 +6935,6 @@ and Klebsiella species and gentamicin– and
 ciprofloxacin-resistant E. coli now presenting in  
 or from the community. Other resistance patterns  
 appear stable",804:1053
-21257,1,Exclusion: Not first case in country,1,"Daptomycin resistance in Staphylococcus aureus has been previously  
-reported, but the development of resistance while on therapy with  
-subsequent clinical failure for endocarditis has been infrequently  
-reported.","Daptomycin resistance in Staphylococcus aureus has been previously  
-reported, but the development of resistance while on therapy with  
-subsequent clinical failure for endocarditis has been infrequently  
-reported.",3847:4062
-21296,1,Exclusion: not full text article,1,Editorial,Editorial,227:237
 21313,1,Exclusion:Not clinical case in human patient,1,Molecular,Molecular,0:8
 21345,1,Event month,1,July,July,1486:1490
 21345,2,Event year,1,2010,2010,1492:1495
@@ -7370,11 +7184,6 @@ the prevalence of vancomycin-resistant enterococci in our area.","The persistenc
 tal and community settings since 2005, and the possibility of transferring this Tn5382 to other 
 epidemic ampicillin-resistant clonal types currently circulating in Spain might contribute to increasing 
 the prevalence of vancomycin-resistant enterococci in our area.",2406:2745
-21436,1,Exclusion: no resistance or did not name antibiotic/antibiotic,1,"Methicillin-Susceptible ST398 Staphylococcus aureus 
-Responsible for Bloodstream Infections: An Emerging 
-Human-Adapted Subclone?","Methicillin-Susceptible ST398 Staphylococcus aureus 
-Responsible for Bloodstream Infections: An Emerging 
-Human-Adapted Subclone?",0:130
 21437,1,Exclusion: not full text article,1,resistant,resistant,6519:6527
 2144,"1, 2","Exclusion: Not first case in country, Notes",2,"This is the first report of CC17 Ent. 
 faecium in Sweden, This is the first report of CC17 Ent. 
@@ -7437,17 +7246,6 @@ otic resistance profiles among GAS isolates originating from a sin-
 gle throat swab in patients with acute pharyngitis",163:347
 21633,1,Exclusion: not full text article,1,Letter to the Editor,Letter to the Editor,0:19
 21678,1,Exclusion:Not clinical case in human patient,1,Investigat,Investigat,5208:5217
-21726,1,First Surveillance Study (of a particular resistance) in Countr,1,"This study represents the first report on the 
-existence and prevalence of TDR strains in Iran.","This study represents the first report on the 
-existence and prevalence of TDR strains in Iran.",798:894
-21726,2,Location:Country,1,Iran,Iran,1008:1011
-21726,3,Bacteria:Binomial (genus species),1,"ycobacterium tubercu- 
-losis","ycobacterium tubercu- 
-losis",2873:2900
-21726,"4, 11","Event month, A",2,"October, October",October,"2050:2056, 2050:2056"
-21726,"5, 9","Event month, B",2,"October, October",October,"2066:2072, 2066:2072"
-21726,"6, 10","Event year, A",2,"2006, 2006",2006,"2058:2061, 2058:2061"
-21726,"7, 8","Event year, B",2,"2008, 2008",2008,"2074:2077, 2074:2077"
 21729,1,Exclusion: Not first case in country,1,his is the first reported case of SCCmecA type IV MRSA found in the NHRU of the AUHAI.,his is the first reported case of SCCmecA type IV MRSA found in the NHRU of the AUHAI.,2222:2307
 2174,1,Exclusion: no resistance or did not name antibiotic/antibiotic,1,"The strain was  
 sensitive to trimethoprim-sulfamethoxazole, imipenem,  
@@ -7529,28 +7327,6 @@ fl uid",2185:2203
 21980,1,Exclusion: no resistance or did not name antibiotic/antibiotic,1,"This survey highlights the successful undetected dissemination of yet another carbapenemase in 
 Greece and strengthens the hypothesis of a latent NDM-1 cluster in the Balkan region.","This survey highlights the successful undetected dissemination of yet another carbapenemase in 
 Greece and strengthens the hypothesis of a latent NDM-1 cluster in the Balkan region.",2359:2539
-21982,1,Exclusion: Not first case in country,1,"The OXA- 
-162 carbapenemase presents a hydrolytic profile similar to that 
-of its OXA-48 predecessor, differing by a single amino acid 
-substitution (Thr223Ala), which renders its active site slightly 
-wider (4, 5). This particular carbapenemase remains extremely 
-rare, with limited reports from Turkey, Germany, and Hungary 
-consisting of three Klebsiella pneumoniae and single Escherichia 
-coli, Citrobacter freundii, and Raoultella ornithinolytica isolates, 
-respectively (3, 5, 6).","The OXA- 
-162 carbapenemase presents a hydrolytic profile similar to that 
-of its OXA-48 predecessor, differing by a single amino acid 
-substitution (Thr223Ala), which renders its active site slightly 
-wider (4, 5). This particular carbapenemase remains extremely 
-rare, with limited reports from Turkey, Germany, and Hungary 
-consisting of three Klebsiella pneumoniae and single Escherichia 
-coli, Citrobacter freundii, and Raoultella ornithinolytica isolates, 
-respectively (3, 5, 6).",2200:2687
-21983,1,Exclusion: Not first case in country,1,"Carbapenem resistance due to MBL and KPC carbapenemases is currently on an endemic scale in 
-Greece and this report highlights the wider undetected dissemination of yet another carbapenemase in this 
-region","Carbapenem resistance due to MBL and KPC carbapenemases is currently on an endemic scale in 
-Greece and this report highlights the wider undetected dissemination of yet another carbapenemase in this 
-region",2259:2464
 21988,1,Exclusion:Not clinical case in human patient,1,"Longitudinal survey of Staphylococcus aureus in 
 cystic fibrosis patients using a multiple-locus 
 variable-number of tandem-repeats analysis 
@@ -7766,32 +7542,6 @@ among these 12 isolates, two were also resistant to azithromycin, and one was re
 emergence of community-associated MRSA infections would further aggravate the problem.","The 
 emergence of community-associated MRSA infections would further aggravate the problem.",812:902
 22698,1,Exclusion:Not clinical case in human patient,1,Genetically u,Genetically u,21:33
-22703,1,Article/Study Aim,1,"We describe here 3 highly im- 
-munocompromised patients who received a subcurative 
-course of azithromycin-atovaquone associated with the 
-eventual development of resistance to this drug regi- 
-men","We describe here 3 highly im- 
-munocompromised patients who received a subcurative 
-course of azithromycin-atovaquone associated with the 
-eventual development of resistance to this drug regi- 
-men",3465:3661
-22703,10,Patient:Sex,1,man,man,252:255
-22703,11,Patient:Symptoms/Disease,1,granulocytopenia (200 neutrophils/mL),granulocytopenia (200 neutrophils/mL),3020:3057
-22703,12,Patient:Symptoms/Disease,1,level of parasitemia was 3%,level of parasitemia was 3%,2956:2983
-22703,13,Patient:Symptoms/Disease,1,persistent fever,persistent fever,611:627
-22703,14,Patient:Outcome,1,"7 months after antibabesia therapy 
-was discontinued, our patient felt completely well","7 months after antibabesia therapy 
-was discontinued, our patient felt completely well",366:451
-22703,2,Event year,1,2008,2008,2944:2947
-22703,3,Event month,1,March,March,2938:2942
-22703,4,Event day,1,7,7,2933
-22703,5,Event date,1,7–20 March 2008,7–20 March 2008,2933:2947
-22703,6,Drug Resisted,1,azithromycin-atovaquone,azithromycin-atovaquone,1273:1296
-22703,7,Bacteria:Binomial (genus species),1,Babesia microti,Babesia microti,827:841
-22703,8,Location:State/Province/District,1,"New 
-York","New 
-York",281:289
-22703,9,Patient:Age,1,63-year-old,63-year-old,240:251
 22707,1,Exclusion:Not clinical case in human patient,1,"Investigation of the first outbreak of OXA-48- 
 producing Klebsiella pneumoniae in Ireland","Investigation of the first outbreak of OXA-48- 
 producing Klebsiella pneumoniae in Ireland",0:89
@@ -8046,16 +7796,6 @@ CRE strains have started to spread in different hospitals in China. In addition,
 mosomal integration of mcr-1 into a carbapenem-resistant E. coli strain.","Our results show that mcr-1-harboring 
 CRE strains have started to spread in different hospitals in China. In addition, this report presents the first description of chro- 
 mosomal integration of mcr-1 into a carbapenem-resistant E. coli strain.",1692:1936
-23199,1,Exclusion:Review article,1,"Worldwide Susceptibility Rates of Neisseria gonorrhoeae 
-Isolates to Cefixime and Cefpodoxime: A Systematic 
-Review and Meta-Analysis","Worldwide Susceptibility Rates of Neisseria gonorrhoeae 
-Isolates to Cefixime and Cefpodoxime: A Systematic 
-Review and Meta-Analysis",0:134
-232,1,Exclusion: no resistance or did not name antibiotic/antibiotic,1,"We report 2 cases of recurrent Campylobacter coli enteritis caused by macrolide- and fluoroquinolone-resistant strains in 2 pa- 
-tients with hypogammaglobulinemia, successfully treated with a prolonged course of fosfomycin-tromethamine with no side 
-effects.","We report 2 cases of recurrent Campylobacter coli enteritis caused by macrolide- and fluoroquinolone-resistant strains in 2 pa- 
-tients with hypogammaglobulinemia, successfully treated with a prolonged course of fosfomycin-tromethamine with no side 
-effects.",779:1036
 23200,1,Exclusion: no resistance or did not name antibiotic/antibiotic,1,"To our knowledge, the present  
 report describes the first Canadian case of daptomycin-nonsusceptible,  
 vancomycin-intermediate S aureus infection.","To our knowledge, the present  
@@ -8161,54 +7901,6 @@ versity Hospital","4067:4090, 4067:4090"
 23314,7,Location:Place traveled to,1,Pakistan,Pakistan,3271:3278
 23314,8,Location:Place traveled to,1,India,India,3366:3370
 23314,9,Bacteria:Binomial (genus species),1,K. pneumoniae,K. pneumoniae,3521:3533
-23328,1,Exclusion: Not first case in country,1,The proportion of drug-resistant TB increased during 1997–2005 in Sinaloa,The proportion of drug-resistant TB increased during 1997–2005 in Sinaloa,4292:4364
-23408,1,Article/Study Aim,1,"Case report 
-","Case report 
-",2510:2523
-23408,10,Patient:Symptoms/Disease,1,"progressive red swollen on the  
-central flexure of the right thigh and recently developed  
-ulcer","progressive red swollen on the  
-central flexure of the right thigh and recently developed  
-ulcer",2549:2647
-23408,11,Patient:Symptoms/Disease,1,He had fever for 40 days prior to admission,He had fever for 40 days prior to admission,2660:2705
-23408,12,Patient:Comorbidities,1,chronic rhinitis,chronic rhinitis,2832:2848
-23408,13,Location:Place traveled to,1,"He (as a leader of a labor union) and  
-his colleagues went to the outskirts of Jiaozhou, Shandong  
-Province to plant trees for about two weeks (the exact date  
-was unclear) in April 2009.","He (as a leader of a labor union) and  
-his colleagues went to the outskirts of Jiaozhou, Shandong  
-Province to plant trees for about two weeks (the exact date  
-was unclear) in April 2009.",3133:3323
-23408,14,Patient:Symptoms/Disease,1,"red swollen area in horsebean-size on the flexure  
-central part of his right thigh and it was getting larger and  
-larger although the surface of skin was intact.","red swollen area in horsebean-size on the flexure  
-central part of his right thigh and it was getting larger and  
-larger although the surface of skin was intact.",3422:3585
-23408,15,Patient:Symptoms/Disease,1,"A painless  
-bump with unclear boundary and elasticity in texture began  
-to appear in size of a chicken egg.","A painless  
-bump with unclear boundary and elasticity in texture began  
-to appear in size of a chicken egg.",3586:3694
-23408,16,Drug Resisted,1,penicillin,penicillin,661:670
-23408,17,Drug Resisted,1,levofloxacin,levofloxacin,673:684
-23408,18,Drug Resisted,1,"sodium  
-cefoperazone","sodium  
-cefoperazone",687:707
-23408,19,Drug Resisted,1,sulbactam,sulbactam,710:718
-23408,2,Event year,1,2009,2009,2718:2722
-23408,20,Drug Resisted,1,cefuroxime,cefuroxime,721:730
-23408,21,Drug Resisted,1,ornidazole,ornidazole,733:742
-23408,22,Drug Resisted,1,cefepime,cefepime,745:752
-23408,23,Drug Resisted,1,sodium imipenem/cliastatin,sodium imipenem/cliastatin,757:782
-23408,24,Bacteria:Binomial (genus species),1,Rhodoplanes sp.,Rhodoplanes sp.,4124:4139
-23408,25,Bacteria:Strain,1,ZLJ-0,ZLJ-0,4147:4151
-23408,3,Event month,1,Sep.,Sep.,2709:2713
-23408,4,Event day,1,13,13,2714:2715
-23408,5,Event date,1,"Sep. 13, 2009","Sep. 13, 2009",2709:2722
-23408,6,Location:Hospital name,1,First Affiliated Hospital of Peking University,First Affiliated Hospital of Peking University,2766:2811
-23408,7,Location:Country,1,China,China,163:170
-23408,8,Patient:Age,1,49-year-old,49-year-old,2526:2537
-23408,9,Patient:Sex,1,male,male,2538:2542
 23410,"1, 2","Exclusion: Not first case in country, References for follow up",2,"efore this, a case of ST167 NDM-5- 
 producing E. coli in a 75-year-old male patient with an acute 
 exacerbation of chronic obstructive pulmonary disease was 
@@ -8377,44 +8069,6 @@ to ciprofloxacin and the third isolate to piperacillin-tazobactam (PIP-TZ) follo
 each agent.","The second isolate developed resistance 
 to ciprofloxacin and the third isolate to piperacillin-tazobactam (PIP-TZ) following sequential therapy with 
 each agent.",1059:1222
-23647,1,Article/Study Aim,1,Case Report,Case Report,1774:1786
-23647,10,Location:Country,1,Malaysia,Malaysia,1470:1478
-23647,11,Location:City,1,Kuala Lumpur,Kuala Lumpur,1549:1561
-23647,12,Location:Hospital name,1,Kuala Lumpur Hospital,Kuala Lumpur Hospital,1549:1570
-23647,13,Patient:Age,1,28-year old,28-year old,1789:1800
-23647,14,Patient:Sex,1,woman,woman,1801:1806
-23647,15,Patient:Comorbidities,1,"history of chronic renal 
-failure","history of chronic renal 
-failure",1814:1847
-23647,16,Patient:Symptoms/Disease,1,"acute pulmonary 
-oedema with pneumonia","acute pulmonary 
-oedema with pneumonia",1969:2007
-23647,17,Patient:Outcome,1,"The patient had a successful outcome following 
-treatment with linezolid and there was no evidence of 
-enterococcal bacteraemia in the repeat blood culture.","The patient had a successful outcome following 
-treatment with linezolid and there was no evidence of 
-enterococcal bacteraemia in the repeat blood culture.",3933:4090
-23647,18,References for follow up,1,"The first case of hospital-acquired VRE in Malaysia was 
-first described in 1996 from University Malaya Medical 
-Centre'.","The first case of hospital-acquired VRE in Malaysia was 
-first described in 1996 from University Malaya Medical 
-Centre'.",1427:1548
-23647,19,References for follow up,1,"2. Riley PA, Parasakthi N, Teh A. Enterococcus faecium with 
-high level vancomycin resistance isolated from the blood 
-culture of a bone marrow transplant patient in Malaysia. 
-Medical Journal of Malaysia 1996; 51: 383-85","2. Riley PA, Parasakthi N, Teh A. Enterococcus faecium with 
-high level vancomycin resistance isolated from the blood 
-culture of a bone marrow transplant patient in Malaysia. 
-Medical Journal of Malaysia 1996; 51: 383-85",204:424
-23647,2,Drug Resisted,1,ampicillin,ampicillin,211:221
-23647,"3, 5","Drug Resisted, A",2,"vancomycin, vancomycin",vancomycin,"227:237, 227:237"
-23647,4,Drug Resisted,1,gentamicin,gentamicin,253:263
-23647,"6, 7","A, MIC",2,"s> 
-256 mg/l, s> 
-256 mg/l","s> 
-256 mg/l","327:339, 327:339"
-23647,8,Bacteria:Binomial (genus species),1,Enterococcus faecium,Enterococcus faecium,2228:2247
-23647,9,Bacteria:Resistance Marker,1,van A,van A,534:539
 23668,1,Patient:Age,1,7,7,2596
 23668,2,Patient:Sex,1,girl,girl,2607:2610
 23668,3,Patient:Symptoms/Disease,1,watery diarrhea,watery diarrhea,2668:2682
@@ -8950,73 +8604,6 @@ Abscesses: Report of Three Cases and Review of the
 Literature","First-line Stereotactic Treatment of Thalamic  
 Abscesses: Report of Three Cases and Review of the  
 Literature",652:762
-2963,1,Event year,1,2013,2013,1261:1264
-2963,"10, 46","Drug Resisted, F",2,"Cloramphenicol, Cloramphenicol",Cloramphenicol,"2070:2084, 2070:2084"
-2963,"11, 48","Drug Resisted, G",2,"Ertapenem, Ertapenem",Ertapenem,"2126:2135, 2126:2135"
-2963,"12, 50","Drug Resisted, H",2,"Gentamicin, Gentamicin",Gentamicin,"2185:2195, 2185:2195"
-2963,"13, 52","Drug Resisted, I",2,"Imipenem, Imipenem",Imipenem,"2212:2220, 2212:2220"
-2963,"14, 54","Drug Resisted, J",2,"Meropenem, Meropenem",Meropenem,"2265:2274, 2265:2274"
-2963,"15, 56","Drug Resisted, K",2,"Piperacillin/tazobactam, Piperacillin/tazobactam",Piperacillin/tazobactam,"2330:2353, 2330:2353"
-2963,"16, 58","Drug Resisted, L",2,"Piperacillin, Piperacillin",Piperacillin,"2373:2385, 2373:2385"
-2963,"17, 60","Drug Resisted, M",2,"Tetracyclin, Tetracyclin",Tetracyclin,"2403:2414, 2403:2414"
-2963,"18, 62","Drug Resisted, N",2,"Tobramycin, Tobramycin",Tobramycin,"2459:2469, 2459:2469"
-2963,"19, 64","Drug Resisted, O",2,"Trimethoprim/sulfamethoxazole, Trimethoprim/sulfamethoxazole",Trimethoprim/sulfamethoxazole,"2486:2515, 2486:2515"
-2963,2,Event month,1,July,July,1256:1260
-2963,20,Notes,1,MIC mg/L,MIC mg/L,1709:1718
-2963,"21, 37","MIC, A",2,">8/4, >8/4",>8/4,"1870:1874, 1870:1874"
-2963,"22, 39","MIC, B",2,">8, >8",>8,"1907:1909, 1907:1909"
-2963,"23, 41","MIC, C",2,">16, >16",>16,"1955:1958, 1955:1958"
-2963,"24, 43","MIC, D",2,">1, >1",>1,"1986:1988, 1986:1988"
-2963,"25, 45","MIC, E",2,">8, >8",>8,"2014:2016, 2014:2016"
-2963,"26, 47","MIC, F",2,">8, >8",>8,"2085:2087, 2085:2087"
-2963,"27, 49","MIC, G",2,">1, >1",>1,"2136:2138, 2136:2138"
-2963,"28, 51","MIC, H",2,">4, >4",>4,"2196:2198, 2196:2198"
-2963,"29, 53","MIC, I",2,">8, >8",>8,"2221:2223, 2221:2223"
-2963,3,Event day,1,18,18,1253:1255
-2963,"30, 55","MIC, J",2,">8, >8",>8,"2275:2277, 2275:2277"
-2963,"31, 57","MIC, K",2,">16, >16",>16,"2354:2357, 2354:2357"
-2963,"32, 59","MIC, L",2,">16, >16",>16,"2392:2395, 2392:2395"
-2963,"33, 61","MIC, M",2,">8, >8",>8,"2415:2417, 2415:2417"
-2963,"34, 63","MIC, N",2,">4, >4",>4,"2470:2472, 2470:2472"
-2963,"35, 65","MIC, O",2,">4/76, >4/76",>4/76,"2516:2521, 2516:2521"
-2963,4,Event date,1,18 July 2013,18 July 2013,1253:1264
-2963,"5, 36","Drug Resisted, A",2,"Amoxicillin/clav, Amoxicillin/clav",Amoxicillin/clav,"1853:1869, 1853:1869"
-2963,"6, 38","Drug Resisted, B",2,"Ampicillin, Ampicillin",Ampicillin,"1896:1906, 1896:1906"
-2963,66,Bacteria:Binomial (genus species),1,Klebsiella oxytoca,Klebsiella oxytoca,1888:1906
-2963,67,Bacteria:Binomial (genus species),1,Citrobacter koseri,Citrobacter koseri,1911:1929
-2963,68,Bacteria:Resistance Marker,1,VIM-4,VIM-4,2648:2653
-2963,69,Bacteria:Resistance Marker,1,CMY-4,CMY-4,2658:2663
-2963,"7, 40","Drug Resisted, C",2,"Cefotaxime, Cefotaxime",Cefotaxime,"1944:1954, 1944:1954"
-2963,70,Notes,1,"Although VIM-type carbapenemases have al- 
-ready been described as widely spread in K.  
-pneumoniae in Italian rehabilitation hospitals  
-(Nucleo E. et al., 2013), to our knowledge this is  
-the first report on the detection of MDR K. oxy- 
-toca and C. koseri clinical isolates co-producing  
-VIM-4 and CMY-4 enzymes in Italy.","Although VIM-type carbapenemases have al- 
-ready been described as widely spread in K.  
-pneumoniae in Italian rehabilitation hospitals  
-(Nucleo E. et al., 2013), to our knowledge this is  
-the first report on the detection of MDR K. oxy- 
-toca and C. koseri clinical isolates co-producing  
-VIM-4 and CMY-4 enzymes in Italy.",2355:2681
-2963,71,Location:Country,1,Italy,Italy,1408:1412
-2963,72,Location:City,1,"Pa- 
-via","Pa- 
-via",1389:1397
-2963,73,Location:Hospital name,1,"I.R.C.C.S. Fondazione S. Maugeri in Pa- 
-via","I.R.C.C.S. Fondazione S. Maugeri in Pa- 
-via",1353:1396
-2963,74,Patient:Age,1,62-year-old,62-year-old,1269:1280
-2963,75,Patient:Sex,1,male,male,1281:1285
-2963,76,Patient:Symptoms/Disease,1,"cardiac  
-complications","cardiac  
-complications",1435:1457
-2963,77,Patient:Symptoms/Disease,1,septic shock,septic shock,1460:1471
-2963,78,Patient:Symptoms/Disease,1,pneumonia,pneumonia,1474:1483
-2963,79,Patient:Symptoms/Disease,1,preputial edema,preputial edema,1490:1504
-2963,"8, 42","Drug Resisted, D",2,"Cefpodoxime, Cefpodoxime",Cefpodoxime,"1974:1985, 1974:1985"
-2963,"9, 44","Drug Resisted, E",2,"Ceftazidime, Ceftazidime",Ceftazidime,"2002:2013, 2002:2013"
 2976,1,Exclusion: no resistance or did not name antibiotic/antibiotic,1,"Minimal inhibitory concentration (MIC) was determined 
 by E-test and revealed susceptibility to all other antimicrobial agents 
 evaluated (value in parenthesis corresponds to the MIC in μg/mL): 
@@ -9076,13 +8663,6 @@ blaNDM-1 and blaOXA-58 genes from China",22:138
 3060,"7, 19","Drug Resisted, C",2,"imipenem, imipenem",imipenem,"2553:2560, 2553:2560"
 3060,"8, 21","Drug Resisted, D",2,"etapenem, etapenem",etapenem,"2579:2586, 2579:2586"
 3060,"9, 23","Drug Resisted, E",2,"aztreonam(, aztreonam",aztreonam(,"2608:2617, 2608:2616"
-3067,1,Exclusion: Not first case in country,1,"An equally very high frequency of resistance and equally high 
-levels of diversity in phylogroups, PFGE types, and plasmids were observed among community- and hospital- 
-acquired E. coli isolates, indicating the presence of a large reservoir in the community and a long-term spread 
-of cephalosporin resistance in China","An equally very high frequency of resistance and equally high 
-levels of diversity in phylogroups, PFGE types, and plasmids were observed among community- and hospital- 
-acquired E. coli isolates, indicating the presence of a large reservoir in the community and a long-term spread 
-of cephalosporin resistance in China",2473:2791
 3095,1,Event month,1,May,May,2077:2079
 3095,"10, 11","Drug Resisted, B",2,"Aztreonam, Aztreonam",Aztreonam,"4635:4643, 4635:4643"
 3095,"12, 13","B, MIC",2,"=16, =16",=16,"4645:4647, 4645:4647"
@@ -9187,7 +8767,6 @@ ST23, and this report describes the first isolation of this pathogen in the Amer
 ST23, and this report describes the first isolation of this pathogen in the Americas.",500:835
 3324,1,Exclusion: not full text article,1,Notes from the Field,Notes from the Field,93:114
 3325,1,Exclusion: not full text article,1,Notes from the Field,Notes from the Field,89:108
-3368,1,Exclusion: not full text article,1,Letter to the Editor,Letter to the Editor,0:21
 3371,1,Exclusion: Not first case in country,1,"Little is known about drug-resistant 
 tuberculosis (TB) and its transmission in Papua, which 
 has one of the highest rates of TB in Indonesia.","Little is known about drug-resistant 
@@ -10175,9 +9754,6 @@ xitin, efo-
 xitin","cefo- 
 xitin","2512:2523, 2513:2523"
 4642,"9, 28","Drug Resisted, C",2,"ceftriaxone, ceftriaxone",ceftriaxone,"2526:2536, 2526:2536"
-4673,1,Exclusion:Non-bacterial pathogen (e.g. viral),1,"This study deals with the underlying causes of failure of chloroquine in the treatment of Plasmodium 
-falciparum infection in some malaria-endemic regions of India.","This study deals with the underlying causes of failure of chloroquine in the treatment of Plasmodium 
-falciparum infection in some malaria-endemic regions of India.",639:803
 4682,1,Exclusion: not full text article,1,ORA L PR E S EN TA TION,ORA L PR E S EN TA TION,0:22
 470,1,Exclusion: Not first case in country,1,"All strains 
 were susceptible to vancomycin and metronida- 
@@ -10678,7 +10254,7 @@ Native-Valve Endocarditis Due to CDC Corynefom Group
 ANF-3: Report of a Case 
 And Review of Corynebacterial Endocarditis. Clin Infec Dis 
 1994: 19: 897-901.",2397:2638
-5390,1,Exclusion:Review article,1,resistant,resistant,336:344
+5390,"1, 2","Exclusion:Review article, Exclusion:Review article",2,"resistant, resistant",resistant,"336:344, 336:344"
 5415,1,Exclusion: Not first case in country,1,"The aim of this study was to investigate the antibiotic susceptibility  
 and distribution of blaVIM and blaIMP genes in P. aeruginosa isolates from Zanjan Province of Iran.","The aim of this study was to investigate the antibiotic susceptibility  
 and distribution of blaVIM and blaIMP genes in P. aeruginosa isolates from Zanjan Province of Iran.",967:1138
@@ -11269,13 +10845,6 @@ United States. An extended-spectrum β-lactamase–produc-
 ing E. coli clinical strain identified in Pennsylvania, USA, 
 showed high-level fosfomycin resistance caused by the 
 fosA3 gene.",117:360
-6177,1,Exclusion: no resistance or did not name antibiotic/antibiotic,1,"The authors present a case of a 
-patient with endocarditis and sickle cell disease with beta 
-thalassemia requiring mitral valve replacement that emphasizes 
-these complex issues.","The authors present a case of a 
-patient with endocarditis and sickle cell disease with beta 
-thalassemia requiring mitral valve replacement that emphasizes 
-these complex issues.",2278:2456
 619,1,Exclusion:Review article,1,Literature review,Literature review,461:477
 6194,1,Exclusion: Not first case in country,1,"This study determined the antibiotic 
 resistance and molecular epidemiology of CNSAb isolates from a referral burn center 
@@ -11780,19 +11349,20 @@ aspect of the left thigh","3094:3150, 3094:3150"
 661,"5, 7","Patient:Sex, A",2,"man, man",man,"1304:1306, 1304:1306"
 661,8,Patient:Symptoms,1,fever,fever,1444:1448
 661,9,Patient:Symptoms,1,malaise,malaise,1452:1458
-6655,1,Patient:Age,1,57,57,2526:2528
-6655,10,Drug Resisted,1,all drugs,all drugs,3697:3705
-6655,11,Bacteria:Binomial (genus species),1,Klebsiella pneumoniae,Klebsiella pneumoniae,1745:1765
-6655,2,Patient:Sex,1,man,man,2539:2541
-6655,3,Location:State/Province/District,1,Florence province,Florence province,2632:2648
-6655,4,Location:Country,1,Italy,Italy,2651:2655
-6655,5,Event date,1,November 2010,November 2010,2497:2509
-6655,6,Event date,1,June 2011,June 2011,2514:2522
-6655,7,Drug Resisted,1,K. pneumoniae,K. pneumoniae,4535:4547
-6655,8,Bacteria:Strain,1,ST101,ST101,2226:2230
-6655,9,First Surveillance Study (of a particular resistance) in Countr,1,"never 
+6655,"1, 12","Patient:Age, Patient:Age",2,"57, 57",57,"2526:2528, 2526:2528"
+6655,"10, 21","Bacteria:Binomial (genus species), Bacteria:Binomial (genus species)",2,"Klebsiella pneumoniae, Klebsiella pneumoniae",Klebsiella pneumoniae,"1745:1765, 1745:1765"
+6655,"11, 22","Bacteria:Binomial (genus species), Bacteria:Binomial (genus species)",2,"K. pneumoniae, K. pneumoniae",K. pneumoniae,"4535:4547, 4535:4547"
+6655,"2, 13","Patient:Sex, Patient:Sex",2,"man, man",man,"2539:2541, 2539:2541"
+6655,"3, 14","Location:State/Province/District, Location:State/Province/District",2,"Florence province, Florence province",Florence province,"2632:2648, 2632:2648"
+6655,"4, 15","Location:Country, Location:Country",2,"Italy, Italy",Italy,"2651:2655, 2651:2655"
+6655,"5, 16","Event date, Event date",2,"November 2010, November 2010",November 2010,"2497:2509, 2497:2509"
+6655,"6, 17","Event date, Event date",2,"June 2011, June 2011",June 2011,"2514:2522, 2514:2522"
+6655,"7, 18","Bacteria:Strain, Bacteria:Strain",2,"ST101, ST101",ST101,"2226:2230, 2226:2230"
+6655,"8, 19","First Surveillance Study (of a particular resistance) in Countr, First Surveillance Study (of a particular resistance) in Countr",2,"never 
+been observed in our region., never 
 been observed in our region.","never 
-been observed in our region.",2243:2277
+been observed in our region.","2243:2277, 2243:2277"
+6655,"9, 20","Drug Resisted, Drug Resisted",2,"all drugs, all drugs",all drugs,"3697:3705, 3697:3705"
 6660,1,Exclusion: not full text article,1,"The future prospects of regulating in the interest of public  
 health under the Trans Pacific Partnership Agreement: the  
 example of agricultural antibiotic use","The future prospects of regulating in the interest of public  
@@ -11818,40 +11388,42 @@ been infection-free since.","intra-operative cultures confirmed the infecting or
 which was sensitive to late-generation cephalosporins and vancomycin. He was success- 
 fully treated with a staged revision total hip arthroplasty with an antibiotic spacer and has 
 been infection-free since.",2001:2293
-6737,1,Drug Resisted,1,ceftriaxone,ceftriaxone,62:72
-6737,10,Drug Resisted,1,entamicin,entamicin,170:178
-6737,11,Drug Resisted,1,tobramycin,tobramycin,181:190
-6737,12,Drug Resisted,1,amikacin,amikacin,194:201
-6737,13,Drug Resisted,1,minocycline,minocycline,204:214
-6737,14,Drug Resisted,1,ciprofloxacin,ciprofloxacin,221:233
-6737,"15, 30","Patient:Age, A",2,"78, 78",78,"66:67, 66:67"
-6737,"16, 32","Patient:Sex, A",2,"man, man",man,"78:80, 78:80"
-6737,"17, 31","Event date, A",2,"May 2007, May 2007",May 2007,"153:160, 153:160"
-6737,"18, 33","Patient:Symptoms/Disease, A",2,"39.1° C, 39.1° C",39.1° C,"1570:1576, 1570:1576"
-6737,"19, 34","Patient:Symptoms/Disease, A",2,"stomach pain, stomach pain",stomach pain,"1582:1593, 1582:1593"
-6737,2,Drug Resisted,1,cefpodoxime,cefpodoxime,75:85
-6737,20,Bacteria:Binomial (genus species),1,A. xylosoxidans,A. xylosoxidans,2116:2130
-6737,21,Event date,1,May 2007,May 2007,106:113
-6737,"22, 37","Patient:Age, B",2,"66, 66",66,"116:117, 116:117"
-6737,"23, 36","Patient:Sex, B",2,"she, she",she,"162:164, 162:164"
-6737,24,Patient:Symptoms/Disease,1,fever,fever,1008:1012
-6737,25,Patient:Symptoms/Disease,1,headache,headache,1039:1046
-6737,"26, 35","Patient:Outcome, B",2,"dis- 
+6737,"1, 41","Drug Resisted, Drug Resisted",2,"ceftriaxone, ceftriaxone",ceftriaxone,"62:72, 62:72"
+6737,"10, 50","Drug Resisted, Drug Resisted",2,"entamicin, entamicin",entamicin,"170:178, 170:178"
+6737,"11, 51","Drug Resisted, Drug Resisted",2,"tobramycin, tobramycin",tobramycin,"181:190, 181:190"
+6737,"12, 52","Drug Resisted, Drug Resisted",2,"amikacin, amikacin",amikacin,"194:201, 194:201"
+6737,"13, 53","Drug Resisted, Drug Resisted",2,"minocycline, minocycline",minocycline,"204:214, 204:214"
+6737,"14, 54","Drug Resisted, Drug Resisted",2,"ciprofloxacin, ciprofloxacin",ciprofloxacin,"221:233, 221:233"
+6737,"15, 30, 55, 70","Patient:Age, A, Patient:Age, A",4,"78, 78, 78, 78",78,"66:67, 66:67, 66:67, 66:67"
+6737,"16, 32, 56, 72","Patient:Sex, A, Patient:Sex, A",4,"man, man, man, man",man,"78:80, 78:80, 78:80, 78:80"
+6737,"17, 31, 57, 71","Event date, A, Event date, A",4,"May 2007, May 2007, May 2007, May 2007",May 2007,"153:160, 153:160, 153:160, 153:160"
+6737,"18, 33, 58, 73","Patient:Symptoms/Disease, A, Patient:Symptoms/Disease, A",4,"39.1° C, 39.1° C, 39.1° C, 39.1° C",39.1° C,"1570:1576, 1570:1576, 1570:1576, 1570:1576"
+6737,"19, 34, 59, 74","Patient:Symptoms/Disease, A, Patient:Symptoms/Disease, A",4,"stomach pain, stomach pain, stomach pain, stomach pain",stomach pain,"1582:1593, 1582:1593, 1582:1593, 1582:1593"
+6737,"2, 42","Drug Resisted, Drug Resisted",2,"cefpodoxime, cefpodoxime",cefpodoxime,"75:85, 75:85"
+6737,"20, 60","Bacteria:Binomial (genus species), Bacteria:Binomial (genus species)",2,"A. xylosoxidans, A. xylosoxidans",A. xylosoxidans,"2116:2130, 2116:2130"
+6737,"21, 61","Event date, Event date",2,"May 2007, May 2007",May 2007,"106:113, 106:113"
+6737,"22, 37, 62, 77","Patient:Age, B, Patient:Age, B",4,"66, 66, 66, 66",66,"116:117, 116:117, 116:117, 116:117"
+6737,"23, 36, 63, 76","Patient:Sex, B, Patient:Sex, B",4,"she, she, she, she",she,"162:164, 162:164, 162:164, 162:164"
+6737,"24, 64","Patient:Symptoms/Disease, Patient:Symptoms/Disease",2,"fever, fever",fever,"1008:1012, 1008:1012"
+6737,"25, 65","Patient:Symptoms/Disease, Patient:Symptoms/Disease",2,"headache, headache",headache,"1039:1046, 1039:1046"
+6737,"26, 35, 66, 75","Patient:Outcome, B, Patient:Outcome, B",4,"dis- 
+charged, dis- 
+charged, dis- 
 charged, dis- 
 charged","dis- 
-charged","1688:1701, 1688:1701"
-6737,27,Location:Hospital name,1,Nagasaki Medical Center,Nagasaki Medical Center,2801:2823
-6737,28,Location:City,1,Ohmura City,Ohmura City,2826:2836
-6737,29,Location:Country,1,Japan,Japan,2839:2843
-6737,3,Drug Resisted,1,proxeti,proxeti,87:93
-6737,"38, 39","B, Event year",2,"2007, 2007",2007,"110:113, 110:113"
-6737,4,Drug Resisted,1,cefepime,cefepime,98:105
-6737,40,Event month,1,May,May,106:108
-6737,5,Drug Resisted,1,cefozopran,cefozopran,108:117
-6737,6,Drug Resisted,1,flomoxef sodium,flomoxef sodium,120:134
-6737,7,Drug Resisted,1,imipenem,imipenem,137:144
-6737,8,Drug Resisted,1,meropenem,meropenem,148:156
-6737,9,Drug Resisted,1,aztreonam,aztreonam,159:167
+charged","1688:1701, 1688:1701, 1688:1701, 1688:1701"
+6737,"27, 67","Location:Hospital name, Location:Hospital name",2,"Nagasaki Medical Center, Nagasaki Medical Center",Nagasaki Medical Center,"2801:2823, 2801:2823"
+6737,"28, 68","Location:City, Location:City",2,"Ohmura City, Ohmura City",Ohmura City,"2826:2836, 2826:2836"
+6737,"29, 69","Location:Country, Location:Country",2,"Japan, Japan",Japan,"2839:2843, 2839:2843"
+6737,"3, 43","Drug Resisted, Drug Resisted",2,"proxeti, proxeti",proxeti,"87:93, 87:93"
+6737,"38, 39, 78, 79","B, Event year, B, Event year",4,"2007, 2007, 2007, 2007",2007,"110:113, 110:113, 110:113, 110:113"
+6737,"4, 44","Drug Resisted, Drug Resisted",2,"cefepime, cefepime",cefepime,"98:105, 98:105"
+6737,"40, 80","Event month, Event month",2,"May, May",May,"106:108, 106:108"
+6737,"5, 45","Drug Resisted, Drug Resisted",2,"cefozopran, cefozopran",cefozopran,"108:117, 108:117"
+6737,"6, 46","Drug Resisted, Drug Resisted",2,"flomoxef sodium, flomoxef sodium",flomoxef sodium,"120:134, 120:134"
+6737,"7, 47","Drug Resisted, Drug Resisted",2,"imipenem, imipenem",imipenem,"137:144, 137:144"
+6737,"8, 48","Drug Resisted, Drug Resisted",2,"meropenem, meropenem",meropenem,"148:156, 148:156"
+6737,"9, 49","Drug Resisted, Drug Resisted",2,"aztreonam, aztreonam",aztreonam,"159:167, 159:167"
 6794,1,Exclusion: no resistance or did not name antibiotic/antibiotic,1,"Clinical failure of vancomycin in a dialysis patient with  
 methicillin-susceptible vancomycin-heteroresistant S. aureus","Clinical failure of vancomycin in a dialysis patient with  
 methicillin-susceptible vancomycin-heteroresistant S. aureus",0:119
@@ -12079,7 +11651,7 @@ many available antibiotics.","Although
 infection with W. falsenii remains rare, this bacterium should not 
 be underestimated, mainly because of its natural resistance to 
 many available antibiotics.",1503:1672
-7340,1,Exclusion:Review article,1,Multipl,Multipl,0:6
+7340,"1, 2","Exclusion:Review article, Exclusion:Review article",2,"Multipl, Multipl",Multipl,"0:6, 0:6"
 7365,1,Exclusion: Not first case in country,1,"n H. influenzae, resistance to β-lactams associated with PBP3 modi- 
 fications is increasing worldwide (García-Cobos et al., 2008; Resman 
 et al., 2012; Tristram et al., 2007). Recently, this mechanism of resis- 
@@ -12450,9 +12022,10 @@ to follow-up",3657:3673
 7904,"7, 18","Drug Resisted, C",2,"ciprofloxacin, ciprofloxacin",ciprofloxacin,"1006:1018, 1006:1018"
 7904,"8, 20","Drug Resisted, D",2,"penicillin, penicillin",penicillin,"1036:1045, 1035:1045"
 7904,"9, 22","Drug Resisted, E",2,"tetracycline, tetracycline",tetracycline,"1087:1098, 1087:1098"
-7940,1,Exclusion:Not clinical case in human patient,1,"Emerging resistance to carbapenems in a tertiary care hospital in 
+7940,"1, 2","Exclusion:Not clinical case in human patient, Exclusion:Not clinical case in human patient",2,"Emerging resistance to carbapenems in a tertiary care hospital in 
+north I, Emerging resistance to carbapenems in a tertiary care hospital in 
 north I","Emerging resistance to carbapenems in a tertiary care hospital in 
-north I",0:73
+north I","0:73, 0:73"
 7945,1,Article/Study Aim,1,"we report the first case of multidrug-resistant  
 hospital acquired urinary tract infection by B. vesicularis.","we report the first case of multidrug-resistant  
 hospital acquired urinary tract infection by B. vesicularis.",266:375
@@ -12713,11 +12286,11 @@ cally, and to identify the responsible ESBL genes.","The purpose of the present 
 unreported cases of typhoid fever caused by ESBL-producing S. 
 Typhi at a global level, to confirm ESBL production phenotypi- 
 cally, and to identify the responsible ESBL genes.",2450:2688
-8515,"10, 11","MIC, A",2,">16, >16",>16,"3278:3282, 3278:3282"
-8515,"12, 13","A, Drug Resisted",2,"Gentamicin, Gentamicin",Gentamicin,"3259:3268, 3259:3268"
-8515,"14, 15","Drug Resisted, B",2,"Streptomycinb, Streptomycinb",Streptomycinb,"3302:3314, 3302:3314"
-8515,"16, 17","MIC, B",2,">128, >128",>128,"3324:3329, 3324:3329"
-8515,"18, 19","C, MIC",2,"8, 8",8,"3471, 3471"
+8515,"11, 12","A, Drug Resisted",2,"Gentamicin, Gentamicin",Gentamicin,"3259:3268, 3259:3268"
+8515,"13, 14","Drug Resisted, B",2,"Streptomycinb, Streptomycinb",Streptomycinb,"3302:3314, 3302:3314"
+8515,"15, 16","MIC, B",2,">128, >128",>128,"3324:3329, 3324:3329"
+8515,"17, 18","C, MIC",2,"8, 8",8,"3471, 3471"
+8515,"19, 20","Drug Resisted, C",2,"Cefotaxime, Cefotaxime",Cefotaxime,"3454:3463, 3454:3463"
 8515,2,References for follow up,1,"The Norwegian patient in question and a previ- 
 ously published case from the Netherlands (strain TY5359) (2) 
 had travel histories to the Philippines in late 2007 that were almost 
@@ -12725,11 +12298,11 @@ identical.","The Norwegian patient in question and a previ-
 ously published case from the Netherlands (strain TY5359) (2) 
 had travel histories to the Philippines in late 2007 that were almost 
 identical.",3600:3792
-8515,"20, 21","Drug Resisted, C",2,"Cefotaxime, Cefotaxime",Cefotaxime,"3454:3463, 3454:3463"
-8515,"22, 23","D, Drug Resisted",2,"Cefpodoxime, Cefpodoxime",Cefpodoxime,"3474:3484, 3474:3484"
-8515,"24, 25","MIC, D",2,">32, >32",>32,"3493:3497, 3493:3497"
-8515,"26, 27","E, Drug Resisted",2,"Ceftazidime, Ceftazidime",Ceftazidime,"3498:3508, 3498:3508"
-8515,"28, 29","MIC, E",2,"64, 64",64,"3517:3520, 3517:3520"
+8515,"21, 22","D, Drug Resisted",2,"Cefpodoxime, Cefpodoxime",Cefpodoxime,"3474:3484, 3474:3484"
+8515,"23, 24","MIC, D",2,">32, >32",>32,"3493:3497, 3493:3497"
+8515,"25, 26","E, Drug Resisted",2,"Ceftazidime, Ceftazidime",Ceftazidime,"3498:3508, 3498:3508"
+8515,"27, 28","MIC, E",2,"64, 64",64,"3517:3520, 3517:3520"
+8515,"29, 30","F, MIC",2,">8, >8",>8,"3537:3540, 3537:3540"
 8515,3,References for follow up,1,"Al Naiemi N, Zwart B, Rijnsburger MC, Roosendaal R, Debets- 
 Ossenkopp YJ, Mulder JA, Fijen CA, Maten W, Vandenbroucke-Grauls 
 CM, Savelkoul PH. 2008. Extended-spectrum-beta-lactamase produc- 
@@ -12739,33 +12312,34 @@ Ossenkopp YJ, Mulder JA, Fijen CA, Maten W, Vandenbroucke-Grauls
 CM, Savelkoul PH. 2008. Extended-spectrum-beta-lactamase produc- 
 tion in a Salmonella enterica serotype Typhi strain from the Philippines. J 
 Clin Microbiol 46:2794 –2795. http://dx.doi.org/10.1128/JCM.00676-08",1006:1343
-8515,"30, 31","F, MIC",2,">8, >8",>8,"3537:3540, 3537:3540"
-8515,"32, 33","Drug Resisted, F",2,"Ceftiofurb, Ceftiofurb",Ceftiofurb,"3521:3530, 3521:3530"
-8515,"34, 35","G, Drug Resisted",2,"Ceftriaxone, Ceftriaxone",Ceftriaxone,"3541:3551, 3541:3551"
-8515,"36, 37","G, MIC",2,"16, 16",16,"3559:3562, 3559:3562"
-8515,"38, 39","Drug Resisted, H",2,"Ampicillin, Ampicillin",Ampicillin,"3643:3652, 3643:3652"
+8515,"31, 32","Drug Resisted, F",2,"Ceftiofurb, Ceftiofurb",Ceftiofurb,"3521:3530, 3521:3530"
+8515,"33, 34","G, Drug Resisted",2,"Ceftriaxone, Ceftriaxone",Ceftriaxone,"3541:3551, 3541:3551"
+8515,"35, 36","G, MIC",2,"16, 16",16,"3559:3562, 3559:3562"
+8515,"37, 38","Drug Resisted, H",2,"Ampicillin, Ampicillin",Ampicillin,"3643:3652, 3643:3652"
+8515,"39, 40","MIC, H",2,">32, >32",>32,"3662:3666, 3662:3666"
 8515,4,Notes,1,"To date, ESBL-producing S. enterica serovar Typhi 
 has only been reported from Bangladesh, Egypt, India, Iran, Iraq, 
 Pakistan, and the Philippines (1).","To date, ESBL-producing S. enterica serovar Typhi 
 has only been reported from Bangladesh, Egypt, India, Iran, Iraq, 
 Pakistan, and the Philippines (1).",2092:2244
-8515,"40, 41","MIC, H",2,">32, >32",>32,"3662:3666, 3662:3666"
-8515,"42, 43","I, Drug Resisted",2,"Tetracycline, Tetracycline",Tetracycline,"3878:3889, 3878:3889"
-8515,"44, 45","J, Drug Resisted",2,"Trimethoprim, Trimethoprim",Trimethoprim,"3917:3928, 3917:3928"
-8515,"46, 47","MIC, I",2,">32, >32",>32,"3899:3903, 3899:3903"
-8515,"48, 49","MIC, J",2,">32, >32",>32,"3938:3942, 3938:3942"
+8515,"41, 42","I, Drug Resisted",2,"Tetracycline, Tetracycline",Tetracycline,"3878:3889, 3878:3889"
+8515,"43, 44","J, Drug Resisted",2,"Trimethoprim, Trimethoprim",Trimethoprim,"3917:3928, 3917:3928"
+8515,"45, 46","MIC, I",2,">32, >32",>32,"3899:3903, 3899:3903"
+8515,"47, 48","MIC, J",2,">32, >32",>32,"3938:3942, 3938:3942"
+8515,"49, 57","Bacteria:Resistance Marker, H",2,"blaTEM-1, blaTEM-1",blaTEM-1,"4946:4953, 4946:4953"
 8515,5,Patient:Symptoms/Disease,1,gastroenteritis,gastroenteritis,3819:3833
-8515,"50, 58","Bacteria:Resistance Marker, H",2,"blaTEM-1, blaTEM-1",blaTEM-1,"4946:4953, 4946:4953"
-8515,"51, 59, 60, 61, 62, 63","Bacteria:Resistance Marker, C, D, E, F, G",6,"blaSHV-12, blaSHV-12, blaSHV-12, blaSHV-12, blaSHV-12, blaSHV-12",blaSHV-12,"0:8, 0:8, 0:8, 0:8, 0:8, 0:8"
-8515,"52, 64","Bacteria:Resistance Marker, A",2,"aac(6=)IIc;, aac(6=)IIc",aac(6=)IIc;,"23:34, 23:32"
-8515,"53, 65","Bacteria:Resistance Marker, B",2,"strA/strB, strA/strB",strA/strB,"49:57, 49:57"
-8515,"54, 57","Bacteria:Resistance Marker, I",2,"tetD, tetD",tetD,"77:80, 77:80"
-8515,"55, 56","Bacteria:Resistance Marker, J",2,"dfrA18, dfrA18",dfrA18,"101:106, 101:106"
+8515,"50, 58, 59, 60, 61, 62","Bacteria:Resistance Marker, C, D, E, F, G",6,"blaSHV-12, blaSHV-12, blaSHV-12, blaSHV-12, blaSHV-12, blaSHV-12",blaSHV-12,"0:8, 0:8, 0:8, 0:8, 0:8, 0:8"
+8515,"51, 63","Bacteria:Resistance Marker, A",2,"aac(6=)IIc;, aac(6=)IIc",aac(6=)IIc;,"23:34, 23:32"
+8515,"52, 64","Bacteria:Resistance Marker, B",2,"strA/strB, strA/strB",strA/strB,"49:57, 49:57"
+8515,"53, 56","Bacteria:Resistance Marker, I",2,"tetD, tetD",tetD,"77:80, 77:80"
+8515,"54, 55","Bacteria:Resistance Marker, J",2,"dfrA18, dfrA18",dfrA18,"101:106, 101:106"
 8515,6,Location:Country,1,Norwegian,Norwegian,3561:3569
-8515,66,Location:Place traveled to,1,Philippines,Philippines,3739:3749
+8515,65,Location:Place traveled to,1,Philippines,Philippines,3739:3749
+8515,66,Bacteria:Strain,1,Serovar Typhi,Serovar Typhi,105:117
+8515,67,Bacteria:Binomial (genus species),1,Salmonella enterica,Salmonella enterica,85:103
 8515,7,Bacteria:Strain,1,strain 1107-3567,strain 1107-3567,3472:3487
-8515,8,Bacteria:Binomial (genus species),1,Salmonella enterica Serovar Typhi,Salmonella enterica Serovar Typhi,85:117
-8515,9,Bacteria:Resistance Marker,1,extended-spectrum-beta-lactamase (ESBL),extended-spectrum-beta-lactamase (ESBL),1910:1948
+8515,8,Bacteria:Resistance Marker,1,extended-spectrum-beta-lactamase (ESBL),extended-spectrum-beta-lactamase (ESBL),1910:1948
+8515,"9, 10","MIC, A",2,">16, >16",>16,"3278:3282, 3278:3282"
 8591,1,Article/Study Aim,1,"we describe for the first time in Turkey two NDM-1- 
 producing Acinetobacter baumannii isolates recovered from intensive care unit patients","we describe for the first time in Turkey two NDM-1- 
 producing Acinetobacter baumannii isolates recovered from intensive care unit patients",747:885
@@ -13203,86 +12777,6 @@ old",3349:3361
 9,7,Drug Resisted,1,furazolidone,furazolidone,4692:4703
 9,8,Drug Resisted,1,erythromycin,erythromycin,4706:4717
 9,9,Drug Resisted,1,ciprofl oxacin,ciprofl oxacin,4726:4739
-9010,1,Notes,1,"Although NDM-1– 
-producing Enterobacteriaceae emerged in Hong Kong, China, these 
-isolates have not been found in the mainland","Although NDM-1– 
-producing Enterobacteriaceae emerged in Hong Kong, China, these 
-isolates have not been found in the mainland",4595:4721
-9010,10,A,1,September 2011,September 2011,5421:5434
-9010,"100, 101, 102","MIC, A, Q",3,"16, 16, 16",16,"3503:3505, 3503:3505, 3503:3505"
-9010,"103, 104, 105","Q, B, MIC",3,"≥256, ≥256, ≥256",≥256,"3516:3520, 3516:3520, 3516:3520"
-9010,"106, 107","Bacteria:Strain, A",2,"ST15, ST15",ST15,"111:114, 111:114"
-9010,"108, 109","B, Bacteria:Strain",2,"ST1031, ST1031",ST1031,"147:152, 147:152"
-9010,11,B,1,80-year-old male,80-year-old male,5709:5725
-9010,110,Bacteria:Resistance Marker,1,NDM-1,NDM-1,941:946
-9010,111,Bacteria:Binomial (genus species),1,Klebsiella pneumoniae,Klebsiella pneumoniae,2617:2637
-9010,12,B,1,August 2011,August 2011,5851:5861
-9010,13,A,1,19-year-old male,19-year-old male,5164:5180
-9010,"14, 16","A, Location:Hospital name",2,"Second Affiliated Hospital of Nanchang University, Second Affiliated Hospital of Nanchang University",Second Affiliated Hospital of Nanchang University,"5212:5260, 5212:5260"
-9010,"15, 17","B, Location:Hospital name",2,"First Affiliated Hospital of Nanchang 
-University, First Affiliated Hospital of Nanchang 
-University","First Affiliated Hospital of Nanchang 
-University","5772:5820, 5772:5820"
-9010,"18, 19","A, Patient:Outcome",2,"Six days after the hospital 
-transfer, NC12 was isolated, and the patient's symptoms improved 
-following intravenous administration of ceftriaxone, cefoxitin, teico- 
-planin, and imipenem (20 mg/kg per 12 h)., Six days after the hospital 
-transfer, NC12 was isolated, and the patient's symptoms improved 
-following intravenous administration of ceftriaxone, cefoxitin, teico- 
-planin, and imipenem (20 mg/kg per 12 h).","Six days after the hospital 
-transfer, NC12 was isolated, and the patient's symptoms improved 
-following intravenous administration of ceftriaxone, cefoxitin, teico- 
-planin, and imipenem (20 mg/kg per 12 h).","5437:5645, 5437:5645"
-9010,2,Article/Study Aim,1,this is the first report of blaNDM-1 carriage by K. pneumoniae clinical isolates in mainland China,this is the first report of blaNDM-1 carriage by K. pneumoniae clinical isolates in mainland China,2155:2252
-9010,"20, 21","B, Patient:Outcome",2,"after hospitalization for 22 days, the patient's 
-symptoms had resolved and he was discharged from the hospital, after hospitalization for 22 days, the patient's 
-symptoms had resolved and he was discharged from the hospital","after hospitalization for 22 days, the patient's 
-symptoms had resolved and he was discharged from the hospital","6226:6336, 6226:6336"
-9010,22,Location:Country,1,China,China,5282:5286
-9010,23,Location:City,1,Nanchang,Nanchang,5264:5271
-9010,"24, 26","Drug Resisted, C",2,"Ampicillin, Ampicillin",Ampicillin,"2822:2832, 2822:2832"
-9010,"25, 27","MIC, C",2,"≥256, ≥256",≥256,"2833:2837, 2833:2837"
-9010,"28, 31","D, Drug Resisted",2,"Piperacillin/tazobactam, Piperacillin/tazobactam",Piperacillin/tazobactam,"2862:2885, 2862:2885"
-9010,"29, 30","D, MIC",2,"≥256, ≥256",≥256,"2886:2890, 2886:2890"
-9010,3,Event year,1,2011,2011,5858:5861
-9010,32,Notes,1,MIC values (μg/mL),MIC values (μg/mL),2697:2716
-9010,"33, 35","Drug Resisted, E",2,"Piperacillin, Piperacillin",Piperacillin,"2916:2928, 2916:2928"
-9010,"34, 36","MIC, E",2,"≥256, ≥256",≥256,"2929:2933, 2929:2933"
-9010,"37, 40","F, Drug Resisted",2,"Ceftazidime, Ceftazidime",Ceftazidime,"2958:2969, 2958:2969"
-9010,"38, 39","F, MIC",2,"≥256, ≥256",≥256,"2970:2974, 2970:2974"
-9010,4,Event year,1,2011,2011,5431:5434
-9010,"41, 44","G, Drug Resisted",2,"Cefotaxime, Cefotaxime",Cefotaxime,"3001:3011, 3001:3011"
-9010,"42, 43","G, MIC",2,"≥256, ≥256",≥256,"3012:3016, 3012:3016"
-9010,"45, 46","Drug Resisted, H",2,"Cefepime, Cefepime",Cefepime,"3045:3053, 3045:3053"
-9010,"47, 48","H, A",2,"32, 32",32,"3054:3056, 3054:3056"
-9010,"49, 50","H, B",2,"12, 12",12,"3066:3068, 3066:3068"
-9010,5,Event month,1,September,September,5421:5429
-9010,51,MIC,1,32,32,3054:3055
-9010,52,MIC,1,12,12,3065:3068
-9010,"53, 56","Drug Resisted, I",2,"Aztreonam, Aztreonam",Aztreonam,"3078:3087, 3078:3087"
-9010,"54, 55, 57","MIC, B, I",3,"64, 64, 64",64,"3106:3108, 3106:3108, 3106:3108"
-9010,"58, 59","Drug Resisted, J",2,"Cefoxitin, Cefoxitin",Cefoxitin,"3121:3130, 3121:3130"
-9010,6,Event month,1,August,August,5851:5857
-9010,"60, 61, 62","J, A, MIC",3,"≥256, ≥256, ≥256",≥256,"3131:3135, 3131:3135, 3131:3135"
-9010,"63, 64, 65","MIC, B, J",3,"192, 192, 192",192,"3145:3148, 3145:3148, 3145:3148"
-9010,"66, 69","Drug Resisted, K",2,"Imipenem, Imipenem",Imipenem,"3157:3165, 3157:3165"
-9010,"67, 68","MIC, A",2,"8, 8",8,"3165:3167, 3165:3167"
-9010,7,Patient:Age,1,19-year-old,19-year-old,5164:5175
-9010,"70, 71, 72","K, B, MIC",3,"4, 4, 4",4,"3176, 3176, 3176"
-9010,"73, 74","Drug Resisted, L",2,"Meropenem, Meropenem",Meropenem,"3187:3196, 3187:3196"
-9010,"75, 76","L, A",2,"≥32, ≥32",≥32,"3197:3200, 3197:3200"
-9010,"77, 78, 79","B, L, MIC",3,"12, 12, 12",12,"3209:3211, 3209:3211, 3209:3211"
-9010,8,Patient:Age,1,80-year-old,80-year-old,5709:5720
-9010,"80, 81","Drug Resisted, M",2,"Amikacin, Amikacin",Amikacin,"3221:3229, 3221:3229"
-9010,"82, 83","M, MIC",2,"≥256, ≥256",≥256,"3230:3234, 3230:3234"
-9010,"84, 85","Drug Resisted, N",2,"Gentamicin, Gentamicin",Gentamicin,"3261:3271, 3261:3271"
-9010,"86, 87","N, MIC",2,"≥256, ≥256",≥256,"3272:3276, 3272:3276"
-9010,"88, 89","Drug Resisted, O",2,"Levofloxacin, Levofloxacin",Levofloxacin,"3303:3315, 3303:3315"
-9010,9,Patient:Sex,1,male,male,5176:5180
-9010,"90, 91, 92","O, A, MIC",3,"32, 32, 32",32,"3316:3318, 3316:3318, 3316:3318"
-9010,"93, 94","Drug Resisted, P",2,"Trimethoprim/sulfamethoxazole, Trimethoprim/sulfamethoxazole",Trimethoprim/sulfamethoxazole,"3350:3379, 3350:3379"
-9010,"95, 96, 97","P, B, MIC",3,"≥32, ≥32, ≥32",≥32,"3394:3397, 3394:3397, 3394:3397"
-9010,"98, 99","Q, Drug Resisted",2,"Fosfomycin, Fosfomycin",Fosfomycin,"3492:3501, 3492:3501"
 9037,1,Exclusion: Not first case in country,1,"Epidemiological characterization of Acinetobacter 
 baumannii bloodstream isolates from a Chinese 
 Burn Institute: A three-year study","Epidemiological characterization of Acinetobacter 
@@ -13415,17 +12909,6 @@ capitis",2131:2154
 9081,7,Event year,1,2012,2012,2198:2201
 9081,8,Patient:Symptoms/Disease,1,fever,fever,1521:1525
 9081,9,Drug Resisted,1,penicillin,penicillin,262:271
-9084,1,Exclusion: Not first case in country,1,"After applying the revised carbapenem  
-interpretation criteria for Enterobacteriaceae, more strains of  
-imipenem-resistant E. aerogenes were isolated, but none of  
-them produced carbapenemase. This is the first isolate  
-of imipenem-resistant E. aerogenes producing the Ambler  
-class A carbapenemase in Asia.","After applying the revised carbapenem  
-interpretation criteria for Enterobacteriaceae, more strains of  
-imipenem-resistant E. aerogenes were isolated, but none of  
-them produced carbapenemase. This is the first isolate  
-of imipenem-resistant E. aerogenes producing the Ambler  
-class A carbapenemase in Asia.",1554:1866
 9126,1,Patient:Age,1,62,62,3486:3487
 9126,10,Bacteria:Binomial (genus species),1,K. pneumoniae,K. pneumoniae,4724:4736
 9126,11,Drug Resisted,1,"car- 

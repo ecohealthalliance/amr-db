@@ -10,7 +10,6 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 10079,"in finland, occurrence of  klebsiella pneumoniae  carbapenemase-producing  k. pneumoniae  (kpc-kp) has  previously been sporadic and related to travel.",exclusion, not first case in country,NA
 10082,persistent methicillin-resistant staphylococcus  aureus bacteremia: do we need a new therapeutic  strategy? cheol-in kan,exclusion,not clinical case in human patient,NA
 10117,this is a first ever reported  case of secondary bacterial infection due to roseomonas genomospecies 6 in a patient of pulmonary tuberculosis from  the indian subcontinent.,exclusion, no resistance or did not name antibiotic/antibiotic,NA
-10125,letter to the editor,exclusion, not full text article,NA
 10127,"this study was planned to determine profile of bacterial isolates and their antibiotic  resistance pattern among pediatric cancer patients. design: it was a retrospective, single institutional study",exclusion, not first case in country,NA
 10142,"aim: to examine the molecular characteristics of, and risk factors for nosocomial colonization with, carbapenem-resistant gram-negative bacilli (cr-gnb) in hospitalized paediatric patients in a tertiary university hospital’s paediatric units in turkey",exclusion, not first case in country,NA
 10144,resistant,exclusion,not clinical case in human patient,NA
@@ -23,7 +22,6 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 10439,"syphilis epidemiology in 1994–2013, molecular epidemiological strain typing and determination of macrolide resistance in treponema pallidum in 2013–2014 in tuva republic, russia",exclusion, not first case in country,NA
 1045,"this is the first report of an esbl-producing, shiga toxin-positive e. coli of serogroup o91. our data suggest a high propensity of the inci1-st31 plasmid to spread in the human and/or animal population.",exclusion, not first case in country,NA
 10460,dissemination and spread of new delhi metallo-beta-lactamase-1 superbugs in hospital settings,exclusion,review article,NA
-10462,short communication,exclusion, not full text article,NA
 10513,"to our knowledge, there is only 1 prior case of thoracic empyema caused by h. parainfluenzae. we report a second such case of a woman who developed a thoracic empyema due to h. parainfluenzae, although on methotrexate.",exclusion, no resistance or did not name antibiotic/antibiotic,NA
 10521,"in japan, the new york/japan clone (ha-mrsa) has also been spreading in the community, among healthy children and pediatric outpatients,17 and even on public transport18; however, the association of this new york/japan clone (nasal or public transport mrsa) with diseases in the community has not been reported",exclusion, not first case in country,NA
 10533,dear editor,exclusion, not full text article,NA
@@ -38,7 +36,6 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 10691,poster presentation,exclusion, not full text article,NA
 10699,we herein describe the first reported case of a brain abscess and subdural abscess caused by visa in japan.,exclusion, no resistance or did not name antibiotic/antibiotic,NA
 10743,emergence of a novel multidrug-resistant pseudomonas aeruginosa strain producing imp-type metallo--lactamases and aac(6 )-iae in japan,exclusion, not first case in country,NA
-10780,morbidity and mortality weekly report,exclusion, not full text article,NA
 10823,we report the first case of st30mrsa-iv infection in a korean traveler returning from the philippines.,exclusion, no resistance or did not name antibiotic/antibiotic,NA
 10825,increasing extended-spectrum b-lactamase production and quinolone resistance among gram-negative bacilli causing intra-abdominal infections in the asia/pacific region: data from the smart study 2002e2006,exclusion, not first case in country,NA
 10843,"c. gilardii has intrinsic resistance to many antimicrobial agents. in past reports and the present case, the isolates were often resistant to aztreonam, meropenem, gentamicin, and tobramycin. on the other hand, they were often susceptible to trimethoprim-sulfamethoxazole and tetracycline [5–7]",exclusion, not first case in country,NA
@@ -246,11 +243,10 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 13873,research notes,exclusion, not full text article,NA
 13898,o,exclusion, no resistance or did not name antibiotic/antibiotic,NA
 13922,probable intrafamily transmission of a highly virulent,exclusion, not full text article,NA
-14001,letters to the editor,exclusion, not full text article,NA
 14002,two hundred fifty-seven nalidixic acid-resistant enterobacterial isolates were collected in a brazilian community from january 2000 to may 2005 to determine the prevalence of plasmid-encoded extended-spectrum β-lactamases.,exclusion, not first case in country,NA
-14044,editorial,exclusion, not full text article,NA
 1405,the purpose of this investigation was to describe the first documented carbapenem-resistant klebsiella pneumoniae (crkp) outbreak in a tertiary care facility in saudi arabia.,exclusion, no resistance or did not name antibiotic/antibiotic,NA
 1406,po st er pr e s en ta tion,exclusion, not full text article,NA
+14062,emerging,exclusion,not clinical case in human patient,NA
 14062,emerging,exclusion,not clinical case in human patient,NA
 14087,"this case is being reported for its unique presentation as  acute fulminant hepatitis and also to sensitize clinicians about  the growing problem of quinolone resistant s. typhi – in this  case due to dual mutations, which is being increasingly reported  from several parts of the country",exclusion, not first case in country,NA
 14100,34,patient,age,NA
@@ -273,7 +269,6 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 14274,"although vim-producing enterobacteriaceae isolates were initially recognized by their in vitro resistance to carbapenems (22), this strain displays mics for carbapenems below the current resistant breakpoints (ertapenem, 1 g/ml; imipenem, 4 g/ml; and meropenem, 4 g/ml)",exclusion, not first case in country,NA
 14275,"n colombia, dissemination of a. baumannii clones harboring blaoxa-23 was reported in 2005 (21); since then, surveillance of carbapenem-resistanta. baumannii in the hospitals of the colombian nosocomial resistance study group network has shown oxa-23 and oxa-51 as the only carbapenemases detected. we now document the first case in the country of oxa-72, identified in an a. pittii isolate.",exclusion, not first case in country,NA
 14278,"loodstream infections caused  by carbapenemase-producing klebsiella pneumoniae (cpkp) are typically associated  with a mortality rate of 13% to 58%, and few therapeutic options are available.16,17",exclusion, not first case in country,NA
-14299,"we report on the first identification of vre infections in the  paediatric oncology ward at a tertiary-level paediatric hospital in  cape town, sa, over two time periods in 2013",exclusion, not first case in country,NA
 14311,"we identified the etiologies of community-acquired bacterial meningitis in korean adults and the associated epidemiological factors. a retrospective, multicenter nationwide study was carried out.",exclusion, not first case in country,NA
 14330,klebsiella pneumoniae invasive liver abscess syndrome is now emerging in europe and notably is not restricted to individuals of asian descent.,exclusion, no resistance or did not name antibiotic/antibiotic,NA
 14373,the recent increasing rate of isolating them from human clinical samples warrants clinicians awareness due to treatment challenges posed by their antimicrobial resistance profiles,exclusion, not first case in country,NA
@@ -331,7 +326,6 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 15093,editorials,exclusion, not full text article,NA
 15110,we performed a nested case-control study (ratio of 1:4) on the emergence of tigecycline-resistant multidrug-resistant klebsiella pneumoniae (tr-mdrkp) isolates among patients who initially presented with a tigecycline-susceptible mdrkp isolate,exclusion, not first case in country,NA
 1513,oral presentation,exclusion, not full text article,NA
-1518,we document here the in vivo transfer of blakpc-2  between intensive care unit-acquired and a commensal strain of klebsiella pneumoniae in a french  patient after his repatriation from greece.,exclusion, not first case in country,NA
 15182,artemisinin resistance in cambodia: a clinical trial designed to address an emerging problem in southeast asi,exclusion, not first case in country,NA
 15215,correspondence,exclusion, not full text article,NA
 15218,to the editor,exclusion, not full text article,NA
@@ -358,7 +352,6 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 15430,letters,exclusion, not full text article,NA
 15431,"since 2012, in central greece an increase of colistin/panresistant a. baumannii has occurred, indicating the need for further analysis.",exclusion, not first case in country,NA
 15459,d on pfge and mlva (adjuste,exclusion,not clinical case in human patient,NA
-15476,hot topic,exclusion,review article,NA
 15484,we found a sharp increase in the proportion of isolates that were resistant to moxifloxacin from 2007 to 2009.,exclusion, not first case in country,NA
 15494,an integrative review,exclusion,review article,NA
 15495,"most c. striatum strains are susceptible to a variety of antimicrobial agents, including beta-lactams, vancomycin, gentamicin, and rifampin; however, mdr c. striatum strains have been recently described (8, 14).",exclusion, not first case in country,NA
@@ -402,6 +395,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 16225,2004 lowbury lecture: the western australian experien,exclusion,review article,NA
 16249,dispatches,exclusion, not full text article,NA
 16252,the,exclusion,review article,NA
+16252,the,exclusion,review article,NA
 1635,what’s new in antimicrobial use and resistance in critically ill patients?,exclusion,review article,NA
 16352,this article reviews the disease burden and the natural history of disease in children with tb,exclusion,review article,NA
 16358,extensively,exclusion,not clinical case in human patient,NA
@@ -419,6 +413,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 1671,outbreak of extensively drug-resistant (xdr) tuberculosis in south africa,exclusion, not first case in country,NA
 1671,outbreak of extensively drug-resistant (xdr) tuberculosis in south africa,NA,notes,NA
 16714,letters to the editor,exclusion, not full text article,NA
+16716,tn125-related acquisition of blandm-like genes in,exclusion,not clinical case in human patient,NA
 16716,tn125-related acquisition of blandm-like genes in,exclusion,not clinical case in human patient,NA
 16718,research letters,exclusion, not full text article,NA
 16719,research letters,exclusion, not full text article,NA
@@ -455,7 +450,6 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 17160,"] it ubiquitously inhabits hospital environment and  survives in chlorinated water, causing colonization of medical devices such as suction  machines, ventilator tubings, respirators and injectable fluids.[2] its inherent resistance  against many antimicrobial drugs makes it a potential threat in hospital settings as it may  cause outbreaks of neonatal meningitis in premature infants, especially by serotype c",exclusion, not first case in country,NA
 17173,short reports,exclusion, not full text article,NA
 17205,we report an isolated fatal case of disseminated elizabethkingia species infection in a lung transplant recipient and review the literature of this bacterial infection in transplant recipients,exclusion, not first case in country,NA
-17215,the aim of this study was to determine the prevalence  of drug-resistant tuberculosis (tb) and its associated risk  factors.,exclusion, not first case in country,NA
 17222,the latest consensus of indian experts12 estimated the prevalence of mdrtb to,exclusion, not first case in country,a
 17222,"be 12–17% in previously treated, smear-positive pulmonary tuberculosis",exclusion, not first case in country,NA
 17257,letter to the editor,exclusion, not full text article,NA
@@ -515,11 +509,9 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 18227,23,patient,age,NA
 18227,girl,patient,sex,NA
 18227,chronic colonization of inquilinus limosus in a patient with cystic fibrosis: first report in spain,exclusion,not clinical case in human patient,NA
-18266,research letter,exclusion, not full text article,NA
 1829,observational study,exclusion,not clinical case in human patient,NA
 18329,there have been reports of multidrug-resistant strains of gram-negative  bacteria being isolated from patients with endophthalmitis.4 ,exclusion, not first case in country,NA
 18329,table 2 antibiotic susceptibility patterns of klebsiella pneumoniae isolate,NA,notes,NA
-18339,letter to the editor,exclusion, not full text article,NA
 18358,genetically,exclusion,not clinical case in human patient,NA
 18363,a year,patient,age,NA
 18363,his,patient,sex,NA
@@ -529,6 +521,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 18398,a study was carried out in an indian teaching hospital in 2009 to detect the rate of surgical site infections  (ssi) and peripheral vascular access site infections,exclusion, no resistance or did not name antibiotic/antibiotic,NA
 18401,development of ceftazidime resistance in an acute  burkholderia pseudomallei infection,exclusion,not clinical case in human patient,NA
 18449,the first nosocomial outbreak of ca-mrsa among healthy newborns and postpartum mothers in canada is described.,exclusion, not first case in country,NA
+1845,e´ volution de,exclusion,not clinical case in human patient,NA
 1845,e´ volution de,exclusion,not clinical case in human patient,NA
 18461,letters to the editor,exclusion, not full text article,NA
 18508,the high prevalence of blakpc-producing k. pneumoniae causing colonization and infection among intensive care unit (icu) patients associated with significant mortality has demonstrated the importance of identification and isolation of the aetiological agent,exclusion, not first case in country,NA
@@ -544,7 +537,6 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 18780,note,exclusion, not full text article,NA
 18785,the aim of this study was to evaluate the antimicrobial susceptibility of 25 k. pneumoniae strains isolated in 20062007 from 22 icu patients in the dr a. jurasz university hospital in bydgoszcz. the group included the first k. pneumoniae isolates with mbl identified in poland,exclusion, not first case in country,NA
 18793,to the editor,exclusion, not full text article,NA
-18812,we therefore performed a multicenter study to determine the frequency of hlgr gbs isolates and to elucidate the molecular mechanisms leading to gentamicin resistance.,exclusion, not first case in country,NA
 18829,oxa-23-producing,exclusion, not full text article,NA
 18832,editorial,exclusion, not full text article,NA
 18842,this case highlights the alarming presence of mdr-tb involving the testis that was unknown until now.,exclusion, not first case in country,NA
@@ -622,7 +614,6 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 20333,gram-negative bacteria producing the 16s rrna methylases arma and rmtb are emerging in medical settings in vietnam,exclusion, not first case in country,NA
 20335,"p-51, a novel imp-type metallo--lactamase with increased doripenemand meropenem-hydrolyzing activities, in a carbapenem-resistant pseudomonas aeruginosa clinical isolat",exclusion,not clinical case in human patient,NA
 20338,to the editor,exclusion, not full text article,NA
-20344,the profiles of the enzymatic activities of ndm-3 against -lactams tested were similar to those of ndm-1,exclusion, not first case in country,NA
 20371,origin,exclusion,non-bacterial pathogen (e.g. viral),NA
 20403,the clinical isolate reported here did not show multiple antimicrobial resistance and was colistinresistant in a patient with no history of colistin treatment.,exclusion, not first case in country,NA
 20403,"while the number of reports on colistin resistance have gradually been increasing in other countries (14) and a report based on a study conducted in the united states showed that 5.3% of all acinetobacter strains detected during an eight-year period were resistant to colistin (15, 16), encounters with colistin-resistant acinetobacter species are still rare in japan.",exclusion, not first case in country,NA
@@ -637,8 +628,12 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 20544,"maier j , melzl h , reischl u , drubel i , witte w , lehn n , linde h ,   2005 . panton-valentine leukocidin-positive methicillin-resistant staphylococcus aureus in germany associated with travel  or foreign family origin . eur j clin microbiol infect dis 24:  637 – 639 .",NA,references for follow up,NA
 20544,"schleucher rd , gaessler m , knobloch j , 2008 . panton-valentine  leukocidin-producing methicillin-sensitive staphylococcus  aureus as a cause for recurrent, contagious skin infections in  young, healthy travelers returned from a tropical country: a new  worldwide public health problem? j travel med 15: 137 – 139",NA,references for follow up,NA
 20588,complex,exclusion,not clinical case in human patient,NA
+20588,complex,exclusion,not clinical case in human patient,NA
+20588,ramo´ n y cajal university hospital,location,hospital name,NA
 20588,ramo´ n y cajal university hospital,location,hospital name,NA
 20588,madrid,location,state/province/district,NA
+20588,madrid,location,state/province/district,NA
+20588,spain,location,country,NA
 20588,spain,location,country,NA
 20590,epidemiological,exclusion,not clinical case in human patient,NA
 2061,antimicrobial susceptibility was performed on mueller-hinton agar plates by the standard kirbyebauer disk diffusion method as per the clinical and laboratory standards institute (clsi) guidelines 2014. the isolate was found to be resistant to all antibiotics tested,exclusion, no resistance or did not name antibiotic/antibiotic,NA
@@ -660,7 +655,6 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 20824,transformation of a susceptible escherichia coli host with plasmid preparations from the isolate generated a transformant for which the mics of all of the carbapenems tested were increased threeto fourfold.,exclusion,not clinical case in human patient,NA
 20828,bedaquiline,exclusion,review article,NA
 20835,comparative,exclusion,not clinical case in human patient,NA
-20840,to the editor:,exclusion, not full text article,NA
 20883,characterization of staphylococcus aureus strains isolated from czech cystic fibrosis patients: high rate of ribosomal mutation conferring resistance to mlsb antibiotics as a result of long-term and low-dose azithromycin treatment,exclusion, no resistance or did not name antibiotic/antibiotic,NA
 20903,"recently, a novel vim-type mbl variant, vim-12, was identified from a clinical isolate of klebsiella pneumoniae in greece (16).",exclusion, not first case in country,NA
 20908,the,exclusion,review article,NA
@@ -699,12 +693,9 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 21148,production of a vim-type mbl in a m. morganii clinical isolate is documented in this study for the first time.,exclusion, no resistance or did not name antibiotic/antibiotic,NA
 21150,the high rate of recurrent infections in the community underlies the difficulty of constraining infections caused by such microorganisms in the extrahospital setting.,exclusion, not first case in country,NA
 21160,"the investigation included environmental cultures for source investigation,",exclusion,not clinical case in human patient,NA
-21164,"to date, there are isolates of raoultella ornithinolytica and r. planticolawhich are resistant to carbapenem and carry different carbapenemases, including blakpc, blaoxa-48, and blaoxa-162 genes (2, 5, 6). however, blaimp-8-producing r. planticola has not been reported in the literature",exclusion, not first case in country,NA
 21173,review,exclusion,review article,NA
 21223,letter to the editor,exclusion, not full text article,NA
 21247,"overall though, there are worrying trends in  the emergence of ctx-m-producing e. coli and klebsiella species and gentamicin– and  ciprofloxacin-resistant e. coli now presenting in  or from the community. other resistance patterns  appear stable",exclusion, not first case in country,NA
-21257,"daptomycin resistance in staphylococcus aureus has been previously  reported, but the development of resistance while on therapy with  subsequent clinical failure for endocarditis has been infrequently  reported.",exclusion, not first case in country,NA
-21296,editorial,exclusion, not full text article,NA
 21313,molecular,exclusion,not clinical case in human patient,NA
 21345,july,NA,event month,NA
 21345,2010,NA,event year,NA
@@ -717,7 +708,6 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 21389,"this is probably the first report of a carbapenem-resistant k. pneumoniae outbreak in a hospital setting in saudi arabia involving oxa-48, acknowledging the recent findings of mathers et al. in a patient who had travelled from riyadh, saudi arabia and was reported to be infected by k. pneumoniae with oxa-48.21",NA,references for follow up,NA
 21389,"21. mathers aj, hazen kc, carroll j, yeh aj, cox hl, bonomo ra, et al. first clinical cases of oxa-48-producing carbapenem-resistant klebsiella pneumoniae in the united states: the ‘‘menace’’ arrives in the new world. j clin microbiol 2013;51: 680–3.",NA,references for follow up,NA
 21427,"the persistence of this clone, which has been recovered from both hospital and community settings since 2005, and the possibility of transferring this tn5382 to other epidemic ampicillin-resistant clonal types currently circulating in spain might contribute to increasing the prevalence of vancomycin-resistant enterococci in our area.",exclusion, not first case in country,NA
-21436,methicillin-susceptible st398 staphylococcus aureus responsible for bloodstream infections: an emerging human-adapted subclone?,exclusion, no resistance or did not name antibiotic/antibiotic,NA
 21437,resistant,exclusion, not full text article,NA
 2144,this is the first report of cc17 ent. faecium in sweden,exclusion, not first case in country,NA
 2144,this is the first report of cc17 ent. faecium in sweden,NA,notes,NA
@@ -735,8 +725,6 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 21756,letters,exclusion, not full text article,NA
 21975,brief reports,exclusion, not full text article,NA
 21980,this survey highlights the successful undetected dissemination of yet another carbapenemase in greece and strengthens the hypothesis of a latent ndm-1 cluster in the balkan region.,exclusion, no resistance or did not name antibiotic/antibiotic,NA
-21982,"the oxa162 carbapenemase presents a hydrolytic profile similar to that of its oxa-48 predecessor, differing by a single amino acid substitution (thr223ala), which renders its active site slightly wider (4, 5). this particular carbapenemase remains extremely rare, with limited reports from turkey, germany, and hungary consisting of three klebsiella pneumoniae and single escherichia coli, citrobacter freundii, and raoultella ornithinolytica isolates, respectively (3, 5, 6).",exclusion, not first case in country,NA
-21983,carbapenem resistance due to mbl and kpc carbapenemases is currently on an endemic scale in greece and this report highlights the wider undetected dissemination of yet another carbapenemase in this region,exclusion, not first case in country,NA
 21988,longitudinal survey of staphylococcus aureus in cystic fibrosis patients using a multiple-locus variable-number of tandem-repeats analysis method,exclusion,not clinical case in human patient,NA
 22005,c,exclusion,review article,NA
 22046,we aimed to clarify molecular and  epidemiologic characteristics of sdse isolates and features  of patient infections.,exclusion, not first case in country,NA
@@ -815,8 +803,6 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 23183,"in this study, the antimicrobial susceptibilities and prevalence of plasmid-mediated quinolone resistance determinants amongst salmonella enterica serotype typhimurium isolates from hospitalised paediatric patients with diarrhoea in china were investigated.",exclusion, not first case in country,NA
 23192,outbreaks caused by klebsiella pneumoniae producing carbapenemases and other blactamases have been reported.,exclusion, not first case in country,NA
 23193,"our results show that mcr-1-harboring cre strains have started to spread in different hospitals in china. in addition, this report presents the first description of chromosomal integration of mcr-1 into a carbapenem-resistant e. coli strain.",exclusion, not first case in country,NA
-23199,worldwide susceptibility rates of neisseria gonorrhoeae isolates to cefixime and cefpodoxime: a systematic review and meta-analysis,exclusion,review article,NA
-232,"we report 2 cases of recurrent campylobacter coli enteritis caused by macrolideand fluoroquinolone-resistant strains in 2 patients with hypogammaglobulinemia, successfully treated with a prolonged course of fosfomycin-tromethamine with no side effects.",exclusion, no resistance or did not name antibiotic/antibiotic,NA
 23200,"to our knowledge, the present  report describes the first canadian case of daptomycin-nonsusceptible,  vancomycin-intermediate s aureus infection.",exclusion, no resistance or did not name antibiotic/antibiotic,NA
 23204,letter to the editor,exclusion, not full text article,NA
 23206,research note,exclusion, not full text article,NA
@@ -824,7 +810,6 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 23217,"n this study, a total of 77 multidrug-resistant and extensively drug-resistant (mdr and xdr, respectively) isolates of mycobacterium tuberculosis were characterized among samples from patients living in jiangxi province, china.",exclusion, not first case in country,NA
 23247,"this study was designed to investigate the prevalence of metallo-����-lactamases (mbl) and extended-spectrum ����-lactamases (esbl) in p. aeruginosa isolates collected from two different hospitals in cairo, e",exclusion, not first case in country,NA
 23247,"veb. in conclusion, blavim-2and blaoxa-10-like genes were the most prevalent genes in p. aeruginosa in egypt. to our knowledge, this is the first report of blavim-2, blaimp-1, blandm, and blaoxa-10 in p. aeruginosa in eg",NA,first surveillance study (of a particular resistance) in countr,NA
-23328,the proportion of drug-resistant tb increased during 1997–2005 in sinaloa,exclusion, not first case in country,NA
 23410,"efore this, a case of st167 ndm-5producing e. coli in a 75-year-old male patient with an acute exacerbation of chronic obstructive pulmonary disease was reported from a hospital in west china in 2014.5",exclusion, not first case in country,NA
 23410,"efore this, a case of st167 ndm-5producing e. coli in a 75-year-old male patient with an acute exacerbation of chronic obstructive pulmonary disease was reported from a hospital in west china in 2014.5",NA,references for follow up,NA
 23410,"5. yang p, xie y, feng p, zong z. blandm-5 carried by an incx3 plasmid in escherichia coli sequence type 167. antimicrob agents chemother 2014;58: 7548–52.",NA,references for follow up,NA
@@ -896,7 +881,6 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 3025,isolated,exclusion,not clinical case in human patient,NA
 3039,the pediat,exclusion,review article,NA
 3054,letters to the edito,exclusion, not full text article,NA
-3067,"an equally very high frequency of resistance and equally high levels of diversity in phylogroups, pfge types, and plasmids were observed among communityand hospitalacquired e. coli isolates, indicating the presence of a large reservoir in the community and a long-term spread of cephalosporin resistance in china",exclusion, not first case in country,NA
 3100,such pathogens  remain rare in france although a few outbreaks have  been reported [2],exclusion, not first case in country,NA
 3100,such pathogens  remain rare in france although a few outbreaks have  been reported [2],NA,references for follow up,NA
 3100,"2. kassis-chikhani n, decré d, gautier v, burghoffer b, saliba  f, mathieu d, et al. first outbreak of multidrug-resistant  klebsiella pneumoniae carrying blavim-1 and blashv-5  in a french university hospital. .j antimicrob chemother.  2006;57(1):142-5.",NA,references for follow up,NA
@@ -916,7 +900,6 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 3313,"kpc-2-producing klebsiella pneumoniae isolates mainly correspond to clonal complex 258 (cc258); however, we describe kpc2-producing k. pneumoniae isolates belonging to invasive sequence type 23 (st23). kpc-2 has scarcely been reported to occur in st23, and this report describes the first isolation of this pathogen in the americas.",exclusion, not first case in country,NA
 3324,notes from the field,exclusion, not full text article,NA
 3325,notes from the field,exclusion, not full text article,NA
-3368,letter to the editor,exclusion, not full text article,NA
 3371,"little is known about drug-resistant tuberculosis (tb) and its transmission in papua, which has one of the highest rates of tb in indonesia.",exclusion, not first case in country,NA
 3380,"the aim of this study was to characterize pampc β-lactamase producing  extraintestinal e. coli, their phylogenetic distribution, resistance pattern,  treatment options, and impact on patient’s clinical outcome",exclusion, not first case in country,NA
 340,"a total of 24 isolates were esbl-positive, eliciting resistance to five to seven  antibiotics, and were multiple-drug resistant. esbl production due to the blactx-m-i gene cluster  was detected in eleven (45.8%) salmonella isolates.",exclusion, not first case in country,NA
@@ -1013,7 +996,6 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 4602,"this lineage was first detected in fatal infections and skin diseases in healthy individuals from north american communities [9]. however, in brazil it has gradually replaced well-established lineages in the hospital environment, and usa400/cc1 isolates have shown higher antimicrobial resistance rates than other sccmec iv isolates [10].",exclusion, not first case in country,NA
 4602,this lineage was first detected in fatal infections and skin diseases in healthy individuals from north american communities [9],NA,references for follow up,NA
 4602,"9. mcdougal lk, steward cd, killgore ge, chaitram jm, mcallister sk, tenover fc. pulsed-field gel electrophoresis typing of oxacillin-resistant staphylococcus aureus isolates from the united states: establishing a national database. j clin microbiol. 2003;41:5113–20.",NA,references for follow up,NA
-4673,this study deals with the underlying causes of failure of chloroquine in the treatment of plasmodium falciparum infection in some malaria-endemic regions of india.,exclusion,non-bacterial pathogen (e.g. viral),NA
 4682,ora l pr e s en ta tion,exclusion, not full text article,NA
 470,"all strains were susceptible to vancomycin and metronidazole but high levels of resistance to clindamycin were found, especially among serogroups g and d. co-existence of different ribotypes and serogroups in the same individual was observed. the new seven ribotypes found in this investigation may represent strains characteristic of this region of brazil",exclusion, not first case in country,NA
 471,the present work contributes with valuable information concerning the epidemiology of c. difficile in brazil and highlights that the new ribotypes detected may represent ribotypes specifically found in children from our geographic region,exclusion, not first case in country,NA
@@ -1123,6 +1105,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 5380,"the pathogen has been isolated infrequently from the skin, throat, nasopharynx and other miscellaneous sites (2 , 3 ) but has not produced a disease state except for one case of endocarditis (4 ).",NA,references for follow up,NA
 5380,"4. petit, p.l.c., bok, j.w., thompson, j., buiting, a.g.m. and coyle, m.b. (1994) native-valve endocarditis due to cdc corynefom group anf-3: report of a case and review of corynebacterial endocarditis. clin infec dis 1994: 19: 897-901.",NA,references for follow up,NA
 5390,resistant,exclusion,review article,NA
+5390,resistant,exclusion,review article,NA
 5415,the aim of this study was to investigate the antibiotic susceptibility  and distribution of blavim and blaimp genes in p. aeruginosa isolates from zanjan province of iran.,exclusion, not first case in country,NA
 5416,"this case highlights the importance of spreading of the beta-lactamasemediated resistance mechanisms between countries and continents, s",exclusion, not first case in country,NA
 5422,correspondence,exclusion, not full text article,NA
@@ -1191,7 +1174,6 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 614,"although, 63% of eustachian valve endocarditis is caused by staphylococcus aureus,  we report the first case of vancomycin resistant staphylococcus aureus and first case related to implantable  venous access systems.",exclusion, not first case in country,NA
 6142,research letters,exclusion, not full text article,NA
 617,"fosfomycin resistance in escherichia coli is rare in the  united states. an extended-spectrum β-lactamase–producing e. coli clinical strain identified in pennsylvania, usa, showed high-level fosfomycin resistance caused by the fosa3 gene.",exclusion, not first case in country,NA
-6177,the authors present a case of a patient with endocarditis and sickle cell disease with beta thalassemia requiring mitral valve replacement that emphasizes these complex issues.,exclusion, no resistance or did not name antibiotic/antibiotic,NA
 619,literature review,exclusion,review article,NA
 6194,"this study determined the antibiotic resistance and molecular epidemiology of cnsab isolates from a referral burn center in tehran, iran",exclusion, not first case in country,NA
 6221,drug resistance in  s,exclusion,review article,NA
@@ -1271,6 +1253,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 7327,research letters,exclusion, not full text article,NA
 7328,"although infection with w. falsenii remains rare, this bacterium should not be underestimated, mainly because of its natural resistance to many available antibiotics.",exclusion,did not name antibiotic or antibiotic combo used,NA
 7340,multipl,exclusion,review article,NA
+7340,multipl,exclusion,review article,NA
 7365,"n h. influenzae, resistance to β-lactams associated with pbp3 modifications is increasing worldwide (garcía-cobos et al., 2008; resman et al., 2012; tristram et al., 2007). recently, this mechanism of resistance has also been detected in both h. parainfluenzae and h. haemolyticus (garcía-cobos et al., 2013; tristram et al., 2008; witherden and tristram, 2013). this is the first report describing the presence of modified pbp3 in “h. quentini”, although both our isolate and reference ccug strain exhibited mics for aminopenicillins within the susceptibility range, even if with increased values",exclusion, not first case in country,NA
 7416,this is the first case of multidrug-resistant pseudomonas aeruginosa endophthalmitis following pars plana vitrectomy with silicone oil treated successfully with piperacillin/tazobactam,NA,notes,NA
 7416,case report,NA,article/study aim,NA
@@ -1299,6 +1282,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 7786,"s aureus is among the most common causes of life-threatening bacterial infections worldwide, with increasing  incidence of bacteremia, ie, and severe respiratory tract  and musculoskeletal infections.5,11 treatment is complicated by the emergence of methicillin-resistant strains.5 approximately 1.5% of the us population is colonized  with mrsa, and invasive disease develops in 20 to 40  per 100,000 every year10-12; nearly 14% of cases are  community-acquired.",exclusion, not first case in country,NA
 7831,irst isola,exclusion, not full text article,NA
 7871,dispatches,exclusion, not full text article,NA
+7940,emerging resistance to carbapenems in a tertiary care hospital in north i,exclusion,not clinical case in human patient,NA
 7940,emerging resistance to carbapenems in a tertiary care hospital in north i,exclusion,not clinical case in human patient,NA
 7960,"however,  recently, there has also been emergence  of ceftriaxone resistant strains, limiting the  treatment option.[7,8]",exclusion, not first case in country,NA
 7970,an attempt is therefore made to study the rate of isolation and antimicrobial susceptibility pattern of 5a/míinír//o paratyphi a from cases of enteric fever coming to a tertiary care hospital at c bandigarh.,exclusion, not first case in country,NA
@@ -1378,7 +1362,6 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 9060,isolate,exclusion,not clinical case in human patient,NA
 9069,amp abstracts,exclusion, not full text article,NA
 9077,antimicrobial drug resistance in taiwan,exclusion,review article,NA
-9084,"after applying the revised carbapenem  interpretation criteria for enterobacteriaceae, more strains of  imipenem-resistant e. aerogenes were isolated, but none of  them produced carbapenemase. this is the first isolate  of imipenem-resistant e. aerogenes producing the ambler  class a carbapenemase in asia.",exclusion, not first case in country,NA
 9139,editorial,exclusion, not full text article,NA
 9143,aoms described here do not generally represent any rare cases.,exclusion, not first case in country,NA
 9170,here the first uk case of mssa-pvl leading to pf is presented.,exclusion, no resistance or did not name antibiotic/antibiotic,NA
