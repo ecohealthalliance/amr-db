@@ -1,12 +1,12 @@
 library(here)
 library(readxl)
 library(magrittr)
-library(googledrive)
+library(googlesheets)
 library(stringi)
 library(tidyverse)
 
 # Import Data and Clean Segments -----------------------------
-articles_db <- read_csv(here("data","articles_db.csv")) 
+articles_db <- read_csv(here("data","articles_db.csv")) %>% mutate_all(as.character)
 files <- dir(path = here('data', 'coded_segments'), pattern = "*.xlsx", full.names = TRUE)
 
 # individual segment data (from MaxQDA exports) - each observation is an instance of an annotation (ungrouped)
@@ -74,13 +74,11 @@ segments_grp %>%
   mutate_if(is.list, funs(from_ls_to_flat(.))) %>%
   write_csv(here("data", "data_qa",  "int_segments_check.csv"))
 
-
 # Split Codes from Code ID's -----------------------------
 
 # extract code identifiers from main codes and code categories (A-A and AA-ZZ)
 code_id_letters <- map2(LETTERS, LETTERS, ~paste0(.x, .y)) %>%
   c(., LETTERS) %>% unlist
-
 
 # clean up segments database. keep segment_ls just in case something looks funky
 segments <- segments_grp %>%
@@ -100,6 +98,7 @@ check_orphan_ids <- function(code_id_vec, code_main_vec) {
   return(check_vec)
 }
 
+# parent data frame
 review_codes <- segments %>% 
   mutate(code_identifiers_check = map2(.$code_identifiers, .$code_main, ~check_orphan_ids(.x, .y)))
 
@@ -108,18 +107,83 @@ problem_id_codes <- review_codes %>%
   filter(code_identifiers_check == "check")
 
 # for all codes that have several identifier codes, but only 1 main code, it seems appropriate to repeat the main code for each identifier
-fixed_codes <- problem_id_codes %>% 
+codes_mult <- problem_id_codes %>% 
   filter(map_lgl(code_main, ~length(.x) != 0)) %>%
-  mutate(code_main = map2(code_main, code_identifiers, ~rep(.x, length(.y)))) %>%
+  mutate(code_main = map2(code_main, code_identifiers, ~rep(.x, length(.y))))
+
+fixed_codes_mult <- codes_mult %>%
   filter(map2_lgl(code_main, code_identifiers, ~length(.x) <= length(.y))) 
-# ^ there are 2 cases where there are more main codes than id codes. These are just notes on the doc. ommiting for now
+
+# there are cases where there are more main codes than id codes. These should be reviewed.  
+check_codes_mult <- codes_mult %>%
+  filter(map2_lgl(code_main, code_identifiers, ~length(.x) > length(.y))) %>%
+  mutate_if(is.list, funs(from_ls_to_flat(.))) %>%
+  left_join(select(articles_db, study_id, mex_name), by = "study_id")
+
+
+# id orphan id codes (no main code) - these are checked manually (amr_db_orphan_id_codes on google drive)
+orphan_id_codes <- problem_id_codes %>% 
+  filter(map_lgl(code_main, ~length(.x) == 0)) %>%
+  mutate_if(is.list, funs(from_ls_to_flat(.))) %>%
+  select(-segment_all, -code_identifiers_check) %>%
+  left_join(select(articles_db, study_id, mex_name), by = "study_id")
+
+# bring in orphan ids that have been fixed manually on google drive
+orphan_id_codes_review <- gs_read(gs_title("amr_db_orphan_id_codes"), ws = "review_1") %>%
+  mutate(study_id = as.character(study_id)) 
+
+fixed_codes_ophans <- orphan_id_codes_review %>% 
+  filter(!is.na(code_main)) %>%
+  select(-Notes, -mex_name, -code_main_cat)
+
+# remove from fixed_codes_ophans anything that is no longer current (b/c files have been updated post QA check)
+remove_orphan_ids <- left_join(
+  # data frame 1
+  fixed_codes_ophans %>%
+    select(study_id, code_identifiers),
+  # data frame 2
+  problem_id_codes %>%
+    mutate_if(is.list, funs(from_ls_to_flat(.)))
+) %>%
+  filter(is.na(segment)) %>%
+  select(study_id, code_identifiers)
+
+fixed_codes_ophans %<>%
+  anti_join(remove_orphan_ids) %>%
+  # formatting to match review_codes 
+  mutate(code_identifiers = stri_split_fixed(code_identifiers, ", "),
+         segment_all = as.list(segment),
+         code_main = map2(code_main, code_identifiers, ~rep(.x, length(.y))), # code_main to apply to all segments with same code identifier
+         code_identifiers_check = as.list("check")) 
+
+# identify remaining orphans - including those that were added in more recent rounds.  
+# compare fixed_codes_orphans, which is from google drive, to orphan_id_codes which is generated on fly with most recent dat
+remaining_orphan_ids <- left_join(
+  # data frame 1
+  orphan_id_codes %>% 
+    select(study_id, code_identifiers, segment) %>%
+    group_by(study_id, code_identifiers) %>%
+    mutate(tmp_id = 1:n()) %>% ungroup(), # tmp id to handle dups
+  # data frame 2
+  fixed_codes_ophans %>%
+    mutate_if(is.list, funs(from_ls_to_flat(.))) %>%
+    group_by(study_id, code_identifiers) %>%
+    mutate(tmp_id = 1:n()) %>% ungroup(), # tmp id to handle dups
+  by = c("study_id", "code_identifiers", "tmp_id")
+) %>%
+  filter(is.na(code_main)) %>%
+  select(-segment.y, -segment_all, -code_identifiers_check, -tmp_id) %>%
+  rename(segment = segment.x) %>%
+  left_join(select(articles_db, study_id, mex_name), by = "study_id")
 
 # attach back fixed codes
 segments <- review_codes %>%
   filter(code_identifiers_check != "check") %>%
-  rbind(., fixed_codes)
+  rbind(., fixed_codes_mult) %>%
+  rbind(., fixed_codes_ophans)
 
-# < once orphan_ids are checked, rejoin to segments also from google doc > 
+# sanity check - no codes lost in orphan id process!
+nrow(review_codes) == nrow(segments) + nrow(remaining_orphan_ids)  + nrow(review_codes_mult)
 
 # Unnest Codes for Final Segments DB  -----------------------------
 
@@ -132,7 +196,6 @@ rep_na_for_unnest <- function(code_id_vec, code_main_len) {
   }
   return(new_code_id_vec)
 }
-
 
 # attach back fixed codes from above, and prepare for unnesting, 
 # unnest so each code and id have their own observation (gets rid of list column)
