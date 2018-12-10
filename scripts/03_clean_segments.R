@@ -24,7 +24,12 @@ segments_raw <- map_dfr(files, ~read_xlsx(.x, col_types = "text")) %>%
          end_page, 
          end_off)
 
-save(segments_raw, file = here("data", "segments_raw.RData"))
+write_rds(segments_raw,  here("data", "segments_raw.rds"))
+
+# QA CHECK - these are all excluded articles or notes on articles, usually due to annotating the title of the article in the PDF. All have strange offsets
+na_segments <- segments_raw %>% 
+  filter(is.na(segment)) %>%
+  left_join(select(articles_db, study_id, mex_name))
 
 # create offset range col
 segments_raw %<>%
@@ -71,8 +76,8 @@ segments_grp <- segments_raw %>%
 
 # data sanity check export - do the segments grouped by offsets match? - yes
 segments_grp %>%
-  mutate_if(is.list, funs(from_ls_to_flat(.))) %>%
-  write_csv(here("data", "data_qa",  "int_segments_check.csv"))
+  mutate_if(is.list, funs(from_ls_to_flat(.))) #%>%
+  #write_csv(here("data", "data_qa",  "int_segments_check.csv"))
 
 # Split Codes from Code ID's -----------------------------
 
@@ -86,7 +91,7 @@ segments <- segments_grp %>%
          code_main =  map(codes, function(x) x[!x %in% code_id_letters])) %>%
   select(-matches_str, -length_codes, -range, -codes)
 
-# Check Id Codes Missing Corresponding Main Code -----------------------------
+# QA CHECK - ID Codes Missing Corresponding Main Code -----------------------------
 
 # identify problematic id codes for a given segment (there are more id codes than there are main codes)
 check_orphan_ids <- function(code_id_vec, code_main_vec) {
@@ -197,7 +202,6 @@ rep_na_for_unnest <- function(code_id_vec, code_main_len) {
   return(new_code_id_vec)
 }
 
-# attach back fixed codes from above, and prepare for unnesting, 
 # unnest so each code and id have their own observation (gets rid of list column)
 # separate code category from main code 
 segments %<>%
@@ -218,7 +222,7 @@ excluded_studies <- segments %>%
 write_csv(segments %>%
             filter(study_id %in% excluded_studies), path = here("data", "segments_excluded.csv"))
 
-# omit excluded study Ds from final database
+# omit excluded study IDs from final database
 segments %<>%
   filter(!study_id %in% excluded_studies)
 
@@ -235,10 +239,17 @@ segments %<>%
   mutate(code_identifiers_link = ifelse(is.na(code_identifiers), NA, paste(sort(unique(code_main)), collapse = "; "))) %>%
   ungroup()
 
+# QA CHECK - Identify code identifiers that are not "linked" - these need to be spot checked
+code_links_solo <- segments %>%
+  filter(!grepl("\\;", code_identifiers_link), !is.na(code_identifiers_link)) %>%
+  left_join(., articles_db %>% select(study_id, mex_name) %>% mutate(study_id = as.character(study_id))) %>%
+  arrange(as.numeric(study_id)) %>%
+  select(study_id, segment, code_identifiers, code_identifiers_link, mex_name)
+
 # Remove solo code links
-segments_out <- segments %>% 
+segments %<>% 
   mutate(code_identifiers_link = ifelse(grepl("\\;", code_identifiers_link), code_identifiers_link, NA),
          code_identifiers = ifelse(is.na(code_identifiers_link), NA, code_identifiers)) 
 
 # final segments db
-write_csv(segments_out, path = here("data", "segments.csv"))
+write_csv(segments, path = here("data", "segments.csv"))

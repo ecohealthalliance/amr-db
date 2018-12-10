@@ -5,11 +5,11 @@ library(magrittr)
 library(googledrive)
 library(googlesheets)
 
-load(here("data", "articles_db.RData"))
-load(file = here("data", "segments_db.RData"))
-load(file = here("data-raw", "segments_raw.RData"))
+articles_db <- read_csv(here("data","articles_db.csv")) 
+segments <- read_csv(here("data", "segments.csv"))
+segments_raw <- read_rds(here("data", "segments_raw.rds")) %>% mutate(study_id = as.numeric(study_id))
 
-in_codes_not_art <- segments_db %>%
+in_codes_not_art <- segments %>%
   unique() %>%
   anti_join(., articles_db)
 
@@ -18,7 +18,6 @@ in_codes_not_art <- segments_db %>%
 # 14751 is marked as not downloaded but appears in segments, so it was downloaded -- fixed
 # 20344 - I think this might be 20334 and a typo in study id in the article index -- fixed
 # 20781 marked as no downloaded but it was downloaded and marked with an exclusion tag -- fixed
-
 
 in_art_not_codes <- articles_db %>%
   filter(in_codes_db == "yes") %>%
@@ -32,11 +31,6 @@ missing_in_codes <- in_art_not_codes %>%
 # some of these have notes with reasons. add col in article index (separate from downloaded) that indicates whether it is included in the db or not
 # 12 of these (exported to check_missing_in_codes.csv) -- looked into them and recoded updates in check_missing_in_code_edit.csv 
 
-write_csv(missing_in_codes, here("data", "data_qa", "amr_db_articles_missing_in_segs.csv"))
-drive_upload(media = here("data", "data_qa", "amr_db_articles_missing_in_segs.csv"), 
-             path = "~/amr-db/", #* REVIEW - this does assume you have your amr-db google drive in the top level of g-drive. 
-             type = "spreadsheet")
-
 #----- # manually checked missing ones and updated notes, and in_codes_db columns----
 
 fix_missing <- gs_title("amr_db_articles_missing_in_segs") %>% gs_read()
@@ -46,11 +40,9 @@ articles_db <- articles_db  %>%
   rbind(fix_missing)
 
 # save updated version of article db 
-save(articles_db, file = here("data", "articles_db.RData"))
+write_csv(articles_db, here("data", "articles_db.csv"))
 
 # one article marked NA for downloaded column (and in_codes_db col)
 articles_db  %>%
   filter(!(in_codes_db %in% c("yes", "no")))
-
-
 
