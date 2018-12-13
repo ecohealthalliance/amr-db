@@ -18,7 +18,6 @@ locations <- segments %>%
                                           c("\\(|\\)"),
                                           c(""), vectorize = FALSE))
 
-
 # QA checks -----------------
 # clean 
 # dups 
@@ -65,10 +64,7 @@ locations %<>%
 
 # Import corrections from manual checking of strange fields and replace in events
 cleaned_location_codes <- gs_read(gs_title("amr_db_clean_locs")) %>% 
-  bind_rows(tribble(
-    ~old,      ~new,   ~field,
-    "2",        "",      NA, 
-    "maringa´", "",      NA))
+  replace(is.na(.), "")
 
 locations %<>%
   mutate_at(vars(country, city, hospital, state_province_district, 
@@ -76,7 +72,10 @@ locations %<>%
             funs(stri_replace_all_regex(., cleaned_location_codes$old, cleaned_location_codes$new, 
                                         vectorize_all = FALSE))) %>%
   mutate_all(funs(ifelse(. == ' ', NA, trimws(., "both")))) %>% # bring back NA's
-  mutate_all(funs(gsub(",$", "",.)))
+  mutate_all(funs(gsub(",$", "",.))) %>%
+  mutate_all(funs(gsub("  ", " ",.))) %>%
+  mutate_all(funs(gsub("`|\\'|\\~", "", iconv(., to="ASCII//TRANSLIT")))) %>% # remove accents
+  mutate(city = replace(city, city=="quebec", "quebec city"))
 
 # * Clean Travel Locations ------
 
@@ -222,3 +221,4 @@ clean_list <- gs_read(gs_title("amr_db_locations_qa"), ws = "review_2_travel", s
 updated_studies <- anti_join(trav_locs, clean_list)
 
 write_csv(locations, here("data", "locations.csv"))
+

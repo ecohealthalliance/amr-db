@@ -20,7 +20,7 @@ locations <- read_csv(here("data", "locations.csv")) %>%
     residence_location
   ) %>%
   summarize(travel_location = paste(unique(travel_location), collapse =
-                                      ", ")) %>%
+                                      "; ")) %>%
   ungroup()
 
 bacteria <- read_csv(here("data", "bacteria_genus_species.csv")) %>%
@@ -46,9 +46,29 @@ drugs <- read_csv(here("data", "drugs.csv")) %>%
     drug_rank,
     drug_preferred_label
   ) %>%
-  summarize(drug_parent_name = paste(unique(drug_parent_name), collapse =
-                                       ", ")) %>%
-  ungroup()
+  # collapse multiple parent names
+  summarize(drug_parent_name = paste(unique(drug_parent_name), collapse = "; ")) %>%
+  ungroup() %>%
+  filter(!is.na(drug_preferred_label))
+
+# collapse drug combos
+drugs_combos <- drugs %>%
+  filter(segment_drug_combo == TRUE) %>%
+  group_by(study_id,
+           code_main,
+           code_identifiers,
+           code_identifiers_link,
+           segment_drug_combo
+           ) %>%
+  summarize(drug_rank = paste(drug_rank, collapse = " + "),
+            drug_preferred_label = paste(drug_preferred_label, collapse = " + "),
+            drug_parent_name = paste(drug_parent_name, collapse = " + "),
+            ) %>%
+  ungroup() 
+
+drugs %<>%
+  filter(segment_drug_combo == FALSE) %>%
+  bind_rows(drugs_combos)
 
 dates <- read_csv(here("data", "dates.csv")) 
 
@@ -80,19 +100,18 @@ events <- full_join(locations2, paired_bac_drugs) %>% #assume code links from lo
 #-----------------Check for unique events per country-----------------
 events_qa <- events %>%
   group_by(study_country, drug_preferred_label, bacteria_preferred_label) %>%
-  summarize(study_id = paste(unique(study_id), collapse = ","))
+  summarize(study_id = paste(unique(study_id), collapse = "; "))
 
 non_unique_events <- events_qa %>%
-  filter(grepl(",", study_id))
+  filter(grepl(";", study_id))
 
 # Any duplicated titles?
 articles_dups <- articles_db %>%
   mutate(dup_title = duplicated(title) | 
            duplicated(title, fromLast = TRUE)) %>%
   filter(dup_title==TRUE) %>%
-  select(study_id, title, author, year, url, volume, doi, edition, language, mex_name) #%>%
-  #summarize(study_id = paste(study_id, collapse = ", "),
-  #          mex_name = paste(mex_name, collapse = ", "))
+  select(study_id, title, author, year, url, volume, doi, edition, language, mex_name) %>%
+  arrange(title)
 
 # Any fuzzy duplicated titles?
 articles_dups_fuzz <- expand.grid(articles_db$title, articles_db$title) %>%
@@ -108,6 +127,4 @@ articles_dups_fuzz <- expand.grid(articles_db$title, articles_db$title) %>%
   setNames(gsub("\\.x", "1", colnames(.) )) %>%
   setNames(gsub("\\.y", "2", colnames(.) ))
 
-
 write_csv(events, here("data", "events_db.csv"))
-write_csv(events_qa, here("data", "data_qa", "events_qa.csv"))

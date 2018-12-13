@@ -64,7 +64,6 @@ missing_year <- dates %>%
   select(study_id) %>%
   left_join(., articles_db %>% select(study_id, mex_name))
 
-
 # Lookups for manual cleaning ----------------
 
 cleaned_date_codes <- gs_read(gs_title("amr_db_clean_dates")) 

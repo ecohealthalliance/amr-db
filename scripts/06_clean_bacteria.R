@@ -30,7 +30,9 @@ bacteria <- segments %>%
       cleaned_bacteria_codes$new,
       vectorize_all = FALSE
     )
-  )
+  ) %>%
+  mutate(segment = gsub("  ", " ", segment)) %>%
+  distinct()
 
 # QA Checks-----------------
 # clean 
@@ -83,7 +85,8 @@ bacteria_genspe %<>%
 bacteria_genspe_check <- bacteria_genspe %>%
   filter(bacteria_segment_name_class == "abbreviation") %>%
   select(study_id, code_identifiers, segment, bacteria_preferred_label) %>%
-  distinct() 
+  distinct() %>%
+  arrange(study_id)
 #gs_new("amr_db_bacteria_abbr", input = bacteria_genspe_check)
 
 # Get ncbi parent name and rank
