@@ -23,7 +23,7 @@ segments_excluded <- read_csv(here("data", "segments_excluded.csv"))
 articles_db <- read_csv(here("data", "articles_db.csv")) %>%
   mutate(title = tolower(title)) %>%
   filter(study_id %in% unique(segments$study_id)) 
-articles_db17 <- read_csv(here("data", "amr-dd.csv")) #articles from 2017 review
+articles_db17 <- read_rds(here("data", "2017-dat", "complete.rds")) #articles from 2017 review
 #+ r setup, include = FALSE
 
 #' -----------------Locations-----------------
