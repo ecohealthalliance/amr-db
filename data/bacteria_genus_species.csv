@@ -1,6 +1,5 @@
 study_id,segment,code_main,code_identifiers,code_identifiers_link,bacteria_id,bacteria_definitions,bacteria_rank,bacteria_div,bacteria_segment_name_class,bacteria_preferred_label,bacteria_preferred_label_abbr,bacteria_parent_name,bacteria_parent_rank
 10020,k pneumoniae,binomial (genus species),NA,NA,573,NA,species,bacteria,abbreviation,klebsiella pneumoniae,k. pneumoniae,klebsiella,genus
-10081,mycobacterium szulgai,binomial (genus species),NA,NA,1787,NA,species,bacteria,preferred_label,mycobacterium szulgai,m. szulgai,mycobacterium,genus
 10083,streptococcus pneumoniae,binomial (genus species),NA,NA,1313,NA,species,bacteria,preferred_label,streptococcus pneumoniae,s. pneumoniae,streptococcus,genus
 10209,enterobacter aerogenes,binomial (genus species),NA,NA,548,NA,species,bacteria,synonyms,klebsiella aerogenes,k. aerogenes,klebsiella,genus
 10221,klebsiella pneumoniae,binomial (genus species),NA,NA,573,NA,species,bacteria,preferred_label,klebsiella pneumoniae,k. pneumoniae,klebsiella,genus
@@ -27,7 +26,7 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,bacteria_id,ba
 11201,pseudomonas aeruginosa,binomial (genus species),NA,NA,287,NA,species,bacteria,preferred_label,pseudomonas aeruginosa,p. aeruginosa,pseudomonas aeruginosa group,species group
 11202,pseudomonas aeruginosa,binomial (genus species),NA,NA,287,NA,species,bacteria,preferred_label,pseudomonas aeruginosa,p. aeruginosa,pseudomonas aeruginosa group,species group
 11303,morganella morganii,binomial (genus species),aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district,582,NA,species,bacteria,preferred_label,morganella morganii,m. morganii,morganella,genus
-11303,providencia rettgeri,binomial (genus species),bb,age; binomial (genus species); comorbidities; country; drug resisted; place traveled to; resistance marker; sex; state/province/district; symptoms/disease,587,NA,species,bacteria,preferred_label,providencia rettgeri,p. rettgeri,providencia,genus
+11303,providencia rettgeri,binomial (genus species),bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease,587,NA,species,bacteria,preferred_label,providencia rettgeri,p. rettgeri,providencia,genus
 11384,escherichia fergusonii,binomial (genus species),NA,NA,564,NA,species,bacteria,preferred_label,escherichia fergusonii,e. fergusonii,escherichia,genus
 11395,providencia stuartii,binomial (genus species),NA,NA,588,NA,species,bacteria,preferred_label,providencia stuartii,p. stuartii,providencia,genus
 11406,klebsiella oxytoca,binomial (genus species),NA,NA,571,NA,species,bacteria,preferred_label,klebsiella oxytoca,k. oxytoca,klebsiella,genus
@@ -86,7 +85,6 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,bacteria_id,ba
 15256,enterobacter cloacae,binomial (genus species),NA,NA,550,NA,species,bacteria,preferred_label,enterobacter cloacae,e. cloacae,enterobacter cloacae complex,species group
 15268,escherichia coli,binomial (genus species),NA,NA,562,NA,species,bacteria,preferred_label,escherichia coli,e. coli,escherichia,genus
 15331,staphylococcus epidermidis,binomial (genus species),NA,NA,1282,NA,species,bacteria,preferred_label,staphylococcus epidermidis,s. epidermidis,staphylococcus,genus
-15337,enterococcus faecium,binomial (genus species),NA,NA,1352,NA,species,bacteria,preferred_label,enterococcus faecium,e. faecium,enterococcus,genus
 15378,enterococcus faecium,binomial (genus species),NA,NA,1352,NA,species,bacteria,preferred_label,enterococcus faecium,e. faecium,enterococcus,genus
 15475,salmonella enterica,binomial (genus species),NA,NA,28901,NA,species,bacteria,preferred_label,salmonella enterica,s. enterica,salmonella,genus
 15632,klebsiella pneumoniae,binomial (genus species),NA,NA,573,NA,species,bacteria,preferred_label,klebsiella pneumoniae,k. pneumoniae,klebsiella,genus
@@ -126,10 +124,7 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,bacteria_id,ba
 1806,burkholderia pseudomallei,binomial (genus species),NA,NA,28450,NA,species,bacteria,preferred_label,burkholderia pseudomallei,b. pseudomallei,pseudomallei group,species group
 18073,bacteroides thetaiotaomicron,binomial (genus species),NA,NA,818,NA,species,bacteria,preferred_label,bacteroides thetaiotaomicron,b. thetaiotaomicron,bacteroides,genus
 18158,klebsiella pneumoniae,binomial (genus species),NA,NA,573,NA,species,bacteria,preferred_label,klebsiella pneumoniae,k. pneumoniae,klebsiella,genus
-18184,mycobacterium tuberculosis,binomial (genus species),NA,NA,1773,NA,species,bacteria,preferred_label,mycobacterium tuberculosis,m. tuberculosis,mycobacterium tuberculosis complex,species group
-18265,klebsiella pneumoniae,binomial (genus species),NA,NA,573,NA,species,bacteria,preferred_label,klebsiella pneumoniae,k. pneumoniae,klebsiella,genus
 183,escherichia coli,binomial (genus species),NA,NA,562,NA,species,bacteria,preferred_label,escherichia coli,e. coli,escherichia,genus
-18418,escherichia coli,binomial (genus species),NA,NA,562,NA,species,bacteria,preferred_label,escherichia coli,e. coli,escherichia,genus
 18437,b cenocepacia,binomial (genus species),NA,NA,95486,NA,species,bacteria,abbreviation,burkholderia cenocepacia,b. cenocepacia,burkholderia cepacia complex,species group
 18438,shigella flexneri,binomial (genus species),NA,NA,623,NA,species,bacteria,preferred_label,shigella flexneri,s. flexneri,shigella,genus
 18469,enterococcus raffinosus,binomial (genus species),NA,NA,71452,NA,species,bacteria,preferred_label,enterococcus raffinosus,e. raffinosus,enterococcus,genus
@@ -148,8 +143,6 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,bacteria_id,ba
 18945,pseudomonas aeruginosa,binomial (genus species),NA,NA,287,NA,species,bacteria,preferred_label,pseudomonas aeruginosa,p. aeruginosa,pseudomonas aeruginosa group,species group
 18946,klebsiella pneumoniae,binomial (genus species),NA,NA,573,NA,species,bacteria,preferred_label,klebsiella pneumoniae,k. pneumoniae,klebsiella,genus
 18947,klebsiella pneumoniae,binomial (genus species),NA,NA,573,NA,species,bacteria,preferred_label,klebsiella pneumoniae,k. pneumoniae,klebsiella,genus
-18947,new delhi metallo-beta-lactamase1,binomial (genus species),NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
-18947,blakpc,binomial (genus species),NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
 18963,aeromonas hydrophila,binomial (genus species),NA,NA,644,NA,species,bacteria,preferred_label,aeromonas hydrophila,a. hydrophila,aeromonas,genus
 19093,bacteroides fragilis,binomial (genus species),NA,NA,817,NA,species,bacteria,preferred_label,bacteroides fragilis,b. fragilis,bacteroides,genus
 19152,leclercia adecarboxylata,binomial (genus species),NA,NA,83655,NA,species,bacteria,preferred_label,leclercia adecarboxylata,l. adecarboxylata,leclercia,genus
@@ -181,7 +174,6 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,bacteria_id,ba
 21348,neisseria gonorrhoeae,binomial (genus species),NA,NA,485,NA,species,bacteria,preferred_label,neisseria gonorrhoeae,n. gonorrhoeae,neisseria,genus
 21464,actinobaculum schaalii,binomial (genus species),NA,NA,59505,NA,species,bacteria,synonyms,actinotignum schaalii,a. schaalii,actinotignum,genus
 21479,neisseria gonorrhoeae,binomial (genus species),NA,NA,485,NA,species,bacteria,preferred_label,neisseria gonorrhoeae,n. gonorrhoeae,neisseria,genus
-21726,mycobacterium tuberculosis,binomial (genus species),NA,NA,1773,NA,species,bacteria,preferred_label,mycobacterium tuberculosis,m. tuberculosis,mycobacterium tuberculosis complex,species group
 21824,pseudomonas aeruginosa,binomial (genus species),NA,NA,287,NA,species,bacteria,preferred_label,pseudomonas aeruginosa,p. aeruginosa,pseudomonas aeruginosa group,species group
 21838,shewanella putrefaciens,binomial (genus species),NA,NA,24,NA,species,bacteria,preferred_label,shewanella putrefaciens,s. putrefaciens,shewanella,genus
 22121,s maltophilia,binomial (genus species),NA,NA,40324,NA,species,bacteria,abbreviation,stenotrophomonas maltophilia,s. maltophilia,stenotrophomonas maltophilia group,no rank
@@ -189,7 +181,6 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,bacteria_id,ba
 22199,klebsiella pneumoniae,binomial (genus species),NA,NA,573,NA,species,bacteria,preferred_label,klebsiella pneumoniae,k. pneumoniae,klebsiella,genus
 22437,escherichia coli,binomial (genus species),NA,NA,562,NA,species,bacteria,preferred_label,escherichia coli,e. coli,escherichia,genus
 22668,salmonella enterica,binomial (genus species),NA,NA,28901,NA,species,bacteria,preferred_label,salmonella enterica,s. enterica,salmonella,genus
-22703,babesia microti,binomial (genus species),NA,NA,5868,NA,species,invertebrates,preferred_label,babesia microti,b. microti,babesia,genus
 2302,enterobacter cloacae,binomial (genus species),NA,NA,550,NA,species,bacteria,preferred_label,enterobacter cloacae,e. cloacae,enterobacter cloacae complex,species group
 2303,escherichia coli,binomial (genus species),NA,NA,562,NA,species,bacteria,preferred_label,escherichia coli,e. coli,escherichia,genus
 23039,a caviae,binomial (genus species),NA,NA,648,NA,species,bacteria,abbreviation,aeromonas caviae,a. caviae,aeromonas,genus
@@ -200,10 +191,8 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,bacteria_id,ba
 23248,pseudomonas aeruginosa,binomial (genus species),NA,NA,287,NA,species,bacteria,preferred_label,pseudomonas aeruginosa,p. aeruginosa,pseudomonas aeruginosa group,species group
 23251,acinetobacter baumannii,binomial (genus species),NA,NA,470,NA,species,bacteria,preferred_label,acinetobacter baumannii,a. baumannii,acinetobacter calcoaceticus/baumannii complex,species group
 23314,k pneumoniae,binomial (genus species),NA,NA,573,NA,species,bacteria,abbreviation,klebsiella pneumoniae,k. pneumoniae,klebsiella,genus
-23408,rhodoplanes,binomial (genus species),NA,NA,29407,NA,genus,bacteria,preferred_label,rhodoplanes,rhodoplanes,hyphomicrobiaceae,family
 23491,stenotrophomonas maltophilia,binomial (genus species),NA,NA,40324,NA,species,bacteria,preferred_label,stenotrophomonas maltophilia,s. maltophilia,stenotrophomonas maltophilia group,no rank
 23549,acinetobacter junii,binomial (genus species),NA,NA,40215,NA,species,bacteria,preferred_label,acinetobacter junii,a. junii,acinetobacter,genus
-23647,enterococcus faecium,binomial (genus species),NA,NA,1352,NA,species,bacteria,preferred_label,enterococcus faecium,e. faecium,enterococcus,genus
 2372,acinetobacter indicus,binomial (genus species),NA,NA,756892,NA,species,bacteria,preferred_label,acinetobacter indicus,a. indicus,acinetobacter,genus
 2389,enterobacter asburiae,binomial (genus species),NA,NA,61645,NA,species,bacteria,preferred_label,enterobacter asburiae,e. asburiae,enterobacter cloacae complex,species group
 2418,staphylococcus aureus,binomial (genus species),NA,NA,1280,NA,species,bacteria,preferred_label,staphylococcus aureus,s. aureus,staphylococcus,genus
@@ -223,8 +212,6 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,bacteria_id,ba
 281,neisseria meningitidis,binomial (genus species),NA,NA,487,NA,species,bacteria,preferred_label,neisseria meningitidis,n. meningitidis,neisseria,genus
 2863,staphylococcus capitis,binomial (genus species),NA,NA,29388,NA,species,bacteria,preferred_label,staphylococcus capitis,s. capitis,staphylococcus,genus
 2889,mycoplasma pneumoniae,binomial (genus species),NA,NA,2104,NA,species,bacteria,preferred_label,mycoplasma pneumoniae,m. pneumoniae,mycoplasma,genus
-2963,klebsiella oxytoca,binomial (genus species),NA,NA,571,NA,species,bacteria,preferred_label,klebsiella oxytoca,k. oxytoca,klebsiella,genus
-2963,citrobacter koseri,binomial (genus species),NA,NA,545,NA,species,bacteria,preferred_label,citrobacter koseri,c. koseri,citrobacter,genus
 3060,acinetobacter soli,binomial (genus species),NA,NA,487316,NA,species,bacteria,preferred_label,acinetobacter soli,a. soli,acinetobacter,genus
 3095,pseudomonas aeruginosa,binomial (genus species),NA,NA,287,NA,species,bacteria,preferred_label,pseudomonas aeruginosa,p. aeruginosa,pseudomonas aeruginosa group,species group
 3235,raoultella planticola,binomial (genus species),NA,NA,575,NA,species,bacteria,preferred_label,raoultella planticola,r. planticola,raoultella,genus
@@ -281,6 +268,7 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,bacteria_id,ba
 6505,staphylococcus aureus,binomial (genus species),NA,NA,1280,NA,species,bacteria,preferred_label,staphylococcus aureus,s. aureus,staphylococcus,genus
 661,staphylococcus aureus,binomial (genus species),NA,NA,1280,NA,species,bacteria,preferred_label,staphylococcus aureus,s. aureus,staphylococcus,genus
 6655,klebsiella pneumoniae,binomial (genus species),NA,NA,573,NA,species,bacteria,preferred_label,klebsiella pneumoniae,k. pneumoniae,klebsiella,genus
+6655,k pneumoniae,binomial (genus species),NA,NA,573,NA,species,bacteria,abbreviation,klebsiella pneumoniae,k. pneumoniae,klebsiella,genus
 6737,a xylosoxidans,binomial (genus species),NA,NA,85698,NA,species,bacteria,abbreviation,achromobacter xylosoxidans,a. xylosoxidans,achromobacter,genus
 6737,a xylosoxidans,binomial (genus species),NA,NA,85698,NA,species,bacteria,abbreviation,achromobacter xylosoxidans,a. xylosoxidans,achromobacter,genus
 6737,a xylosoxidans,binomial (genus species),NA,NA,85698,NA,species,bacteria,abbreviation,achromobacter xylosoxidans,a. xylosoxidans,achromobacter,genus
@@ -317,7 +305,6 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,bacteria_id,ba
 8950,klebsiella pneumoniae,binomial (genus species),NA,NA,573,NA,species,bacteria,preferred_label,klebsiella pneumoniae,k. pneumoniae,klebsiella,genus
 8982,staphylococcus aureus,binomial (genus species),NA,NA,1280,NA,species,bacteria,preferred_label,staphylococcus aureus,s. aureus,staphylococcus,genus
 9,helicobacter pylori,binomial (genus species),NA,NA,210,NA,species,bacteria,preferred_label,helicobacter pylori,h. pylori,helicobacter,genus
-9010,klebsiella pneumoniae,binomial (genus species),NA,NA,573,NA,species,bacteria,preferred_label,klebsiella pneumoniae,k. pneumoniae,klebsiella,genus
 9045,klebsiella pneumoniae,binomial (genus species),NA,NA,573,NA,species,bacteria,preferred_label,klebsiella pneumoniae,k. pneumoniae,klebsiella,genus
 9075,acinetobacter baumannii,binomial (genus species),aa,binomial (genus species); drug resisted; mic; resistance marker; strain,470,NA,species,bacteria,preferred_label,acinetobacter baumannii,a. baumannii,acinetobacter calcoaceticus/baumannii complex,species group
 9075,citrobacter freundii,binomial (genus species),bb,binomial (genus species); drug resisted; mic; resistance marker,546,NA,species,bacteria,preferred_label,citrobacter freundii,c. freundii,citrobacter freundii complex,species group

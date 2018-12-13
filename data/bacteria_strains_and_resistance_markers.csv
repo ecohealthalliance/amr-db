@@ -327,7 +327,7 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,card_db,card_s
 15475,ctx-m-2,resistance marker,NA,NA,card_aro,ARO:3001865,primary,ctx-m beta-lactamase,ARO:3000016,beta-lactamase,ARO:3000001,5
 15475,ctx-m-2,resistance marker,NA,NA,card_aro,ARO:3001865,primary,ctx-m beta-lactamase,ARO:3000016,class a beta-lactamase,ARO:3000078,6
 15475,ctx-m-2,resistance marker,NA,NA,card_aro,ARO:3001865,primary,ctx-m beta-lactamase,ARO:3000016,ctx-m beta-lactamase,ARO:3000016,7
-15632,carbapenemase-producing  kpc,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
+15632,carbapenemase-producing kpc,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
 15632,type 2 strains,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,2
 15632,st258,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,3
 15632,blakpc-2,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,4
@@ -453,14 +453,7 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,card_db,card_s
 1786,kpc-2,resistance marker,NA,NA,card_aro,ARO:3002312,primary,kpc beta-lactamase,ARO:3000059,kpc beta-lactamase,ARO:3000059,7
 1786,st37,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
 18158,kp3018,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
-18265,st258,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
-18265,kpc-2,resistance marker,NA,NA,card_aro,ARO:3002312,primary,kpc beta-lactamase,ARO:3000059,process or component of antibiotic biology or chemistry,ARO:1000001,1
-18265,kpc-2,resistance marker,NA,NA,card_aro,ARO:3002312,primary,kpc beta-lactamase,ARO:3000059,determinant of antibiotic resistance,ARO:3000000,2
-18265,kpc-2,resistance marker,NA,NA,card_aro,ARO:3002312,primary,kpc beta-lactamase,ARO:3000059,determinant of beta-lactam resistance,ARO:3000129,3
-18265,kpc-2,resistance marker,NA,NA,card_aro,ARO:3002312,primary,kpc beta-lactamase,ARO:3000059,antibiotic inactivation enzyme,ARO:3000557,4
-18265,kpc-2,resistance marker,NA,NA,card_aro,ARO:3002312,primary,kpc beta-lactamase,ARO:3000059,beta-lactamase,ARO:3000001,5
-18265,kpc-2,resistance marker,NA,NA,card_aro,ARO:3002312,primary,kpc beta-lactamase,ARO:3000059,class a beta-lactamase,ARO:3000078,6
-18265,kpc-2,resistance marker,NA,NA,card_aro,ARO:3002312,primary,kpc beta-lactamase,ARO:3000059,kpc beta-lactamase,ARO:3000059,7
+18184,mycobacterium tuberculosis,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
 183,st5,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
 183,oxa-48,resistance marker,NA,NA,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,process or component of antibiotic biology or chemistry,ARO:1000001,1
 183,oxa-48,resistance marker,NA,NA,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,determinant of antibiotic resistance,ARO:3000000,2
@@ -469,15 +462,6 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,card_db,card_s
 183,oxa-48,resistance marker,NA,NA,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,beta-lactamase,ARO:3000001,5
 183,oxa-48,resistance marker,NA,NA,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,class d beta-lactamase,ARO:3000075,6
 183,oxa-48,resistance marker,NA,NA,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,oxa beta-lactamase,ARO:3000017,7
-18418,st2659,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
-18418,ndm-5,resistance marker,NA,NA,card_aro,ARO:3000467,primary,ndm beta-lactamase,ARO:3000057,process or component of antibiotic biology or chemistry,ARO:1000001,1
-18418,ndm-5,resistance marker,NA,NA,card_aro,ARO:3000467,primary,ndm beta-lactamase,ARO:3000057,determinant of antibiotic resistance,ARO:3000000,2
-18418,ndm-5,resistance marker,NA,NA,card_aro,ARO:3000467,primary,ndm beta-lactamase,ARO:3000057,determinant of beta-lactam resistance,ARO:3000129,3
-18418,ndm-5,resistance marker,NA,NA,card_aro,ARO:3000467,primary,ndm beta-lactamase,ARO:3000057,antibiotic inactivation enzyme,ARO:3000557,4
-18418,ndm-5,resistance marker,NA,NA,card_aro,ARO:3000467,primary,ndm beta-lactamase,ARO:3000057,beta-lactamase,ARO:3000001,5
-18418,ndm-5,resistance marker,NA,NA,card_aro,ARO:3000467,primary,ndm beta-lactamase,ARO:3000057,class b (metallo-) beta-lactamase,ARO:3000004,6
-18418,ndm-5,resistance marker,NA,NA,card_aro,ARO:3000467,primary,ndm beta-lactamase,ARO:3000057,subclass b1 (metallo-) beta-lactamase,ARO:3000568,7
-18418,ndm-5,resistance marker,NA,NA,card_aro,ARO:3000467,primary,ndm beta-lactamase,ARO:3000057,ndm beta-lactamase,ARO:3000057,8
 18437,j2315,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
 18631,1087,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
 18674,ndm1,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
@@ -502,9 +486,8 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,card_db,card_s
 18946,tem,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
 18946,shv,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,2
 18946,ctx-m,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,3
-18947,blandm-1,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
-18947,blashv,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,2
-18947,blactx-m,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,3
+18947,blactx-m,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
+18947,metallo-beta-lactamase1-producing,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,2
 18947,ndm-1,resistance marker,NA,NA,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,process or component of antibiotic biology or chemistry,ARO:1000001,1
 18947,ndm-1,resistance marker,NA,NA,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,determinant of antibiotic resistance,ARO:3000000,2
 18947,ndm-1,resistance marker,NA,NA,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,determinant of beta-lactam resistance,ARO:3000129,3
@@ -513,7 +496,9 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,card_db,card_s
 18947,ndm-1,resistance marker,NA,NA,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,class b (metallo-) beta-lactamase,ARO:3000004,6
 18947,ndm-1,resistance marker,NA,NA,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,subclass b1 (metallo-) beta-lactamase,ARO:3000568,7
 18947,ndm-1,resistance marker,NA,NA,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,ndm beta-lactamase,ARO:3000057,8
-18947,blatem,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,4
+18947,blatem,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,3
+18947,blandm-1,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,4
+18947,blashv,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,5
 19152,kbn0601918,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
 19152,blatem-1,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,2
 19152,blactx-m group 1,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,3
@@ -706,7 +691,7 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,card_db,card_s
 21347,st1901,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
 21347,st1407,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,2
 21347,pena mosaic xxxiv allele,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,3
-21347,a single additional amino acid alteration t534a  in the gene for penicillin binding protein 2,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,4
+21347,a single additional amino acid alteration t534a in the gene for penicillin binding protein 2,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,4
 21347,mtrr,resistance marker,NA,NA,card_aro,ARO:3000817,primary,protein(s) and two-component regulatory system modulating antibiotic efflux,ARO:3000451,process or component of antibiotic biology or chemistry,ARO:1000001,1
 21347,mtrr,resistance marker,NA,NA,card_aro,ARO:3000817,primary,protein(s) and two-component regulatory system modulating antibiotic efflux,ARO:3000451,determinant of antibiotic resistance,ARO:3000000,2
 21347,mtrr,resistance marker,NA,NA,card_aro,ARO:3000817,primary,protein(s) and two-component regulatory system modulating antibiotic efflux,ARO:3000451,protein(s) and two-component regulatory system modulating antibiotic efflux,ARO:3000451,3
@@ -840,7 +825,6 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,card_db,card_s
 23251,ctx-m-15,strain,NA,NA,card_aro,ARO:3001878,primary,cefalotin,ARO:3000704,ctx-m beta-lactamase,ARO:3000016,38
 23251,ctx-m-15,strain,NA,NA,card_aro,ARO:3001878,primary,cefalotin,ARO:3000704,cefalotin,ARO:3000704,39
 23314,ndm-1 strain,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
-23408,zlj-0,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
 23491,st31,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
 23549,ndm-1,resistance marker,NA,NA,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,process or component of antibiotic biology or chemistry,ARO:1000001,1
 23549,ndm-1,resistance marker,NA,NA,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,determinant of antibiotic resistance,ARO:3000000,2
@@ -850,7 +834,6 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,card_db,card_s
 23549,ndm-1,resistance marker,NA,NA,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,class b (metallo-) beta-lactamase,ARO:3000004,6
 23549,ndm-1,resistance marker,NA,NA,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,subclass b1 (metallo-) beta-lactamase,ARO:3000568,7
 23549,ndm-1,resistance marker,NA,NA,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,ndm beta-lactamase,ARO:3000057,8
-23647,van a,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
 2372,oxa-23,resistance marker,NA,NA,card_aro,ARO:3001418,primary,oxa beta-lactamase,ARO:3000017,process or component of antibiotic biology or chemistry,ARO:1000001,1
 2372,oxa-23,resistance marker,NA,NA,card_aro,ARO:3001418,primary,oxa beta-lactamase,ARO:3000017,determinant of antibiotic resistance,ARO:3000000,2
 2372,oxa-23,resistance marker,NA,NA,card_aro,ARO:3001418,primary,oxa beta-lactamase,ARO:3000017,determinant of beta-lactam resistance,ARO:3000129,3
@@ -919,34 +902,16 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,card_db,card_s
 267,cmy-37,resistance marker,NA,NA,card_aro,ARO:3002048,primary,cmy beta-lactamase,ARO:3000069,cmy-mox beta-lactamase,ARO:3000087,9
 267,cmy-37,resistance marker,NA,NA,card_aro,ARO:3002048,primary,cmy beta-lactamase,ARO:3000069,cmy beta-lactamase,ARO:3000069,10
 267,4306,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
-2963,vim-4,resistance marker,NA,NA,card_aro,ARO:3002274,primary,vim beta-lactamase,ARO:3000021,process or component of antibiotic biology or chemistry,ARO:1000001,1
-2963,vim-4,resistance marker,NA,NA,card_aro,ARO:3002274,primary,vim beta-lactamase,ARO:3000021,determinant of antibiotic resistance,ARO:3000000,2
-2963,vim-4,resistance marker,NA,NA,card_aro,ARO:3002274,primary,vim beta-lactamase,ARO:3000021,determinant of beta-lactam resistance,ARO:3000129,3
-2963,vim-4,resistance marker,NA,NA,card_aro,ARO:3002274,primary,vim beta-lactamase,ARO:3000021,antibiotic inactivation enzyme,ARO:3000557,4
-2963,vim-4,resistance marker,NA,NA,card_aro,ARO:3002274,primary,vim beta-lactamase,ARO:3000021,beta-lactamase,ARO:3000001,5
-2963,vim-4,resistance marker,NA,NA,card_aro,ARO:3002274,primary,vim beta-lactamase,ARO:3000021,class b (metallo-) beta-lactamase,ARO:3000004,6
-2963,vim-4,resistance marker,NA,NA,card_aro,ARO:3002274,primary,vim beta-lactamase,ARO:3000021,subclass b1 (metallo-) beta-lactamase,ARO:3000568,7
-2963,vim-4,resistance marker,NA,NA,card_aro,ARO:3002274,primary,vim beta-lactamase,ARO:3000021,vim beta-lactamase,ARO:3000021,8
-2963,cmy-4,resistance marker,NA,NA,card_aro,ARO:3002015,primary,cmy beta-lactamase,ARO:3000069,process or component of antibiotic biology or chemistry,ARO:1000001,1
-2963,cmy-4,resistance marker,NA,NA,card_aro,ARO:3002015,primary,cmy beta-lactamase,ARO:3000069,determinant of antibiotic resistance,ARO:3000000,2
-2963,cmy-4,resistance marker,NA,NA,card_aro,ARO:3002015,primary,cmy beta-lactamase,ARO:3000069,determinant of beta-lactam resistance,ARO:3000129,3
-2963,cmy-4,resistance marker,NA,NA,card_aro,ARO:3002015,primary,cmy beta-lactamase,ARO:3000069,antibiotic inactivation enzyme,ARO:3000557,4
-2963,cmy-4,resistance marker,NA,NA,card_aro,ARO:3002015,primary,cmy beta-lactamase,ARO:3000069,beta-lactamase,ARO:3000001,5
-2963,cmy-4,resistance marker,NA,NA,card_aro,ARO:3002015,primary,cmy beta-lactamase,ARO:3000069,class c beta-lactamase,ARO:3000076,6
-2963,cmy-4,resistance marker,NA,NA,card_aro,ARO:3002015,primary,cmy beta-lactamase,ARO:3000069,cmy-lat-mox beta-lactamase,ARO:3000085,7
-2963,cmy-4,resistance marker,NA,NA,card_aro,ARO:3002015,primary,cmy beta-lactamase,ARO:3000069,cmy-lat beta-lactamase,ARO:3000086,8
-2963,cmy-4,resistance marker,NA,NA,card_aro,ARO:3002015,primary,cmy beta-lactamase,ARO:3000069,cmy-mox beta-lactamase,ARO:3000087,9
-2963,cmy-4,resistance marker,NA,NA,card_aro,ARO:3002015,primary,cmy beta-lactamase,ARO:3000069,cmy beta-lactamase,ARO:3000069,10
 3060,strain a400,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
 3060,strain ccug59023,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,2
 3060,blandm,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,3
 3060,blaoxa-58,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,4
 3235,kpc,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
 3596,kp01,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
-360,blandm,resistance marker,d,drug resisted; mic; resistance marker,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
-360,blaoxa-24 like,resistance marker,e,drug resisted; resistance marker,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
-360,cmul334,strain,b,drug resisted; strain,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
-360,cmul332,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
+360,blandm,resistance marker,d,drug resisted; mic; resistance marker; strain,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
+360,blaoxa-24 like,resistance marker,e,drug resisted; mic; resistance marker; strain,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
+360,cmul334,strain,b,age; drug resisted; strain,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
+360,cmul332,strain,a,age; strain,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
 3622,oxa-48,resistance marker,NA,NA,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,process or component of antibiotic biology or chemistry,ARO:1000001,1
 3622,oxa-48,resistance marker,NA,NA,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,determinant of antibiotic resistance,ARO:3000000,2
 3622,oxa-48,resistance marker,NA,NA,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,determinant of beta-lactam resistance,ARO:3000129,3
@@ -1101,14 +1066,14 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,card_db,card_s
 5449,vim-1,resistance marker,NA,NA,card_aro,ARO:3002271,primary,vim beta-lactamase,ARO:3000021,subclass b1 (metallo-) beta-lactamase,ARO:3000568,7
 5449,vim-1,resistance marker,NA,NA,card_aro,ARO:3002271,primary,vim beta-lactamase,ARO:3000021,vim beta-lactamase,ARO:3000021,8
 5560,mutations in the gyra and parc genes,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
-5774,ndm-1,resistance marker,bb,drug resisted; resistance marker,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,process or component of antibiotic biology or chemistry,ARO:1000001,1
-5774,ndm-1,resistance marker,bb,drug resisted; resistance marker,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,determinant of antibiotic resistance,ARO:3000000,2
-5774,ndm-1,resistance marker,bb,drug resisted; resistance marker,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,determinant of beta-lactam resistance,ARO:3000129,3
-5774,ndm-1,resistance marker,bb,drug resisted; resistance marker,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,antibiotic inactivation enzyme,ARO:3000557,4
-5774,ndm-1,resistance marker,bb,drug resisted; resistance marker,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,beta-lactamase,ARO:3000001,5
-5774,ndm-1,resistance marker,bb,drug resisted; resistance marker,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,class b (metallo-) beta-lactamase,ARO:3000004,6
-5774,ndm-1,resistance marker,bb,drug resisted; resistance marker,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,subclass b1 (metallo-) beta-lactamase,ARO:3000568,7
-5774,ndm-1,resistance marker,bb,drug resisted; resistance marker,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,ndm beta-lactamase,ARO:3000057,8
+5774,ndm-1,resistance marker,bb,binomial (genus species); drug resisted; mic; resistance marker,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,process or component of antibiotic biology or chemistry,ARO:1000001,1
+5774,ndm-1,resistance marker,bb,binomial (genus species); drug resisted; mic; resistance marker,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,determinant of antibiotic resistance,ARO:3000000,2
+5774,ndm-1,resistance marker,bb,binomial (genus species); drug resisted; mic; resistance marker,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,determinant of beta-lactam resistance,ARO:3000129,3
+5774,ndm-1,resistance marker,bb,binomial (genus species); drug resisted; mic; resistance marker,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,antibiotic inactivation enzyme,ARO:3000557,4
+5774,ndm-1,resistance marker,bb,binomial (genus species); drug resisted; mic; resistance marker,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,beta-lactamase,ARO:3000001,5
+5774,ndm-1,resistance marker,bb,binomial (genus species); drug resisted; mic; resistance marker,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,class b (metallo-) beta-lactamase,ARO:3000004,6
+5774,ndm-1,resistance marker,bb,binomial (genus species); drug resisted; mic; resistance marker,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,subclass b1 (metallo-) beta-lactamase,ARO:3000568,7
+5774,ndm-1,resistance marker,bb,binomial (genus species); drug resisted; mic; resistance marker,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,ndm beta-lactamase,ARO:3000057,8
 579,kpn106,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
 591,vim-2,resistance marker,NA,NA,card_aro,ARO:3002272,primary,vim beta-lactamase,ARO:3000021,process or component of antibiotic biology or chemistry,ARO:1000001,1
 591,vim-2,resistance marker,NA,NA,card_aro,ARO:3002272,primary,vim beta-lactamase,ARO:3000021,determinant of antibiotic resistance,ARO:3000000,2
@@ -1281,8 +1246,9 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,card_db,card_s
 8515,stra/strb,resistance marker,b,drug resisted; mic; resistance marker,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
 8515,tetd,resistance marker,i,drug resisted; mic; resistance marker,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
 8515,dfra18,resistance marker,j,drug resisted; mic; resistance marker,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
-8515,strain 1107-3567,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
-8515,extended-spectrum-beta-lactamase esbl,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,2
+8515,serovar typhi,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
+8515,strain 1107-3567,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,2
+8515,extended-spectrum-beta-lactamase esbl,resistance marker,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,3
 8591,ndm-1,resistance marker,NA,NA,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,process or component of antibiotic biology or chemistry,ARO:1000001,1
 8591,ndm-1,resistance marker,NA,NA,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,determinant of antibiotic resistance,ARO:3000000,2
 8591,ndm-1,resistance marker,NA,NA,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,determinant of beta-lactam resistance,ARO:3000129,3
@@ -1331,16 +1297,6 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,card_db,card_s
 8950,kpc-2,resistance marker,NA,NA,card_aro,ARO:3002312,primary,kpc beta-lactamase,ARO:3000059,class a beta-lactamase,ARO:3000078,6
 8950,kpc-2,resistance marker,NA,NA,card_aro,ARO:3002312,primary,kpc beta-lactamase,ARO:3000059,kpc beta-lactamase,ARO:3000059,7
 8982,daptomycin-non-susceptible,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
-9010,st15,strain,a,hospital name; mic; outcome; strain,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
-9010,st1031,strain,b,hospital name; mic; outcome; strain,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
-9010,ndm-1,resistance marker,NA,NA,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,process or component of antibiotic biology or chemistry,ARO:1000001,1
-9010,ndm-1,resistance marker,NA,NA,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,determinant of antibiotic resistance,ARO:3000000,2
-9010,ndm-1,resistance marker,NA,NA,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,determinant of beta-lactam resistance,ARO:3000129,3
-9010,ndm-1,resistance marker,NA,NA,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,antibiotic inactivation enzyme,ARO:3000557,4
-9010,ndm-1,resistance marker,NA,NA,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,beta-lactamase,ARO:3000001,5
-9010,ndm-1,resistance marker,NA,NA,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,class b (metallo-) beta-lactamase,ARO:3000004,6
-9010,ndm-1,resistance marker,NA,NA,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,subclass b1 (metallo-) beta-lactamase,ARO:3000568,7
-9010,ndm-1,resistance marker,NA,NA,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,ndm beta-lactamase,ARO:3000057,8
 9075,st103,strain,aa,binomial (genus species); drug resisted; mic; resistance marker; strain,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
 9075,st648,strain,cc,binomial (genus species); drug resisted; mic; resistance marker; strain,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
 9727,st398,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
@@ -1388,16 +1344,15 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,card_db,card_s
 11303,ndm-1,resistance marker,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,class b (metallo-) beta-lactamase,ARO:3000004,6
 11303,ndm-1,resistance marker,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,subclass b1 (metallo-) beta-lactamase,ARO:3000568,7
 11303,ndm-1,resistance marker,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,ndm beta-lactamase,ARO:3000057,8
-11303,ndm-1,resistance marker,bb,age; binomial (genus species); comorbidities; country; drug resisted; place traveled to; resistance marker; sex; state/province/district; symptoms/disease,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,process or component of antibiotic biology or chemistry,ARO:1000001,1
-11303,ndm-1,resistance marker,bb,age; binomial (genus species); comorbidities; country; drug resisted; place traveled to; resistance marker; sex; state/province/district; symptoms/disease,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,determinant of antibiotic resistance,ARO:3000000,2
-11303,ndm-1,resistance marker,bb,age; binomial (genus species); comorbidities; country; drug resisted; place traveled to; resistance marker; sex; state/province/district; symptoms/disease,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,determinant of beta-lactam resistance,ARO:3000129,3
-11303,ndm-1,resistance marker,bb,age; binomial (genus species); comorbidities; country; drug resisted; place traveled to; resistance marker; sex; state/province/district; symptoms/disease,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,antibiotic inactivation enzyme,ARO:3000557,4
-11303,ndm-1,resistance marker,bb,age; binomial (genus species); comorbidities; country; drug resisted; place traveled to; resistance marker; sex; state/province/district; symptoms/disease,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,beta-lactamase,ARO:3000001,5
-11303,ndm-1,resistance marker,bb,age; binomial (genus species); comorbidities; country; drug resisted; place traveled to; resistance marker; sex; state/province/district; symptoms/disease,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,class b (metallo-) beta-lactamase,ARO:3000004,6
-11303,ndm-1,resistance marker,bb,age; binomial (genus species); comorbidities; country; drug resisted; place traveled to; resistance marker; sex; state/province/district; symptoms/disease,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,subclass b1 (metallo-) beta-lactamase,ARO:3000568,7
-11303,ndm-1,resistance marker,bb,age; binomial (genus species); comorbidities; country; drug resisted; place traveled to; resistance marker; sex; state/province/district; symptoms/disease,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,ndm beta-lactamase,ARO:3000057,8
+11303,ndm-1,resistance marker,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,process or component of antibiotic biology or chemistry,ARO:1000001,1
+11303,ndm-1,resistance marker,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,determinant of antibiotic resistance,ARO:3000000,2
+11303,ndm-1,resistance marker,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,determinant of beta-lactam resistance,ARO:3000129,3
+11303,ndm-1,resistance marker,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,antibiotic inactivation enzyme,ARO:3000557,4
+11303,ndm-1,resistance marker,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,beta-lactamase,ARO:3000001,5
+11303,ndm-1,resistance marker,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,class b (metallo-) beta-lactamase,ARO:3000004,6
+11303,ndm-1,resistance marker,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,subclass b1 (metallo-) beta-lactamase,ARO:3000568,7
+11303,ndm-1,resistance marker,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease,card_aro,ARO:3000589,primary,ndm beta-lactamase,ARO:3000057,ndm beta-lactamase,ARO:3000057,8
 20373,s dysenteriae type 2,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,5
-20373,s dysenteriae type 2,strain,NA,NA,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,6
 5774,oxa-1,resistance marker,aa,binomial (genus species); drug resisted; resistance marker,card_aro,ARO:3001396,primary,oxa beta-lactamase,ARO:3000017,process or component of antibiotic biology or chemistry,ARO:1000001,1
 5774,oxa-1,resistance marker,aa,binomial (genus species); drug resisted; resistance marker,card_aro,ARO:3001396,primary,oxa beta-lactamase,ARO:3000017,determinant of antibiotic resistance,ARO:3000000,2
 5774,oxa-1,resistance marker,aa,binomial (genus species); drug resisted; resistance marker,card_aro,ARO:3001396,primary,oxa beta-lactamase,ARO:3000017,determinant of beta-lactam resistance,ARO:3000129,3
@@ -1405,13 +1360,13 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,card_db,card_s
 5774,oxa-1,resistance marker,aa,binomial (genus species); drug resisted; resistance marker,card_aro,ARO:3001396,primary,oxa beta-lactamase,ARO:3000017,beta-lactamase,ARO:3000001,5
 5774,oxa-1,resistance marker,aa,binomial (genus species); drug resisted; resistance marker,card_aro,ARO:3001396,primary,oxa beta-lactamase,ARO:3000017,class d beta-lactamase,ARO:3000075,6
 5774,oxa-1,resistance marker,aa,binomial (genus species); drug resisted; resistance marker,card_aro,ARO:3001396,primary,oxa beta-lactamase,ARO:3000017,oxa beta-lactamase,ARO:3000017,7
-5774,oxa-1,resistance marker,bb,drug resisted; resistance marker,card_aro,ARO:3001396,primary,oxa beta-lactamase,ARO:3000017,process or component of antibiotic biology or chemistry,ARO:1000001,1
-5774,oxa-1,resistance marker,bb,drug resisted; resistance marker,card_aro,ARO:3001396,primary,oxa beta-lactamase,ARO:3000017,determinant of antibiotic resistance,ARO:3000000,2
-5774,oxa-1,resistance marker,bb,drug resisted; resistance marker,card_aro,ARO:3001396,primary,oxa beta-lactamase,ARO:3000017,determinant of beta-lactam resistance,ARO:3000129,3
-5774,oxa-1,resistance marker,bb,drug resisted; resistance marker,card_aro,ARO:3001396,primary,oxa beta-lactamase,ARO:3000017,antibiotic inactivation enzyme,ARO:3000557,4
-5774,oxa-1,resistance marker,bb,drug resisted; resistance marker,card_aro,ARO:3001396,primary,oxa beta-lactamase,ARO:3000017,beta-lactamase,ARO:3000001,5
-5774,oxa-1,resistance marker,bb,drug resisted; resistance marker,card_aro,ARO:3001396,primary,oxa beta-lactamase,ARO:3000017,class d beta-lactamase,ARO:3000075,6
-5774,oxa-1,resistance marker,bb,drug resisted; resistance marker,card_aro,ARO:3001396,primary,oxa beta-lactamase,ARO:3000017,oxa beta-lactamase,ARO:3000017,7
+5774,oxa-1,resistance marker,bb,binomial (genus species); drug resisted; mic; resistance marker,card_aro,ARO:3001396,primary,oxa beta-lactamase,ARO:3000017,process or component of antibiotic biology or chemistry,ARO:1000001,1
+5774,oxa-1,resistance marker,bb,binomial (genus species); drug resisted; mic; resistance marker,card_aro,ARO:3001396,primary,oxa beta-lactamase,ARO:3000017,determinant of antibiotic resistance,ARO:3000000,2
+5774,oxa-1,resistance marker,bb,binomial (genus species); drug resisted; mic; resistance marker,card_aro,ARO:3001396,primary,oxa beta-lactamase,ARO:3000017,determinant of beta-lactam resistance,ARO:3000129,3
+5774,oxa-1,resistance marker,bb,binomial (genus species); drug resisted; mic; resistance marker,card_aro,ARO:3001396,primary,oxa beta-lactamase,ARO:3000017,antibiotic inactivation enzyme,ARO:3000557,4
+5774,oxa-1,resistance marker,bb,binomial (genus species); drug resisted; mic; resistance marker,card_aro,ARO:3001396,primary,oxa beta-lactamase,ARO:3000017,beta-lactamase,ARO:3000001,5
+5774,oxa-1,resistance marker,bb,binomial (genus species); drug resisted; mic; resistance marker,card_aro,ARO:3001396,primary,oxa beta-lactamase,ARO:3000017,class d beta-lactamase,ARO:3000075,6
+5774,oxa-1,resistance marker,bb,binomial (genus species); drug resisted; mic; resistance marker,card_aro,ARO:3001396,primary,oxa beta-lactamase,ARO:3000017,oxa beta-lactamase,ARO:3000017,7
 5774,oxa-48,resistance marker,aa,binomial (genus species); drug resisted; resistance marker,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,process or component of antibiotic biology or chemistry,ARO:1000001,1
 5774,oxa-48,resistance marker,aa,binomial (genus species); drug resisted; resistance marker,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,determinant of antibiotic resistance,ARO:3000000,2
 5774,oxa-48,resistance marker,aa,binomial (genus species); drug resisted; resistance marker,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,determinant of beta-lactam resistance,ARO:3000129,3
@@ -1419,13 +1374,13 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,card_db,card_s
 5774,oxa-48,resistance marker,aa,binomial (genus species); drug resisted; resistance marker,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,beta-lactamase,ARO:3000001,5
 5774,oxa-48,resistance marker,aa,binomial (genus species); drug resisted; resistance marker,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,class d beta-lactamase,ARO:3000075,6
 5774,oxa-48,resistance marker,aa,binomial (genus species); drug resisted; resistance marker,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,oxa beta-lactamase,ARO:3000017,7
-5774,oxa-48,resistance marker,bb,drug resisted; resistance marker,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,process or component of antibiotic biology or chemistry,ARO:1000001,1
-5774,oxa-48,resistance marker,bb,drug resisted; resistance marker,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,determinant of antibiotic resistance,ARO:3000000,2
-5774,oxa-48,resistance marker,bb,drug resisted; resistance marker,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,determinant of beta-lactam resistance,ARO:3000129,3
-5774,oxa-48,resistance marker,bb,drug resisted; resistance marker,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,antibiotic inactivation enzyme,ARO:3000557,4
-5774,oxa-48,resistance marker,bb,drug resisted; resistance marker,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,beta-lactamase,ARO:3000001,5
-5774,oxa-48,resistance marker,bb,drug resisted; resistance marker,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,class d beta-lactamase,ARO:3000075,6
-5774,oxa-48,resistance marker,bb,drug resisted; resistance marker,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,oxa beta-lactamase,ARO:3000017,7
+5774,oxa-48,resistance marker,bb,binomial (genus species); drug resisted; mic; resistance marker,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,process or component of antibiotic biology or chemistry,ARO:1000001,1
+5774,oxa-48,resistance marker,bb,binomial (genus species); drug resisted; mic; resistance marker,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,determinant of antibiotic resistance,ARO:3000000,2
+5774,oxa-48,resistance marker,bb,binomial (genus species); drug resisted; mic; resistance marker,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,determinant of beta-lactam resistance,ARO:3000129,3
+5774,oxa-48,resistance marker,bb,binomial (genus species); drug resisted; mic; resistance marker,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,antibiotic inactivation enzyme,ARO:3000557,4
+5774,oxa-48,resistance marker,bb,binomial (genus species); drug resisted; mic; resistance marker,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,beta-lactamase,ARO:3000001,5
+5774,oxa-48,resistance marker,bb,binomial (genus species); drug resisted; mic; resistance marker,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,class d beta-lactamase,ARO:3000075,6
+5774,oxa-48,resistance marker,bb,binomial (genus species); drug resisted; mic; resistance marker,card_aro,ARO:3001782,primary,oxa beta-lactamase,ARO:3000017,oxa beta-lactamase,ARO:3000017,7
 661,lukf,resistance marker,a,age; drug resisted; mic; resistance marker; sex; symptoms,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,1
 661,lukf,resistance marker,b,age; drug resisted; resistance marker; sex; symptoms,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,2
 661,sccmec type iv,resistance marker,a,age; drug resisted; mic; resistance marker; sex; symptoms,card_aro,NA,no exact match,NA parents,NA parents,NA ancestors,NA ancestors,2
