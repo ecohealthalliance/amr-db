@@ -27,6 +27,7 @@ segments_raw <- map_dfr(files, ~read_xlsx(.x, col_types = "text")) %>%
 write_rds(segments_raw,  here("data", "segments_raw.rds"))
 
 # QA CHECK - these are all excluded articles or notes on articles, usually due to annotating the title of the article in the PDF. All have strange offsets
+# github issue 6
 na_segments <- segments_raw %>% 
   filter(is.na(segment)) %>%
   left_join(select(articles_db, study_id, mex_name))
@@ -77,7 +78,7 @@ segments_grp <- segments_raw %>%
 # data sanity check export - do the segments grouped by offsets match? - yes
 segments_grp %>%
   mutate_if(is.list, funs(from_ls_to_flat(.))) #%>%
-  #write_csv(here("data", "data_qa",  "int_segments_check.csv"))
+#write_csv(here("data", "data_qa",  "int_segments_check.csv"))
 
 # Split Codes from Code ID's -----------------------------
 
@@ -120,13 +121,13 @@ fixed_codes_mult <- codes_mult %>%
   filter(map2_lgl(code_main, code_identifiers, ~length(.x) <= length(.y))) 
 
 # there are cases where there are more main codes than id codes. These should be reviewed.  
-check_codes_mult <- codes_mult %>%
+review_codes_mult <- codes_mult %>%
   filter(map2_lgl(code_main, code_identifiers, ~length(.x) > length(.y))) %>%
   mutate_if(is.list, funs(from_ls_to_flat(.))) %>%
   left_join(select(articles_db, study_id, mex_name), by = "study_id")
 
-
-# id orphan id codes (no main code) - these are checked manually (amr_db_orphan_id_codes on google drive)
+# id orphan id codes (no main code) - these are checked manually 
+# amr_db_orphan_id_codes on google drive - github issue 5 
 orphan_id_codes <- problem_id_codes %>% 
   filter(map_lgl(code_main, ~length(.x) == 0)) %>%
   mutate_if(is.list, funs(from_ls_to_flat(.))) %>%
