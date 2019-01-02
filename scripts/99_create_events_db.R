@@ -1,6 +1,7 @@
 library(tidyverse)
 library(here)
 library(stringdist)
+library(googlesheets)
 
 #-----------------All data-----------------
 segments <- read_csv(here("data", "segments.csv"))
@@ -95,16 +96,10 @@ dates2 <- dates %>%
   select(study_id, start_date, end_date)
 
 events <- full_join(locations2, paired_bac_drugs) %>% #assume code links from locations are universal for now
-  full_join(dates2)
+  full_join(dates2) %>%
+  left_join(articles_db)
 
-#-----------------Check for unique events per country-----------------
-events_qa <- events %>%
-  group_by(study_country, drug_preferred_label, bacteria_preferred_label) %>%
-  summarize(study_id = paste(unique(study_id), collapse = "; "))
-
-non_unique_events <- events_qa %>%
-  filter(grepl(";", study_id))
-
+#-----------------Dup checks-----------------
 # Any duplicated titles?
 articles_dups <- articles_db %>%
   mutate(dup_title = duplicated(title) | 
@@ -126,5 +121,21 @@ articles_dups_fuzz <- expand.grid(articles_db$title, articles_db$title) %>%
   select(-tmp, -comp) %>%
   setNames(gsub("\\.x", "1", colnames(.) )) %>%
   setNames(gsub("\\.y", "2", colnames(.) ))
+
+#-----------------Check for unique events per country-----------------
+# first remove dups based on above review
+dups_remove <-
+  gs_read(gs_title("amr_db_dups_titles")) %>% as.tibble() %>% filter(NOTES=="delete") %>% pull(study_id) #google spreadsheet with field cleanup
+
+events_qa <- events %>%
+  filter(!study_id %in% c(dups_remove)) %>%
+  group_by(study_country, drug_preferred_label, bacteria_preferred_label) %>%
+  summarize(study_id = paste(unique(study_id), collapse = "; "),
+            mex_name = paste(unique(mex_name), collapse = "; "),
+            title = paste(unique(title), collapse = ";\n")
+  )
+
+non_unique_events <- events_qa %>%
+  filter(grepl(";", study_id))
 
 write_csv(events, here("data", "events_db.csv"))
