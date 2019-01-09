@@ -1,4 +1,5 @@
 library(tidyverse)
+library(magrittr)
 library(here)
 library(stringdist)
 library(googlesheets)
@@ -27,7 +28,6 @@ locations <- read_csv(here("data", "locations.csv")) %>%
 bacteria <- read_csv(here("data", "bacteria_genus_species.csv")) %>%
   select(
     study_id,
-    code_main,
     code_identifiers,
     code_identifiers_link,
     bacteria_rank,
@@ -40,7 +40,6 @@ bacteria <- read_csv(here("data", "bacteria_genus_species.csv")) %>%
 drugs <- read_csv(here("data", "drugs.csv")) %>%  
   group_by(
     study_id,
-    code_main,
     code_identifiers,
     code_identifiers_link,
     segment_drug_combo,
@@ -56,15 +55,14 @@ drugs <- read_csv(here("data", "drugs.csv")) %>%
 drugs_combos <- drugs %>%
   filter(segment_drug_combo == TRUE) %>%
   group_by(study_id,
-           code_main,
            code_identifiers,
            code_identifiers_link,
            segment_drug_combo
-           ) %>%
+  ) %>%
   summarize(drug_rank = paste(drug_rank, collapse = " + "),
             drug_preferred_label = paste(drug_preferred_label, collapse = " + "),
             drug_parent_name = paste(drug_parent_name, collapse = " + "),
-            ) %>%
+  ) %>%
   ungroup() 
 
 drugs %<>%
@@ -73,6 +71,42 @@ drugs %<>%
 
 dates <- read_csv(here("data", "dates.csv")) 
 
+#-----------------Make full DB (in progress)-----------------
+event_list <- list(locations, drugs, bacteria, dates)
+
+event_list_no_codeid <- map(event_list, function(x){
+  filter(x, is.na(code_identifiers)) %>%
+    select(-code_identifiers, -code_identifiers_link)
+})
+event_no_codeid <- reduce(event_list_no_codeid, full_join)
+
+
+event_list_codeid <- map(event_list, function(x){
+  x %>%
+  replace_na(list(code_identifiers = "none", code_identifiers_link = "none"))
+})
+event_codeid <- reduce(event_list_codeid, full_join)
+
+event <- left_join(event_codeid, event_no_codeid, by = "study_id")
+
+cnames <- colnames(event) %>%
+  keep(~grepl(".x", .x)) %>%
+  modify(~gsub(".x", "", .x)) %>% 
+  unlist()
+
+for(x in cnames){
+  event %<>%
+    mutate(!!sym(x) := ifelse(is.na(!!sym(paste0(x, ".x"))), 
+                              !!sym(paste0(x, ".y")), 
+                              !!sym(paste0(x, ".x")))) %>%
+    select(-!!sym(paste0(x, ".x")), -!!sym(paste0(x, ".y")))
+}
+
+######
+test = event %>% filter(study_id==137)
+View(test)
+test2 = segments %>% filter(study_id==137)
+View(test2)
 #-----------------Bacteria + Drugs links-----------------
 paired_bac_drugs <- list(bacteria, drugs) %>%
   map(., ~ mutate(.x, join_id = ifelse(
@@ -81,8 +115,8 @@ paired_bac_drugs <- list(bacteria, drugs) %>%
         grepl("binomial", code_identifiers_link)
     ), code_identifiers, NA
   ))) %>%
-  map(., ~ select(.x, -code_identifiers, -code_identifiers_link, -code_main)) %>%
-  reduce(full_join) %>%
+  #map(., ~ select(.x, -code_identifiers, -code_identifiers_link, -code_main)) %>%
+  reduce(full_join, by= c("study_id", "join_id")) %>%
   mutate(bacteria_drug_pair = ifelse(!is.na(bacteria_preferred_label) & !is.na(drug_preferred_label), 
                                      paste(bacteria_preferred_label_abbr, drug_preferred_label, sep = " - "),
                                      NA))
