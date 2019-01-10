@@ -74,64 +74,39 @@ dates <- read_csv(here("data", "dates.csv"))
 #-----------------Make full DB (in progress)-----------------
 event_list <- list(locations, drugs, bacteria, dates)
 
-event_list_no_codeid <- map(event_list, function(x){
-  filter(x, is.na(code_identifiers)) %>%
-    select(-code_identifiers, -code_identifiers_link)
+event_list <- map(event_list, function(x){
+  x %>% replace_na(list(code_identifiers = "none", code_identifiers_link = "none"))
 })
+
+event_codeid <- reduce(event_list, full_join)
+
+event_list_no_codeid <- map(event_list, function(x){
+  filter(x, code_identifiers == "none")
+})
+
 event_no_codeid <- reduce(event_list_no_codeid, full_join)
 
+events <- full_join(event_codeid, event_no_codeid, by = "study_id") 
 
-event_list_codeid <- map(event_list, function(x){
-  x %>%
-  replace_na(list(code_identifiers = "none", code_identifiers_link = "none"))
-})
-event_codeid <- reduce(event_list_codeid, full_join)
-
-event <- left_join(event_codeid, event_no_codeid, by = "study_id")
-
-cnames <- colnames(event) %>%
+cnames <- colnames(events) %>%
   keep(~grepl(".x", .x)) %>%
   modify(~gsub(".x", "", .x)) %>% 
   unlist()
 
 for(x in cnames){
-  event %<>%
+  events %<>%
     mutate(!!sym(x) := ifelse(is.na(!!sym(paste0(x, ".x"))), 
                               !!sym(paste0(x, ".y")), 
                               !!sym(paste0(x, ".x")))) %>%
     select(-!!sym(paste0(x, ".x")), -!!sym(paste0(x, ".y")))
 }
 
-######
-test = event %>% filter(study_id==137)
-View(test)
-test2 = segments %>% filter(study_id==137)
-View(test2)
-#-----------------Bacteria + Drugs links-----------------
-paired_bac_drugs <- list(bacteria, drugs) %>%
-  map(., ~ mutate(.x, join_id = ifelse(
-    c(
-      grepl("drug resisted", code_identifiers_link) &
-        grepl("binomial", code_identifiers_link)
-    ), code_identifiers, NA
-  ))) %>%
-  #map(., ~ select(.x, -code_identifiers, -code_identifiers_link, -code_main)) %>%
-  reduce(full_join, by= c("study_id", "join_id")) %>%
-  mutate(bacteria_drug_pair = ifelse(!is.na(bacteria_preferred_label) & !is.na(drug_preferred_label), 
-                                     paste(bacteria_preferred_label_abbr, drug_preferred_label, sep = " - "),
-                                     NA))
+events <- events %>% distinct() #merging identical dfs creates dups
 
-#-----------------Bring in locations & dates to create base events db-----------------
-# ignoring loctions and dates identifiers for now
-locations2 <- locations %>%
-  select(-code_identifiers, -code_identifiers_link)
+events <-  left_join(events, articles_db)
 
-dates2 <- dates %>%
-  select(study_id, start_date, end_date)
-
-events <- full_join(locations2, paired_bac_drugs) %>% #assume code links from locations are universal for now
-  full_join(dates2) %>%
-  left_join(articles_db)
+### study_id 9, 137 seem to be working as expected
+### study_id 11303 seems to have been coded incorrectly
 
 #-----------------Dup checks-----------------
 # Any duplicated titles?
