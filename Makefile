@@ -1,7 +1,7 @@
 
 # Definitions  ----
 
-.PHONY: segments_excels all_data articles_db segments_db events_db clean_mx12 clean_mx18 clean_all
+.PHONY: segments_excels all_data articles_db segments events_db clean_mx12 clean_mx18 clean_all
 
 SEGMENTS_EXCELS := $(wildcard data/coded_segments/*.xlsx)
 ARTICLE_INDEX_CSV := $(wildcard data-raw/art_index_csvs/*.csv)
@@ -74,7 +74,7 @@ $(ARTICLES_DB): scripts/02_index_articles.R $(ARTICLE_INDEX_CSV) $(CODED_MEX)
 $(SEGMENTS): scripts/03_clean_segments.R $(SEGMENTS_EXCELS) $(ARTICLES_DB)
 	Rscript $<
 
-$(EVENTS_DB): scripts/99_create_events_db.R $(SEGMENTS_DB) $(DRUGS) $(LOCATIONS)
+$(EVENTS_DB): scripts/99_create_events_db.R $(SEGMENTS) $(ARTICLES_DB) $(DRUGS) $(LOCATIONS) $(DATES)
 	Rscript $<
 
 # Clean up

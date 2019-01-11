@@ -23,7 +23,8 @@ locations <- read_csv(here("data", "locations.csv")) %>%
   ) %>%
   summarize(travel_location = paste(unique(travel_location), collapse =
                                       "; ")) %>%
-  ungroup()
+  ungroup() %>%
+  mutate(study_country = ifelse(is.na(study_country), residence_location, study_country))
 
 bacteria <- read_csv(here("data", "bacteria_genus_species.csv")) %>%
   select(
