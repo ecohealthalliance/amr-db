@@ -104,9 +104,9 @@ for(x in cnames){
 
 events <- events %>% distinct() #merging identical dfs creates dups
 
-events <-  left_join(events, articles_db)
+#events <-  left_join(events, articles_db)
 
-### study_id 9, 137 seem to be working as expected
+### study_id 9, 15, 137, 172 seem to be working as expected
 ### study_id 11303 seems to have been coded incorrectly
 
 #-----------------Dup checks-----------------
@@ -138,6 +138,7 @@ dups_remove <-
   gs_read(gs_title("amr_db_dups_titles")) %>% as.tibble() %>% filter(NOTES=="delete") %>% pull(study_id) #google spreadsheet with field cleanup
 
 events_qa <- events %>%
+  left_join(articles_db) %>%
   filter(!study_id %in% c(dups_remove)) %>%
   group_by(study_country, drug_preferred_label, bacteria_preferred_label) %>%
   summarize(study_id = paste(unique(study_id), collapse = "; "),

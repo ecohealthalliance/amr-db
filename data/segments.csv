@@ -2556,21 +2556,21 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 19152,cefoperazone,NA,drug resisted,NA,NA
 19152,amikacin,NA,drug resisted,NA,NA
 19152,gentamicin,NA,drug resisted,NA,NA
-19152,tobramycin,NA,drug resisted,NA,NA
+19152,tobramycin,NA,drug resisted,h,drug resisted; mic
 19152,trimethoprim-sulfamethoxazole,NA,drug resisted,NA,NA
 19152,32,NA,mic,NA,NA
 19152,128,NA,mic,NA,NA
 19152,august,NA,event month,NA,NA
-19152,16,NA,mic,NA,NA
+19152,16,NA,mic,c,drug resisted; mic
 19152,64,NA,mic,NA,NA
 19152,16,NA,mic,NA,NA
+19152,16,NA,mic,h,drug resisted; mic
 19152,320,NA,mic,NA,NA
-19152,29,NA,event day,NA,NA
 19152,leclercia adecarboxylata,bacteria,binomial (genus species),NA,NA
 19152,kbn0601918,bacteria,strain,NA,NA
+19152,29,NA,event day,NA,NA
 19152,blatem-1,bacteria,resistance marker,NA,NA
 19152,blactx-m group 1,bacteria,resistance marker,NA,NA
-19152,29 august 2011,NA,event date,NA,NA
 19152,dfra12-orff-aada2,bacteria,resistance marker,NA,NA
 19152,south korea,location,country,NA,NA
 19152,jeonju,location,city,NA,NA
@@ -2579,12 +2579,13 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 19152,female,patient,sex,NA,NA
 19152,guided antibiotic therapy was successful,patient,outcome,NA,NA
 19152,breast cancer,patient,comorbidities,NA,NA
+19152,29 august 2011,NA,event date,NA,NA
 19152,fever,patient,symptoms,NA,NA
 19152,myalgia,patient,symptoms,NA,NA
-19152,ampicillin,NA,drug resisted,NA,NA
 19152,case report,NA,article/study aim,NA,NA
+19152,ampicillin,NA,drug resisted,NA,NA
 19152,piperacillin,NA,drug resisted,NA,NA
-19152,aztreonam,NA,drug resisted,NA,NA
+19152,aztreonam,NA,drug resisted,c,drug resisted; mic
 19152,cephalothin,NA,drug resisted,NA,NA
 19152,cefazolin,NA,drug resisted,NA,NA
 19196,"although the correct taxonomical delineation of n. cyriacigeorgica/n. asteroides drug pattern vi strains remains to be clarified, we decided to report our cases since to the best of our knowledge there has not been any reports on isolation of this organism, whatever it may be called, from developing countries.",NA,notes,NA,NA
@@ -2761,13 +2762,20 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 202,imipenem,NA,drug resisted,j,drug resisted; mic
 202,ertapenem,NA,drug resisted,k,drug resisted; mic
 202,>256,NA,mic,a,drug resisted; mic
-202,4,NA,mic,i,drug resisted; mic
 202,>32,NA,mic,j,drug resisted; mic
 202,2011,NA,event year,NA,NA
+202,>256,NA,mic,b,drug resisted; mic
+202,>256,NA,mic,c,drug resisted; mic
+202,>256,NA,mic,d,drug resisted; mic
+202,>256,NA,mic,e,drug resisted; mic
+202,>256,NA,mic,f,drug resisted; mic
 202,october,NA,event month,NA,NA
-202,amoxicillin,NA,drug resisted,a,drug resisted; mic
+202,>256,NA,mic,g,drug resisted; mic
+202,>256,NA,mic,h,drug resisted; mic
+202,>32,NA,mic,k,drug resisted; mic
 202,klebsiella pneumoniae,bacteria,binomial (genus species),NA,NA
 202,st-307,bacteria,strain,NA,NA
+202,amoxicillin,NA,drug resisted,a,drug resisted; mic
 202,oxa-48,bacteria,resistance marker,NA,NA
 202,algeria,location,country,NA,NA
 202,algiers,location,city,NA,NA
@@ -2777,6 +2785,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 202,myeloblastic acute leukemia,patient,comorbidities,NA,NA
 202,fever,patient,symptoms/disease,NA,NA
 202,amoxicillin + cla,NA,drug resisted,b,drug resisted; mic
+202,4,NA,mic,i,drug resisted; mic
 202,ticarcillin,NA,drug resisted,c,drug resisted; mic
 202,ticarcillin +cla,NA,drug resisted,d,drug resisted; mic
 202,piperacillin,NA,drug resisted,e,drug resisted; mic
@@ -6127,13 +6136,6 @@ doxycyc",NA,drug resisted,c,drug resisted; mic
 20899,>2,NA,mic,l,drug resisted; mic
 1786,>256,NA,mic,b,drug resisted; mic
 1786,>256,NA,mic,c,drug resisted; mic
-202,>256,NA,mic,b,drug resisted; mic
-202,>256,NA,mic,c,drug resisted; mic
-202,>256,NA,mic,d,drug resisted; mic
-202,>256,NA,mic,e,drug resisted; mic
-202,>256,NA,mic,f,drug resisted; mic
-202,>256,NA,mic,g,drug resisted; mic
-202,>256,NA,mic,h,drug resisted; mic
 3882,>256,NA,mic,b,drug resisted; mic
 3882,>256,NA,mic,c,drug resisted; mic
 3882,>256,NA,mic,e,drug resisted; mic
@@ -6150,7 +6152,6 @@ doxycyc",NA,drug resisted,c,drug resisted; mic
 6467,>256,NA,mic,d,drug resisted; mic
 6467,>256,NA,mic,h,drug resisted; mic
 6467,>256,NA,mic,i,drug resisted; mic
-202,>32,NA,mic,k,drug resisted; mic
 23549,>32,NA,mic,a,drug resisted; mic
 4642,>32,NA,mic,k,drug resisted; mic
 5774,>32,NA,mic,b,drug resisted; mic
