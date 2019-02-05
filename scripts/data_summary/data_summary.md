@@ -1,7 +1,7 @@
 exploratory\_data
 ================
 emmamendelsohn
-Tue Jan 22 10:20:25 2019
+Tue Feb 5 14:44:57 2019
 
 —————–Locations—————–
 
@@ -158,7 +158,7 @@ drug name + drug name
 
 <td style="text-align:right;">
 
-548
+608
 
 </td>
 
@@ -176,7 +176,7 @@ drug name + drug name
 
 <td style="text-align:right;">
 
-1389
+1397
 
 </td>
 
@@ -188,7 +188,7 @@ drug name + drug name
 
 <td style="text-align:right;">
 
-116
+144
 
 </td>
 
@@ -246,6 +246,40 @@ percent
 
 <td style="text-align:left;">
 
+drug group
+
+</td>
+
+<td style="text-align:left;">
+
+ciprofloxacin
+
+</td>
+
+<td style="text-align:left;">
+
+fluoroquinolones
+
+</td>
+
+<td style="text-align:right;">
+
+99
+
+</td>
+
+<td style="text-align:right;">
+
+4.6
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
 drug name
 
 </td>
@@ -270,75 +304,7 @@ cephaloridine
 
 <td style="text-align:right;">
 
-4.7
-
-</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align:left;">
-
-drug group
-
-</td>
-
-<td style="text-align:left;">
-
-ciprofloxacin
-
-</td>
-
-<td style="text-align:left;">
-
-fluoroquinolones
-
-</td>
-
-<td style="text-align:right;">
-
-96
-
-</td>
-
-<td style="text-align:right;">
-
-4.7
-
-</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align:left;">
-
-drug name
-
-</td>
-
-<td style="text-align:left;">
-
-imipenem
-
-</td>
-
-<td style="text-align:left;">
-
-thienamycins
-
-</td>
-
-<td style="text-align:right;">
-
-95
-
-</td>
-
-<td style="text-align:right;">
-
-4.6
+4.5
 
 </td>
 
@@ -372,7 +338,41 @@ aminoglycosides
 
 <td style="text-align:right;">
 
-4.5
+4.3
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+drug name
+
+</td>
+
+<td style="text-align:left;">
+
+imipenem
+
+</td>
+
+<td style="text-align:left;">
+
+thienamycins
+
+</td>
+
+<td style="text-align:right;">
+
+92
+
+</td>
+
+<td style="text-align:right;">
+
+4.3
 
 </td>
 
@@ -400,13 +400,13 @@ thienamycins
 
 <td style="text-align:right;">
 
-88
+84
 
 </td>
 
 <td style="text-align:right;">
 
-4.3
+3.9
 
 </td>
 
@@ -460,13 +460,13 @@ thienamycins
 
 <td style="text-align:right;">
 
-183
+176
 
 </td>
 
 <td style="text-align:right;">
 
-8.9
+8.2
 
 </td>
 
@@ -488,7 +488,7 @@ cefotaxime
 
 <td style="text-align:right;">
 
-6.7
+6.4
 
 </td>
 
@@ -504,13 +504,13 @@ cephalosporins
 
 <td style="text-align:right;">
 
-119
+112
 
 </td>
 
 <td style="text-align:right;">
 
-5.8
+5.2
 
 </td>
 
@@ -520,19 +520,19 @@ cephalosporins
 
 <td style="text-align:left;">
 
-cephaloridine
+ampicillin
 
 </td>
 
 <td style="text-align:right;">
 
-98
+107
 
 </td>
 
 <td style="text-align:right;">
 
-4.8
+5.0
 
 </td>
 
@@ -548,13 +548,13 @@ ciprofloxacin
 
 <td style="text-align:right;">
 
-96
+99
 
 </td>
 
 <td style="text-align:right;">
 
-4.7
+4.6
 
 </td>
 
@@ -574,14 +574,14 @@ Count by linkages (12 most common linkages)
 | :---------------------------------------- | :------------ | -: |
 | ceftazidime                               | k. pneumoniae | 22 |
 | imipenem                                  | k. pneumoniae | 20 |
-| meropenem                                 | k. pneumoniae | 20 |
-| piperacillin, tazobactam drug combination | k. pneumoniae | 17 |
-| imipenem                                  | e. coli       | 17 |
+| meropenem                                 | k. pneumoniae | 19 |
 | ciprofloxacin                             | k. pneumoniae | 17 |
-| cefepime                                  | k. pneumoniae | 16 |
-| ertapenem                                 | k. pneumoniae | 16 |
+| imipenem                                  | e. coli       | 17 |
+| piperacillin, tazobactam drug combination | k. pneumoniae | 16 |
 | meropenem                                 | e. coli       | 16 |
-| ceftazidime                               | e. coli       | 15 |
+| ertapenem                                 | k. pneumoniae | 16 |
+| cefepime                                  | k. pneumoniae | 16 |
+| cefotaxime                                | k. pneumoniae | 15 |
 
 ![](data_summary_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->![](data_summary_files/figure-gfm/unnamed-chunk-9-2.png)<!-- -->
 

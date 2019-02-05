@@ -152,7 +152,7 @@ study_id,code_identifiers,code_identifiers_link,start_date,end_date
 16837,b,age; binomial (genus species); comorbidities; event year,2009,NA
 17121,NA,NA,2012-05-29,NA
 17611,NA,NA,2009-02-04,NA
-17819,NA,NA,2010,2012
+17819,NA,NA,NA,NA
 17942,NA,NA,2007-01-05,NA
 18073,NA,NA,2014,NA
 18158,NA,NA,2012-05-23,NA
