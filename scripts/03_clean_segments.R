@@ -252,5 +252,9 @@ segments %<>%
   mutate(code_identifiers_link = ifelse(grepl("\\;", code_identifiers_link), code_identifiers_link, NA),
          code_identifiers = ifelse(is.na(code_identifiers_link), NA, code_identifiers)) 
 
+# Manually add study dat for study ID 22668
+segments %<>%
+  bind_rows(tibble(study_id = "22668", segment = "2007", code_main_cat = NA, code_main = "event year", code_identifiers = NA, code_identifiers_link = NA))
+
 # final segments db
 write_csv(segments, path = here("data", "segments.csv"))
