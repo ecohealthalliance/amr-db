@@ -87,7 +87,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 10209,ampicillin,NA,drug resisted,a,drug resisted; mic
 10209,ampicillin/clav,NA,drug resisted,b,drug resisted; mic
 10209,ceftazidime,NA,drug resisted,c,drug resisted; mic
-10209,ceftazidime/clav,NA,drug resisted,NA,NA
+10209,ceftazidime/clav,NA,drug resisted,d,drug resisted; mic
 10221,"we report the first outbreak of colonizations and infections due to a k. pneumoniae strain producing vim-1 mbl in a french university hospital,",NA,article/study aim,NA,NA
 10221,>128,NA,mic,a,drug resisted; mic
 10221,32,NA,mic,d,drug resisted; mic
@@ -139,6 +139,28 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 10248,39°c,patient,symptoms/disease,NA,NA
 10248,diarrhea,patient,symptoms/disease,NA,NA
 10248,crohn’s disease,patient,comorbidities,NA,NA
+10259,neisseria gonorrhoeae,bacteria,binomial (genus species),NA,NA
+10259,tetracycline,NA,drug resisted,b,drug resisted; mic
+10259,2.0 lg/ml,NA,mic,b,drug resisted; mic
+10259,2011,NA,event year,NA,NA
+10259,january,NA,event month,NA,NA
+10259,28,NA,event day,NA,NA
+10259,28 january 2011,NA,event date,NA,NA
+10259,strain h11s8,bacteria,strain,NA,NA
+10259,azithromycin,NA,drug resisted,a,drug resisted; mic
+10259,sequence type (st) 649,bacteria,strain,NA,NA
+10259,mutation a2059g,bacteria,resistance marker,NA,NA
+10259,"gonococcal isolates with high-level resistance to azithromycin (mics .256 lg/ml) have previously been identified from argentina in 2001 [10], scotland in 2004 [11], england and wales in 2007 [12], and ireland in 2008 [13]. isolates with mics $128 lg/ml were also identified from italy in 2007 [14]",NA,references for follow up,NA,NA
+10259,"galarza pg, alcala´ b, salcedo c, et al. emergence of high level azithromycin-resistant neisseria gonorrhoeae strain isolated in argentina. sex transm dis 2009; 36:787–8",NA,references for follow up,NA,NA
+10259,"palmer hm, young h, winter a, dave j. emergence and spread of azithromycin-resistant neisseria gonorrhoeae in scotland. j antimicrob chemother 2008; 62:490–4",NA,references for follow up,NA,NA
+10259,"chisholm sa, neal tj, alawattegama ab, birley hd, howe ra, ison ca. emergence of high-level azithromycin resistance in neisseria gonorrhoeae in england and wales. j antimicrob chemother 2009; 64:353–8",NA,references for follow up,NA,NA
+10259,"cole mj, chisholm sa, hoffmann s, et al. european surveillance of antimicrobial resistance in neisseria gonorrhoeae. sex transm infect 2010; 86:427–32",NA,references for follow up,NA,NA
+10259,united states,location,country,NA,NA
+10259,"this report discusses the epidemiologic case investigation, the molecular studies of resistance-associated mutations and n. gonorrhoeae multiantigen sequence typing, and challenges posed by emerging gonococcal antimicrobial resistance",NA,article/study aim,NA,NA
+10259,asymptomatic,patient,symptoms/disease,NA,NA
+10259,21,patient,age,NA,NA
+10259,woman,patient,sex,NA,NA
+10259,.512 lg,NA,mic,a,drug resisted; mic
 10260,we report on the first neisseria gonorrhoeae isolate in the united states identified with high-level resistance to azithromycin.,NA,article/study aim,NA,NA
 10260,neisseria gonorrhoeae,bacteria,binomial (genus species),NA,NA
 10260,(st) 649,bacteria,strain,NA,NA
@@ -191,6 +213,8 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 10323,fatal,patient,outcome,NA,NA
 10323,died,patient,outcome,NA,NA
 10323,all ß-lactam antibiotic,NA,drug resisted,NA,NA
+10335,"multiyear, multinational survey of the incidence and global distribution of metallo--lactamase-producing enterobacteriaceae and pseudomonas aeruginosa",NA,first surveillance study (of a particular resistance) in countr,NA,NA
+10335,2014,NA,event year,NA,NA
 10443,this is the first report of emergence blavim‑2 in r. pickettii in india,NA,article/study aim,NA,NA
 10443,trimethoprim/sulfamethoxazole,NA,drug resisted,g,drug resisted; mic
 10443,piperacillin/tazobactam,NA,drug resisted,i,drug resisted; mic
@@ -400,7 +424,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 11176,trimethoprim-sulphamethoxazole,NA,drug resisted,h,drug resisted; mic
 11201,", we would also like to present the case of a patient with p. aeruginosa-bacteremia, in which the first ndm-1positive strain was detected.",NA,article/study aim,NA,NA
 11201,sulperazon,NA,drug resisted,h,drug resisted; mic
-11201,aztreonam,NA,drug resisted,NA,NA
+11201,aztreonam,NA,drug resisted,i,drug resisted; mic
 11201,meropenem,NA,drug resisted,j,drug resisted; mic
 11201,gentamicin,NA,drug resisted,k,drug resisted; mic
 11201,tobramycin,NA,drug resisted,l,drug resisted; mic
@@ -495,7 +519,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 11303,"we describe the isolation ndm-1–producing organisms from two patients in toronto, ontario. to the best of our knowledge, this is the first report of an organism producing ndm-1 that was locally acquired in canada.",NA,article/study aim,NA,NA
 11303,≥ 32,NA,mic,l,drug resisted; mic
 11303,toronto,location,city,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
-11303,india; india,location,place traveled to,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,india; india,location,place traveled to,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,86-year-old,patient,age,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
 11303,man,patient,sex,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
 11303,type 2 diabetes mellitus,patient,comorbidities,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
@@ -505,17 +529,17 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 11303,prostate cancer,patient,comorbidities,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
 11303,colonization with methicillin-resistant staphylococcus aureus (mrsa),patient,comorbidities,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
 11303,condition improved after several days,patient,outcome,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
-11303,71-year-old,patient,age,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
-11303,female,patient,sex,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
-11303,multiple sclerosis,patient,comorbidities,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,71-year-old,patient,age,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,female,patient,sex,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,multiple sclerosis,patient,comorbidities,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,morganella morganii,bacteria,binomial (genus species),aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
-11303,neurogenic bladder,patient,comorbidities,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
-11303,febrile,patient,symptoms/disease,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,neurogenic bladder,patient,comorbidities,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,febrile,patient,symptoms/disease,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,this is the first reported instance in which an ndm-1–producing organism was locally acquired in canada,NA,notes,NA,NA
 11303,≥ 64,NA,mic,NA,NA
 11303,≥ 32,NA,mic,NA,NA
 11303,≥ 8,NA,mic,NA,NA
-11303,providencia rettger,bacteria,binomial (genus species),bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,providencia rettger,bacteria,binomial (genus species),bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11384,canada,location,country,NA,NA
 11384,64,NA,mic,b,drug resisted; mic
 11384,trimethoprim-sulfamethoxazole,NA,drug resisted,c,drug resisted; mic
@@ -597,8 +621,8 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 11413,angiosarcoma status,patient,comorbidities,NA,NA
 11413,chemotherapy with paciltaxel,patient,comorbidities,NA,NA
 11508,rhodococcus equi,bacteria,binomial (genus species),NA,NA
-11508,october,NA,event month,a,age; drug resisted; event month; event year; mic; sex; state/province/district
-11508,2006,NA,event year,a,age; drug resisted; event month; event year; mic; sex; state/province/district
+11508,october,NA,event month,a,age; drug resisted; event month; event year; mic; month; sex; state/province/district
+11508,2006,NA,event year,a,age; drug resisted; event month; event year; mic; month; sex; state/province/district
 11508,"january 23, 2007",NA,event date,b,age; event date; state/province/district
 11508,female,patient,age,b,age; event date; state/province/district
 11508,5,patient,age,b,age; event date; state/province/district
@@ -606,10 +630,14 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 11508,6,patient,age,NA,NA
 11508,unresponsive,patient,symptoms/disease,c,age; sex; state/province/district; symptoms/disease
 11508,limp,patient,symptoms/disease,c,age; sex; state/province/district; symptoms/disease
-11508,trimethoprim/sulfamethoxazole,NA,drug resisted,a,age; drug resisted; event month; event year; mic; sex; state/province/district
-11508,4/76,NA,mic,a,age; drug resisted; event month; event year; mic; sex; state/province/district
-11508,17,patient,age,a,age; drug resisted; event month; event year; mic; sex; state/province/district
-11508,female,patient,sex,a,age; drug resisted; event month; event year; mic; sex; state/province/district
+11508,trimethoprim/sulfamethoxazole,NA,drug resisted,a,age; drug resisted; event month; event year; mic; month; sex; state/province/district
+11508,4/76,NA,mic,a,age; drug resisted; event month; event year; mic; month; sex; state/province/district
+11508,17,patient,age,a,age; drug resisted; event month; event year; mic; month; sex; state/province/district
+11508,female,patient,sex,a,age; drug resisted; event month; event year; mic; month; sex; state/province/district
+1151,the aim of this study was to investigate for the first time the resistance patterns and the strain lineages of a sample of m. tuberculosis complex (mtbc) isolates collected in the two main cities of congo,NA,article/study aim,NA,NA
+1151,congo,location,country,NA,NA
+1151,mycobacterium tuberculosis,bacteria,binomial (genus species),NA,NA
+1151,by conducting the first phenotypic and molecular investigation of m. tuberculosis clinical isolates in circulation in congo we have revealed the presence of mdr-tb in this country,NA,first surveillance study (of a particular resistance) in countr,NA,NA
 11510,we describe the first case of invasive human infection (a nosocomial septicemia) caused by cupriavidus metallidurans.,NA,article/study aim,NA,NA
 11510,cupriavidus metallidurans,bacteria,binomial (genus species),NA,NA
 11510,canada,location,country,NA,NA
@@ -901,12 +929,12 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 1288,2011,NA,event year,NA,NA
 1288,january,NA,event month,NA,NA
 1288,ampicillin,NA,drug resisted,a,drug resisted; mic
-1288,sulbactam-ampicillin,NA,drug resisted,NA,NA
+1288,sulbactam-ampicillin,NA,drug resisted,b,drug resisted; mic
 1288,cephalothin,NA,drug resisted,c,drug resisted; mic
 1288,cefotaxime,NA,drug resisted,d,drug resisted; mic
 1288,32,NA,mic,a,drug resisted; mic
 12887,"aim of this study was to show the emergence of the qnr genes among fluoroquinolone-resistant, ampc and  esbl (extended-spectrum-beta-lactamase) co-producing morganella morganii isolate",NA,article/study aim,NA,NA
-12887,tetracycline,NA,drug resisted,NA,NA
+12887,tetracycline,NA,drug resisted,f,drug resisted; mic
 12887,ofloxacin,NA,drug resisted,g,drug resisted; mic
 12887,512,NA,mic,a,drug resisted; mic
 12887,256,NA,mic,b,drug resisted; mic
@@ -979,7 +1007,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 12905,died,patient,outcome,NA,NA
 12905,piperacillin,NA,drug resisted,d,drug resisted; mic
 12905,piperacillin–tazobactam,NA,drug resisted,e,drug resisted; mic
-12905,aztreonam,NA,drug resisted,NA,NA
+12905,aztreonam,NA,drug resisted,f,drug resisted; mic
 13015,"we detected a strain that was  negative for extended-spectrum β-lactamase and positive  for the ampc disk test, modifi ed hodge test, and edta disk  synergy test and harbored the bladha-1 and blandm-1 genes.",NA,article/study aim,NA,NA
 13015,hk-01,bacteria,strain,NA,NA
 13015,bladha-1,bacteria,resistance marker,NA,NA
@@ -1416,7 +1444,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 13994,india,location,place traveled to,NA,NA
 13994,abscess on his left second toe,patient,symptoms/disease,NA,NA
 13994,telithromycin,NA,drug resisted,d,drug resisted; mic
-13994,tetracycline,NA,drug resisted,NA,NA
+13994,tetracycline,NA,drug resisted,e,drug resisted; mic
 13994,trimethoprim-sulfamethoxazole,NA,drug resisted,f,drug resisted; mic
 13994,32,NA,mic,a,drug resisted; mic
 13994,2.0,NA,mic,b,drug resisted; mic
@@ -1778,7 +1806,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 15378,ciprofloxacin,NA,drug resisted,c,drug resisted; mic
 15378,clindamycin,NA,drug resisted,d,drug resisted; mic
 15378,chloramphenicol,NA,drug resisted,e,drug resisted; mic
-15378,gentamicin,NA,drug resisted,NA,NA
+15378,gentamicin,NA,drug resisted,f,drug resisted; mic
 15378,streptomycin,NA,drug resisted,g,drug resisted; mic
 15475,sa 100rc3 (st45),NA,notes,NA,NA
 15475,gentamicin,NA,drug resisted,NA,NA
@@ -1796,6 +1824,50 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 15475,ceftriaxone,NA,drug resisted,NA,NA
 15475,aztreonam,NA,drug resisted,NA,NA
 15475,ceftazidime,NA,drug resisted,NA,NA
+15632,klebsiella pneumoniae,bacteria,binomial (genus species),NA,NA
+15632,helsinki university central hospital,location,hospital name,NA,NA
+15632,died,patient,outcome,NA,NA
+15632,multiorgan failure,patient,outcome,NA,NA
+15632,pneumonia,patient,symptoms/disease,NA,NA
+15632,acute myocardial  ischemia,patient,symptoms/disease,NA,NA
+15632,carbapenemase-producing  (kpc),bacteria,resistance marker,NA,NA
+15632,cefuroxime,NA,drug resisted,NA,NA
+15632,ceftazidime,NA,drug resisted,c,drug resisted; mic
+15632,cefotaxime,NA,drug resisted,d,drug resisted; mic
+15632,aztreonam,NA,drug resisted,e,drug resisted; mic
+15632,type 2 strains,bacteria,strain,NA,NA
+15632,ertapenem,NA,drug resisted,f,drug resisted; mic
+15632,imipenem,NA,drug resisted,g,drug resisted; mic
+15632,8,NA,mic,g,drug resisted; mic
+15632,meropenem,NA,drug resisted,h,drug resisted; mic
+15632,st258,bacteria,strain,NA,NA
+15632,colistin,NA,drug resisted,i,drug resisted; mic
+15632,24,NA,mic,i,drug resisted; mic
+15632,doxicycline,NA,drug resisted,j,drug resisted; mic
+15632,6,NA,mic,j,drug resisted; mic
+15632,4,NA,mic,k,drug resisted; mic
+15632,finland,location,country,NA,NA
+15632,minocycline,NA,drug resisted,k,drug resisted; mic
+15632,2,NA,mic,l,drug resisted; mic
+15632,tigecycline,NA,drug resisted,l,drug resisted; mic
+15632,amikacin,NA,drug resisted,m,drug resisted; mic
+15632,48,NA,mic,m,drug resisted; mic
+15632,june,NA,event month,NA,NA
+15632,16,NA,mic,n,drug resisted; mic
+15632,tobramycin,NA,drug resisted,n,drug resisted; mic
+15632,blakpc-2,bacteria,resistance marker,NA,NA
+15632,"kpc-producing klebsiella pneumoniae was first detected in  north carolina, usa, in 1996",NA,references for follow up,NA,NA
+15632,"yigit h, queenan am, anderson gj, domenech-sanchez a, biddle jw, steward cd,  et al. novel carbapenem-hydrolyzing β -lactamase, kpc-1, from a carbapenemresistant strain of klebsiella pneumoniae. antimicrob agents chemother.  2001;45(4):1151–61.",NA,references for follow up,NA,NA
+15632,it has also been found in norway and  sweden in patients transferred from greece and israel in 2007,NA,references for follow up,NA,NA
+15632,2009,NA,event year,NA,NA
+15632,"samuelsen ø, naseer u, tofteland s, skutlaberg dh, onken a, hjetland r, et  al. emergence of clonally related klebsiella pneumoniae isolates of sequence  type 258 producing plasmid-mediated kpc carbapenemase in norway and  sweden. j antimicrob. chemother. 2009;63:654–8.",NA,references for follow up,NA,NA
+15632,in an outbreak strain in israel,NA,references for follow up,NA,NA
+15632,"kitchel b, rasheed jk, patel jb, srinivasan a, navon-venezia s, carmeli y, et  al. molecular epidemiology of kpc-producing klebsiella pneumoniae isolates  in the united states: clonal expansion of multilocus sequence type 258.  antimicrob agents chemother. 2009;53(8):3365–70.",NA,references for follow up,NA,NA
+15632,as well as in isolates in  poland [8],NA,references for follow up,NA,NA
+15632,and italy [9],NA,references for follow up,NA,NA
+15632,"baraniak a, izdebski r, herda m, hryniewics w, gniadkowski m, kern-zdanowicz  i, et al. the emergence of klebsiella pneumoniae st258 with kpc-2 in poland.  antimicrob agents chemother. 2009;53(10):4565-7.",NA,references for follow up,NA,NA
+15632,"giani t, d’andrea mm, pecile p, borgianni l, nicoletti p, tonelli f, et al.  emergence of klebsiella pneumoniae sequence type 258 producing kpc-3  carbapenemase, italy. j clin microbiol. 2009 sep 16 [epub ahead of print]",NA,references for follow up,NA,NA
+15632,greece; italy,location,place traveled to,NA,NA
 15654,2015,NA,event year,NA,NA
 15654,nimd,bacteria,resistance marker,NA,NA
 15654,danish,patient,country of residence,NA,NA
@@ -2111,8 +2183,8 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 16801,imipenem,NA,drug resisted,NA,NA
 16801,meropenem,NA,drug resisted,NA,NA
 16837,"to our knowledge, this is the first isolation of m. europaeum from human clinical specimens in asia to be reported",NA,article/study aim,NA,NA
-16837,high temperature,patient,symptoms/disease,a,binomial (genus species); comorbidities; symptoms/disease
-16837,cough,patient,symptoms/disease,a,binomial (genus species); comorbidities; symptoms/disease
+16837,high temperature,patient,symptoms/disease,a,age; binomial (genus species); comorbidities; sex; symptoms/disease
+16837,cough,patient,symptoms/disease,a,age; binomial (genus species); comorbidities; sex; symptoms/disease
 16837,productive cough,patient,symptoms/disease,NA,NA
 16837,case 1,NA,notes,NA,NA
 16837,2009,NA,event year,b,age; binomial (genus species); comorbidities; event year
@@ -2124,7 +2196,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 16837,iran,location,country,NA,NA
 16837,48-year-old,patient,age,NA,NA
 16837,man,patient,sex,NA,NA
-16837,hiv,patient,comorbidities,a,binomial (genus species); comorbidities; symptoms/disease
+16837,hiv,patient,comorbidities,a,age; binomial (genus species); comorbidities; sex; symptoms/disease
 16837,intravenous drug use,patient,comorbidities,NA,NA
 17068,61,patient,age,NA,NA
 17068,s. marcescens,bacteria,binomial (genus species),NA,NA
@@ -2152,6 +2224,35 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 17121,meropenem,NA,drug resisted,NA,NA
 17121,doripenem,NA,drug resisted,NA,NA
 17121,ceftazidime,NA,drug resisted,NA,NA
+17169,cfr­positive,bacteria,resistance marker,NA,NA
+17169,open sore,patient,symptoms/disease,NA,NA
+17169,redness,patient,symptoms/disease,NA,NA
+17169,pus filled bumps.,patient,symptoms/disease,NA,NA
+17169,jcsc1435,bacteria,strain,NA,NA
+17169,linezolid,NA,drug resisted,a,drug resisted; mic
+17169,clindamycin,NA,drug resisted,b,drug resisted; mic
+17169,chloramphenicol,NA,drug resisted,c,drug resisted; mic
+17169,staphylococcus haemolyticus,bacteria,binomial (genus species),NA,NA
+17169,oxacillin,NA,drug resisted,d,drug resisted; mic
+17169,type i,bacteria,strain,NA,NA
+17169,recently cui et al and cai et al have described cfr carrying s. haemolyticus strains from clinical samples.,NA,references for follow up,NA,NA
+17169,"19. cui l, wang y, li y, he t, schwarz s, ding y, et al. cfr­mediated linezolid resistance among methicillin­resistant coagulase­negative staphylococci from infections of humans. plos one. 2013;8:e57096. [pmcid: pmc3577776] [pubmed: 23437319]",NA,references for follow up,NA,NA
+17169,60,patient,age,NA,NA
+17169,"20. cai jc, hu yy, zhang r, zhou hw, chen gx. linezolid­resistant clinical isolates of meticillin resistant coagulase negative staphylococci and enterococcus faecium from china. j med microbiol. 2012;61:1568–73. [pubmed: 22899781]",NA,references for follow up,NA,NA
+17169,g t,bacteria,resistance marker,NA,NA
+17169,met thr,bacteria,resistance marker,NA,NA
+17169,penicillin,NA,drug resisted,NA,NA
+17169,cefoxitin,NA,drug resisted,NA,NA
+17169,gentamicin,NA,drug resisted,NA,NA
+17169,trimethoprim­sulphamethoxazole,NA,drug resisted,NA,NA
+17169,rifampicin,NA,drug resisted,NA,NA
+17169,2012,NA,event year,NA,NA
+17169,male,patient,sex,NA,NA
+17169,jss medical college,location,hospital name,NA,NA
+17169,mysore,location,city,NA,NA
+17169,india,location,country,NA,NA
+17169,hypertension,patient,comorbidities,NA,NA
+17169,type ii diabetes,patient,comorbidities,NA,NA
 172,linezolid,NA,drug resisted,NA,NA
 172,vancomycin,NA,drug resisted,NA,NA
 172,vre,bacteria,strain,NA,NA
@@ -2219,7 +2320,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 1786,meropenem,NA,drug resisted,j,drug resisted; mic
 1786,ertapenem,NA,drug resisted,k,drug resisted; mic
 1786,piperacillin/tazobactam,NA,drug resisted,l,drug resisted; mic
-1786,gentamicin,NA,drug resisted,NA,NA
+1786,gentamicin,NA,drug resisted,m,drug resisted; mic
 1786,>256,NA,mic,a,drug resisted; mic
 1786,16,NA,mic,d,drug resisted; mic
 1786,8,NA,mic,e,drug resisted; mic
@@ -2336,7 +2437,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 18184,fevers,patient,symptoms,NA,NA
 18184,2015,NA,event year,NA,NA
 18184,sept,NA,event month,NA,NA
-18184,mycobacterium tuberculosis,bacteria,strain,NA,NA
+18184,mycobacterium tuberculosi,bacteria,binomial (genus species),NA,NA
 18184,isoniazid,NA,drug resisted,b,drug resisted; mic
 18184,2 μg/m,NA,mic,b,drug resisted; mic
 18184,rifabutin,NA,drug resisted,c,drug resisted; mic
@@ -2632,6 +2733,32 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 18946,meropenem,NA,drug resisted,NA,NA
 18946,ertapenem,NA,drug resisted,NA,NA
 18946,ciprofloxacin,NA,drug resisted,NA,NA
+18947,iran,location,country,NA,NA
+18947,blactx-m,bacteria,resistance marker,NA,NA
+18947,52,patient,age,NA,NA
+18947,male,patient,sex,NA,NA
+18947,fever,patient,symptoms/disease,NA,NA
+18947,transplant rejection,patient,comorbidities,NA,NA
+18947,meropenem,NA,drug resisted,NA,NA
+18947,ertapenem,NA,drug resisted,NA,NA
+18947,cefepime,NA,drug resisted,NA,NA
+18947,cefotaxime,NA,drug resisted,NA,NA
+18947,ceftazidime,NA,drug resisted,NA,NA
+18947,klebsiella pneumoniae,bacteria,binomial (genus species),NA,NA
+18947,amikacin,NA,drug resisted,NA,NA
+18947,kanamycin,NA,drug resisted,NA,NA
+18947,ciprofloxacin,NA,drug resisted,NA,NA
+18947,aztreonam,NA,drug resisted,NA,NA
+18947,trimethoprim-sulfamethoxazole,NA,drug resisted,NA,NA
+18947,imipenem,NA,drug resisted,NA,NA
+18947,metallo-beta-lactamase1-producing,bacteria,resistance marker,NA,NA
+18947,ndm-1,bacteria,resistance marker,NA,NA
+18947,tehran,location,city,NA,NA
+18947,2011,NA,event year,NA,NA
+18947,march,NA,event month,NA,NA
+18947,blatem,bacteria,resistance marker,NA,NA
+18947,blandm-1,bacteria,resistance marker,NA,NA
+18947,blashv,bacteria,resistance marker,NA,NA
 18963,35,patient,age,NA,NA
 18963,ceftazidime,NA,drug resisted,NA,NA
 18963,ceftriaxone,NA,drug resisted,NA,NA
@@ -3338,6 +3465,73 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 21149,aztreonam,NA,drug resisted,d,drug resisted; mic
 21149,cefotaxime,NA,drug resisted,e,drug resisted; mic
 21149,cefepime,NA,drug resisted,f,drug resisted; mic
+21192,staphylococcus aureus,bacteria,binomial (genus species),NA,NA
+21192,disturbance of consciousness,patient,symptoms/disease,NA,NA
+21192,dissecting aortic aneurysm,patient,comorbidities,NA,NA
+21192,anterior mediastinal abscess,patient,symptoms/disease,NA,NA
+21192,hemorrhagic cerebral infarction associated with a prosthetic graft infection of the aortic arch,patient,symptoms/disease,NA,NA
+21192,antimicrobial susceptibility testing was performed according to the clinical and laboratory standards institute (clsi) guidelines,NA,notes,NA,NA
+21192,"the interpretations of the mic results (susceptible, intermediate, nonsusceptible, or resistant) were determined according to the clsi guidelines.",NA,notes,NA,NA
+21192,"mrsa isolates with daptomycin mics of >1 μg/ml, vancomycin mics of 4 to 8 μg/ml, and rifampicin mics of >2 μg/ml were defined as daptomycin nonsusceptible, vancomycin-intermediate resistant, and rifampicin resistant, respectively.",NA,notes,NA,NA
+21192,oxacillin,NA,drug resisted,a,drug resisted; mic
+21192,gentamicin,NA,drug resisted,b,drug resisted; mic
+21192,vancomycin,NA,drug resisted,c,drug resisted; mic
+21192,community-acquired methicillin-resistant staphylococcus aureus (ca-mrsa) was first reported in 1981 in patients with mrsa infections without general healthcare-associated risk factors. the incidence of ca-mrsa infection has continually increased since the mid-1990s [1].,NA,references for follow up,NA,NA
+21192,rifampicin,NA,drug resisted,d,drug resisted; mic
+21192,>4 [r],NA,mic,a,drug resisted; mic
+21192,>8 [r],NA,mic,b,drug resisted; mic
+21192,4 [i],NA,mic,c,drug resisted; mic
+21192,>2 [r],NA,mic,d,drug resisted; mic
+21192,the first case of an st72-mrsa-iv strain in asia demonstrating vancomycin-intermediate resistance was reported in 2012 by chung et al. in korea [13].,NA,references for follow up,NA,NA
+21192,st72 (1-4-1-8-4-4-3),bacteria,strain,NA,NA
+21192,sccmec type iv,bacteria,resistance marker,NA,NA
+21192,"table 2 susceptibility of mrsa to daptomycin as analyzed by clinical laboratory testing method daptomycin mic (μg/ml) [interpretation] isolate 1 isolate 1’ isolate 2 isolate 3 isolate 4 microscan (siemens, tokyo, japan) ≤0.5 [s] ≤0.5 [s] ≤0.5 [s] >1 [ns] >1 [ns] frozen plate (eiken, tokyo, japan) 0.5 [s] 0.5 [s] 0.25 [s] 1 [s] 1.5 [ns] etest® (biomérieux, marcy-l'étoile, france) 0.125 [s] 0.125 [s] 0.125 [s] 1 [s] 1.5 [ns] isolate 1: blood culture on the first hospital day; isolate1’: pus from the abscess on the first hospital day; isolate 2: pus from the abscess on the sixth hospital day; isolate 3: blood culture on the 40th hospital day; isolate 4: pus from the abscess on the 55th hospital day. s: susceptible; ns: nonsusceptible.",NA,notes,NA,NA
+21192,daptomycin nonsusceptible,NA,drug resisted,NA,NA
+21192,"we have herein reported the first case of daptomycin nonsusceptibility among clinical st72-mrsa-iv strains, which are rarely observed in countries other than korea.",NA,article/study aim,NA,NA
+21192,"enright mc, day np, davies ce, peacock sj, spratt bg: multilocus sequence typing for characterization of methicillin-resistant and methicillin-susceptible clones of staphylococcus aureus. j clin microbiol 2000, 38(3):1008–1015.",NA,references for follow up,NA,NA
+21192,st72-mrsa-iv: sequence type 72 mrsa sccmec type iv,bacteria,strain,NA,NA
+21192,"1 department of infection control and prevention, tokyo medical university hospital",location,hospital name,NA,NA
+21192,"nishishinjuku, shinjuku-ku, tokyo",location,city,NA,NA
+21192,japan,location,country,NA,NA
+21192,"to our knowledge, the present case is the first report of an st72-mrsa-iv strain with daptomycin nonsusceptibility and vancomycinintermediate resistance.",NA,notes,NA,NA
+21192,"to our knowledge, the present case is the first report of an st72-mrsa-iv strain with daptomycin nonsusceptibility and vancomycinintermediate resistance.",NA,article/study aim,NA,NA
+21192,45-year-old,patient,age,NA,NA
+21192,man,patient,sex,NA,NA
+21192,fever,patient,symptoms/disease,NA,NA
+21347,neisseria gonorrhoeae,bacteria,binomial (genus species),NA,NA
+21347,"ohnishi m, golparian d, shimuta k, saika t, hoshina s,  iwasaku k, et al. is neisseria gonorrhoeae initiating a future  era of untreatable gonorrhea? detailed characterization of  the first strain with high-level resistance to ceftriaxone.  antimicrob agents chemother. 2011;55(7):3538-45.",NA,references for follow up,NA,NA
+21347,"tapsall jw, ndowa f, lewis da, unemo m. meeting the  public health challenge of multidrugand extensively drugresistant neisseria gonorrhoeae. expert rev anti infect ther.  2009;7(7):821-34.",NA,references for follow up,NA,NA
+21347,july 2011,NA,event date,NA,NA
+21347,july,NA,event month,NA,NA
+21347,2011,NA,event year,NA,NA
+21347,austria,location,country,NA,NA
+21347,urethritis,patient,symptoms/disease,NA,NA
+21347,chlamydia trachomatis,patient,comorbidities,NA,NA
+21347,st1901,bacteria,strain,NA,NA
+21347,st1407,bacteria,strain,NA,NA
+21347,we describe the first cefixime-resistant neisseria gonorrhoeae strain in austria that caused treatment failure.,NA,article/study aim,NA,NA
+21347,cefixime,NA,drug resisted,a,drug resisted; mic
+21347,(>0.12  mg/l,NA,mic,a,drug resisted; mic
+21347,ceftriaxone,NA,drug resisted,b,drug resisted; mic
+21347,(>0.12 mg/l),NA,mic,b,drug resisted; mic
+21347,ciprofloxacin,NA,drug resisted,c,drug resisted; mic
+21347,(>32 mg/l,NA,mic,c,drug resisted; mic
+21347,based on the breakpoints stated by the  european committee on antimicrobial susceptibility  testing (eucast) [9].,NA,notes,NA,NA
+21347,"we report here the first neisseria gonorrhoeae strain  with resistance to cefixime in austria, which caused a  treatment failure with cefixime.",NA,article/study aim,NA,NA
+21347,pena mosaic xxxiv allele,bacteria,resistance marker,NA,NA
+21347,a single additional amino acid alteration (t534a)  in the gene for penicillin binding protein 2,bacteria,resistance marker,NA,NA
+21347,mtrr,bacteria,resistance marker,NA,NA
+21347,penb,bacteria,resistance marker,NA,NA
+21347,"transformation experiments, performed as previously described [7,12], confirmed that  the only new resistance determinant, i.e. the novel  pena mosaic allele (pena mosaic xxxiv allele with an  additional t534a alteration), was responsible for the  resistance to escs.",NA,notes,NA,NA
+21347,"table characteristics of the first neisseria gonorrhoeae strain  with resistance to cefixime and causing treatment failure,  austria, 2011 mic  (mg/l) mlst ngmast pena  allele mtrr penb pona ix tx  1.0 0.5 st1901 st1407 mosaic (novel)a a-del in  promoterb g120k  a121nc l421pd ix: cefixime; mic: minimum inhibitory concentration (etest was  used and only whole mic dilutions are presented); mlst:  multilocus sequence typing; ng-mast: neisseria gonorrhoeae multiantigen sequence typing; pcr: polymerase chain reaction;  st: sequence type; tx: ceftriaxone. a mosaic allele encodes a mosaic penicillin binding protein 2  (pbp2), which causes decreased susceptibility to extendedspectrum cephalosporins. b characteristic single nucleotide (a) deletion in the  inverted repeat of the promoter region of mtrr that causes  overexpression of the mtrcde efflux pump, which results  in a further decreased susceptibility to extended-spectrum  cephalosporins. c alterations of amino acids 120 and 121 in the porin porb1b that  cause a decreased intake of extended-spectrum cephalosporins  and, accordingly, a further decreased susceptibility to extendedspectrum cephalosporins . d alteration of amino acid 421 in the penicillin-binding protein 1  (pbp1), which results in decreased susceptibility to penicillins.",NA,notes,NA,NA
+21347,"we report here the first n.  gonorrhoeae strain with  resistance to cefixime in austria, which caused a treatment failure with the internationally recommended  first-line treatment cefixime.",NA,notes,NA,NA
+21347,two cases of clinical failures with cefixime standard treatment were described  in 2010 in norway [4],NA,references for follow up,NA,NA
+21347,germany,location,place traveled to,NA,NA
+21347,"three cases in 2011 in the united kingdom [5,6]",NA,references for follow up,NA,NA
+21347,"first gonococcal strain with high-level  clinical resistance to ceftriaxone (the last remaining  option for empirical first-line treatment), i.e. the first  extensively drug-resistant gonococcus [1], was recently  found in japan [7].",NA,references for follow up,NA,NA
+21347,"unemo m, golparian d, syversen g, vestrheim df, moi h.  two cases of verified clinical failures using internationally  recommended first-line cefixime for gonorrhoea treatment,  norway, 2010. euro surveill. 2010;15(47):pii=19721. available  from: http://www.eurosurveillance.org/viewarticle. aspx?articleid=19721",NA,references for follow up,NA,NA
+21347,"ison ca, hussey j, sankar kn, evans j, alexander s.  gonorrhoea treatment failures to cefixime and azithromycin  in england, 2010. euro surveill. 2011;16(14):pii:19833.  available from: http://www.eurosurveillance.org/viewarticle. aspx?articleid=19833",NA,references for follow up,NA,NA
+21347,"forsyth s, penney p, rooney g. cefixime-resistant neisseria  gonorrhoeae in the uk: a time to reflect on practice and  recommendations. int j std aids. 2011;22(5):296-7.",NA,references for follow up,NA,NA
 21348,his report describes the first two cases outside japan  of verified treatment failures of gonorrhoea using internationally recommended first-line treatment cefixime.,NA,article/study aim,NA,NA
 21348,neisseria gonorrhoeae,bacteria,binomial (genus species),NA,NA
 21348,st1407,bacteria,strain,NA,NA
@@ -3791,16 +3985,47 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 2389,ertapenem,NA,drug resisted,d,drug resisted; mic
 2389,imipenem,NA,drug resisted,e,drug resisted; mic
 2389,meropenem,NA,drug resisted,f,drug resisted; mic
+2418,45,patient,age,NA,NA
+2418,rifampicin,NA,drug resisted,d,drug resisted; mic
+2418,>4,NA,mic,NA,NA
+2418,>8,NA,mic,NA,NA
+2418,>2,NA,mic,d,drug resisted; mic
+2418,"the mrsa isolates showed susceptibility to daptomycin at the time of admission, with mics of ≤0.5 μg/ml, 0.5, and 0.125 μg/ml upon analysis by microscan, frozen plate, and etest®, respectively. over time, however, these mics increased to >1, 1.5, and 1.5 μg/ml, respectively, indicating daptomycin nonsusceptibility (table 2).",NA,notes,NA,NA
+2418,man,patient,sex,NA,NA
+2418,daptomycin,NA,drug resisted,e,drug resisted; mic
+2418,1.5,NA,mic,e,drug resisted; mic
+2418,fever,patient,symptoms/disease,NA,NA
+2418,disturbance of consciousness,patient,symptoms/disease,NA,NA
+2418,previously been treated with vancomycin at 3 g/day (1 g intravenously [iv] three times a day [tid]) and rifampicin at 600 mg/day (300 mg orally [po] twice a day [bid]) for 2 days before being transferred to our hospital,NA,notes,NA,NA
+2418,anterior mediastinal abscess,patient,symptoms/disease,NA,NA
+2418,hemorrhagic cerebral infarction,patient,symptoms/disease,NA,NA
+2418,st72,bacteria,strain,NA,NA
+2418,intractable infectious disease,patient,comorbidities,NA,NA
+2418,staphylococcus aureus,bacteria,binomial (genus species),NA,NA
+2418,previous exposure,patient,comorbidities,NA,NA
+2418,treatment with insufficient doses,patient,comorbidities,NA,NA
+2418,prolonged use,patient,comorbidities,NA,NA
+2418,japan,location,country,NA,NA
+2418,"department of infection control and prevention, tokyo medical university hospital,",location,hospital name,NA,NA
+2418,tokyo,location,city,NA,NA
+2418,"we herein report the first case of vancomycin-intermediate, daptomycin-nonsusceptible st72-mrsa-iv",NA,article/study aim,NA,NA
+2418,4,NA,mic,c,drug resisted; mic
+2418,st72-mrsa-iv,bacteria,strain,NA,NA
+2418,sccmec type iv,bacteria,strain,NA,NA
+2418,methicillin-,NA,drug resisted,NA,NA
+2418,oxacillin,NA,drug resisted,a,drug resisted; mic
+2418,gentamicin,NA,drug resisted,b,drug resisted; mic
+2418,vancomycin,NA,drug resisted,c,drug resisted; mic
 2419,we report an outbreak,NA,article/study aim,NA,NA
 2419,amikacin,NA,drug resisted,i,drug resisted; mic
 2419,gentamicin,NA,drug resisted,j,drug resisted; mic
 2419,tobramycin,NA,drug resisted,k,drug resisted; mic
 2419,nalidixic acid,NA,drug resisted,l,drug resisted; mic
 2419,ciprofloxacin,NA,drug resisted,m,drug resisted; mic
-2419,levofloxacin,NA,drug resisted,NA,NA
-2419,tetracycline,NA,drug resisted,NA,NA
+2419,levofloxacin,NA,drug resisted,n,drug resisted; mic
+2419,tetracycline,NA,drug resisted,o,drug resisted; mic
 2419,tigecycline,NA,drug resisted,p,drug resisted; mic
-2419,colistin,NA,drug resisted,NA,NA
+2419,colistin,NA,drug resisted,q,drug resisted; mic
 2419,co-trimoxazole,NA,drug resisted,r,drug resisted; mic
 2419,ampicillin,NA,drug resisted,a,drug resisted; mic
 2419,≥256,NA,mic,a,drug resisted; mic
@@ -3842,6 +4067,31 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 2419,9,NA,event day,NA,NA
 2419,patient a,NA,notes,NA,NA
 2419,imipenem,NA,drug resisted,h,drug resisted; mic
+2487,klebsiella pneumoniae,bacteria,binomial (genus species),NA,NA
+2487,carbapenems,NA,drug resisted,NA,NA
+2487,fluoroquinolones,NA,drug resisted,NA,NA
+2487,aminoglycosides,NA,drug resisted,NA,NA
+2487,trimethoprim/sulfamethoxazole,NA,drug resisted,NA,NA
+2487,>32 mg/l,NA,mic,NA,NA
+2487,imipenem,NA,drug resisted,NA,NA
+2487,ertapenem,NA,drug resisted,NA,NA
+2487,meropenem,NA,drug resisted,NA,NA
+2487,st14,bacteria,strain,NA,NA
+2487,first case of multidrug-resistant blandm-1and blaoxa-232-carrying klebsiella pneumoniae and its probable cross-transmission in a french hospita,NA,article/study aim,NA,NA
+2487,child,patient,age,NA,NA
+2487,blatem-1,bacteria,resistance marker,NA,NA
+2487,blaoxa-1,bacteria,resistance marker,NA,NA
+2487,arma,bacteria,resistance marker,NA,NA
+2487,10,NA,event day,NA,NA
+2487,march,NA,event month,NA,NA
+2487,2014,NA,event year,NA,NA
+2487,he,patient,sex,NA,NA
+2487,blandm-1,bacteria,resistance marker,NA,NA
+2487,blaoxa-232,bacteria,resistance marker,NA,NA
+2487,trousseau hospital,location,hospital name,NA,NA
+2487,paris,location,city,NA,NA
+2487,france,location,country,NA,NA
+2487,-lactams,NA,drug resisted,NA,NA
 2512,evaluate the presence and prevalence of multidrug antibacterial resistance in helicobacter pylori in bulgaria from 2005 to 2008.,NA,article/study aim,NA,NA
 2512,mic; mg ml–1,NA,notes,NA,NA
 2512,helicobacter pylori,bacteria,binomial (genus species),NA,NA
@@ -4083,7 +4333,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 3235,ceftriaxone,NA,drug resisted,c,drug resisted; mic
 3235,piperacillin/tazobactam,NA,drug resisted,d,drug resisted; mic
 3235,ertapenem,NA,drug resisted,e,drug resisted; mic
-3235,imipenem,NA,drug resisted,NA,NA
+3235,imipenem,NA,drug resisted,f,drug resisted; mic
 3374,vancomycin,NA,drug resisted,NA,NA
 3374,2008,NA,event year,NA,NA
 3374,did not survive,patient,outcome,NA,NA
@@ -4186,6 +4436,32 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 3596,chronic bronchitis,patient,symptoms,NA,NA
 3596,-lactams,NA,drug resisted,NA,NA
 3596,aminoglycosides,NA,drug resisted,NA,NA
+360,girl,patient,sex,b,age; sex; strain
+360,tobramycin,NA,drug resisted,NA,NA
+360,netilmicin,NA,drug resisted,NA,NA
+360,meropenem,NA,drug resisted,c,drug resisted; mic
+360,>32 mg/l,NA,mic,d,drug resisted; mic
+360,blandm,bacteria,resistance marker,NA,NA
+360,blaoxa-24 like,bacteria,resistance marker,NA,NA
+360,acinetobacter pittii,bacteria,binomial (genus species),NA,NA
+360,"montealegre mc, maya jj, correa a, espinal p, mojica mf, ruiz sj, et al. first identification of oxa-72 carbapenemase from acinetobacter pittii in colombia. antimicrob agents chemother 2012;56: 3996–8",NA,references for follow up,NA,NA
+360,oxa-72-producing a. pittii was first described in colombia in 2012 from a catheter tip–positive culture of a patient who had ischaemic hepatitis and multiorgan failure [6].,NA,references for follow up,NA,NA
+360,ticarcillin,NA,drug resisted,NA,NA
+360,carbapenem-resistant clinical isolates of a. pittii in france [7],NA,references for follow up,NA,NA
+360,"bonnin ra, docobo-pérez f, poirel l, villegas mv, nordmann p. emergence of oxa-72-producing acinetobacter pittii clinical isolates. int j antimicrob agents 2014;43:195–6",NA,references for follow up,NA,NA
+360,"this study was initiated by the isolation of two imipenemresistant a. pittii strains recovered in two hospitals in tripoli, north lebanon, in 2015.",NA,article/study aim,NA,NA
+360,lebanon,location,country,NA,NA
+360,tripoli,location,city,NA,NA
+360,north lebanon,location,state/province/district,NA,NA
+360,2015,NA,event year,NA,NA
+360,4-month-old,patient,age,a,age; strain
+360,ticarcillin/clavulanate,NA,drug resisted,NA,NA
+360,>32 mg/l,NA,mic,c,drug resisted; mic
+360,16 mg/l,NA,mic,e,drug resisted; mic
+360,ceftazidime,NA,drug resisted,NA,NA
+360,cmul334,bacteria,strain,b,age; sex; strain
+360,cmul332,bacteria,strain,a,age; strain
+360,15-year-old,patient,age,b,age; sex; strain
 3613,"peking university first hospital,",location,hospital name,NA,NA
 3613,abdominal pain,patient,symptoms,a,age; sex; symptoms
 3613,57,patient,age,b,age; sex; symptoms
@@ -4205,6 +4481,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 3613,macrolide,NA,drug resisted,NA,NA
 3613,china,location,country,NA,NA
 3613,campylobacter,bacteria,binomial (genus species),NA,NA
+3613,campylobacter jejuni,bacteria,binomial (genus species),NA,NA
 3613,3 cases of acute gastroenteritis caused by high-level macrolide-resistant campylobacter.,NA,article/study aim,NA,NA
 3613,65,patient,age,a,age; sex; symptoms
 3613,man,patient,sex,a,age; sex; symptoms
@@ -4272,6 +4549,17 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 3722,upper abdominal discomfort,patient,symptoms/disease,NA,NA
 3722,nausea,patient,symptoms/disease,NA,NA
 3722,vomiting,patient,symptoms/disease,NA,NA
+3799,4096 mg/l,NA,mic,NA,NA
+3799,cardiff,location,city,NA,NA
+3799,liverpool,location,city,NA,NA
+3799,"three female, two male",patient,sex,NA,NA
+3799,male,patient,sex,NA,NA
+3799,"mean age 26 years, range 21 –32 years",patient,age,NA,NA
+3799,19,patient,age,NA,NA
+3799,azithromycin,NA,drug resisted,NA,NA
+3799,"this study aimed to investigate the origin of high-level azithromycin resistance that emerged in isolates of neisseria gonorrhoeae in england and wales in 2007, and to establish methods for identifying high-level azithromycin resistance",NA,article/study aim,NA,NA
+3799,neisseria gonorrhoeae,bacteria,binomial (genus species),NA,NA
+3799,2007,NA,event year,NA,NA
 3872,2013,NA,event year,NA,NA
 3872,‡64,NA,mic,c,drug resisted; mic
 3872,‡4,NA,mic,d,drug resisted; mic
@@ -4453,6 +4741,12 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 4519,cefepime,NA,drug resisted,d,drug resisted; mic
 4519,cefotaxime,NA,drug resisted,e,drug resisted; mic
 4519,ceftazidime,NA,drug resisted,f,drug resisted; mic
+4578,"to our knowledge, this is the first study of multidrug-resistant tuberculosis (mdr-tb) trends over an extended period of time (2005–2013) in greater metropolitan mumbai",NA,first surveillance study (of a particular resistance) in countr,NA,NA
+4578,2005,NA,event year,NA,NA
+4578,"the aim of this study was to investigate the trends over time of patterns of drug resistance in a sample of mdr-tb patients in greater metropolitan mumbai, india",NA,article/study aim,NA,NA
+4578,mumbai,location,city,NA,NA
+4578,india,location,country,NA,NA
+4578,mycobacterium tuberculosis,bacteria,binomial (genus species),NA,NA
 4581,case report,NA,article/study aim,NA,NA
 4581,nursing home resident,patient,occupation,NA,NA
 4581,ventilator-dependent end-stage chronic obstructive pulmonary disease,patient,comorbidities,NA,NA
@@ -4735,7 +5029,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 5560,"despite surgical intervention, she was subsequently admitted to other hospitals over several months for uroseptic episodes.",patient,outcome,NA,NA
 5560,gatifloxacin,NA,drug resisted,a,drug resisted; mic
 5560,gemifloxacin,NA,drug resisted,b,drug resisted; mic
-5560,levofloxacin,NA,drug resisted,NA,NA
+5560,levofloxacin,NA,drug resisted,c,drug resisted; mic
 5560,moxifloxacin,NA,drug resisted,d,drug resisted; mic
 5560,ofloxacin,NA,drug resisted,NA,NA
 5560,16,NA,mic,a,drug resisted; mic
@@ -4793,7 +5087,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 580,gentamicin,NA,drug resisted,a,drug resisted; mic
 580,cephalothin,NA,drug resisted,b,drug resisted; mic
 580,cefotaxime,NA,drug resisted,c,drug resisted; mic
-580,ceftriaxone,NA,drug resisted,NA,NA
+580,ceftriaxone,NA,drug resisted,d,drug resisted; mic
 580,ceftazidime,NA,drug resisted,e,drug resisted; mic
 580,university hospital oswaldo cruz,location,hospital name,NA,NA
 580,cefepime,NA,drug resisted,f,drug resisted; mic
@@ -5116,7 +5410,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 6467,imipeneme,NA,drug resisted,e,drug resisted; mic
 6467,meropeneme,NA,drug resisted,f,drug resisted; mic
 6492,case report,NA,article/study aim,NA,NA
-6492,gentamicin,NA,drug resisted,NA,NA
+6492,gentamicin,NA,drug resisted,g,drug resisted; mic
 6492,mic (mg/l),NA,notes,NA,NA
 6492,>256,NA,mic,a,drug resisted; mic
 6492,32/4,NA,mic,b,drug resisted; mic
@@ -5139,7 +5433,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 6492,the baby was successfully treated  with meropenem,patient,outcome,NA,NA
 6492,piperacillin/tazobactam,NA,drug resisted,b,drug resisted; mic
 6492,ticarcillin/clavulanic acid,NA,drug resisted,c,drug resisted; mic
-6492,ceftazidime,NA,drug resisted,NA,NA
+6492,ceftazidime,NA,drug resisted,d,drug resisted; mic
 6492,cefepime,NA,drug resisted,e,drug resisted; mic
 6492,aztreonam,NA,drug resisted,f,drug resisted; mic
 6505,"the first widely recognized ca-mrsa clone in the usa was the midwestern clone with st1, also known as usa400, named after its unique pfge type. after the turn of the century, usa300 (st8) emerged and replaced usa400 as the dominant clone responsible for the majority of skin and soft tissue infections in the usa.7–1",NA,references for follow up,NA,NA
@@ -5537,6 +5831,41 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 7968,cotrimoxazole,NA,drug resisted,NA,NA
 7968,linezolid,NA,drug resisted,NA,NA
 7968,≥64 毺g/ml,NA,mic,a,drug resisted; mic
+8089,25-week,patient,age,NA,NA
+8089,robert debré hospital,location,hospital name,NA,NA
+8089,paris,location,city,NA,NA
+8089,france,location,country,NA,NA
+8089,cephalosporins,NA,drug resisted,NA,NA
+8089,carbapenems,NA,drug resisted,NA,NA
+8089,co-trimoxazole,NA,drug resisted,NA,NA
+8089,fosfomycin,NA,drug resisted,NA,NA
+8089,colistin,NA,drug resisted,NA,NA
+8089,amoxicillin,NA,drug resisted,a,drug resisted; mic
+8089,32 mg/l,NA,mic,a,drug resisted; mic
+8089,male,patient,sex,NA,NA
+8089,amoxicillin-clavulanate,NA,drug resisted,b,drug resisted; mic
+8089,2 mg/l,NA,mic,b,drug resisted; mic
+8089,ticarcilin-clavulanate,NA,drug resisted,c,drug resisted; mic
+8089,piperacillin,NA,drug resisted,d,drug resisted; mic
+8089,piperacillin-tazobactam,NA,drug resisted,e,drug resisted; mic
+8089,septic shock,patient,symptoms/disease,NA,NA
+8089,tobramycin,NA,drug resisted,f,drug resisted; mic
+8089,3 mg/l,NA,mic,f,drug resisted; mic
+8089,gastrointestinal perforation,patient,symptoms/disease,NA,NA
+8089,gentamicin,NA,drug resisted,g,drug resisted; mic
+8089,12 mg/l,NA,mic,g,drug resisted; mic
+8089,amikacin,NA,drug resisted,h,drug resisted; mic
+8089,32 mg/l,NA,mic,h,drug resisted; mic
+8089,ciprofloxacin,NA,drug resisted,i,drug resisted; mic
+8089,chorioamnionitis,patient,comorbidities,NA,NA
+8089,levofloxacin,NA,drug resisted,j,drug resisted; mic
+8089,afebrile,patient,outcome,NA,NA
+8089,hemodynamically stable,patient,outcome,NA,NA
+8089,we describe the first case of sepsis due to a yet unnamed species of dyella genus associated to gastrointestinal perforation in a premature newborn.,NA,article/study aim,NA,NA
+8089,multiple organ failures,patient,comorbidities,NA,NA
+8089,dyella genus,bacteria,binomial (genus species),NA,NA
+8089,without significant homology with any already named species,NA,notes,NA,NA
+8089,dyella sp. ld14149,bacteria,binomial (genus species),NA,NA
 8174,an outbreak of ndm-1-producing citrobacter freundii and possible secondary in vivo spread of blandm-1 to other enterobacteriaceae were investigated,NA,article/study aim,NA,NA
 8174,"cmy-6,",bacteria,resistance marker,NA,NA
 8174,oxa-1,bacteria,resistance marker,NA,NA
@@ -5579,6 +5908,42 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 8181,ceftazidime,NA,drug resisted,e,drug resisted; mic
 8181,cefotaxime,NA,drug resisted,f,drug resisted; mic
 8181,ertapenem,NA,drug resisted,g,drug resisted; mic
+8515,"the purpose of the present study was to identify potentially unreported cases of typhoid fever caused by esbl-producing s. typhi at a global level, to confirm esbl production phenotypically, and to identify the responsible esbl genes.",NA,article/study aim,NA,NA
+8515,gentamicin,NA,drug resisted,a,drug resisted; mic; resistance marker
+8515,streptomycinb,NA,drug resisted,b,drug resisted; mic; resistance marker
+8515,>128,NA,mic,b,drug resisted; mic; resistance marker
+8515,8,NA,mic,c,drug resisted; mic; resistance marker
+8515,cefotaxime,NA,drug resisted,c,drug resisted; mic; resistance marker
+8515,the norwegian patient in question and a previously published case from the netherlands (strain ty5359) (2) had travel histories to the philippines in late 2007 that were almost identical.,NA,references for follow up,NA,NA
+8515,cefpodoxime,NA,drug resisted,d,drug resisted; mic; resistance marker
+8515,>32,NA,mic,d,drug resisted; mic; resistance marker
+8515,ceftazidime,NA,drug resisted,e,drug resisted; mic; resistance marker
+8515,64,NA,mic,e,drug resisted; mic; resistance marker
+8515,>8,NA,mic,f,drug resisted; mic; resistance marker
+8515,"al naiemi n, zwart b, rijnsburger mc, roosendaal r, debetsossenkopp yj, mulder ja, fijen ca, maten w, vandenbroucke-grauls cm, savelkoul ph. 2008. extended-spectrum-beta-lactamase production in a salmonella enterica serotype typhi strain from the philippines. j clin microbiol 46:2794 –2795. http://dx.doi.org/10.1128/jcm.00676-08",NA,references for follow up,NA,NA
+8515,ceftiofurb,NA,drug resisted,f,drug resisted; mic; resistance marker
+8515,ceftriaxone,NA,drug resisted,g,drug resisted; mic; resistance marker
+8515,16,NA,mic,g,drug resisted; mic; resistance marker
+8515,ampicillin,NA,drug resisted,h,drug resisted; mic; resistance marker
+8515,>32,NA,mic,h,drug resisted; mic; resistance marker
+8515,"to date, esbl-producing s. enterica serovar typhi has only been reported from bangladesh, egypt, india, iran, iraq, pakistan, and the philippines (1).",NA,notes,NA,NA
+8515,tetracycline,NA,drug resisted,i,drug resisted; mic; resistance marker
+8515,trimethoprim,NA,drug resisted,j,drug resisted; mic; resistance marker
+8515,>32,NA,mic,i,drug resisted; mic; resistance marker
+8515,>32,NA,mic,j,drug resisted; mic; resistance marker
+8515,blatem-1,bacteria,resistance marker,h,drug resisted; mic; resistance marker
+8515,gastroenteritis,patient,symptoms/disease,NA,NA
+8515,aac(6=)iic;,bacteria,resistance marker,a,drug resisted; mic; resistance marker
+8515,stra/strb,bacteria,resistance marker,b,drug resisted; mic; resistance marker
+8515,tetd,bacteria,resistance marker,i,drug resisted; mic; resistance marker
+8515,dfra18,bacteria,resistance marker,j,drug resisted; mic; resistance marker
+8515,norwegian,location,country,NA,NA
+8515,philippines,location,place traveled to,NA,NA
+8515,serovar typhi,bacteria,strain,NA,NA
+8515,salmonella enterica,bacteria,binomial (genus species),NA,NA
+8515,strain 1107-3567,bacteria,strain,NA,NA
+8515,extended-spectrum-beta-lactamase (esbl),bacteria,resistance marker,NA,NA
+8515,>16,NA,mic,a,drug resisted; mic; resistance marker
 8591,we describe for the first time in turkey two ndm-1producing acinetobacter baumannii isolates recovered from intensive care unit patients,NA,article/study aim,NA,NA
 8591,cefoperazone/sulbactam,NA,drug resisted,d,drug resisted; mic
 8591,ceftazidime,NA,drug resisted,e,drug resisted; mic
@@ -5633,7 +5998,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 8653,"this report presents the case of a patient associated with a streptococcus pneumoniae isolate that was resistant to a new ketolide antibiotic, telithromycin",NA,article/study aim,NA,NA
 8653,4,NA,mic,d,drug resisted; mic
 8653,streptococcus pneumoniae,bacteria,binomial (genus species),NA,NA
-8653,penicillin g,NA,drug resisted,NA,NA
+8653,penicillin g,NA,drug resisted,a,drug resisted; mic
 8653,902n,bacteria,strain,NA,NA
 8653,ermb,bacteria,resistance marker,NA,NA
 8653,japan,location,country,NA,NA
@@ -5702,6 +6067,26 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 8862,kanamycin,NA,drug resisted,NA,NA
 8862,streptomycin,NA,drug resisted,NA,NA
 8862,sulphonamide,NA,drug resisted,NA,NA
+8948,2008,NA,event year,NA,NA
+8948,pseudomonas aeruginosa,bacteria,binomial (genus species),NA,NA
+8948,meningitis,patient,symptoms/disease,NA,NA
+8948,sepsis,patient,symptoms/disease,NA,NA
+8948,july,NA,event month,NA,NA
+8948,blaimp-7,bacteria,resistance marker,NA,NA
+8948,imp-7 mbl was first described in canada in strains of  p. aeruginosa that had caused nosocomial outbreaks in two  rehabilitation wards in 1995 and 1996 [10],NA,references for follow up,NA,NA
+8948,"gibb ap, trbuddharat c, moore ra, louie tj, krulicki w, livermore dm, et al.  nosocomial outbreak of carbapenem-resistant pseudomonas aeruginosa with a  new bla(imp) allele, bla(imp-7). antimicrob agents chemother. 2002;46(1):255-8.",NA,references for follow up,NA,NA
+8948,"later, this enzyme  was found in malaysia [11], and most recently in japan [12] and  slovakia [13].",NA,references for follow up,NA,NA
+8948,"ho se, subramaniam g, palasubramaniam s, navaratnam p carbapenemresistant pseudomonas aeruginosa in malaysia producing imp-7 betalactamase. antimicrob agents chemother. 2002;46(10):3286-7",NA,references for follow up,NA,NA
+8948,"kouda s, kuwahara r, ohara m, shigeta m, fujiwara t, komatsuzawa h, et al.  first isolation of blaimp-7 in a pseudomonas aeruginosa in japan. j infect  chemother. 2007;13(4):276-7",NA,references for follow up,NA,NA
+8948,czech republic,location,country,NA,NA
+8948,"ohlasova d, kmet v, niks m. first report of the carbapenem-resistant  pseudomonas aeruginosa producing imp-7 metallo-beta-lactamase in slovakia.  int j antimicrob agents. 2007;30(4):370-1.",NA,references for follow up,NA,NA
+8948,metallo-beta-lactamase (mbl),bacteria,resistance marker,NA,NA
+8948,imp-7,bacteria,strain,NA,NA
+8948,"imp-7, which had been seen  previously in canada, japan, malaysia and slovakia",NA,notes,NA,NA
+8948,north bohemian region,location,state/province/district,NA,NA
+8948,25,patient,age,NA,NA
+8948,man,patient,sex,NA,NA
+8948,cerebral shunt,patient,comorbidities,NA,NA
 8950,we described the first finding of a kpc-2-producing strain of klebsiella pneumoniae,NA,article/study aim,NA,NA
 8950,cefoperazone,NA,drug resisted,h,drug resisted; mic
 8950,cefepime,NA,drug resisted,i,drug resisted; mic
@@ -5996,20 +6381,20 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 9733,cotrimoxazole,NA,drug resisted,f,drug resisted; mic
 9733,tetracycline,NA,drug resisted,g,drug resisted; mic
 9885,ndm-1,bacteria,resistance marker,NA,NA
-9885,woman,patient,sex,a,age; mic; sex; strain
-9885,mma533,bacteria,strain,b,mic; sex; strain
+9885,woman,patient,sex,a,age; drug resisted; mic; sex; strain
+9885,mma533,bacteria,strain,b,age; drug resisted; mic; sex; strain
 9885,63,patient,age,NA,NA
-9885,women,patient,sex,b,mic; sex; strain
+9885,women,patient,sex,b,age; drug resisted; mic; sex; strain
 9885,pseudomonas aeruginosa,bacteria,binomial (genus species),NA,NA
-9885,32,NA,mic,b,mic; sex; strain
-9885,32,NA,mic,a,age; mic; sex; strain
+9885,32,NA,mic,b,age; drug resisted; mic; sex; strain
+9885,32,NA,mic,a,age; drug resisted; mic; sex; strain
 9885,serbia,location,country,NA,NA
 9885,2010,NA,event year,NA,NA
 9885,balkan region,location,state/province/district,NA,NA
 9885,p. aeruginosa,bacteria,binomial (genus species),NA,NA
 9885,ndm-1 producer mma533,bacteria,strain,NA,NA
-9885,mma83,bacteria,strain,a,age; mic; sex; strain
-9885,61,patient,age,a,age; mic; sex; strain
+9885,mma83,bacteria,strain,a,age; drug resisted; mic; sex; strain
+9885,61,patient,age,a,age; drug resisted; mic; sex; strain
 9937,ceftazidime,NA,drug resisted,a,drug resisted; mic
 9937,ciprofloxacin,NA,drug resisted,j,drug resisted; mic
 9937,.256 mg/l,NA,mic,i,drug resisted; mic
@@ -6062,72 +6447,72 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 9989,"21. naas t, nordmann p. oxa-type b-lactamases. curr pharmaceut des 1999; 5: 865–879",NA,references for follow up,b,notes; references for follow up
 9989,"this is the first report of the oxa-18-type esbl in p. aeruginosa in tunisia, and the first description of an outbreak caused by an oxa-18-producing strain of p. aeruginosa",NA,article/study aim,NA,NA
 11303,ampicillin,NA,drug resisted,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
-11303,ampicillin,NA,drug resisted,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,ampicillin,NA,drug resisted,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,ampicillin,NA,drug resisted,e,drug resisted; mic
 11303,≥ 128,NA,mic,k,drug resisted; mic
 11303,≥ 128,NA,mic,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
 11303,amoxicillin/clavulinic acid,NA,drug resisted,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
-11303,amoxicillin/clavulinic acid,NA,drug resisted,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,amoxicillin/clavulinic acid,NA,drug resisted,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,amoxicillin/clavulinic acid,NA,drug resisted,f,drug resisted; mic
 11303,128,NA,mic,o,drug resisted; mic
 11303,128,NA,mic,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
 11303,32,NA,mic,q,drug resisted; mic
 11303,32,NA,mic,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
 11303,cefazolin,NA,drug resisted,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
-11303,cefazolin,NA,drug resisted,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,cefazolin,NA,drug resisted,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,cefazolin,NA,drug resisted,g,drug resisted; mic
 11303,≥ 16,NA,mic,r,drug resisted; mic
 11303,≥ 16,NA,mic,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
 11303,ceftriaxone,NA,drug resisted,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
-11303,ceftriaxone,NA,drug resisted,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,ceftriaxone,NA,drug resisted,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,ceftriaxone,NA,drug resisted,h,drug resisted; mic
 11303,ceftazidime,NA,drug resisted,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
-11303,ceftazidime,NA,drug resisted,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,ceftazidime,NA,drug resisted,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,ceftazidime,NA,drug resisted,i,drug resisted; mic
 11303,32,NA,mic,j,drug resisted; mic
-11303,32,NA,mic,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,32,NA,mic,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,cefepime,NA,drug resisted,j,drug resisted; mic
 11303,cefepime,NA,drug resisted,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
-11303,cefepime,NA,drug resisted,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,cefepime,NA,drug resisted,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,amikacin,NA,drug resisted,k,drug resisted; mic
 11303,amikacin,NA,drug resisted,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
-11303,amikacin,NA,drug resisted,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,amikacin,NA,drug resisted,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,ndm-1,bacteria,resistance marker,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
-11303,ndm-1,bacteria,resistance marker,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,ndm-1,bacteria,resistance marker,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,canada,location,country,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
-11303,canada,location,country,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,canada,location,country,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,ontario,location,state/province/district,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
-11303,ontario,location,state/province/district,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,ontario,location,state/province/district,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,gentamicin,NA,drug resisted,l,drug resisted; mic
 11303,gentamicin,NA,drug resisted,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
-11303,gentamicin,NA,drug resisted,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,gentamicin,NA,drug resisted,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,tobramycin,NA,drug resisted,m,drug resisted; mic
 11303,tobramycin,NA,drug resisted,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
-11303,tobramycin,NA,drug resisted,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,tobramycin,NA,drug resisted,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,ciprofloxacin,NA,drug resisted,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
-11303,ciprofloxacin,NA,drug resisted,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,ciprofloxacin,NA,drug resisted,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,ciprofloxacin,NA,drug resisted,n,drug resisted; mic
 11303,nitrofurantoin,NA,drug resisted,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
-11303,nitrofurantoin,NA,drug resisted,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,nitrofurantoin,NA,drug resisted,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,nitrofurantoin,NA,drug resisted,o,drug resisted; mic
 11303,tetracycline,NA,drug resisted,p,drug resisted; mic
 11303,tetracycline,NA,drug resisted,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
-11303,tetracycline,NA,drug resisted,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,tetracycline,NA,drug resisted,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,chloramphenicol,NA,drug resisted,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
 11303,chloramphenicol,NA,drug resisted,q,drug resisted; mic
 11303,colistin,NA,drug resisted,r,drug resisted; mic
 11303,colistin,NA,drug resisted,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
-11303,colistin,NA,drug resisted,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,colistin,NA,drug resisted,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,ertapenem,NA,drug resisted,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
-11303,ertapenem,NA,drug resisted,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,ertapenem,NA,drug resisted,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,ertapenem,NA,drug resisted,a,drug resisted; mic
 11303,imipenem,NA,drug resisted,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
-11303,imipenem,NA,drug resisted,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,imipenem,NA,drug resisted,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,imipenem,NA,drug resisted,b,drug resisted; mic
 11303,4,NA,mic,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
 11303,4,NA,mic,a,drug resisted; mic
 11303,meropenem,NA,drug resisted,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
-11303,meropenem,NA,drug resisted,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,meropenem,NA,drug resisted,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,meropenem,NA,drug resisted,c,drug resisted; mic
 11303,16,NA,mic,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
 11303,16,NA,mic,b,drug resisted; mic
@@ -6138,7 +6523,7 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 11303,≥ 32,NA,mic,e,drug resisted; mic
 11303,≥ 32,NA,mic,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
 11303,doripenem,NA,drug resisted,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
-11303,doripenem,NA,drug resisted,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,doripenem,NA,drug resisted,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,doripenem,NA,drug resisted,d,drug resisted; mic
 11303,≥ 32/16,NA,mic,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
 11303,≥ 32/16,NA,mic,f,drug resisted; mic
@@ -6146,15 +6531,28 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 11303,≥ 64,NA,mic,aa,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; outcome; resistance marker; sex; state/province/district
 11508,new jersey,location,state/province/district,c,age; sex; state/province/district; symptoms/disease
 11508,new jersey,location,state/province/district,b,age; event date; state/province/district
-11508,new jersey,location,state/province/district,a,age; drug resisted; event month; event year; mic; sex; state/province/district
+11508,new jersey,location,state/province/district,a,age; drug resisted; event month; event year; mic; month; sex; state/province/district
+15632,piperacillin/tazobactam,NA,drug resisted,a,drug resisted; mic
+15632,piperacillin/tazobactam,NA,drug resisted,b,drug resisted; mic
+15632,>256,NA,mic,a,drug resisted; mic
+15632,>256,NA,mic,b,drug resisted; mic
+15632,>256,NA,mic,c,drug resisted; mic
+15632,>256,NA,mic,d,drug resisted; mic
+15632,>256,NA,mic,e,drug resisted; mic
+15632,32,NA,mic,f,drug resisted; mic
+15632,32,NA,mic,h,drug resisted; mic
 15936,>32 mg/ml,NA,mic,a,drug resisted; mic
 15936,>32 mg/ml,NA,mic,b,drug resisted; mic
 16726,32 g/ml,NA,mic,a,drug resisted; mic
 16726,32 g/ml,NA,mic,b,drug resisted; mic
 16726,32 g/ml,NA,mic,c,drug resisted; mic
 16726,32 g/ml,NA,mic,d,drug resisted; mic
-16837,m. europaeum,bacteria,binomial (genus species),a,binomial (genus species); comorbidities; symptoms/disease
+16837,m. europaeum,bacteria,binomial (genus species),a,age; binomial (genus species); comorbidities; sex; symptoms/disease
 16837,m. europaeum,bacteria,binomial (genus species),b,age; binomial (genus species); comorbidities; event year
+17169,>256 μg/ml,NA,mic,a,drug resisted; mic
+17169,>256 μg/ml,NA,mic,b,drug resisted; mic
+17169,>256 μg/ml,NA,mic,c,drug resisted; mic
+17169,>256 μg/ml,NA,mic,d,drug resisted; mic
 20373,amoxicillin/clavulanic acid,NA,drug resisted,NA,NA
 20373,amoxicillin/clavulanic acid,NA,drug resisted,b,drug resisted; strain
 20373,amoxicillin/clavulanic acid,NA,drug resisted,c,drug resisted; strain
@@ -6207,6 +6605,8 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 20373,s. dysenteriae type 2,bacteria,strain,e,drug resisted; strain
 22199,32 mg/l to >256 mg/l,NA,mic,a,drug resisted; mic
 22199,32 mg/l to >256 mg/l,NA,mic,b,drug resisted; mic
+360,imipenem,NA,drug resisted,d,drug resisted; mic
+360,imipenem,NA,drug resisted,e,drug resisted; mic
 404,> 16 ug/ml,NA,mic,c,drug resisted; mic
 404,> 16 ug/ml,NA,mic,d,drug resisted; mic
 4489,≥8 mg/l,NA,mic,a,drug resisted; mic
@@ -6248,14 +6648,24 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 661,lukf,bacteria,resistance marker,b,age; drug resisted; resistance marker; sex; symptoms
 661,sccmec type iv,bacteria,resistance marker,a,age; drug resisted; mic; resistance marker; sex; symptoms
 661,sccmec type iv,bacteria,resistance marker,b,age; drug resisted; resistance marker; sex; symptoms
+8089,8 mg/l,NA,mic,e,drug resisted; mic
+8089,8 mg/l,NA,mic,d,drug resisted; mic
+8089,8 mg/l,NA,mic,c,drug resisted; mic
+8089,1.5 mg/l,NA,mic,i,drug resisted; mic
+8089,1.5 mg/l,NA,mic,j,drug resisted; mic
+8515,blashv-12,bacteria,resistance marker,c,drug resisted; mic; resistance marker
+8515,blashv-12,bacteria,resistance marker,d,drug resisted; mic; resistance marker
+8515,blashv-12,bacteria,resistance marker,e,drug resisted; mic; resistance marker
+8515,blashv-12,bacteria,resistance marker,f,drug resisted; mic; resistance marker
+8515,blashv-12,bacteria,resistance marker,g,drug resisted; mic; resistance marker
 9075,meropenem,NA,drug resisted,aa,binomial (genus species); drug resisted; mic; resistance marker; strain
 9075,meropenem,NA,drug resisted,bb,binomial (genus species); drug resisted; mic; resistance marker
 9075,meropenem,NA,drug resisted,cc,binomial (genus species); drug resisted; mic; resistance marker; strain
-9075,meropenem,NA,drug resisted,NA,NA
+9075,meropenem,NA,drug resisted,h,drug resisted; mic
 9075,imipenem,NA,drug resisted,cc,binomial (genus species); drug resisted; mic; resistance marker; strain
 9075,imipenem,NA,drug resisted,bb,binomial (genus species); drug resisted; mic; resistance marker
 9075,imipenem,NA,drug resisted,aa,binomial (genus species); drug resisted; mic; resistance marker; strain
-9075,imipenem,NA,drug resisted,NA,NA
+9075,imipenem,NA,drug resisted,i,drug resisted; mic
 9075,amikacin,NA,drug resisted,aa,binomial (genus species); drug resisted; mic; resistance marker; strain
 9075,amikacin,NA,drug resisted,cc,binomial (genus species); drug resisted; mic; resistance marker; strain
 9075,amikacin,NA,drug resisted,j,drug resisted; mic
@@ -6309,78 +6719,140 @@ study_id,segment,code_main_cat,code_main,code_identifiers,code_identifiers_link
 9937,.32 mg/l,NA,mic,f,drug resisted; mic
 9937,.32 mg/l,NA,mic,g,drug resisted; mic
 9937,.32 mg/l,NA,mic,h,drug resisted; mic
-7585,0.256,NA,mic,g,drug resisted; mic
-7585,0.256,NA,mic,m,drug resisted; mic
+10209,64,NA,mic,d,drug resisted; mic
+10443,ampicillin/sulbactam,NA,drug resisted,h,drug resisted; mic
 10443,128,NA,mic,i,drug resisted; mic
 10445,128,NA,mic,m,drug resisted; mic
-12887,128,NA,mic,e,drug resisted; mic
-15378,128,NA,mic,d,drug resisted; mic
-5560,128,NA,mic,NA,NA
-11303,256,NA,mic,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11201,32,NA,mic,i,drug resisted; mic
+11303,≥ 64,NA,mic,h,drug resisted; mic
+11303,≥ 64,NA,mic,j,drug resisted; mic
+11303,≥ 32,NA,mic,m,drug resisted; mic
+11303,toronto,NA,city,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,8,NA,mic,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,8,NA,mic,a,drug resisted; mic
+11303,≥ 32,NA,mic,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,≥ 32,NA,mic,b,drug resisted; mic
+11303,≥ 32,NA,mic,c,drug resisted; mic
+11303,≥ 8,NA,mic,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,≥ 32/16,NA,mic,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,≥ 64,NA,mic,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,≥ 64,NA,mic,i,drug resisted; mic
+11303,≥ 128,NA,mic,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11303,256,NA,mic,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 11303,256,NA,mic,o,drug resisted; mic
-9075,256,NA,mic,k,drug resisted; mic
-9075,256,NA,mic,d,drug resisted; mic
-9075,256,NA,mic,f,drug resisted; mic
-9075,256,NA,mic,c,drug resisted; mic
-9075,256,NA,mic,e,drug resisted; mic
-9075,256,NA,mic,j,drug resisted; mic
-9075,256,NA,mic,bb,binomial (genus species); drug resisted; mic; resistance marker
-9075,256,NA,mic,a,drug resisted; mic
-9075,256,NA,mic,b,drug resisted; mic
-9075,256,NA,mic,cc,binomial (genus species); drug resisted; mic; resistance marker; strain
+11303,8,NA,mic,q,drug resisted; mic
+11303,32,NA,mic,h,drug resisted; mic
+11303,≥ 8,NA,mic,n,drug resisted; mic
+11303,≥ 32,NA,mic,p,drug resisted; mic
+11303,≥ 16,NA,mic,bb,age; binomial (genus species); city; comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
+11508,8/152,NA,mic,a,age; drug resisted; event month; event year; mic; month; sex; state/province/district
+11508,apr-76,NA,month,a,age; drug resisted; event month; event year; mic; month; sex; state/province/district
+11508,6 months,NA,age,c,age; sex; state/province/district; symptoms/disease
+11508,male,NA,sex,c,age; sex; state/province/district; symptoms/disease
+12065,≥64,NA,mic,k,drug resisted; mic
+12359,16,NA,mic,NA,NA
+1288,32,NA,mic,b,drug resisted; mic
+12887,128,NA,mic,e,drug resisted; mic
+12887,64,NA,mic,f,drug resisted; mic
+12905,64,NA,mic,f,drug resisted; mic
+13223,≥16,NA,mic,e,drug resisted; mic
+13772,amoxicillin,NA,drug resisted,b,binomial (genus species); drug resisted
+13772,amoxicillin/clavulanic acid,NA,drug resisted,b,binomial (genus species); drug resisted
+13772,ceftazidime,NA,drug resisted,b,binomial (genus species); drug resisted
+13772,colistin,NA,drug resisted,b,binomial (genus species); drug resisted
+13994,16,NA,mic,e,drug resisted; mic
 15268,‡32,NA,mic,d,drug resisted; mic
-6467,> 32,NA,mic,f,drug resisted; mic
-6467,> 32,NA,mic,g,drug resisted; mic
+15378,128,NA,mic,d,drug resisted; mic
+15378,32,NA,mic,f,drug resisted; mic
+16837,48,NA,age,a,age; binomial (genus species); comorbidities; sex; symptoms/disease
+16837,man,NA,sex,a,age; binomial (genus species); comorbidities; sex; symptoms/disease
+1786,32,NA,mic,m,drug resisted; mic
+19267,18,NA,mic,g,drug resisted; mic
+19267,rif,NA,drug resisted,g,drug resisted; mic
+20373,nalidixic acid;,NA,drug resisted,NA,NA
+20373,nalidixic acid;,NA,drug resisted,f,drug resisted; strain
+20373,sulfamethoxazole,NA,drug resisted,NA,NA
+20373,sulfamethoxazole,NA,drug resisted,f,drug resisted; strain
+20373,sulfamethoxazole,NA,drug resisted,b,drug resisted; strain
+20373,sulfamethoxazole,NA,drug resisted,d,drug resisted; strain
+20373,sulfamethoxazole,NA,drug resisted,e,drug resisted; strain
+21192,>1 [ns],NA,mic,e,drug resisted; mic
+21192,o daptomycin,NA,drug resisted,e,drug resisted; mic
+23107,32,NA,mic,NA,NA
 2389,> 64,NA,mic,b,drug resisted; mic
+2418,>4,NA,mic,a,drug resisted; mic
+2418,>8,NA,mic,b,drug resisted; mic
+2419,8,NA,mic,n,drug resisted; mic
+2419,4,NA,mic,o,drug resisted; mic
+2419,8,NA,mic,q,drug resisted; mic
+267,>512,NA,mic,a,drug resisted; mic
+2889,256 mg/liter,NA,mic,b,drug resisted; mic
+3235,8,NA,mic,f,drug resisted; mic
+3799,4096,NA,mic,a,drug resisted; mic
+3799,azithromycin,NA,drug resisted,a,drug resisted; mic
+3799,"erythromy
+cin",NA,drug resisted,b,drug resisted; mic
+3799,.256 mg/l,NA,mic,b,drug resisted; mic
+3799,.256 mg/l,NA,mic,c,drug resisted; mic
+3799,clindamycin,NA,drug resisted,c,drug resisted; mic
+3799,4– 8 mg/l,NA,mic,d,drug resisted; mic
+3799,tetracycline,NA,drug resisted,d,drug resisted; mic
 3882,>256,NA,mic,k,drug resisted; mic
+3882,cefuroxime,NA,drug resisted,k,drug resisted; mic
 5251,>256,NA,mic,b,drug resisted; mic
+5251,ceftriaxone,NA,drug resisted,b,drug resisted; mic
 5251,>256,NA,mic,d,drug resisted; mic
+5251,cefotaxime,NA,drug resisted,d,drug resisted; mic
+5560,32,NA,mic,c,drug resisted; mic
+5560,128,NA,mic,NA,NA
+5774,klebsiella pneumoniae,NA,binomial (genus species),bb,binomial (genus species); drug resisted; mic; resistance marker
+5774,>32,NA,mic,bb,binomial (genus species); drug resisted; mic; resistance marker
+580,128,NA,mic,d,drug resisted; mic
 6467,>256,NA,mic,b,drug resisted; mic
 6467,>256,NA,mic,c,drug resisted; mic
 6467,>256,NA,mic,d,drug resisted; mic
+6467,> 32,NA,mic,f,drug resisted; mic
+6467,> 32,NA,mic,g,drug resisted; mic
 6467,>256,NA,mic,h,drug resisted; mic
 6467,>256,NA,mic,i,drug resisted; mic
-5774,>32,NA,mic,bb,binomial (genus species); drug resisted; mic; resistance marker
 6467,>32,NA,mic,k,drug resisted; mic
-267,>512,NA,mic,a,drug resisted; mic
-11303,≥ 128,NA,mic,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
-11303,≥ 16,NA,mic,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
-11303,≥ 32,NA,mic,m,drug resisted; mic
-11303,≥ 32,NA,mic,p,drug resisted; mic
-11303,≥ 32,NA,mic,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
-11303,≥ 32,NA,mic,b,drug resisted; mic
-11303,≥ 32,NA,mic,c,drug resisted; mic
+6492,64,NA,mic,d,drug resisted; mic
+6492,16,NA,mic,g,drug resisted; mic
+7585,0.256,NA,mic,g,drug resisted; mic
+7585,0.256,NA,mic,m,drug resisted; mic
 7620,≥ 32,NA,mic,b,drug resisted; mic
-11303,≥ 32/16,NA,mic,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
-11303,≥ 64,NA,mic,i,drug resisted; mic
-11303,≥ 64,NA,mic,j,drug resisted; mic
-11303,≥ 64,NA,mic,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
-11303,≥ 64,NA,mic,h,drug resisted; mic
 7620,≥ 64,NA,mic,e,drug resisted; mic
 7620,≥ 64,NA,mic,f,drug resisted; mic
-11303,≥ 8,NA,mic,n,drug resisted; mic
-11303,≥ 8,NA,mic,bb,age; binomial (genus species); comorbidities; country; drug resisted; mic; place traveled to; resistance marker; sex; state/province/district; symptoms/disease
 7620,≥ 8,NA,mic,i,drug resisted; mic
-13223,≥16,NA,mic,e,drug resisted; mic
-12065,≥64,NA,mic,k,drug resisted; mic
-8591,¢16,NA,mic,h,drug resisted; mic
-8591,¢16,NA,mic,j,drug resisted; mic
-8591,¢16,NA,mic,m,drug resisted; mic
-8591,¢32,NA,mic,k,drug resisted; mic
+7968,linezolid,NA,drug resisted,a,drug resisted; mic
 8591,¢64,NA,mic,c,drug resisted; mic
 8591,¢64,NA,mic,d,drug resisted; mic
 8591,¢64,NA,mic,e,drug resisted; mic
-2889,256 mg/liter,NA,mic,b,drug resisted; mic
-13772,amoxicillin,NA,drug resisted,b,binomial (genus species); drug resisted
-13772,amoxicillin/clavulanic acid,NA,drug resisted,b,binomial (genus species); drug resisted
-10443,ampicillin/sulbactam,NA,drug resisted,h,drug resisted; mic
-5251,cefotaxime,NA,drug resisted,d,drug resisted; mic
+8591,¢16,NA,mic,h,drug resisted; mic
+8591,¢16,NA,mic,j,drug resisted; mic
+8591,¢32,NA,mic,k,drug resisted; mic
+8591,¢16,NA,mic,m,drug resisted; mic
+8653,2,NA,mic,a,drug resisted; mic
 9045,cefotetan,NA,drug resisted,a,drug resisted; mic
-13772,ceftazidime,NA,drug resisted,b,binomial (genus species); drug resisted
-5251,ceftriaxone,NA,drug resisted,b,drug resisted; mic
-3882,cefuroxime,NA,drug resisted,k,drug resisted; mic
-13772,colistin,NA,drug resisted,b,binomial (genus species); drug resisted
-5774,klebsiella pneumoniae,NA,binomial (genus species),bb,binomial (genus species); drug resisted; mic; resistance marker
-7968,linezolid,NA,drug resisted,a,drug resisted; mic
-11508,male,NA,sex,c,age; sex; state/province/district; symptoms/disease
-11508,6 months,NA,age,c,age; sex; state/province/district; symptoms/disease
+9075,256,NA,mic,a,drug resisted; mic
+9075,256,NA,mic,c,drug resisted; mic
+9075,256,NA,mic,e,drug resisted; mic
+9075,64,NA,mic,aa,binomial (genus species); drug resisted; mic; resistance marker; strain
+9075,64,NA,mic,f,drug resisted; mic
+9075,64,NA,mic,g,drug resisted; mic
+9075,64,NA,mic,h,drug resisted; mic
+9075,64,NA,mic,i,drug resisted; mic
+9075,256,NA,mic,j,drug resisted; mic
+9075,256,NA,mic,b,drug resisted; mic
+9075,256,NA,mic,bb,binomial (genus species); drug resisted; mic; resistance marker
+9075,64,NA,mic,bb,binomial (genus species); drug resisted; mic; resistance marker
+9075,256,NA,mic,cc,binomial (genus species); drug resisted; mic; resistance marker; strain
+9075,256,NA,mic,k,drug resisted; mic
+9075,256,NA,mic,d,drug resisted; mic
+9075,256,NA,mic,f,drug resisted; mic
+9885,63-,NA,age,b,age; drug resisted; mic; sex; strain
+9885,imipenem,NA,drug resisted,b,age; drug resisted; mic; sex; strain
+9885,imipenem,NA,drug resisted,a,age; drug resisted; mic; sex; strain
+9885,meropenem,NA,drug resisted,b,age; drug resisted; mic; sex; strain
+9885,meropenem,NA,drug resisted,a,age; drug resisted; mic; sex; strain
+22668,2007,NA,event year,NA,NA

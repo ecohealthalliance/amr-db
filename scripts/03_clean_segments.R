@@ -11,10 +11,9 @@ files <- dir(path = here('data', 'coded_segments'), pattern = "*.xlsx", full.nam
 
 # individual segment data (from MaxQDA exports) - each observation is an instance of an annotation (ungrouped)
 segments_raw <- map_dfr(files, ~read_xlsx(.x, col_types = "text")) %>%
-  rename_all(tolower) %>%
-  rename_all(funs(str_replace(., " ", "_")))  %>%
+  janitor::clean_names() %>%
   rename("study_id" = document_name) %>%
-  separate(begin, into = c("begin_page", "begin_off"), sep = ":", fill = "left") %>%
+  separate(beginning, into = c("begin_page", "begin_off"), sep = ":", fill = "left") %>%
   separate(end, into = c("end_page", "end_off"), sep = ":", fill = "left") %>%
   select(study_id, 
          segment, 
@@ -22,7 +21,8 @@ segments_raw <- map_dfr(files, ~read_xlsx(.x, col_types = "text")) %>%
          begin_page, 
          begin_off, 
          end_page, 
-         end_off)
+         end_off) %>%
+  distinct()
 
 write_rds(segments_raw,  here("data", "segments_raw.rds"))
 
@@ -31,13 +31,12 @@ write_rds(segments_raw,  here("data", "segments_raw.rds"))
 na_segments <- segments_raw %>% 
   filter(is.na(segment)) %>%
   left_join(select(articles_db, study_id, mex_name))
+# study ID 22668 to be manually added at end of script
 
 # create offset range col
 segments_raw %<>%
   na.omit(.) %>% # see check_na_segments.R script
   mutate(range = map2(begin_off, end_off, function(x,y) x:y))
-
-# <insert back NA segments once they have been checked >
 
 # only one segment spans two pages. NOTE - this segment matching method is not robust to cases like this :(
 segments_raw %>%
@@ -75,9 +74,12 @@ segments_grp <- segments_raw %>%
   ungroup()
 
 
-# data sanity check export - do the segments grouped by offsets match? - yes
+# data sanity check export - do the segments grouped by offsets match? 
+# there are some non-excact matches but they represent the same segments so it's ok
 segments_grp %>%
-  mutate_if(is.list, funs(from_ls_to_flat(.))) #%>%
+  mutate(segment_all_check = map_lgl(segment_all, ~length(unique(.x))==1)) %>%
+  filter(segment_all_check==FALSE)
+#mutate_if(is.list, funs(from_ls_to_flat(.))) #%>%
 #write_csv(here("data", "data_qa",  "int_segments_check.csv"))
 
 # Split Codes from Code ID's -----------------------------
@@ -90,7 +92,7 @@ code_id_letters <- map2(LETTERS, LETTERS, ~paste0(.x, .y)) %>%
 segments <- segments_grp %>%
   mutate(code_identifiers = map(codes, function(x) x[x %in% code_id_letters]), 
          code_main =  map(codes, function(x) x[!x %in% code_id_letters])) %>%
-  select(-matches_str, -length_codes, -range, -codes)
+  select(-matches_str, -length_codes, -range, -codes) 
 
 # QA CHECK - ID Codes Missing Corresponding Main Code -----------------------------
 
@@ -115,10 +117,10 @@ problem_id_codes <- review_codes %>%
 # for all codes that have several identifier codes, but only 1 main code, it seems appropriate to repeat the main code for each identifier
 codes_mult <- problem_id_codes %>% 
   filter(map_lgl(code_main, ~length(.x) != 0)) %>%
-  mutate(code_main = map2(code_main, code_identifiers, ~rep(.x, length(.y))))
+  mutate(code_main = map2(code_main, code_identifiers, ~rep(.x, length(.y)))) # this will only apply when length(main code) < length(code identifier)
 
 fixed_codes_mult <- codes_mult %>%
-  filter(map2_lgl(code_main, code_identifiers, ~length(.x) <= length(.y))) 
+  filter(map2_lgl(code_main, code_identifiers, ~length(.x) == length(.y))) 
 
 # there are cases where there are more main codes than id codes. These should be reviewed.  
 review_codes_mult <- codes_mult %>%
@@ -132,64 +134,60 @@ orphan_id_codes <- problem_id_codes %>%
   filter(map_lgl(code_main, ~length(.x) == 0)) %>%
   mutate_if(is.list, funs(from_ls_to_flat(.))) %>%
   select(-segment_all, -code_identifiers_check) %>%
-  left_join(select(articles_db, study_id, mex_name), by = "study_id")
+  left_join(select(articles_db, study_id, mex_name), by = "study_id") %>%
+  distinct()
 
 # bring in orphan ids that have been fixed manually on google drive
 orphan_id_codes_review <- gs_read(gs_title("amr_db_orphan_id_codes"), ws = "review_1") %>%
+  bind_rows(gs_read(gs_title("amr_db_orphan_id_codes"), ws = "review_2")) %>%
   mutate(study_id = as.character(study_id)) 
 
-fixed_codes_ophans <- orphan_id_codes_review %>% 
+fixed_codes_orphans <- orphan_id_codes_review %>% 
   filter(!is.na(code_main)) %>%
-  select(-Notes, -mex_name, -code_main_cat)
+  select(-Notes, -mex_name, -code_main_cat, -new_segment, -comments) %>%
+  distinct()
 
-# remove from fixed_codes_ophans anything that is no longer current (b/c files have been updated post QA check)
-remove_orphan_ids <- left_join(
-  # data frame 1
-  fixed_codes_ophans %>%
-    select(study_id, code_identifiers),
-  # data frame 2
-  problem_id_codes %>%
-    mutate_if(is.list, funs(from_ls_to_flat(.)))
-) %>%
-  filter(is.na(segment)) %>%
-  select(study_id, code_identifiers)
+# prep fixed codes (from google drive) and orphan id codes (generated on fly with latest data) for merging
+fixed_codes_orphans %<>%
+  group_by(study_id, code_identifiers) %>%
+  arrange(study_id, code_identifiers, segment) %>%
+  mutate(tmp_id = 1:n()) %>% ungroup() # tmp id to handle dups
 
-fixed_codes_ophans %<>%
-  anti_join(remove_orphan_ids) %>%
-  # formatting to match review_codes 
+orphan_id_codes %<>%
+  group_by(study_id, code_identifiers) %>%
+  arrange(study_id, code_identifiers, segment) %>%
+  mutate(tmp_id = 1:n()) %>% ungroup() # tmp id to handle dups
+
+# remove from fixed_codes_orphans anything that is no longer current (b/c files have been updated post QA check)
+remove_orphan_ids <- anti_join(
+  # data frame 1 (all codes that have been manually fixed on google drive)
+  fixed_codes_orphans, 
+  # data frame 2 (all orphan id codes)
+  orphan_id_codes,
+  by = c("study_id", "code_identifiers", "tmp_id")) # these are no longer orphans 
+
+fixed_codes_orphans %<>%
+  anti_join(remove_orphan_ids, by = c("study_id", "code_identifiers", "tmp_id")) # these are fixed orphans 
+
+# get remaining orphan ids to be checked
+remaining_orphan_ids <- anti_join(orphan_id_codes, fixed_codes_orphans, by = c("study_id", "code_identifiers", "tmp_id")) # these are unfixed orphans 
+
+# formatting to match segments (to be added back in) 
+fixed_codes_orphans %<>%
+  select(-tmp_id) %>%
   mutate(code_identifiers = stri_split_fixed(code_identifiers, ", "),
          segment_all = as.list(segment),
          code_main = map2(code_main, code_identifiers, ~rep(.x, length(.y))), # code_main to apply to all segments with same code identifier
-         code_identifiers_check = as.list("check")) 
-
-# identify remaining orphans - including those that were added in more recent rounds.  
-# compare fixed_codes_orphans, which is from google drive, to orphan_id_codes which is generated on fly with most recent dat
-remaining_orphan_ids <- left_join(
-  # data frame 1
-  orphan_id_codes %>% 
-    select(study_id, code_identifiers, segment) %>%
-    group_by(study_id, code_identifiers) %>%
-    mutate(tmp_id = 1:n()) %>% ungroup(), # tmp id to handle dups
-  # data frame 2
-  fixed_codes_ophans %>%
-    mutate_if(is.list, funs(from_ls_to_flat(.))) %>%
-    group_by(study_id, code_identifiers) %>%
-    mutate(tmp_id = 1:n()) %>% ungroup(), # tmp id to handle dups
-  by = c("study_id", "code_identifiers", "tmp_id")
-) %>%
-  filter(is.na(code_main)) %>%
-  select(-segment.y, -segment_all, -code_identifiers_check, -tmp_id) %>%
-  rename(segment = segment.x) %>%
-  left_join(select(articles_db, study_id, mex_name), by = "study_id")
+         code_identifiers_check = as.list("check"))  
 
 # attach back fixed codes
 segments <- review_codes %>%
   filter(code_identifiers_check != "check") %>%
   rbind(., fixed_codes_mult) %>%
-  rbind(., fixed_codes_ophans)
+  rbind(., fixed_codes_orphans)
 
-# sanity check - no codes lost in orphan id process!
-nrow(review_codes) == nrow(segments) + nrow(remaining_orphan_ids)  + nrow(review_codes_mult)
+# sanity check - no codes lost in orphan id process- should be TRUE
+nrow(review_codes) == nrow(segments) + nrow(remaining_orphan_ids)  + nrow(review_codes_mult) + sum(duplicated(problem_id_codes))
 
 # Unnest Codes for Final Segments DB  -----------------------------
 
@@ -241,6 +239,7 @@ segments %<>%
   ungroup()
 
 # QA CHECK - Identify code identifiers that are not "linked" - these need to be spot checked
+# Github issue 13
 code_links_solo <- segments %>%
   filter(!grepl("\\;", code_identifiers_link), !is.na(code_identifiers_link)) %>%
   left_join(., articles_db %>% select(study_id, mex_name) %>% mutate(study_id = as.character(study_id))) %>%
