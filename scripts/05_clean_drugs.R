@@ -18,7 +18,6 @@ cleaned_drug_codes <-
 # Drug codes dataframe with manual corrections
 drugs <- segments %>%
   filter(code_main == "drug resisted") %>%
-  select(-code_main_cat) %>%
   mutate(
     segment = stri_replace_all_regex(
       segment,
@@ -63,13 +62,14 @@ studies_missing_drugs %<>% left_join(., missing_list)
 
 # Remove NAs from dups
 studies_with_dups2 <- studies_with_dups %>%
-  filter(code_identifiers_conc!="NA|NA")
+  filter(code_identifiers_conc!="NA|NA") %>%
+  select(-mex_name)
 
 drugs %<>%
   left_join(studies_with_dups2) %>%
-  distinct() %>% #removes 2 true duplicates
-  filter(!(!is.na(code_identifiers_conc) & is.na(code_identifiers))) %>%
-  select(-code_identifiers_conc, -mex_name)
+  distinct() %>% #removes true duplicates
+  filter(!(!is.na(code_identifiers_conc) & is.na(code_identifiers))) %>% # remove the NA versions of dups
+  select(-code_identifiers_conc)
 
 # MESH drug ontology-----------------
 
@@ -142,23 +142,23 @@ drugs %<>%
 no_match <- qa_match(drugs, "drug_id")
 
 # Compare with list of studies that were previously cleaned
-articles_db <- read_csv(here("data", "articles_db.csv"))  %>% 
-  select(study_id, mex_name) %>%
-  mutate(study_id = as.character(study_id))
-
-clean_list <- gs_read(gs_title("amr_db_clean_drugs")) 
-
-clean_list_with_mex <- clean_list %>%
-  filter(is.na(`Confirmed Y/N`)) %>%
-  mutate(study_id = stri_split_regex(study_id, "\\, ")) %>%
-  unnest() %>%
-  left_join(articles_db) %>%
-  group_by(segment) %>%
-  summarize(study_id = paste(study_id, collapse = ", "), mex_name = paste(mex_name, collapse = ", ")) %>% ungroup
-
-no_match %<>% left_join(., clean_list)
-
-new_no_match <- no_match %>%
-  filter(is.na(new))
+# articles_db <- read_csv(here("data", "articles_db.csv"))  %>% 
+#   select(study_id, mex_name) %>%
+#   mutate(study_id = as.character(study_id))
+# 
+# clean_list <- gs_read(gs_title("amr_db_clean_drugs")) 
+# 
+# clean_list_with_mex <- clean_list %>%
+#   filter(is.na(`Confirmed Y/N`)) %>%
+#   mutate(study_id = stri_split_regex(study_id, "\\, ")) %>%
+#   unnest() %>%
+#   left_join(articles_db) %>%
+#   group_by(segment) %>%
+#   summarize(study_id = paste(study_id, collapse = ", "), mex_name = paste(mex_name, collapse = ", ")) %>% ungroup
+# 
+# no_match %<>% left_join(., clean_list)
+# 
+# new_no_match <- no_match %>%
+#   filter(is.na(new))
   
 write_csv(drugs, here("data", "drugs.csv"))

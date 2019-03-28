@@ -10,10 +10,11 @@ library(here)
 
 segments <- read_csv(here("data", "segments.csv"))
 
+# 21192 need to check this one
+
 # Structure segments database into location codes dataframe   
 locations <- segments %>%
-  filter(code_main_cat == "location" | code_main == "country of residence") %>%
-  select(-code_main_cat) %>%
+  filter(code_main %in% c("hospital name", "city", "country","state/province/district", "country of residence", "place traveled to" )) %>%
   mutate(segment = stri_replace_all_regex(segment,
                                           c("\\(|\\)"),
                                           c(""), vectorize = FALSE))
