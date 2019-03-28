@@ -225,9 +225,13 @@ write_csv(segments %>%
 segments %<>%
   filter(!study_id %in% excluded_studies)
 
+# remove code_main_cat because inconsistent (was not included in manual code_main additions)
+segments %<>%
+  select(-code_main_cat)
+
 # collapse travel locations
 segments %<>%
-  group_by(study_id, code_main_cat, code_identifiers, code_main) %>%
+  group_by(study_id, code_identifiers, code_main) %>%
   mutate(segment = ifelse(code_main=="place traveled to", paste(segment, collapse = "; "), segment)) %>% #summarize not working b/c dups in data
   unique() %>%
   ungroup()
@@ -253,7 +257,10 @@ segments %<>%
 
 # Manually add study dat for study ID 22668
 segments %<>%
-  bind_rows(tibble(study_id = "22668", segment = "2007", code_main_cat = NA, code_main = "event year", code_identifiers = NA, code_identifiers_link = NA))
+  bind_rows(tibble(study_id = "22668", segment = "2007", code_main = "event year", code_identifiers = NA, code_identifiers_link = NA))
 
+# Remove dups
+segments %<>%
+  distinct()
 # final segments db
 write_csv(segments, path = here("data", "segments.csv"))
