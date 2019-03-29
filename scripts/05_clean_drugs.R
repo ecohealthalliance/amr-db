@@ -12,8 +12,10 @@ segments <- read_csv(here("data", "segments.csv"))
 
 # Import corrections from manual checking
 cleaned_drug_codes <-
-  gs_read(gs_title("amr_db_clean_drugs")) %>% filter(new != "--") %>% #google spreadsheet with field cleanup
-  mutate(segment = paste0("^", segment, "$"))
+  gs_read(gs_title("amr_db_clean_drugs")) %>%  #google spreadsheet with field cleanup
+  mutate(segment = paste0("^", segment, "$"),
+         new = ifelse(!is.na(new_correct), new_correct, new)) %>%
+  filter(new != "--")
 
 # Drug codes dataframe with manual corrections
 drugs <- segments %>%

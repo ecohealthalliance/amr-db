@@ -7,6 +7,7 @@ study_id,code_identifiers,code_identifiers_link,start_date,end_date
 202,NA,NA,2011-10,NA
 261,NA,NA,2012-03-31,NA
 267,NA,NA,2006-03,NA
+360,NA,NA,2015,NA
 404,NA,NA,2005-07-16,NA
 579,NA,NA,2008-12,NA
 580,NA,NA,2008-07,NA
@@ -26,6 +27,7 @@ study_id,code_identifiers,code_identifiers_link,start_date,end_date
 2372,NA,NA,2011-08,NA
 2389,NA,NA,2013-03,NA
 2419,NA,NA,2011-09-09,NA
+2487,NA,NA,2014-03-10,NA
 2512,a,drug resisted; event year; mic,2005,NA
 2512,b,drug resisted; event year; mic,2008,NA
 2628,NA,NA,2011-09-05,NA
@@ -41,11 +43,13 @@ study_id,code_identifiers,code_identifiers_link,start_date,end_date
 3596,NA,NA,2010-05,NA
 3622,NA,NA,2012-04,NA
 3651,NA,NA,2012,2013
+3799,NA,NA,2007,NA
 3872,NA,NA,2013,NA
 3910,NA,NA,2006,NA
 4379,NA,NA,2013-01,NA
 4489,NA,NA,2009-09,NA
 4519,NA,NA,2009-10,NA
+4578,NA,NA,2005,NA
 4641,NA,NA,2007-08-13,NA
 4642,NA,NA,2007-07-17,NA
 5362,NA,NA,2009-06,2010-01
@@ -85,6 +89,7 @@ study_id,code_identifiers,code_identifiers_link,start_date,end_date
 8653,NA,NA,2001-12-25,NA
 8711,NA,NA,2010-10-21,NA
 8862,NA,NA,2001,NA
+8948,NA,NA,2008-07,NA
 8950,NA,NA,2009,NA
 9075,NA,NA,2010-07,NA
 9081,NA,NA,2012,NA
@@ -100,7 +105,9 @@ study_id,code_identifiers,code_identifiers_link,start_date,end_date
 10083,NA,NA,2012-04-25,NA
 10209,NA,NA,1999-11-08,NA
 10221,NA,NA,2003-12-02,NA
+10259,NA,NA,2011-01-28,NA
 10260,NA,NA,2011-01-28,NA
+10335,NA,NA,2014,NA
 10443,NA,NA,2012-11,NA
 10445,NA,NA,2011-08,2012-07
 10450,NA,NA,2014-04,NA
@@ -111,7 +118,7 @@ study_id,code_identifiers,code_identifiers_link,start_date,end_date
 11202,NA,NA,2011-12,2012
 11395,NA,NA,2009-02,NA
 11406,NA,NA,2010,NA
-11508,a,age; drug resisted; event month; event year; mic; sex; state/province/district,2006-10,NA
+11508,a,age; drug resisted; event month; event year; mic; month; sex; state/province/district,2006-10,NA
 11508,b,age; event date; state/province/district,2007-01,NA
 11983,NA,NA,2012-05,NA
 12344,NA,NA,2014,NA
@@ -142,6 +149,7 @@ study_id,code_identifiers,code_identifiers_link,start_date,end_date
 15331,NA,NA,2013-04,NA
 15378,NA,NA,2009-07,2011-04
 15475,NA,NA,2013,NA
+15632,NA,NA,2009-06,NA
 15654,NA,NA,2015-02,NA
 15760,NA,NA,2015-06,NA
 16248,NA,NA,2010,NA
@@ -151,8 +159,9 @@ study_id,code_identifiers,code_identifiers_link,start_date,end_date
 16726,NA,NA,2007,2009
 16837,b,age; binomial (genus species); comorbidities; event year,2009,NA
 17121,NA,NA,2012-05-29,NA
+17169,NA,NA,2012,NA
 17611,NA,NA,2009-02-04,NA
-17819,NA,NA,NA,NA
+17819,NA,NA,2010,2012
 17942,NA,NA,2007-01-05,NA
 18073,NA,NA,2014,NA
 18158,NA,NA,2012-05-23,NA
@@ -164,6 +173,7 @@ study_id,code_identifiers,code_identifiers_link,start_date,end_date
 18852,NA,NA,2008-02-03,NA
 18945,NA,NA,2005-12,2006-06
 18946,NA,NA,2011-03,NA
+18947,NA,NA,2011-03,NA
 19093,NA,NA,2009,NA
 19152,NA,NA,2011-08-29,NA
 19267,NA,NA,2002-06,NA
@@ -179,6 +189,7 @@ study_id,code_identifiers,code_identifiers_link,start_date,end_date
 20841,NA,NA,2010-08,NA
 20899,NA,NA,2014-01,NA
 21149,NA,NA,2008,NA
+21347,NA,NA,2011-07,NA
 21348,NA,NA,2010-07,NA
 21479,NA,NA,2012-11,NA
 21824,NA,NA,2003-03,NA
@@ -186,6 +197,7 @@ study_id,code_identifiers,code_identifiers_link,start_date,end_date
 22167,NA,NA,2013-10,NA
 22199,NA,NA,2013-04,NA
 22437,NA,NA,2010-09,NA
+22668,NA,NA,2007,NA
 23039,NA,NA,2007-10-29,NA
 23107,NA,NA,2008-01-09,NA
 23248,NA,NA,2012-03,NA

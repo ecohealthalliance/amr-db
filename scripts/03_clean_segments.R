@@ -4,6 +4,7 @@ library(magrittr)
 library(googlesheets)
 library(stringi)
 library(tidyverse)
+library(textclean)
 
 # Import Data and Clean Segments -----------------------------
 articles_db <- read_csv(here("data","articles_db.csv")) %>% mutate_all(as.character)
@@ -42,7 +43,16 @@ segments_raw %<>%
 segments_raw %>%
   filter(begin_page != end_page)
 
-# Find Offsets That Match (with tolerance = 80% on both sides of match) and Group  -----------------------------
+# misc qa fixes
+segments_raw %<>%
+  filter(!(study_id=="12359" & segment=="Levofloxacin" & code=="MIC"),
+         !(study_id=="13376" & segment=="\u000316" & code=="Drug Resisted"),
+         !(study_id=="23107" & segment=="Meropenem" & code=="MIC"),
+         !(study_id=="3799" & segment=="MIC")) %>%
+  mutate(segment = textclean::replace_non_ascii(segment),
+         code = replace(code, code == "Drug Resisted" & segment == "16", "MIC"))
+
+# Find Offsets That Match (with tolerance = 50% on both sides of match) and Group  -----------------------------
 
 # function that returns which other segments in the group have an offset that is nearly (80% both ways) identical
 return_matches <- function(element1, list, ids) {
@@ -124,9 +134,16 @@ fixed_codes_mult <- codes_mult %>%
 
 # there are cases where there are more main codes than id codes. These should be reviewed.  
 review_codes_mult <- codes_mult %>%
-  filter(map2_lgl(code_main, code_identifiers, ~length(.x) > length(.y))) %>%
-  mutate_if(is.list, funs(from_ls_to_flat(.))) %>%
-  left_join(select(articles_db, study_id, mex_name), by = "study_id")
+  filter(map2_lgl(code_main, code_identifiers, ~length(.x) > length(.y))) #%>%
+  # mutate_if(is.list, funs(from_ls_to_flat(.))) %>%
+  # left_join(select(articles_db, study_id, mex_name), by = "study_id")
+
+# ^ for these 3 cases (20373, 23314, 8982), assume code identifier applies to all main codes, then add back to fixed_codes_mult
+review_codes_mult %<>% 
+  mutate(code_identifiers = map2(code_identifiers, code_main, ~rep(.x, length(.y))))
+
+fixed_codes_mult %<>%
+  bind_rows(review_codes_mult)
 
 # id orphan id codes (no main code) - these are checked manually 
 # amr_db_orphan_id_codes on google drive - github issue 5 
@@ -171,6 +188,7 @@ fixed_codes_orphans %<>%
 
 # get remaining orphan ids to be checked
 remaining_orphan_ids <- anti_join(orphan_id_codes, fixed_codes_orphans, by = c("study_id", "code_identifiers", "tmp_id")) # these are unfixed orphans 
+# ^ 11303 needs extensive recoding (amr_db_major_recoding_drug_bacteria); 17222 is excluded
 
 # formatting to match segments (to be added back in) 
 fixed_codes_orphans %<>%
@@ -187,7 +205,7 @@ segments <- review_codes %>%
   rbind(., fixed_codes_orphans)
 
 # sanity check - no codes lost in orphan id process- should be TRUE
-nrow(review_codes) == nrow(segments) + nrow(remaining_orphan_ids)  + nrow(review_codes_mult) + sum(duplicated(problem_id_codes))
+nrow(review_codes) == nrow(segments) + nrow(remaining_orphan_ids)  + sum(duplicated(problem_id_codes))
 
 # Unnest Codes for Final Segments DB  -----------------------------
 

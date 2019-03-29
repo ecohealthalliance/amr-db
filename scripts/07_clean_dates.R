@@ -26,7 +26,6 @@ dates <- segments %>%
 # structure segments database into dates codes dataframe 
 dates %<>%
   filter(code_main %in% c("event month" , "event year", "event date" , "event day")) %>%
-  select(-code_main_cat) %>%
   mutate(tmp = paste(study_id, code_main,  code_identifiers),
          dup = duplicated(tmp)) %>%
   select(-tmp) %>%
@@ -40,10 +39,12 @@ dates %<>%
 source(here::here("scripts", "helper_scripts", "functions_qa.R"))
 
 # Identify duplicate dates in studies
-studies_with_dups <- qa_duplicate(dates)
+studies_with_dups <- qa_duplicate(dates) %>%
+  select(-mex_name) %>% 
+  distinct()
 
-# Check if more than one date per study - ie multiple events
-studies_with_mult_events <- qa_event(dates)
+# Check if more than one date per study - ie multiple events - ok not to check because we have a date range
+# studies_with_mult_events <- qa_event(dates)
 
 # ID studies with missing dates
 studies_missing_dates <- qa_missing(dates)
@@ -51,6 +52,7 @@ studies_missing_dates <- qa_missing(dates)
 # Compare with list of studies that were evaluated for missing drug codes (review 2)
 missing_list <- gs_read(gs_title("amr_db_missing_dates"), ws = "review_1") 
 studies_missing_dates %<>% left_join(., missing_list)
+filter(studies_missing_dates, is.na(notes_review_1))
 
 # also ID studies with missing year
 articles_db <- read_csv(here::here("data", "articles_db.csv"))
@@ -82,7 +84,11 @@ dates %<>%
 dates %<>%
   mutate(event_date = str_split(event_date, " to | and ")) %>%
   unnest(event_date) %>%
-  mutate(event_date = trimws(event_date))
+  mutate(event_date = trimws(event_date)) %>%
+  mutate(event_year = str_split(event_year, " to ")) %>%
+  unnest(event_year) %>%
+  mutate(event_year = trimws(event_year))
+
 
 # Separate out information from dates
 # for cases where info is in date but not month or year
