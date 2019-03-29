@@ -17,8 +17,7 @@ cleaned_bacteria_codes <-
 
 # Bacteria codes dataframe with manual corrections
 bacteria <- segments %>%
-  filter(code_main_cat == "bacteria")  %>%
-  select(-code_main_cat) %>%
+  filter(code_main %in% c("binomial (genus species)", "resistance marker", "strain"))  %>%
   mutate(segment = stri_replace_all_regex(segment,
                                           c("\\(|\\)|\\:|\\;|\\.|\\,"),
                                           c(""), vectorize = FALSE)) %>%
