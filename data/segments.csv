@@ -5989,15 +5989,14 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link
 8591,ampicillin/sulbactam,drug resisted,b,drug resisted; mic
 8591,cefepime,drug resisted,c,drug resisted; mic
 8619,"these data demonstrate the first emergence of the usa300 clone in japanese children who have never been abroad and have had no contact with foreigners (and therefore, the first usa300 spread in japan), and also emergence of multiple divergent strains of the usa300 clone in japan.",article/study aim,NA,NA
-8619,staphylococcus aureus,binomial (genus species),NA,NA
 8619,saitama,city,NA,NA
 8619,japan,country,NA,NA
 8619,11-month,age,NA,NA
 8619,girl,sex,NA,NA
 8619,21 october 2008,event date,NA,NA
-8619,em,drug resisted,NA,NA
 8619,strain (nn36),strain,NA,NA
 8619,erythromycin,drug resisted,NA,NA
+8619,staphylococcus aureus,binomial (genus species),NA,NA
 8653,"this report presents the case of a patient associated with a streptococcus pneumoniae isolate that was resistant to a new ketolide antibiotic, telithromycin",article/study aim,NA,NA
 8653,4,mic,d,drug resisted; mic
 8653,streptococcus pneumoniae,binomial (genus species),NA,NA

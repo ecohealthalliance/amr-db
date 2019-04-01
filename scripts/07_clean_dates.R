@@ -15,7 +15,9 @@ segments <- read_csv(here::here("data", "segments.csv"))
 # Quick QA response - fixed incorrectly coded segments
 dates <- segments %>% 
   filter(!c(study_id == 17611 & segment =="february" & code_main == "event year"),
-            !c(study_id == 18418 & segment %in% c("2012", "2013") & code_main == "event year")) %>%
+            !c(study_id == 18418 & segment %in% c("2012", "2013") & code_main == "event year"),
+         !c(study_id == 6737 & segment %in% c("may 2007", "2007") & !is.na(code_identifiers))
+         ) %>%
   mutate(code_main = ifelse((study_id == 1360 & segment == "april"), "event month", code_main),
          code_main = ifelse((study_id == 1360 & segment == "15"), "event day", code_main),
          code_main = ifelse((study_id == 9727 & segment == "3"), "event day", code_main),
