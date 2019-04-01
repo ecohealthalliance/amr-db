@@ -75,25 +75,32 @@ dates <- read_csv(here("data", "dates.csv"))
 #-----------------Make full DB (in progress)-----------------
 event_list <- list(locations, drugs, bacteria, dates)
 
+# Replace NA code IDs with "none"
 event_list <- map(event_list, function(x){
   x %>% replace_na(list(code_identifiers = "none", code_identifiers_link = "none"))
 })
 
-event_codeid <- reduce(event_list, full_join)
+# Make event dataframe of only cases with code identifiers
+event_codeid <- reduce(event_list, full_join) %>%
+  filter(code_identifiers != "none")
 
+# Make event dataframe of only cases without code identifiers  These apply to all cases within a study.  
 event_list_no_codeid <- map(event_list, function(x){
   filter(x, code_identifiers == "none")
 })
 
 event_no_codeid <- reduce(event_list_no_codeid, full_join)
 
+# Join dataframe of code identifier cases with dataframe of non-code identifier cases
 events <- full_join(event_codeid, event_no_codeid, by = "study_id") 
 
+# Get clean column names
 cnames <- colnames(events) %>%
   keep(~grepl(".x", .x)) %>%
   modify(~gsub(".x", "", .x)) %>% 
   unlist()
 
+# For each column, if the x version (code identifier case) is na, replace it with the y version (no code identifier -- applies to all cases if fields do not already have values from the code identifier case)
 for(x in cnames){
   events %<>%
     mutate(!!sym(x) := ifelse(is.na(!!sym(paste0(x, ".x"))), 
@@ -102,11 +109,16 @@ for(x in cnames){
     select(-!!sym(paste0(x, ".x")), -!!sym(paste0(x, ".y")))
 }
 
-events <- events %>% distinct() #merging identical dfs creates dups
+events %<>% 
+  distinct() %>% 
+  arrange(study_id, code_identifiers)
 
+# Remove NAs in country, drug, bacteria 
+events %<>%
+  filter(!is.na(study_country), !is.na(drug_preferred_label), !is.na(bacteria_preferred_label))
 #events <-  left_join(events, articles_db)
 
-### study_id 9, 15, 137, 172 seem to be working as expected
+### study_id 9, 15, 137, 172, 6375 seem to be working as expected
 ### study_id 11303 seems to have been coded incorrectly
 
 #-----------------Dup checks-----------------
@@ -134,12 +146,23 @@ articles_dups_fuzz <- expand.grid(articles_db$title, articles_db$title) %>%
 
 #-----------------Check for unique events per country-----------------
 # first remove dups based on above review
-dups_remove <-
-  gs_read(gs_title("amr_db_dups_titles")) %>% as.tibble() %>% filter(NOTES=="delete") %>% pull(study_id) #google spreadsheet with field cleanup
+dups_remove <- gs_read(gs_title("amr_db_dups_titles"), ws = "exact_match") %>% # google spreadsheet with field cleanup
+  as.tibble() %>% 
+  filter(NOTES=="delete") %>%
+  pull(study_id) 
 
+events %<>% filter(!study_id %in% dups_remove)
+
+fuzzy_dups_remove <- gs_read(gs_title("amr_db_dups_titles"), ws = "fuzzy_match") %>% # google spreadsheet with field cleanup
+  as.tibble() %>% 
+  filter(!is.na(delete)) %>%
+  pull(delete) 
+
+events %<>% filter(!study_id %in% fuzzy_dups_remove)
+
+# count number of events per country
 events_qa <- events %>%
   left_join(articles_db) %>%
-  filter(!study_id %in% c(dups_remove)) %>%
   group_by(study_country, drug_preferred_label, bacteria_preferred_label) %>%
   summarize(study_id = paste(unique(study_id), collapse = "; "),
             mex_name = paste(unique(mex_name), collapse = "; "),

@@ -136,7 +136,7 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,bacteria_id,ba
 1874,k pneumoniae,binomial (genus species),NA,NA,573,NA,species,bacteria,abbreviation,klebsiella pneumoniae,k. pneumoniae,klebsiella,genus
 18778,staphylococcus aureus,binomial (genus species),NA,NA,1280,NA,species,bacteria,preferred_label,staphylococcus aureus,s. aureus,staphylococcus,genus
 18818,mycobacterium marinum,binomial (genus species),NA,NA,1781,NA,species,bacteria,preferred_label,mycobacterium marinum,m. marinum,mycobacterium,genus
-18833,klebsiella pneumoniae,binomial (genus species),NA,NA,573,NA,species,bacteria,preferred_label,klebsiella pneumoniae,k. pneumoniae,klebsiella,genus
+18833,streptococcus pneumoniae,binomial (genus species),NA,NA,1313,NA,species,bacteria,preferred_label,streptococcus pneumoniae,s. pneumoniae,streptococcus,genus
 18833,h influenzae,binomial (genus species),NA,NA,727,NA,species,bacteria,abbreviation,haemophilus influenzae,h. influenzae,haemophilus,genus
 18852,staphylococcus epidermidis,binomial (genus species),NA,NA,1282,NA,species,bacteria,preferred_label,staphylococcus epidermidis,s. epidermidis,staphylococcus,genus
 1887,pseudomonas putida,binomial (genus species),NA,NA,303,NA,species,bacteria,preferred_label,pseudomonas putida,p. putida,pseudomonas putida group,species group
@@ -327,4 +327,5 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link,bacteria_id,ba
 9989,pseudomonas aeruginosa,binomial (genus species),NA,NA,287,NA,species,bacteria,preferred_label,pseudomonas aeruginosa,p. aeruginosa,pseudomonas aeruginosa group,species group
 16837,m europaeum,binomial (genus species),a,age; binomial (genus species); comorbidities; sex; symptoms/disease,761804,NA,species,bacteria,abbreviation,mycobacterium europaeum,m. europaeum,mycobacterium,genus
 16837,m europaeum,binomial (genus species),b,age; binomial (genus species); comorbidities; event year,761804,NA,species,bacteria,abbreviation,mycobacterium europaeum,m. europaeum,mycobacterium,genus
+20373,shigella sonnei,binomial (genus species),a,binomial (genus species); drug resisted; strain,624,NA,species,bacteria,preferred_label,shigella sonnei,s. sonnei,shigella,genus
 5774,klebsiella pneumoniae,binomial (genus species),bb,binomial (genus species); drug resisted; mic; resistance marker,573,NA,species,bacteria,preferred_label,klebsiella pneumoniae,k. pneumoniae,klebsiella,genus

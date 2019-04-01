@@ -48,7 +48,8 @@ segments_raw %<>%
   filter(!(study_id=="12359" & segment=="Levofloxacin" & code=="MIC"),
          !(study_id=="13376" & segment=="\u000316" & code=="Drug Resisted"),
          !(study_id=="23107" & segment=="Meropenem" & code=="MIC"),
-         !(study_id=="3799" & segment=="MIC")) %>%
+         !(study_id=="3799" & segment=="MIC"),
+         !(study_id=="8619" & segment=="EM")) %>%
   mutate(segment = textclean::replace_non_ascii(segment),
          code = replace(code, code == "Drug Resisted" & segment == "16", "MIC"))
 

@@ -68,8 +68,6 @@ study_id,code_identifiers,code_identifiers_link,start_date,end_date
 6492,NA,NA,2014-06,NA
 6505,NA,NA,2006,NA
 6655,NA,NA,2010-11,2011-06
-6737,a,age; event date; sex; symptoms/disease,2007-05,NA
-6737,b,age; event year; outcome; sex,2007,NA
 6737,NA,NA,2007-05,NA
 6842,NA,NA,2002-07-17,NA
 7090,NA,NA,2011-01,NA
@@ -202,5 +200,5 @@ study_id,code_identifiers,code_identifiers_link,start_date,end_date
 23107,NA,NA,2008-01-09,NA
 23248,NA,NA,2012-03,NA
 23251,NA,NA,2009-11,NA
-23314,a,age; city; event month; event year; hospital name; sex,2009-11,NA
+23314,a,age; city; country; country of residence; event month; event year; hospital name; sex,2009-11,NA
 23314,b,age; city; country; country of residence; event month; event year; hospital name; sex,2010-08,NA

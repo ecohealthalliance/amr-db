@@ -13,7 +13,8 @@ segments <- read_csv(here("data", "segments.csv"))
 # Import corrections from manual checking
 cleaned_bacteria_codes <-
   gs_read(gs_title("amr_db_clean_bacteria")) %>% as.tibble() %>% filter(new != "--") %>% #google spreadsheet with field cleanup
-  mutate(segment = paste0("^", segment, "$"))
+  mutate(segment = paste0("^", segment, "$")) %>%
+  mutate(new = ifelse(is.na(new_new), new, new_new))
 
 # Bacteria codes dataframe with manual corrections
 bacteria <- segments %>%
