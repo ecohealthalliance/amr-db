@@ -6,7 +6,8 @@
 #' 
 #' 
 #+ r setup, include = FALSE
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE,
+                      fig.width = 10, dpi = 500)
 library(tidyverse)
 library(magrittr)
 library(here)
@@ -151,21 +152,16 @@ paired_segments_count <- events %>%
   rename(bacteria = bacteria_preferred_label_abbr, drug = drug_preferred_label) %>%
   arrange(-n)
 
-idat <- paired_segments_count %>% filter(n>15) %>% select( -n)
+idat <- paired_segments_count %>% filter(n>15) %>% select( -n) %>% mutate(drug = recode(drug, `piperacillin, tazobactam drug combination` = "piperacillin & tazobactam" ))
 g <- graph.data.frame(idat, directed = FALSE)
 #bipartite.mapping(g)
 V(g)$type <- bipartite_mapping(g)$type
 V(g)$color <- ifelse(V(g)$type, "lightblue", "salmon")
 V(g)$shape <- ifelse(V(g)$type, "circle", "square")
-E(g)$color <- "lightgray"
+E(g)$color <- "gray60"
+V(g)$frame.color <- "white"
 
-idat2 <- paired_segments_count %>% distinct() %>% slice(1:25)
-g2 <- graph.data.frame(idat2, directed = FALSE)
-#bipartite.mapping(g2)
-V(g2)$type <- bipartite_mapping(g2)$type
-V(g2)$color <- ifelse(V(g2)$type, "lightblue", "salmon")
-V(g2)$shape <- ifelse(V(g2)$type, "circle", "square")
-E(g2)$color <- "lightgray"
+plot(g, vertex.label.cex = 0.9, vertex.label.color = "black", vertex.label.font = 2)
 
 #' Count by linkages (12 most common linkages)
 paired_segments_count %>%
@@ -181,7 +177,6 @@ ggparallel(list("drug", "bacteria"),
   theme_bw()+
   theme(legend.position = "none")
 
-plot(g, vertex.label.cex = 0.8, vertex.label.color = "black")
 
 #' Count by pub date
 pub_date_count <- articles_db %>%

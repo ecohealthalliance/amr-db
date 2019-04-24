@@ -1,7 +1,7 @@
 exploratory\_data
 ================
 emmamendelsohn
-Tue Feb 5 14:44:57 2019
+2019-04-23
 
 —————–Locations—————–
 
@@ -45,12 +45,6 @@ species
 
 </th>
 
-<th style="text-align:right;">
-
-\<NA\>
-
-</th>
-
 </tr>
 
 </thead>
@@ -61,7 +55,7 @@ species
 
 <td style="text-align:right;">
 
-2
+1
 
 </td>
 
@@ -73,13 +67,7 @@ species
 
 <td style="text-align:right;">
 
-299
-
-</td>
-
-<td style="text-align:right;">
-
-9
+263
 
 </td>
 
@@ -94,11 +82,11 @@ parent
 
 | bacteria\_rank | bacteria\_preferred\_label | bacteria\_preferred\_label\_abbr | bacteria\_parent\_rank | bacteria\_parent\_name                        |  n | percent |
 | :------------- | :------------------------- | :------------------------------- | :--------------------- | :-------------------------------------------- | -: | ------: |
-| species        | klebsiella pneumoniae      | k. pneumoniae                    | genus                  | klebsiella                                    | 50 |    15.9 |
-| species        | escherichia coli           | e. coli                          | genus                  | escherichia                                   | 27 |     8.6 |
-| species        | staphylococcus aureus      | s. aureus                        | genus                  | staphylococcus                                | 23 |     7.3 |
-| species        | acinetobacter baumannii    | a. baumannii                     | species group          | acinetobacter calcoaceticus/baumannii complex | 14 |     4.5 |
-| species        | pseudomonas aeruginosa     | p. aeruginosa                    | species group          | pseudomonas aeruginosa group                  | 14 |     4.5 |
+| species        | klebsiella pneumoniae      | k. pneumoniae                    | genus                  | klebsiella                                    | 43 |    16.0 |
+| species        | escherichia coli           | e. coli                          | genus                  | escherichia                                   | 23 |     8.6 |
+| species        | staphylococcus aureus      | s. aureus                        | genus                  | staphylococcus                                | 21 |     7.8 |
+| species        | acinetobacter baumannii    | a. baumannii                     | species group          | acinetobacter calcoaceticus/baumannii complex | 10 |     3.7 |
+| species        | pseudomonas aeruginosa     | p. aeruginosa                    | species group          | pseudomonas aeruginosa group                  | 10 |     3.7 |
 
 ![](data_summary_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
@@ -142,12 +130,6 @@ drug name + drug name
 
 </th>
 
-<th style="text-align:right;">
-
-\<NA\>
-
-</th>
-
 </tr>
 
 </thead>
@@ -158,7 +140,7 @@ drug name + drug name
 
 <td style="text-align:right;">
 
-608
+544
 
 </td>
 
@@ -170,25 +152,19 @@ drug name + drug name
 
 <td style="text-align:right;">
 
-3
+2
 
 </td>
 
 <td style="text-align:right;">
 
-1397
+1254
 
 </td>
 
 <td style="text-align:right;">
 
 4
-
-</td>
-
-<td style="text-align:right;">
-
-144
 
 </td>
 
@@ -246,40 +222,6 @@ percent
 
 <td style="text-align:left;">
 
-drug group
-
-</td>
-
-<td style="text-align:left;">
-
-ciprofloxacin
-
-</td>
-
-<td style="text-align:left;">
-
-fluoroquinolones
-
-</td>
-
-<td style="text-align:right;">
-
-99
-
-</td>
-
-<td style="text-align:right;">
-
-4.6
-
-</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align:left;">
-
 drug name
 
 </td>
@@ -298,13 +240,13 @@ cephaloridine
 
 <td style="text-align:right;">
 
-97
+92
 
 </td>
 
 <td style="text-align:right;">
 
-4.5
+5.1
 
 </td>
 
@@ -320,25 +262,25 @@ drug group
 
 <td style="text-align:left;">
 
-gentamicins
+ciprofloxacin
 
 </td>
 
 <td style="text-align:left;">
 
-aminoglycosides
+fluoroquinolones
 
 </td>
 
 <td style="text-align:right;">
 
-93
+87
 
 </td>
 
 <td style="text-align:right;">
 
-4.3
+4.8
 
 </td>
 
@@ -366,13 +308,47 @@ thienamycins
 
 <td style="text-align:right;">
 
-92
+86
 
 </td>
 
 <td style="text-align:right;">
 
-4.3
+4.8
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+drug group
+
+</td>
+
+<td style="text-align:left;">
+
+gentamicins
+
+</td>
+
+<td style="text-align:left;">
+
+aminoglycosides
+
+</td>
+
+<td style="text-align:right;">
+
+83
+
+</td>
+
+<td style="text-align:right;">
+
+4.6
 
 </td>
 
@@ -400,13 +376,13 @@ thienamycins
 
 <td style="text-align:right;">
 
-84
+79
 
 </td>
 
 <td style="text-align:right;">
 
-3.9
+4.4
 
 </td>
 
@@ -460,13 +436,13 @@ thienamycins
 
 <td style="text-align:right;">
 
-176
+165
 
 </td>
 
 <td style="text-align:right;">
 
-8.2
+9.1
 
 </td>
 
@@ -482,35 +458,13 @@ cefotaxime
 
 <td style="text-align:right;">
 
-139
+124
 
 </td>
 
 <td style="text-align:right;">
 
-6.4
-
-</td>
-
-</tr>
-
-<tr>
-
-<td style="text-align:left;">
-
-cephalosporins
-
-</td>
-
-<td style="text-align:right;">
-
-112
-
-</td>
-
-<td style="text-align:right;">
-
-5.2
+6.9
 
 </td>
 
@@ -526,13 +480,13 @@ ampicillin
 
 <td style="text-align:right;">
 
-107
+95
 
 </td>
 
 <td style="text-align:right;">
 
-5.0
+5.3
 
 </td>
 
@@ -542,19 +496,41 @@ ampicillin
 
 <td style="text-align:left;">
 
-ciprofloxacin
+cephaloridine
 
 </td>
 
 <td style="text-align:right;">
 
-99
+93
 
 </td>
 
 <td style="text-align:right;">
 
-4.6
+5.1
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+cephalosporins
+
+</td>
+
+<td style="text-align:right;">
+
+92
+
+</td>
+
+<td style="text-align:right;">
+
+5.1
 
 </td>
 
@@ -568,22 +544,24 @@ ciprofloxacin
 
 —————–Bacteria + Drugs Paired—————–
 
+![](data_summary_files/figure-gfm/r%20bacteria_drugs-1.png)<!-- -->
+
 Count by linkages (12 most common linkages)
 
 | drug                                      | bacteria      |  n |
 | :---------------------------------------- | :------------ | -: |
-| ceftazidime                               | k. pneumoniae | 22 |
-| imipenem                                  | k. pneumoniae | 20 |
-| meropenem                                 | k. pneumoniae | 19 |
-| ciprofloxacin                             | k. pneumoniae | 17 |
-| imipenem                                  | e. coli       | 17 |
+| ceftazidime                               | k. pneumoniae | 23 |
+| meropenem                                 | k. pneumoniae | 22 |
+| imipenem                                  | k. pneumoniae | 21 |
+| ertapenem                                 | k. pneumoniae | 18 |
 | piperacillin, tazobactam drug combination | k. pneumoniae | 16 |
-| meropenem                                 | e. coli       | 16 |
-| ertapenem                                 | k. pneumoniae | 16 |
+| cefotaxime                                | k. pneumoniae | 16 |
 | cefepime                                  | k. pneumoniae | 16 |
-| cefotaxime                                | k. pneumoniae | 15 |
+| imipenem                                  | e. coli       | 16 |
+| ciprofloxacin                             | k. pneumoniae | 16 |
+| meropenem                                 | e. coli       | 15 |
 
-![](data_summary_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->![](data_summary_files/figure-gfm/unnamed-chunk-9-2.png)<!-- -->
+![](data_summary_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
 Count by pub
 date
