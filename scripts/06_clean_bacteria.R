@@ -64,7 +64,9 @@ bacteria_abbr <- ncbi %>%
   mutate(segment = paste(substr(segment, 1, 1), gsub(".* ", "", segment)),
          bacteria_segment_name_class = "abbreviation")
 
-ncbi %<>% bind_rows(., bacteria_abbr)
+ncbi %<>% 
+  bind_rows(., bacteria_abbr) %>%
+  distinct()
 
 # Join into bacteria data frame for gen/spe
 bacteria_genspe <- bacteria %>% 
@@ -84,10 +86,17 @@ bacteria_genspe %<>%
 # Check for ambiguous abbreviation matches
 bacteria_genspe_check <- bacteria_genspe %>%
   filter(bacteria_segment_name_class == "abbreviation") %>%
-  select(study_id, code_identifiers, segment, bacteria_preferred_label) %>%
-  distinct() %>%
+  group_by(study_id, code_identifiers, segment) %>%
+  mutate(n_bacteria_preferred_label = n_distinct(bacteria_preferred_label)) %>%
+  select(study_id, code_identifiers, segment, n_bacteria_preferred_label) %>%
+  filter(n_bacteria_preferred_label >1) %>%
   arrange(study_id)
 #gs_new("amr_db_bacteria_abbr", input = bacteria_genspe_check)
+
+# Manually fix ambiguous entries
+bacteria_genspe %<>%
+  filter(!(study_id == 23039 & bacteria_preferred_label == "nocardia otitidiscaviarum"))
+  # OTHERS TO BE ADDED
 
 # Get ncbi parent name and rank
 bacteria_genspe %<>%
