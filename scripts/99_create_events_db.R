@@ -147,29 +147,34 @@ articles_dups_fuzz <- expand.grid(articles_db$title, articles_db$title) %>%
 #-----------------Check for unique events per country-----------------
 # first remove dups based on above review
 dups_remove <- gs_read(gs_title("amr_db_dups_titles"), ws = "exact_match") %>% # google spreadsheet with field cleanup
-  as.tibble() %>% 
+  as_tibble() %>% 
   filter(NOTES=="delete") %>%
   pull(study_id) 
 
 events %<>% filter(!study_id %in% dups_remove)
 
 fuzzy_dups_remove <- gs_read(gs_title("amr_db_dups_titles"), ws = "fuzzy_match") %>% # google spreadsheet with field cleanup
-  as.tibble() %>% 
+  as_tibble() %>% 
   filter(!is.na(delete)) %>%
   pull(delete) 
 
-events %<>% filter(!study_id %in% fuzzy_dups_remove)
+events %<>% 
+  filter(!study_id %in% fuzzy_dups_remove)
 
+# select columns of interest
+events %<>%
+  select(study_id, study_country, bacteria_preferred_label, drug_preferred_label, start_date) %>%
+  distinct()
+  
 # count number of events per country
 events_qa <- events %>%
-  left_join(articles_db) %>%
   group_by(study_country, drug_preferred_label, bacteria_preferred_label) %>%
-  summarize(study_id = paste(unique(study_id), collapse = "; "),
-            mex_name = paste(unique(mex_name), collapse = "; "),
-            title = paste(unique(title), collapse = ";\n")
-  )
-
-non_unique_events <- events_qa %>%
-  filter(grepl(";", study_id))
+  mutate(n = n()) %>%
+  filter(n > 1) %>%
+  select(study_id, study_country, drug_preferred_label, bacteria_preferred_label, n, start_date) %>%
+  mutate(group = group_indices()) %>%
+  #TODO - select most recent to keep
+  ungroup()
+  
 
 write_csv(events, here("data", "events_db.csv"))

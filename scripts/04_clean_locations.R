@@ -10,8 +10,6 @@ library(here)
 
 segments <- read_csv(here("data", "segments.csv"))
 
-# 21192 need to check this one
-
 # Structure segments database into location codes dataframe   
 locations <- segments %>%
   filter(code_main %in% c("hospital name", "city", "country","state/province/district", "country of residence", "place traveled to" )) %>%

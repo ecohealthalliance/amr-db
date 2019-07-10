@@ -42,6 +42,16 @@ fileloc <- here("data-raw", "coded_text_mex")
 files <- list.files("data-raw/coded_text_mex/", pattern = "*.mex")
 mex <- map_df(files, ~src_sqlite_mex(fileloc, .x))
 
+## QA checks
+# study ids in csvs but not mex files 
+articles_db %>%
+  filter(!study_id %in% mex$study_id) %>%
+  filter(downloaded %in% c("YES", "yes", "Downloaded", NA_character_)) # these were supposedly downloaded - why not in mex files?
+  # Those that could NOT be downloaded are addressed in issue #4
+
+# this study is in mex but not indexed
+mex$study_id[!mex$study_id %in% articles_db$study_id]
+
 articles_db <- left_join(articles_db, mex)
 
 # clean up article index dataframe
