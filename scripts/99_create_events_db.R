@@ -131,6 +131,7 @@ articles_dups <- articles_db %>%
   arrange(title)
 
 # Any fuzzy duplicated titles?
+# note - this does not capture all dupes.  For example study_ids 18947 & 18946 are the same.  Assuming coded identically, these dupes are removed when selecting for emergence below.
 articles_dups_fuzz <- expand.grid(articles_db$title, articles_db$title) %>%
   filter(Var1 != Var2) %>%
   left_join(articles_db %>% select(title, study_id, author, year, url, volume, doi, edition, language, mex_name), by = c("Var1" = "title")) %>%
@@ -164,17 +165,30 @@ events %<>%
 # select columns of interest
 events %<>%
   select(study_id, study_country, bacteria_preferred_label, drug_preferred_label, start_date) %>%
-  distinct()
-  
-# count number of events per country
-events_qa <- events %>%
+  distinct() # some events have differences in other fields.  for now, just focusing on these fields.
+
+# for multiple events, select the most recent
+# first need to assume publication date for start_date NAs
+
+events_dates_na <- events %>%
+  filter(is.na(start_date)) %>%
+  left_join(articles_db %>% 
+              select(study_id, year)) %>%
+  select(-start_date, start_date = year) %>%
+  mutate(start_date = as.character(start_date))
+
+events %<>%
+  drop_na(start_date) %>%
+  bind_rows(events_dates_na) %>%
+  distinct() # some of the assigned pub dates are same as start_date, so these get filtered out
+
+# select most recent.  if two are identical, select first study.
+# note that there may be differences in strain or marker, which would mean some of these are in fact separate emergence events.  to be revisited.  
+events %<>%
   group_by(study_country, drug_preferred_label, bacteria_preferred_label) %>%
-  mutate(n = n()) %>%
-  filter(n > 1) %>%
-  select(study_id, study_country, drug_preferred_label, bacteria_preferred_label, n, start_date) %>%
-  mutate(group = group_indices()) %>%
-  #TODO - select most recent to keep
-  ungroup()
-  
+  mutate(is_first = start_date == min(start_date, na.rm=T)) %>%
+  filter(is_first) %>% # get first event for each unique combo (if there is only 1 event, it will be selected) 
+  slice(1) %>% # if there is a tie (ie more than one event reported at same time) select first instance
+  select(-is_first)
 
 write_csv(events, here("data", "events_db.csv"))
