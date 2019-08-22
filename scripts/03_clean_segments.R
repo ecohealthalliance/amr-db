@@ -14,7 +14,7 @@ files <- dir(path = here('data', 'coded_segments'), pattern = "*.xlsx", full.nam
 segments_raw <- map_dfr(files, ~read_xlsx(.x, col_types = "text")) %>%
   janitor::clean_names() %>%
   rename("study_id" = document_name) %>%
-  separate(beginning, into = c("begin_page", "begin_off"), sep = ":", fill = "left") %>%
+  separate(begin, into = c("begin_page", "begin_off"), sep = ":", fill = "left") %>%
   separate(end, into = c("end_page", "end_off"), sep = ":", fill = "left") %>%
   select(study_id, 
          segment, 
@@ -232,7 +232,7 @@ segments %<>%
 
 # get vector of excluded study IDs
 excluded_studies <- segments %>%
-  filter(code_main_cat == "exclusion") %>% 
+  filter(code_main_cat == "exclusion"|str_detect(code_main, "surveillance")) %>% 
   pull(study_id) %>% 
   unique()
 
@@ -274,9 +274,9 @@ segments %<>%
   mutate(code_identifiers_link = ifelse(grepl("\\;", code_identifiers_link), code_identifiers_link, NA),
          code_identifiers = ifelse(is.na(code_identifiers_link), NA, code_identifiers)) 
 
-# Manually add study dat for study ID 22668
-segments %<>%
-  bind_rows(tibble(study_id = "22668", segment = "2007", code_main = "event year", code_identifiers = NA, code_identifiers_link = NA))
+# Manually add study dat for study ID 22668 (this study is actually excluded)
+# segments %<>%
+#   bind_rows(tibble(study_id = "22668", segment = "2007", code_main = "event year", code_identifiers = NA, code_identifiers_link = NA))
 
 # Remove dups
 segments %<>%

@@ -53,8 +53,12 @@ fileloc <- here("data-raw", "coded_text_mex")
 files <- list.files("data-raw/coded_text_mex/", pattern = "*.mex")
 mex <- map_df(files, ~src_sqlite_mex(fileloc, .x)) 
 
-# Check for mex file dupes - NEED TO ADDRESS
+# Check for mex file dupes 
 dupes_mex <- janitor::get_dupes(mex, study_id)
+  # The dupes with sd_1_1 are not actually coded
+  # The zm_2_2 and md_7_1 dupes are odd, but they are exact dupes.  They are only in the csv for md_7, so leave there.  
+mex <- mex %>%
+  filter(!(study_id %in% unique(dupes_mex$study_id) & !mex_name %in% c("sd_1_1.mex", "md_7_1.mex")))
 
 # Any study ids in csvs but not mex files?
 articles_db %>%
@@ -67,6 +71,11 @@ mex$study_id[!mex$study_id %in% articles_db$study_id]
 
 # Join mex file names into index
 articles_db <- left_join(articles_db, mex)
+
+# Check NAs were all not downloaded
+articles_db %>% 
+  filter(is.na(mex_name)) %>%
+  pull(downloaded) %>% unique() 
 
 # Now, make sure exports (segments) match index
 files <- dir(path = here('data', 'coded_segments'), pattern = "*.xlsx", full.names = TRUE)
@@ -95,7 +104,7 @@ articles_db <- articles_db %>%
 
 # check status of downloaded column (spoiler alert...it needs cleaning)
 articles_db %>% group_by(downloaded) %>%
-  summarise(n = n()) ##Note article 23579 - NA for downloaded - not in mex but not clear why
+  summarise(n = n())
 
 #clean downloaded column, and write to master index csv
 articles_db <- articles_db %>%
@@ -114,5 +123,3 @@ write_csv(articles_db, path = here("data", "articles_db.csv"))
 fct_count(articles_db$downloaded)
 fct_count(articles_db$in_codes_db)
 fct_count(articles_db$include)
-
-

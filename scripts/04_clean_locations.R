@@ -7,7 +7,6 @@ library(tidyverse)
 library(here)
 
 # Structure Location Data -----------------
-
 segments <- read_csv(here("data", "segments.csv"))
 
 # Structure segments database into location codes dataframe   
@@ -220,4 +219,3 @@ clean_list <- gs_read(gs_title("amr_db_locations_qa"), ws = "review_2_travel", s
 updated_studies <- anti_join(trav_locs, clean_list)
 
 write_csv(locations, here("data", "locations.csv"))
-
