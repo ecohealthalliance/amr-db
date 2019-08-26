@@ -8,6 +8,7 @@ library(here)
 
 # Structure Location Data -----------------
 segments <- read_csv(here("data", "segments.csv"))
+articles_db <- read_csv(here("data","articles_db.csv")) 
 
 # Structure segments database into location codes dataframe   
 locations <- segments %>%
@@ -33,7 +34,8 @@ studies_missing_locs <- qa_missing(locations)
 
 # Compare with list of studies that were evaluated for missing location codes (review 1)
 missing_list <- gs_read(gs_title("amr_db_missing_locations_study_id"), ws = "review_2") 
-studies_missing_locs %<>% left_join(., missing_list)
+studies_missing_locs %<>% left_join(., missing_list) # 18812 is ok - it's going to be excluded
+# ^ these are missing any location.  Eval for missing country below.  
 
 # Handling of multiple events -----------------
 
@@ -112,8 +114,19 @@ add_country <- gs_read(gs_title("amr_db_add_country")) %>%
 
 locations %<>%
   left_join(., add_country) %>%
-  mutate(country = ifelse(is.na(study_country_add), country, study_country_add),
-         study_location = ifelse(is.na(study_country_add), study_location, paste(study_location, study_country_add, sep = ", ")),
+  mutate(country = ifelse(is.na(study_country_add), country, study_country_add))
+
+# Countries still missing?
+missing_countries <-locations %>%
+  filter(is.na(country)) %>%
+  left_join(articles_db %>% select(study_id, mex_name)) %>%
+  arrange(mex_name)
+# articles with non-blank study_location need country lookup, others need to be evaluated in mex files
+# 7761 may need follow up.  18266, 23314 is ok because only a travel location
+
+locations %<>%
+  left_join(., add_country) %>%
+  mutate(study_location = ifelse(is.na(study_country_add), study_location, paste(study_location, study_country_add, sep = ", ")),
          study_location_basis = ifelse(is.na(study_country_add), study_location_basis, paste(study_location_basis, "country", sep = ", "))) %>%
   select(-study_country_add)
 
@@ -185,6 +198,12 @@ clean_list2 <- gs_read(gs_title("amr_db_locations_qa"), ws = "review_2_study", s
 clean_list <- bind_rows(clean_list1, clean_list2)
 
 updated_studies <- anti_join(study_locs, clean_list)
+
+library(leaflet)
+leaflet() %>%
+  addProviderTiles("CartoDB.Positron") %>%
+  addCircleMarkers(data = updated_studies, lng = ~lon_study, lat = ~lat_study, radius = 2,
+                   label = ~study_location) 
 
 # all residence locs
 res_locs <- locations %>% 

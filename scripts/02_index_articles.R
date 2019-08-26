@@ -94,7 +94,7 @@ segments_raw %>%
   distinct() %>%
   janitor::get_dupes(., `Document name`) %>%
   group_by(`Document name`) %>%
-  mutate(new_reviewer = any(str_detect(unique(Author), "Sonia|chen|dattaray"))) %>%
+  mutate(new_reviewer = any(str_detect(unique(Author), "Sonia|chen|dattaray|emma"))) %>%
   ungroup() %>%
   filter(new_reviewer == FALSE)
 
