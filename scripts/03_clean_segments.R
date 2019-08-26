@@ -14,6 +14,7 @@ files <- dir(path = here('data', 'coded_segments'), pattern = "*.xlsx", full.nam
 segments_raw <- map_dfr(files, ~read_xlsx(.x, col_types = "text")) %>%
   janitor::clean_names() %>%
   rename("study_id" = document_name) %>%
+  mutate(begin = coalesce(begin, beginning)) %>%
   separate(begin, into = c("begin_page", "begin_off"), sep = ":", fill = "left") %>%
   separate(end, into = c("end_page", "end_off"), sep = ":", fill = "left") %>%
   select(study_id, 
@@ -34,9 +35,20 @@ na_segments <- segments_raw %>%
   left_join(select(articles_db, study_id, mex_name))
 # study ID 22668 to be manually added at end of script
 
+apply(segments_raw, 2, function(x) sum(is.na(x))) 
+
+# set aside promed articles b/c they have different offsets
+promed <- segments_raw %>%
+  left_join(articles_db) %>%
+  filter(grepl("promed", mex_name)) %>%
+  select(colnames(segments_raw))
+
 # create offset range col
 segments_raw %<>%
-  na.omit(.) %>% # see check_na_segments.R script
+  drop_na(segment) %>% # NAs id'd above
+  left_join(articles_db) %>%
+  filter(!grepl("promed", mex_name)) %>% # remove promeds
+  select(colnames(segments_raw)) %>%
   mutate(range = map2(begin_off, end_off, function(x,y) x:y))
 
 # only one segment spans two pages. NOTE - this segment matching method is not robust to cases like this :(
@@ -48,6 +60,8 @@ segments_raw %<>%
   filter(!(study_id=="12359" & segment=="Levofloxacin" & code=="MIC"),
          !(study_id=="13376" & segment=="\u000316" & code=="Drug Resisted"),
          !(study_id=="23107" & segment=="Meropenem" & code=="MIC"),
+         !(study_id=="22703" & segment=="Connecticut" & code == "Patient:Country of Residence"),
+         !(study_id=="17222" & segment=="n"), 
          !(study_id=="3799" & segment=="MIC"),
          !(study_id=="8619" & segment=="EM")) %>%
   mutate(segment = textclean::replace_non_ascii(segment),
@@ -136,10 +150,10 @@ fixed_codes_mult <- codes_mult %>%
 # there are cases where there are more main codes than id codes. These should be reviewed.  
 review_codes_mult <- codes_mult %>%
   filter(map2_lgl(code_main, code_identifiers, ~length(.x) > length(.y))) #%>%
-  # mutate_if(is.list, funs(from_ls_to_flat(.))) %>%
-  # left_join(select(articles_db, study_id, mex_name), by = "study_id")
+# mutate_if(is.list, funs(from_ls_to_flat(.))) %>%
+# left_join(select(articles_db, study_id, mex_name), by = "study_id")
 
-# ^ for these 3 cases (20373, 23314, 8982), assume code identifier applies to all main codes, then add back to fixed_codes_mult
+# ^ for these cases (20373, 23314, 8982), assume code identifier applies to all main codes, then add back to fixed_codes_mult.  5362 is to be excluded
 review_codes_mult %<>% 
   mutate(code_identifiers = map2(code_identifiers, code_main, ~rep(.x, length(.y))))
 
@@ -158,6 +172,7 @@ orphan_id_codes <- problem_id_codes %>%
 # bring in orphan ids that have been fixed manually on google drive
 orphan_id_codes_review <- gs_read(gs_title("amr_db_orphan_id_codes"), ws = "review_1") %>%
   bind_rows(gs_read(gs_title("amr_db_orphan_id_codes"), ws = "review_2")) %>%
+  bind_rows(gs_read(gs_title("amr_db_orphan_id_codes"), ws = "review_3")) %>%
   mutate(study_id = as.character(study_id)) 
 
 fixed_codes_orphans <- orphan_id_codes_review %>% 
@@ -189,7 +204,6 @@ fixed_codes_orphans %<>%
 
 # get remaining orphan ids to be checked
 remaining_orphan_ids <- anti_join(orphan_id_codes, fixed_codes_orphans, by = c("study_id", "code_identifiers", "tmp_id")) # these are unfixed orphans 
-# ^ 11303 needs extensive recoding (amr_db_major_recoding_drug_bacteria); 17222 is excluded
 
 # formatting to match segments (to be added back in) 
 fixed_codes_orphans %<>%
@@ -220,9 +234,15 @@ rep_na_for_unnest <- function(code_id_vec, code_main_len) {
   return(new_code_id_vec)
 }
 
+# Add promed back in - NOTE these will have code identifiers excluded because offsets in these articles do not match method used above
+promed %<>%
+  filter(!code %in% LETTERS) %>%
+  select(study_id, segment, code_main = code)
+
 # unnest so each code and id have their own observation (gets rid of list column)
 # separate code category from main code 
 segments %<>%
+  bind_rows(promed %>% mutate(code_main = as.list(code_main))) %>%
   mutate(code_identifiers = map2(.$code_identifiers, .$code_main, ~rep_na_for_unnest(.x, length(.y)))) %>%
   select(-segment_all, -code_identifiers_check) %>% 
   unnest(code_main, code_identifiers) %>%

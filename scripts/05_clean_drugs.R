@@ -8,7 +8,7 @@ library(googlesheets)
 # Structure Drugs Data and Manual Corrections-----------------
 
 # Read in data
-segments <- read_csv(here("data", "segments.csv"))
+segments <- read_csv(here("data", "segments.csv")) 
 
 # Import corrections from manual checking
 cleaned_drug_codes <-
@@ -35,11 +35,27 @@ drugs <- segments %>%
     )
   )
 
-# Separate out drug combos that are not recognized combinations
+# remove special characters
+drugs %<>% 
+  filter(!(study_id=="23491" & segment %in% c("1/4g/ml cipro",
+                                            "1/41/41/4g/ml le",
+                                            "1/41/41/41/4g/ml",
+                                            "1/41/41/4g/ml",
+                                            "nt to amik")))
+
+
+# Separate out drug combos that are not recognized combinations 
+# as id'd from no_match routine below
+# to run new data through no_match routine, this code chunk will need to be commented out after segment_drug_combo col is created
 drugs %<>%
-  mutate(segment_drug_combo = ifelse(grepl("\\/", segment), TRUE, FALSE),
-         segment = str_split(segment, "\\/")) %>%
-  unnest()
+  mutate(segment_drug_combo = ifelse(grepl("\\/", segment), TRUE, FALSE)) %>%
+  separate(segment, into = c("c1", "c2"), sep = "/") %>%
+  gather(key = "combo_key", value = "segment", c1:c2) %>%
+  drop_na(segment) %>%
+  mutate(combo_key = ifelse(segment_drug_combo, combo_key, NA)) 
+# Warning message:
+#Expected 2 pieces. Missing pieces filled with `NA` in 2192 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, ...].
+# ^ Ok
 
 # QA Checks-----------------
 # clean 
@@ -58,7 +74,7 @@ studies_missing_drugs <- qa_missing(drugs)
 
 # Compare with list of studies that were evaluated for missing drug codes (review 2)
 missing_list <- gs_read(gs_title("amr_db_missing_drugs_study_id"), ws = "review_2") 
-studies_missing_drugs %<>% left_join(., missing_list)
+studies_missing_drugs %<>% left_join(., missing_list) # 18812 is confirmed missing
 
 # QA Response-----------------
 
@@ -149,21 +165,4 @@ articles_db <- read_csv(here("data", "articles_db.csv"))  %>%
 
 no_match %<>% left_join(articles_db)
 
-# Compare with list of studies that were previously cleaned
-# 
-# clean_list <- gs_read(gs_title("amr_db_clean_drugs")) 
-# 
-# clean_list_with_mex <- clean_list %>%
-#   filter(is.na(`Confirmed Y/N`)) %>%
-#   mutate(study_id = stri_split_regex(study_id, "\\, ")) %>%
-#   unnest() %>%
-#   left_join(articles_db) %>%
-#   group_by(segment) %>%
-#   summarize(study_id = paste(study_id, collapse = ", "), mex_name = paste(mex_name, collapse = ", ")) %>% ungroup
-# 
-# no_match %<>% left_join(., clean_list)
-# 
-# new_no_match <- no_match %>%
-#   filter(is.na(new))
-  
 write_csv(drugs, here("data", "drugs.csv"))
