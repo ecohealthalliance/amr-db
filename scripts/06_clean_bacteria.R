@@ -10,6 +10,9 @@ library(googlesheets)
 # Read in data
 segments <- read_csv(here("data", "segments.csv"))
 
+# Manual correction
+segments$code_main[segments$study_id==23761 & segments$segment=="klebsiella pneumoniae"] <- "binomial (genus species)"
+
 # Import corrections from manual checking
 cleaned_bacteria_codes <-
   gs_read(gs_title("amr_db_clean_bacteria")) %>% as.tibble() %>% filter(new != "--") %>% #google spreadsheet with field cleanup
@@ -20,7 +23,7 @@ cleaned_bacteria_codes <-
 bacteria <- segments %>%
   filter(code_main %in% c("binomial (genus species)", "resistance marker", "strain"))  %>%
   mutate(segment = stri_replace_all_regex(segment,
-                                          c("\\(|\\)|\\:|\\;|\\.|\\,"),
+                                          c("\\(|\\)|\\:|\\;|\\.|\\,|\\_"),
                                           c(""), vectorize = FALSE)) %>%
   mutate(segment = trimws(segment)) %>%
   mutate(
@@ -114,13 +117,13 @@ no_match <- qa_match(bacteria_genspe, "bacteria_id")
 articles_db <- read_csv(here("data", "articles_db.csv"))  %>% 
   select(study_id, mex_name) %>%
   mutate(study_id = as.character(study_id))
-clean_list <- gs_read(gs_title("amr_db_clean_bacteria")) 
-clean_list_with_mex <- clean_list %>%
-  filter(is.na(`Confirm Y?`)) %>%
-  left_join(articles_db)
-no_match %<>% left_join(., clean_list)
-new_no_match <- no_match %>%
-  filter(is.na(new))
+# clean_list <- gs_read(gs_title("amr_db_clean_bacteria")) 
+# clean_list_with_mex <- clean_list %>%
+#   filter(is.na(`Confirm Y?`)) %>%
+#   left_join(articles_db)
+# no_match %<>% left_join(., clean_list)
+# new_no_match <- no_match %>%
+#   filter(is.na(new))
 
 # ID studies that do not have species (only genus or higher)
 articles_db <- read_csv(here("data", "articles_db.csv")) %>% select(study_id, mex_name)

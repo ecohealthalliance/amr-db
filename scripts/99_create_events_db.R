@@ -44,6 +44,7 @@ drugs <- read_csv(here("data", "drugs.csv")) %>%
     code_identifiers,
     code_identifiers_link,
     segment_drug_combo,
+    combo_key,
     drug_rank,
     drug_preferred_label
   ) %>%
@@ -58,7 +59,8 @@ drugs_combos <- drugs %>%
   group_by(study_id,
            code_identifiers,
            code_identifiers_link,
-           segment_drug_combo
+           segment_drug_combo,
+           combo_key
   ) %>%
   summarize(drug_rank = paste(drug_rank, collapse = " + "),
             drug_preferred_label = paste(drug_preferred_label, collapse = " + "),
@@ -189,6 +191,7 @@ events %<>%
   mutate(is_first = start_date == min(start_date, na.rm=T)) %>%
   filter(is_first) %>% # get first event for each unique combo (if there is only 1 event, it will be selected) 
   slice(1) %>% # if there is a tie (ie more than one event reported at same time) select first instance
-  select(-is_first)
+  select(-is_first) %>%
+  ungroup()
 
 write_csv(events, here("data", "events_db.csv"))

@@ -1656,6 +1656,7 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link
 14709,6,event date,NA,NA
 14709,male,sex,b,age; comorbidities; drug resisted; sex; symptoms
 14709,american university of beirut medical center (,hospital name,NA,NA
+14709,streptococcus pneumoniae,binomial (genus species),NA,NA
 14709,fever,symptoms,a,age; comorbidities; drug resisted; outcome; sex; symptoms
 14740,november,event month,NA,NA
 14740,2012,event year,NA,NA
@@ -1929,14 +1930,6 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link
 15475,ceftriaxone,drug resisted,NA,NA
 15475,aztreonam,drug resisted,NA,NA
 15475,ceftazidime,drug resisted,NA,NA
-15560,mnazi mmoja hospital,hospital name,NA,NA
-15560,tanzania,country,NA,NA
-15560,march,event month,NA,NA
-15560,2012,event year,NA,NA
-15560,zanzibar,state/province/district,NA,NA
-15560,trimethoprim-sulfamethoxazole,drug resisted,NA,NA
-15560,bloodstream infections,symptoms,NA,NA
-15560,this is the first report of esbl-producing bacteria causing bsi from the zanzibar archipelago,article/study aim,NA,NA
 15632,klebsiella pneumoniae,binomial (genus species),NA,NA
 15632,helsinki university central hospital,hospital name,NA,NA
 15632,died,outcome,NA,NA
@@ -2500,18 +2493,17 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link
 18073,piperacillintazobactam,drug resisted,a,drug resisted; mic
 18141,india,country of residence,NA,NA
 18141,india,country,NA,NA
-18141,metronidazole,drug resisted,NA,NA
 18141,2016,event year,NA,NA
 18141,"we report the first case of intratumoral brain abscess by b. cereus, which most probably had a portal of entry from an intravenous catheter.",article/study aim,NA,NA
 18141,improved dramatically,outcome,NA,NA
 18141,bacillus cereus,binomial (genus species),NA,NA
-18141,51,binomial (genus species),NA,NA
 18141,51,age,NA,NA
 18141,male,sex,NA,NA
 18141,kullu,city,NA,NA
 18141,mannitol,drug resisted,NA,NA
 18141,ceftriaxone,drug resisted,NA,NA
 18141,amikacin,drug resisted,NA,NA
+18141,metronidazole,drug resisted,NA,NA
 18158,klebsiella pneumoniae,binomial (genus species),NA,NA
 18158,medical hospital of tokyo medical and dental university,hospital name,NA,NA
 18158,brazilian,place traveled to,NA,NA
@@ -3627,6 +3619,7 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link
 21257,patient remained stable without evidence of recurrent illness,outcome,NA,NA
 21257,canada,country,NA,NA
 21257,2010,event year,NA,NA
+21257,staphylococcus aureus,binomial (genus species),NA,NA
 21257,man,sex,NA,NA
 21257,daptomycin,drug resisted,NA,NA
 21257,mrsa 10 (usa300),strain,NA,NA
@@ -3762,23 +3755,22 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link
 21838,shewanella putrefaciens,binomial (genus species),NA,NA
 21838,united states,country,NA,NA
 21838,south carolina,state/province/district,NA,NA
-21982,january,event month,NA,NA
+21982,january,event month,a,drug resisted; event month; event year
 21982,t oxa-162 carbapenemase-producing klebsiella pneumoniae isolates,resistance marker,NA,NA
-21982,k1,strain,a,drug resisted; strain
-21982,2010,event year,NA,NA
-21982,k2,strain,b,drug resisted; event month; event year; strain
-21982,(k3,strain,NA,NA
-21982,cephamycins,drug resisted,NA,NA
-21982,cephalosporins,drug resisted,NA,NA
-21982,2010,event year,b,drug resisted; event month; event year; strain
+21982,cephamycins,drug resisted,a,drug resisted; event month; event year
+21982,cephalosporins,drug resisted,a,drug resisted; event month; event year
+21982,carbapenems,drug resisted,a,drug resisted; event month; event year
+21982,cephamycins,drug resisted,b,drug resisted; event month; event year
+21982,cephalosporins,drug resisted,b,drug resisted; event month; event year
+21982,2010,event year,a,drug resisted; event month; event year
+21982,2012,event year,b,drug resisted; event month; event year
+21982,05,event month,b,drug resisted; event month; event year
 21982,female,sex,NA,NA
-21982,02,event month,b,drug resisted; event month; event year; strain
-21982,05,event month,c,event month; event year
-21982,2012,event year,c,event month; event year
 21982,50s,age,NA,NA
 21982,serres general hospital,hospital name,NA,NA
 21982,serres,city,NA,NA
 21982,greece,country,NA,NA
+21982,cefuroxime,drug resisted,a,drug resisted; event month; event year
 21982,klebsiella pneumoniae,binomial (genus species),NA,NA
 22121,73,age,a,age; sex
 22121,taipei,city,NA,NA
@@ -5945,23 +5937,22 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link
 7620,cefuroxime axetil,drug resisted,e,drug resisted; mic
 7620,cefoxitin,drug resisted,f,drug resisted; mic
 7620,ertapenem,drug resisted,g,drug resisted; mic
-7761,30,age,a,age; binomial (genus species); drug resisted; outcome; place traveled to
-7761,k. pneumoniae,binomial (genus species),a,age; binomial (genus species); drug resisted; outcome; place traveled to
+7761,30,age,a,age; drug resisted; outcome; place traveled to
+7761,k. pneumoniae,binomial (genus species),NA,NA
 7761,august,event month,b,age; country of residence; event month; event year; outcome; sex
 7761,2010,event year,b,age; country of residence; event month; event year; outcome; sex
 7761,14,age,b,age; country of residence; event month; event year; outcome; sex
 7761,boy,sex,b,age; country of residence; event month; event year; outcome; sex
 7761,kosovo,country of residence,b,age; country of residence; event month; event year; outcome; sex
-7761,k. pneumoniae,binomial (genus species),NA,NA
-7761,aztreonam,drug resisted,a,age; binomial (genus species); drug resisted; outcome; place traveled to
-7761,ciprofl oxacin,drug resisted,a,age; binomial (genus species); drug resisted; outcome; place traveled to
-7761,gentamicin,drug resisted,a,age; binomial (genus species); drug resisted; outcome; place traveled to
-7761,released,outcome,a,age; binomial (genus species); drug resisted; outcome; place traveled to
-7761,austria,country,NA,NA
+7761,aztreonam,drug resisted,a,age; drug resisted; outcome; place traveled to
+7761,ciprofl oxacin,drug resisted,a,age; drug resisted; outcome; place traveled to
+7761,gentamicin,drug resisted,a,age; drug resisted; outcome; place traveled to
+7761,released,outcome,a,age; drug resisted; outcome; place traveled to
 7761,"november 2010, the patient still required medical care and remained hospitalized.",outcome,b,age; country of residence; event month; event year; outcome; sex
+7761,austria,country,NA,NA
 7761,graz,city,NA,NA
 7761,university hospital,hospital name,NA,NA
-7761,pakistan; india,place traveled to,a,age; binomial (genus species); drug resisted; outcome; place traveled to
+7761,pakistan; india,place traveled to,a,age; drug resisted; outcome; place traveled to
 7904,to describe the phenotypic and genetic characteristics of the first two cases of extended-spectrum cephalosporin (esc)-resistant neisseria gonorrhoeae in south africa,article/study aim,NA,NA
 7904,0.75 mg/l,mic,a,drug resisted; mic
 7904,0.25 mg/l,mic,b,drug resisted; mic
@@ -6747,14 +6738,6 @@ study_id,segment,code_main,code_identifiers,code_identifiers_link
 18418,ndm-5,resistance marker,c,age; drug resisted; resistance marker; strain
 18418,imipenem,drug resisted,a,age; drug resisted; resistance marker; strain
 18418,imipenem,drug resisted,c,age; drug resisted; resistance marker; strain
-21982,cephamycins,drug resisted,a,drug resisted; strain
-21982,cephamycins,drug resisted,b,drug resisted; event month; event year; strain
-21982,cephalosporins,drug resisted,a,drug resisted; strain
-21982,cephalosporins,drug resisted,b,drug resisted; event month; event year; strain
-21982,carbapenems,drug resisted,a,drug resisted; strain
-21982,carbapenems,drug resisted,b,drug resisted; event month; event year; strain
-21982,cefuroxime,drug resisted,a,drug resisted; strain
-21982,cefuroxime,drug resisted,b,drug resisted; event month; event year; strain
 22199,32 mg/l to >256 mg/l,mic,a,drug resisted; mic
 22199,32 mg/l to >256 mg/l,mic,b,drug resisted; mic
 22703,babesia microti,binomial (genus species),a,age; binomial (genus species); drug resisted; event date; event month; event year; sex; state/province/district

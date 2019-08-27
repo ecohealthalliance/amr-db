@@ -49,10 +49,9 @@ drugs %<>%
 # to run new data through no_match routine, this code chunk will need to be commented out after segment_drug_combo col is created
 drugs %<>%
   mutate(segment_drug_combo = ifelse(grepl("\\/", segment), TRUE, FALSE)) %>%
-  separate(segment, into = c("c1", "c2"), sep = "/") %>%
-  gather(key = "combo_key", value = "segment", c1:c2) %>%
-  drop_na(segment) %>%
-  mutate(combo_key = ifelse(segment_drug_combo, combo_key, NA)) 
+  mutate(combo_key = row_number()) %>%
+  mutate(segment = str_split(segment, "\\/")) %>%
+  unnest()
 # Warning message:
 #Expected 2 pieces. Missing pieces filled with `NA` in 2192 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, ...].
 # ^ Ok

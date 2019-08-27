@@ -41,7 +41,8 @@ pal <- colorNumeric("OrRd", domain = admin$`AMR Events`, na.color = "#e9e9f0")
 caption <- glue::glue(nrow(events), " AMR emergence events<br/>",
                       n_distinct(events$study_country), " countries<br/>",
                       n_distinct(events$drug_preferred_label), " antimicrobial drugs<br/>",
-                      n_distinct(events$bacteria_preferred_label), " resistant bacteria")
+                      n_distinct(events$bacteria_preferred_label), " resistant bacteria<br/>",
+                      str_sub(min(events$start_date), 1, 4), " - ",  str_sub(max(events$start_date), 1, 4))
 
 lf <- leaflet() %>%
   addProviderTiles("CartoDB.Positron") %>%
@@ -56,7 +57,7 @@ lf <- leaflet() %>%
                    stroke = TRUE, color = "#210106", opacity = 1, weight = 1,
                    fill = TRUE, fillColor = "#210106", fillOpacity = 0.5,
                    label = ~study_location) %>%
-  addControl(caption )
+  addControl(caption)
             
 lf
 
