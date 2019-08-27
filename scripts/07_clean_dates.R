@@ -15,8 +15,8 @@ segments <- read_csv(here::here("data", "segments.csv"))
 # Quick QA response - fixed incorrectly coded segments
 dates <- segments %>% 
   filter(!c(study_id == 17611 & segment =="february" & code_main == "event year"),
-            !c(study_id == 18418 & segment %in% c("2012", "2013") & code_main == "event year"),
-         !c(study_id == 6737 & segment %in% c("may 2007", "2007") & !is.na(code_identifiers))
+         !c(study_id == 6737 & segment %in% c("may 2007", "2007") & !is.na(code_identifiers)),
+         !c(study_id == 10125 & segment == "2014" & code_main == "event month")
          ) %>%
   mutate(code_main = ifelse((study_id == 1360 & segment == "april"), "event month", code_main),
          code_main = ifelse((study_id == 1360 & segment == "15"), "event day", code_main),
@@ -54,7 +54,7 @@ studies_missing_dates <- qa_missing(dates)
 # Compare with list of studies that were evaluated for missing drug codes (review 2)
 missing_list <- gs_read(gs_title("amr_db_missing_dates"), ws = "review_1") 
 studies_missing_dates %<>% left_join(., missing_list)
-filter(studies_missing_dates, is.na(notes_review_1))
+filter(studies_missing_dates, is.na(notes_review_1)) # 18812 is confirmed missing
 
 # also ID studies with missing year
 articles_db <- read_csv(here::here("data", "articles_db.csv"))

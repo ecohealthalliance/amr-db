@@ -485,6 +485,15 @@ study_id,segment,code_main_cat,code_main,code_identifiers
 15547,"this study documents extremely high incidence of ints disease in young children in a rural region in kenya: close to 2000 per 100 000 person-years overall, >4000 per 100 000 person-years in infants, and >6000 per 100 000 person-years in hiv-infected children.",exclusion, not first case in country,NA
 15553,resistant,exclusion, not full text article,NA
 15559,"this study is the first to collect epidemiological data on bsi from unguja, zanzibar.",exclusion, not first case in country,NA
+15560,mnazi mmoja hospital,location,hospital name,NA
+15560,tanzania,location,country,NA
+15560,march,NA,event month,NA
+15560,2012,NA,event year,NA
+15560,zanzibar,location,state/province/district,NA
+15560,trimethoprim-sulfamethoxazole,NA,drug resisted,NA
+15560,bloodstream infections,patient,symptoms,NA
+15560,this is the first report of esbl-producing bacteria causing bsi from the zanzibar archipelago,NA,article/study aim,NA
+15560,469,NA,first surveillance,NA
 15604,"to describe six cases of ca-mrsa pneumonia recently admitted to our community hospital in florida, and discuss the epidemiology, clinical features, and management of these expanding infections.",exclusion, not first case in country,NA
 15650,"the objectives of this study were to evaluate the clinical significance of c. striatum infection and identify risk factors associated with it. in addition, we describe the high incidence of multidrug-resistant c. striatum in nosocomial outbreaks",exclusion, not first case in country,NA
 15652,fast-track communication,exclusion, not full text article,NA

@@ -100,8 +100,8 @@ study_id,code_identifiers,code_identifiers_link,events_id,study_city,study_count
 7494,NA,NA,7494_1,buenos aires,argentina,NA,NA,NA,NA,travel_loc_1,"city, country","buenos aires, argentina",NA,NA,NA,NA,-58.3815591,-34.6036844
 7585,NA,NA,7585_1,frankfurt,germany,yemen,frankfurt university hospital,NA,"mumbai, india",travel_loc_1,"hospital, city, country","frankfurt university hospital, frankfurt, germany",72.8776559,19.0759837,48.516388,15.552727,8.6613099,50.0949387
 7620,NA,NA,7620_1,port elizabeth,south africa,NA,NA,NA,NA,travel_loc_1,"city, country","port elizabeth, south africa",NA,NA,NA,NA,25.6022423,-33.9608369
-7761,a,age; binomial (genus species); drug resisted; outcome; place traveled to,7761_1,NA,NA,NA,NA,NA,pakistan,travel_loc_1,,,69.34511599999999,30.375321,NA,NA,NA,NA
-7761,a,age; binomial (genus species); drug resisted; outcome; place traveled to,7761_1,NA,NA,NA,NA,NA,india,travel_loc_2,,,78.96288,20.593684,NA,NA,NA,NA
+7761,a,age; drug resisted; outcome; place traveled to,7761_1,NA,NA,NA,NA,NA,pakistan,travel_loc_1,,,69.34511599999999,30.375321,NA,NA,NA,NA
+7761,a,age; drug resisted; outcome; place traveled to,7761_1,NA,NA,NA,NA,NA,india,travel_loc_2,,,78.96288,20.593684,NA,NA,NA,NA
 7761,b,age; country of residence; event month; event year; outcome; sex,7761_1,NA,NA,kosovo,NA,NA,NA,travel_loc_3,,,NA,NA,20.902977,42.6026359,NA,NA
 7761,NA,NA,7761_1,graz,austria,NA,university hospital,NA,NA,travel_loc_4,"hospital, city, country","university hospital, graz, austria",NA,NA,NA,NA,15.4658311,47.0810454
 7904,NA,NA,7904_1,NA,south africa,NA,NA,NA,NA,travel_loc_1,country,south africa,NA,NA,NA,NA,22.937506,-30.559482
@@ -216,7 +216,6 @@ study_id,code_identifiers,code_identifiers_link,events_id,study_city,study_count
 15378,NA,NA,15378_1,mexico city,mexico,NA,hospital infantil de mexico federico gomez himfg,NA,NA,travel_loc_1,"hospital, city, country","hospital infantil de mexico federico gomez himfg, mexico city, mexico",NA,NA,NA,NA,-99.1520204,19.410614
 15475,NA,NA,15475_1,NA,france,france,NA,NA,"mecca, saudi arabia",travel_loc_1,country,france,39.8579118,21.3890824,2.213749,46.227638,2.213749,46.227638
 15475,NA,NA,15475_1,NA,france,france,NA,NA,"medina, saudi arabia",travel_loc_2,country,france,39.5691841,24.5246542,2.213749,46.227638,2.213749,46.227638
-15560,NA,NA,15560_1,NA,tanzania,NA,mnazi mmoja hospital,zanzibar,NA,travel_loc_1,"hospital, state_province_district, country","mnazi mmoja hospital, zanzibar, tanzania",NA,NA,NA,NA,39.1897988,-6.168003199999999
 15632,NA,NA,15632_1,NA,finland,NA,hus,NA,greece,travel_loc_1,"hospital, country","hus, finland",21.824312,39.074208,NA,NA,24.922504,60.1810951
 15632,NA,NA,15632_1,NA,finland,NA,hus,NA,italy,travel_loc_2,"hospital, country","hus, finland",12.56738,41.87194,NA,NA,24.922504,60.1810951
 15654,NA,NA,15654_1,NA,denmark,denmark,NA,NA,NA,travel_loc_1,country,denmark,NA,NA,9.501785,56.26392,9.501785,56.26392
