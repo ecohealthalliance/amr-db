@@ -456,11 +456,11 @@ study_id,study_country,bacteria_preferred_label,drug_preferred_label,start_date
 9937,egypt,acinetobacter baumannii,ceftazidime,2011
 19615,egypt,escherichia coli,ceftazidime,2014-06-16
 23248,egypt,pseudomonas aeruginosa,ceftazidime,2012-03
+23248,egypt,pseudomonas aeruginosa,ceftazidime + clavulanic acid,2012-03
 19615,egypt,escherichia coli,ceftriaxone,2014-06-16
 9937,egypt,acinetobacter baumannii,chloramphenicol,2011
 9937,egypt,acinetobacter baumannii,ciprofloxacin,2011
 23248,egypt,pseudomonas aeruginosa,ciprofloxacin,2012-03
-23248,egypt,pseudomonas aeruginosa,clavulanic acid + ceftazidime,2012-03
 9937,egypt,acinetobacter baumannii,doripenem,2011
 19615,egypt,escherichia coli,doripenem,2014-06-16
 9937,egypt,acinetobacter baumannii,gentamicins,2011
@@ -1093,7 +1093,7 @@ study_id,study_country,bacteria_preferred_label,drug_preferred_label,start_date
 10209,nigeria,klebsiella aerogenes,ampicillin,1999-11-08
 10209,nigeria,klebsiella aerogenes,ampicillin + clavulanic acid,1999-11-08
 10209,nigeria,klebsiella aerogenes,ceftazidime,1999-11-08
-10209,nigeria,klebsiella aerogenes,clavulanic acid + ceftazidime,1999-11-08
+10209,nigeria,klebsiella aerogenes,ceftazidime + clavulanic acid,1999-11-08
 10209,nigeria,klebsiella aerogenes,gentamicins,1999-11-08
 10209,nigeria,klebsiella aerogenes,tobramycin,1999-11-08
 18265,norway,klebsiella pneumoniae,amikacin,2009
@@ -1101,15 +1101,18 @@ study_id,study_country,bacteria_preferred_label,drug_preferred_label,start_date
 18266,norway,klebsiella pneumoniae,aminoglycosides,2009
 8515,norway,salmonella enterica,ampicillin,2015
 18265,norway,klebsiella pneumoniae,aztreonam,2009
+18265,norway,klebsiella pneumoniae,cefepime + clavulanic acid,2009
 21348,norway,neisseria gonorrhoeae,cefixime,2010-07
 18265,norway,klebsiella pneumoniae,cefotaxime,2009
 8515,norway,salmonella enterica,cefotaxime,2015
 18265,norway,klebsiella pneumoniae,cefotaxime + clavulanic acid,2009
+18265,norway,klebsiella pneumoniae,cefotetan + cloxacillin,2009
 18265,norway,klebsiella pneumoniae,cefoxitin,2009
 18265,norway,klebsiella pneumoniae,cefpodoxime,2009
 8515,norway,salmonella enterica,cefpodoxime,2015
 18265,norway,klebsiella pneumoniae,ceftazidime,2009
 8515,norway,salmonella enterica,ceftazidime,2015
+18265,norway,klebsiella pneumoniae,ceftazidime + clavulanic acid,2009
 8515,norway,salmonella enterica,ceftiofur,2015
 8515,norway,salmonella enterica,ceftriaxone,2015
 18266,norway,escherichia coli,cephalosporins,2009
@@ -1117,9 +1120,6 @@ study_id,study_country,bacteria_preferred_label,drug_preferred_label,start_date
 18266,norway,escherichia coli,ciprofloxacin,2009
 18266,norway,klebsiella pneumoniae,ciprofloxacin,2009
 21348,norway,neisseria gonorrhoeae,ciprofloxacin,2010-07
-18265,norway,klebsiella pneumoniae,clavulanic acid + cefepime,2009
-18265,norway,klebsiella pneumoniae,clavulanic acid + ceftazidime,2009
-18265,norway,klebsiella pneumoniae,cloxacillin + cefotetan,2009
 18265,norway,klebsiella pneumoniae,colistin,2009
 18266,norway,escherichia coli,ertapenem,2009
 18266,norway,klebsiella pneumoniae,ertapenem,2009
@@ -1372,17 +1372,17 @@ study_id,study_country,bacteria_preferred_label,drug_preferred_label,start_date
 23107,sweden,klebsiella pneumoniae,ampicillin,2008-01-09
 23107,sweden,klebsiella pneumoniae,aztreonam,2008-01-09
 23107,sweden,klebsiella pneumoniae,cefepime,2008-01-09
+18265,sweden,klebsiella pneumoniae,cefepime + clavulanic acid,2009
 23107,sweden,klebsiella pneumoniae,cefotaxime,2008-01-09
 18265,sweden,klebsiella pneumoniae,cefotaxime + clavulanic acid,2009
+18265,sweden,klebsiella pneumoniae,cefotetan + cloxacillin,2009
 23107,sweden,klebsiella pneumoniae,cefoxitin,2008-01-09
 18265,sweden,klebsiella pneumoniae,cefpodoxime,2009
 23107,sweden,klebsiella pneumoniae,ceftazidime,2008-01-09
+18265,sweden,klebsiella pneumoniae,ceftazidime + clavulanic acid,2009
 23107,sweden,klebsiella pneumoniae,cefuroxime,2008-01-09
 23107,sweden,klebsiella pneumoniae,cephalothin,2008-01-09
 23107,sweden,klebsiella pneumoniae,ciprofloxacin,2008-01-09
-18265,sweden,klebsiella pneumoniae,clavulanic acid + cefepime,2009
-18265,sweden,klebsiella pneumoniae,clavulanic acid + ceftazidime,2009
-18265,sweden,klebsiella pneumoniae,cloxacillin + cefotetan,2009
 18265,sweden,klebsiella pneumoniae,colistin,2009
 23107,sweden,klebsiella pneumoniae,ertapenem,2008-01-09
 23107,sweden,klebsiella pneumoniae,imipenem,2008-01-09
@@ -1497,13 +1497,13 @@ study_id,study_country,bacteria_preferred_label,drug_preferred_label,start_date
 10125,turkey,escherichia coli,cefotaxime + clavulanic acid,2014
 8591,turkey,acinetobacter baumannii,ceftazidime,2014-10-06
 5005,turkey,raoultella terrigena,ceftazidime,2016
+10125,turkey,escherichia coli,ceftazidime + clavulanic acid,2014
 10125,turkey,escherichia coli,ceftriaxone,2014
 5005,turkey,raoultella terrigena,ceftriaxone,2016
 10125,turkey,escherichia coli,cefuroxime,2014
 5005,turkey,raoultella terrigena,cefuroxime,2016
 5005,turkey,raoultella terrigena,cefuroxime axetil,2016
 8591,turkey,acinetobacter baumannii,ciprofloxacin,2014-10-06
-10125,turkey,escherichia coli,clavulanic acid + ceftazidime,2014
 10125,turkey,escherichia coli,doripenem,2014
 10125,turkey,escherichia coli,ertapenem,2014
 8591,turkey,acinetobacter baumannii,gentamicins,2014-10-06

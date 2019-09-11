@@ -62,9 +62,9 @@ drugs_combos <- drugs %>%
            segment_drug_combo,
            combo_key
   ) %>%
-  summarize(drug_rank = paste(drug_rank, collapse = " + "),
-            drug_preferred_label = paste(drug_preferred_label, collapse = " + "),
-            drug_parent_name = paste(drug_parent_name, collapse = " + "),
+  summarize(drug_rank = paste(sort(drug_rank), collapse = " + "),
+            drug_preferred_label = paste(sort(drug_preferred_label), collapse = " + "),
+            drug_parent_name = paste(sort(drug_parent_name), collapse = " + "),
   ) %>%
   ungroup() 
 
@@ -163,6 +163,10 @@ fuzzy_dups_remove <- gs_read(gs_title("amr_db_dups_titles"), ws = "fuzzy_match")
 
 events %<>% 
   filter(!study_id %in% fuzzy_dups_remove)
+
+# save full db
+write_csv(events, here("data", "events_db_full.csv"))
+
 
 # select columns of interest
 events %<>%
