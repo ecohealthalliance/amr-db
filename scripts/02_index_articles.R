@@ -3,6 +3,7 @@ library(here)
 library(readxl)
 library(magrittr)
 library(compare)
+library(assertthat)
 
 # Clean Article Index Data -------------------
 # and make sure all articles are accounted for in csvs, mex files, and segment exports
@@ -31,8 +32,11 @@ dupes_csv <- janitor::get_dupes(articles_db, study_id) %>%
   group_by(study_id) %>%
   summarize(new_reviewer = any(str_detect(unique(csv_name), "sd|em"))) %>%
   ungroup()
-all(dupes_csv$new_reviewer)
+
+assert_that(all(dupes_csv$new_reviewer) )
+
 dupes_csv_study_id <- dupes_csv %>% pull(study_id)
+
 articles_db %<>%
   filter(!(study_id %in% dupes_csv_study_id & !str_detect(csv_name, "sd|em")))
 
@@ -55,48 +59,63 @@ mex <- map_df(files, ~src_sqlite_mex(fileloc, .x))
 
 # Check for mex file dupes 
 dupes_mex <- janitor::get_dupes(mex, study_id)
-  # The dupes with sd_1_1 are not actually coded
-  # The zm_2_2 and md_7_1 dupes are odd, but they are exact dupes.  They are only in the csv for md_7, so leave there.  
+# The dupes with sd_1_1 are not actually coded
+# The zm_2_2 and md_7_1 dupes are odd, but they are exact dupes.  They are only in the csv for md_7, so leave there.  
+c1 <- nrow(mex)
 mex <- mex %>%
   filter(!(study_id %in% unique(dupes_mex$study_id) & !mex_name %in% c("sd_1_1.mex", "md_7_1.mex")))
+c2 <- nrow(mex)
+assert_that(c1-c2 == n_distinct(dupes_mex$study_id))
 
 # Any study ids in csvs but not mex files?
-articles_db %>%
-  filter(!study_id %in% mex$study_id) %>%
-  filter(downloaded %in% c("yes", "downloaded", NA_character_)) 
-  # Those that could NOT be downloaded are addressed in issue #4
+assert_that(
+  articles_db %>%
+    filter(!study_id %in% mex$study_id) %>%
+    filter(downloaded %in% c("yes", "downloaded", NA_character_)) %>%
+    nrow() == 0 )
+# Those that could NOT be downloaded are addressed in issue #4
 
 # Any study ids in mex but not csv?
-mex$study_id[!mex$study_id %in% articles_db$study_id]
+assert_that(
+  mex %>%
+    filter(!study_id %in% articles_db$study_id) %>%
+    nrow() == 0 )
 
 # Join mex file names into index
 articles_db <- left_join(articles_db, mex)
 
 # Check NAs were all not downloaded
-articles_db %>% 
+nd <- articles_db %>% 
   filter(is.na(mex_name)) %>%
   pull(downloaded) %>% unique() 
+assert_that(all(nd %in% c("no", "could not access", "not full text")))
 
 # Now, make sure exports (segments) match index
 files <- dir(path = here('data', 'coded_segments'), pattern = "*.xlsx", full.names = TRUE)
 segments_raw <- map_dfr(files, ~read_xlsx(.x, col_types = "text"))
 
-articles_db %>%
-  filter(downloaded %in% c("yes", "downloaded")) %>%
-  filter(!study_id %in% unique(segments_raw$`Document name`)) # articles in mex but not in segments
+assert_that(
+  articles_db %>%
+    filter(downloaded %in% c("yes", "downloaded")) %>%
+    filter(!study_id %in% unique(segments_raw$`Document name`)) %>% # articles in mex but not in segments
+    nrow() == 0 )
 
-segments_raw %>%
-  filter(!`Document name` %in% unique(articles_db$study_id)) # articles in segments but not in mex/csvs
+assert_that(
+  segments_raw %>%
+    filter(!`Document name` %in% unique(articles_db$study_id)) %>% # articles in segments but not in mex/csvs
+    nrow() == 0 )
 
 # check for dupes in segments (rough check- making sure any article with more than one author has a new reviewer- there shouldn't be an article coded by two old reviewers)
-segments_raw %>%
-  select(`Document name`, Author) %>%
-  distinct() %>%
-  janitor::get_dupes(., `Document name`) %>%
-  group_by(`Document name`) %>%
-  mutate(new_reviewer = any(str_detect(unique(Author), "Sonia|chen|dattaray|emma"))) %>%
-  ungroup() %>%
-  filter(new_reviewer == FALSE)
+assert_that(
+  segments_raw %>%
+    select(`Document name`, Author) %>%
+    distinct() %>%
+    janitor::get_dupes(., `Document name`) %>%
+    group_by(`Document name`) %>%
+    mutate(new_reviewer = any(str_detect(unique(Author), "Sonia|chen|dattaray|emma"))) %>%
+    ungroup() %>%
+    filter(new_reviewer == FALSE) %>%
+    nrow() == 0 )
 
 # clean up article index dataframe
 articles_db <- articles_db %>%
@@ -106,13 +125,13 @@ articles_db <- articles_db %>%
 articles_db %>% group_by(downloaded) %>%
   summarise(n = n())
 
-#clean downloaded column, and write to master index csv
+# clean downloaded column, and write to master index csv
 articles_db <- articles_db %>%
   mutate(reason = ifelse(.$downloaded %in% c("not full text", "could not access"),
-                          .$downloaded, .$reason), 
+                         .$downloaded, .$reason), 
          downloaded = fct_collapse(downloaded, 
-                                     yes = c("yes", "downloaded"), 
-                                     no = c("no", "not full text", "could not access"))) %>%
+                                   yes = c("yes", "downloaded"), 
+                                   no = c("no", "not full text", "could not access"))) %>%
   mutate(in_codes_db = ifelse(.$downloaded == "yes", "yes", "no"), 
          article_type = case_when(grepl("promed", .$csv_name) ~ "promed", 
                                   TRUE ~ "journal"))

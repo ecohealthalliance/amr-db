@@ -5,6 +5,7 @@ library(googlesheets)
 library(stringi)
 library(tidyverse)
 library(textclean)
+library(assertthat)
 
 # Import Data and Clean Segments -----------------------------
 articles_db <- read_csv(here("data","articles_db.csv")) %>% mutate_all(as.character)
@@ -34,14 +35,16 @@ na_segments <- segments_raw %>%
   filter(is.na(segment)) %>%
   left_join(select(articles_db, study_id, mex_name))
 # study ID 22668 to be manually added at end of script
+# everything else should be Exclusion or Notes
 
 apply(segments_raw, 2, function(x) sum(is.na(x))) 
 
 # set aside promed articles b/c they have different offsets
-promed <- segments_raw %>%
+promed_raw <- segments_raw %>%
   left_join(articles_db) %>%
   filter(grepl("promed", mex_name)) %>%
-  select(colnames(segments_raw))
+  select(colnames(segments_raw)) %>%
+  mutate(segment = str_replace(segment, "\r\n", " ")) # manual cleaning to help with merging codes at bottom of script
 
 # create offset range col
 segments_raw %<>%
@@ -94,7 +97,7 @@ segments_grp <- segments_raw %>%
   summarise(codes = list(code), 
             length_codes = n(), 
             segment_all = list(segment), 
-            segment = segment[1], # assumes segments have been checked and that they in fact match, so you can just grab the first one of the vector of segments 
+            segment = segment[1], # assumes segments have been checked and that they in fact match, so you can just grab the first one of the vector of segments (this is confirmed below) 
             range = list(range)) %>%
   ungroup()
 
@@ -147,7 +150,7 @@ codes_mult <- problem_id_codes %>%
 fixed_codes_mult <- codes_mult %>%
   filter(map2_lgl(code_main, code_identifiers, ~length(.x) == length(.y))) 
 
-# there are cases where there are more main codes than id codes. These should be reviewed.  
+# there are cases where there are more main codes than id codes. 
 review_codes_mult <- codes_mult %>%
   filter(map2_lgl(code_main, code_identifiers, ~length(.x) > length(.y))) #%>%
 # mutate_if(is.list, funs(from_ls_to_flat(.))) %>%
@@ -220,7 +223,7 @@ segments <- review_codes %>%
   rbind(., fixed_codes_orphans)
 
 # sanity check - no codes lost in orphan id process- should be TRUE
-nrow(review_codes) == nrow(segments) + nrow(remaining_orphan_ids)  + sum(duplicated(problem_id_codes))
+assert_that(nrow(review_codes) == nrow(segments) + nrow(remaining_orphan_ids)  + sum(duplicated(problem_id_codes)))
 
 # Unnest Codes for Final Segments DB  -----------------------------
 
@@ -234,15 +237,21 @@ rep_na_for_unnest <- function(code_id_vec, code_main_len) {
   return(new_code_id_vec)
 }
 
-# Add promed back in - NOTE these will have code identifiers excluded because offsets in these articles do not match method used above
-promed %<>%
+# Add promed back in -
+promed_code_ids <- promed_raw %>%
+  filter(code %in% LETTERS) %>%
+  select(study_id, segment, code_identifiers = code) 
+
+promed <- promed_raw %>%
   filter(!code %in% LETTERS) %>%
-  select(study_id, segment, code_main = code)
+  select(study_id, segment, code_main = code) %>%
+  left_join(promed_code_ids) %>%
+  mutate_at(.vars = c("code_main", "code_identifiers"), ~as.list(.))
 
 # unnest so each code and id have their own observation (gets rid of list column)
 # separate code category from main code 
 segments %<>%
-  bind_rows(promed %>% mutate(code_main = as.list(code_main))) %>%
+  bind_rows(promed) %>%
   mutate(code_identifiers = map2(.$code_identifiers, .$code_main, ~rep_na_for_unnest(.x, length(.y)))) %>%
   select(-segment_all, -code_identifiers_check) %>% 
   unnest(code_main, code_identifiers) %>%
@@ -288,6 +297,7 @@ code_links_solo <- segments %>%
   left_join(., articles_db %>% select(study_id, mex_name) %>% mutate(study_id = as.character(study_id))) %>%
   arrange(as.numeric(study_id)) %>%
   select(study_id, segment, code_identifiers, code_identifiers_link, mex_name)
+# ^ references for followup are okay
 
 # Remove solo code links
 segments %<>% 
