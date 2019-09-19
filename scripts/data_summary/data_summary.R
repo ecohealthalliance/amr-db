@@ -1,7 +1,5 @@
 library(tidyverse)
 library(here)
-library(igraph)
-library(ggthemes)
 
 events <- read_csv(here("data", "events_db.csv")) %>%
   rename(drug = drug_preferred_label, bacteria = bacteria_preferred_label) %>%
@@ -12,6 +10,12 @@ events <- read_csv(here("data", "events_db.csv")) %>%
 n_distinct(events$study_id)
 n_distinct(events$study_country)
 nrow(events)
+
+events %>%
+  select(study_id, study_country) %>%
+  distinct() %>%
+  group_by(study_country) %>%
+  count(sort=T) 
 
 top_bact <- events %>%
   group_by(bacteria) %>%
