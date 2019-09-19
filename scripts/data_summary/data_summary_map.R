@@ -7,6 +7,7 @@ library(leaflet.extras)
 library(rnaturalearth)
 library(rnaturalearthdata)
 library(countrycode)
+library(mapview)
 
 events <- read_csv(here("data", "events_db.csv"))
 
@@ -60,6 +61,4 @@ lf <- leaflet() %>%
   addControl(caption)
             
 lf
-
-htmlwidgets::saveWidget(lf, "map.html")
-                   
+htmlwidgets::saveWidget(lf, here("scripts/data_summary/map.html"))
