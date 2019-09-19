@@ -4,6 +4,7 @@ library(stringi)
 library(here)
 library(janitor)
 library(googlesheets)
+library(assertthat)
 
 # Structure Drugs Data and Manual Corrections-----------------
 
@@ -51,7 +52,7 @@ drugs %<>%
   mutate(segment_drug_combo = ifelse(grepl("\\/", segment), TRUE, FALSE)) %>%
   mutate(combo_key = row_number()) %>%
   mutate(segment = str_split(segment, "\\/")) %>%
-  unnest()
+  unnest(cols = c(segment))
 # Warning message:
 #Expected 2 pieces. Missing pieces filled with `NA` in 2192 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, ...].
 # ^ Ok
@@ -142,7 +143,7 @@ drugs_tree <- drugs %>%
   filter(drug_class != "c") %>% #remove supp concepts (these are terminal)
   distinct() %>%
   mutate(drug_mn = str_split(drug_mn, "\\|")) %>%
-  unnest() 
+  unnest(cols = c(drug_mn)) 
 
 drugs_tree_terminal <- drugs_tree %>%
   mutate(drug_mn_match_count = map_int(drug_mn, function(x) length(grep(x, mesh0$mn)))) %>%
@@ -163,5 +164,6 @@ articles_db <- read_csv(here("data", "articles_db.csv"))  %>%
   mutate(study_id = as.character(study_id))
 
 no_match %<>% left_join(articles_db)
+assert_that(nrow(no_match) == 0)
 
 write_csv(drugs, here("data", "drugs.csv"))

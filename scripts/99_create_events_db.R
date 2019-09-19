@@ -120,9 +120,10 @@ events %<>%
   filter(!is.na(study_country), !is.na(drug_preferred_label), !is.na(bacteria_preferred_label))
 #events <-  left_join(events, articles_db)
 
-### study_id 9, 15, 137, 172, 6375 seem to be working as expected
-### study_id 11303 seems to have been coded incorrectly
-
+# Check study IDs that did not make it into DB
+segments_id <- unique(segments$study_id)
+events_id <- unique(events$study_id)
+segments_id[!segments_id %in% events_id]
 #-----------------Dup checks-----------------
 # Any duplicated titles?
 articles_dups <- articles_db %>%
@@ -156,6 +157,7 @@ dups_remove <- gs_read(gs_title("amr_db_dups_titles"), ws = "exact_match") %>% #
 
 events %<>% filter(!study_id %in% dups_remove)
 
+# this isn't all the fuzzy dups, but they should be removed by the filtering for first events below
 fuzzy_dups_remove <- gs_read(gs_title("amr_db_dups_titles"), ws = "fuzzy_match") %>% # google spreadsheet with field cleanup
   as_tibble() %>% 
   filter(!is.na(delete)) %>%
@@ -166,7 +168,6 @@ events %<>%
 
 # save full db
 write_csv(events, here("data", "events_db_full.csv"))
-
 
 # select columns of interest
 events %<>%
@@ -182,6 +183,15 @@ events_dates_na <- events %>%
               select(study_id, year)) %>%
   select(-start_date, start_date = year) %>%
   mutate(start_date = as.character(start_date))
+
+# still a few missing start dates
+events_dates_na %>% filter(is.na(start_date))
+events_dates_na$start_date[events_dates_na$study_id == 22574] <- "2007"
+events_dates_na$start_date[events_dates_na$study_id == 1005663] <- "2012"
+events_dates_na$start_date[events_dates_na$study_id == 1224333] <- "2012"
+events_dates_na$start_date[events_dates_na$study_id == 1249316] <- "2012"
+events_dates_na$start_date[events_dates_na$study_id == 2203256] <- "2003"
+assertthat::assert_that(nrow(events_dates_na %>% filter(is.na(start_date)))==0)
 
 events %<>%
   drop_na(start_date) %>%
