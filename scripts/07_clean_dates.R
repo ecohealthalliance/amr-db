@@ -6,6 +6,7 @@ library(janitor)
 library(lubridate)
 library(googlesheets)
 library(here) 
+library(assertthat)
 
 # Structure Date Data-----------------
 
@@ -44,6 +45,7 @@ source(here::here("scripts", "helper_scripts", "functions_qa.R"))
 studies_with_dups <- qa_duplicate(dates) %>%
   select(-mex_name) %>% 
   distinct()
+assert_that(nrow(studies_with_dups)==0)
 
 # Check if more than one date per study - ie multiple events - ok not to check because we have a date range
 # studies_with_mult_events <- qa_event(dates)
@@ -51,7 +53,7 @@ studies_with_dups <- qa_duplicate(dates) %>%
 # ID studies with missing dates
 studies_missing_dates <- qa_missing(dates)
 
-# Compare with list of studies that were evaluated for missing drug codes (review 2)
+# Compare with list of studies that were evaluated for missing dates (review 2)
 missing_list <- gs_read(gs_title("amr_db_missing_dates"), ws = "review_1") 
 studies_missing_dates %<>% left_join(., missing_list)
 filter(studies_missing_dates, is.na(notes_review_1)) # 18812 is confirmed missing

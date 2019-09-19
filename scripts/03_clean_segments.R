@@ -254,7 +254,7 @@ segments %<>%
   bind_rows(promed) %>%
   mutate(code_identifiers = map2(.$code_identifiers, .$code_main, ~rep_na_for_unnest(.x, length(.y)))) %>%
   select(-segment_all, -code_identifiers_check) %>% 
-  unnest(code_main, code_identifiers) %>%
+  unnest(c(code_main, code_identifiers)) %>%
   separate(code_main, into = c("code_main_cat", "code_main"), sep = ":", fill = "left") %>%
   mutate_all(tolower) %>%
   mutate(segment = stri_replace_all_regex(segment, c("\r\n",  "- "), c("", ""), vectorize_all = FALSE)) 
@@ -313,3 +313,4 @@ segments %<>%
   distinct()
 # final segments db
 write_csv(segments, path = here("data", "segments.csv"))
+

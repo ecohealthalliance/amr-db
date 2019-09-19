@@ -5,10 +5,13 @@ library(maps)
 library(googlesheets)
 library(tidyverse)
 library(here)
+library(assertthat)
 
 # Structure Location Data -----------------
-segments <- read_csv(here("data", "segments.csv"))
-articles_db <- read_csv(here("data","articles_db.csv")) 
+segments <- read_csv(here("data", "segments.csv"), col_types = cols(
+  study_id = col_double()))
+articles_db <- read_csv(here("data","articles_db.csv"), col_types = cols(
+  study_id = col_double()))
 
 # Structure segments database into location codes dataframe   
 locations <- segments %>%
@@ -24,7 +27,7 @@ locations <- segments %>%
 source(here("scripts", "helper_scripts", "functions_qa.R"))
 
 # Identify duplicate location segments in studies
-studies_with_dups <- qa_duplicate(locations, c("study_id", "code_main", "segment"))
+assert_that(qa_duplicate(locations, c("study_id", "code_main", "segment")) %>% nrow() == 0)
 
 # Check if more than one location per study - ie multiple events
 studies_with_mult_events <- qa_event(locations)
@@ -71,10 +74,10 @@ locations %<>%
                  travel_location, residence_location), 
             funs(stri_replace_all_regex(., cleaned_location_codes$old, cleaned_location_codes$new, 
                                         vectorize_all = FALSE))) %>%
-  mutate_all(funs(ifelse(. == ' ', NA, trimws(., "both")))) %>% # bring back NA's
-  mutate_all(funs(gsub(",$", "",.))) %>%
-  mutate_all(funs(gsub("  ", " ",.))) %>%
-  mutate_all(funs(gsub("`|\\'|\\~", "", iconv(., to="ASCII//TRANSLIT")))) %>% # remove accents
+  mutate_if(is_character, ~ifelse(. == ' ', NA, trimws(., "both"))) %>% # bring back NA's
+  mutate_if(is_character, ~gsub(",$", "",.)) %>%
+  mutate_if(is_character, ~gsub("  ", " ",.)) %>%
+  mutate_if(is_character, ~gsub("`|\\'|\\~", "", iconv(., to="ASCII//TRANSLIT"))) %>% # remove accents
   mutate(city = replace(city, city=="quebec", "quebec city"))
 
 # * Clean Travel Locations ------
@@ -109,15 +112,14 @@ locations %<>%
 
 # Manually assign study country if missing
 add_country <- gs_read(gs_title("amr_db_add_country")) %>% 
-  rename(study_country_add = study_country) %>%
-  mutate(study_id = as.character(study_id))
+  rename(study_country_add = study_country) 
 
 locations %<>%
   left_join(., add_country) %>%
   mutate(country = ifelse(is.na(study_country_add), country, study_country_add))
 
 # Countries still missing?
-missing_countries <-locations %>%
+missing_countries <- locations %>%
   filter(is.na(country)) %>%
   left_join(articles_db %>% select(study_id, mex_name)) %>%
   arrange(mex_name)
@@ -125,7 +127,6 @@ missing_countries <-locations %>%
 # 7761 may need follow up.  18266, 23314 is ok because only a travel location
 
 locations %<>%
-  left_join(., add_country) %>%
   mutate(study_location = ifelse(is.na(study_country_add), study_location, paste(study_location, study_country_add, sep = ", ")),
          study_location_basis = ifelse(is.na(study_country_add), study_location_basis, paste(study_location_basis, "country", sep = ", "))) %>%
   select(-study_country_add)

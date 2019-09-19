@@ -5933,22 +5933,22 @@ study_id,segment,code_identifiers,code_main,code_identifiers_link
 7620,cefuroxime axetil,e,drug resisted,drug resisted; mic
 7620,cefoxitin,f,drug resisted,drug resisted; mic
 7620,ertapenem,g,drug resisted,drug resisted; mic
-7761,30,a,age,age; drug resisted; outcome; place traveled to
-7761,k. pneumoniae,NA,binomial (genus species),NA
-7761,august,b,event month,age; country of residence; event month; event year; outcome; sex
-7761,2010,b,event year,age; country of residence; event month; event year; outcome; sex
-7761,14,b,age,age; country of residence; event month; event year; outcome; sex
-7761,boy,b,sex,age; country of residence; event month; event year; outcome; sex
-7761,kosovo,b,country of residence,age; country of residence; event month; event year; outcome; sex
-7761,aztreonam,a,drug resisted,age; drug resisted; outcome; place traveled to
-7761,ciprofl oxacin,a,drug resisted,age; drug resisted; outcome; place traveled to
-7761,gentamicin,a,drug resisted,age; drug resisted; outcome; place traveled to
-7761,released,a,outcome,age; drug resisted; outcome; place traveled to
-7761,"november 2010, the patient still required medical care and remained hospitalized.",b,outcome,age; country of residence; event month; event year; outcome; sex
-7761,austria,NA,country,NA
+7761,30,NA,age,NA
+7761,university hospita,NA,hospital name,NA
 7761,graz,NA,city,NA
-7761,university hospital,NA,hospital name,NA
-7761,pakistan; india,a,place traveled to,age; drug resisted; outcome; place traveled to
+7761,austria,NA,country,NA
+7761,november,NA,event month,NA
+7761,2009,NA,event year,NA
+7761,man,NA,sex,NA
+7761,open fractures of his upper and lower left leg,NA,comorbidities,NA
+7761,rectal laceration,NA,comorbidities,NA
+7761,pakistan; india,NA,place traveled to,NA
+7761,k. pneumoniae,NA,binomial (genus species),NA
+7761,aztreonam,NA,drug resisted,NA
+7761,ciprofl oxacin,NA,drug resisted,NA
+7761,gentamicin,NA,drug resisted,NA
+7761,released,NA,outcome,NA
+7761,ndm-1,NA,strain,NA
 7904,to describe the phenotypic and genetic characteristics of the first two cases of extended-spectrum cephalosporin (esc)-resistant neisseria gonorrhoeae in south africa,NA,article/study aim,NA
 7904,0.75 mg/l,a,mic,drug resisted; mic
 7904,0.25 mg/l,b,mic,drug resisted; mic
@@ -6529,30 +6529,32 @@ study_id,segment,code_identifiers,code_main,code_identifiers_link
 9340,salmonella enterica,NA,binomial (genus species),NA
 9340,pakistan,NA,country of residence,NA
 9340,1,NA,age,NA
-9628,74,a,age,age; city; comorbidities; country; event month; event year; outcome
-9628,diabetes,a,comorbidities,age; city; comorbidities; country; event month; event year; outcome
-9628,died,a,outcome,age; city; comorbidities; country; event month; event year; outcome
-9628,48,NA,age,NA
-9628,amoxicillin,c,drug resisted,drug resisted; mic
-9628,256,c,mic,drug resisted; mic
-9628,male,b,sex,city; comorbidities; country; event year; sex
-9628,ticarcillin,d,drug resisted,drug resisted; mic
-9628,256,d,mic,drug resisted; mic
-9628,piperacillin,e,drug resisted,drug resisted; mic
-9628,256,e,mic,drug resisted; mic
-9628,ceftazidime,f,drug resisted,drug resisted; mic
-9628,male,NA,sex,NA
-9628,128,f,mic,drug resisted; mic
-9628,cefepime,g,drug resisted,drug resisted; mic
-9628,64,g,mic,drug resisted; mic
-9628,meropenem,h,drug resisted,drug resisted; mic
-9628,64,h,mic,drug resisted; mic
-9628,march,a,event month,age; city; comorbidities; country; event month; event year; outcome
+9628,74,a,age,age; comorbidities; event month; event year; outcome; sex; strain
+9628,diabetes,a,comorbidities,age; comorbidities; event month; event year; outcome; sex; strain
+9628,died,a,outcome,age; comorbidities; event month; event year; outcome; sex; strain
+9628,besancon,NA,city,NA
+9628,france,NA,country,NA
+9628,48,b,age,age; comorbidities; event month; event year; sex; strain
 9628,pseudomonas aeruginosa,NA,binomial (genus species),NA
-9628,2010,a,event year,age; city; comorbidities; country; event month; event year; outcome
-9628,june,a,event month,age; city; comorbidities; country; event month; event year; outcome
-9628,2010,b,event year,city; comorbidities; country; event year; sex
-9628,leukemia,b,comorbidities,city; comorbidities; country; event year; sex
+9628,10.266 (serotype o:12),a,strain,age; comorbidities; event month; event year; outcome; sex; strain
+9628,"o:12 isolate, named 10.298",b,strain,age; comorbidities; event month; event year; sex; strain
+9628,male,b,sex,age; comorbidities; event month; event year; sex; strain
+9628,piperacillin-tazobactam,NA,drug resisted,NA
+9628,ceftazidime,NA,drug resisted,NA
+9628,cefepime,NA,drug resisted,NA
+9628,imipenem,NA,drug resisted,NA
+9628,meropenem,NA,drug resisted,NA
+9628,ticarcillin,NA,drug resisted,NA
+9628,amikacin,NA,drug resisted,NA
+9628,tobramycin,NA,drug resisted,NA
+9628,gentamicin),NA,drug resisted,NA
+9628,ciprofloxacin,NA,drug resisted,NA
+9628,male,a,sex,age; comorbidities; event month; event year; outcome; sex; strain
+9628,march,a,event month,age; comorbidities; event month; event year; outcome; sex; strain
+9628,2010,a,event year,age; comorbidities; event month; event year; outcome; sex; strain
+9628,june,b,event month,age; comorbidities; event month; event year; sex; strain
+9628,2010,b,event year,age; comorbidities; event month; event year; sex; strain
+9628,leukemia,b,comorbidities,age; comorbidities; event month; event year; sex; strain
 9669,m. simiae,NA,binomial (genus species),NA
 9669,ethambutol,b,drug resisted,drug resisted; mic
 9669,>32 g/ ml,b,mic,drug resisted; mic
@@ -6876,10 +6878,6 @@ study_id,segment,code_identifiers,code_main,code_identifiers_link
 9075,64,e,mic,drug resisted; mic
 9075,32,bb,mic,binomial (genus species); drug resisted; mic; resistance marker
 9075,32,g,mic,drug resisted; mic
-9628,besancon,a,city,age; city; comorbidities; country; event month; event year; outcome
-9628,besancon,b,city,city; comorbidities; country; event year; sex
-9628,france,a,country,age; city; comorbidities; country; event month; event year; outcome
-9628,france,b,country,city; comorbidities; country; event year; sex
 9937,.256 mg/l,a,mic,drug resisted; mic
 9937,.256 mg/l,b,mic,drug resisted; mic
 9937,.32 mg/l,c,mic,drug resisted; mic

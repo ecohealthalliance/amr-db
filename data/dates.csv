@@ -74,7 +74,7 @@ study_id,code_identifiers,code_identifiers_link,start_date,end_date
 7494,NA,NA,2010-08,NA
 7585,NA,NA,2012-08,NA
 7620,NA,NA,2012,NA
-7761,b,age; country of residence; event month; event year; outcome; sex,2010-08,NA
+7761,NA,NA,2009-11,NA
 7904,NA,NA,2012-05,NA
 8174,NA,NA,2012-10-31,NA
 8181,NA,NA,2011,NA
@@ -90,8 +90,8 @@ study_id,code_identifiers,code_identifiers_link,start_date,end_date
 9075,NA,NA,2010-07,NA
 9081,NA,NA,2012,NA
 9126,NA,NA,2015-02,NA
-9628,a,age; city; comorbidities; country; event month; event year; outcome,2010-03,2010-06
-9628,b,city; comorbidities; country; event year; sex,2010,NA
+9628,a,age; comorbidities; event month; event year; outcome; sex; strain,2010-03,NA
+9628,b,age; comorbidities; event month; event year; sex; strain,2010-06,NA
 9727,NA,NA,2009-11-03,NA
 9733,NA,NA,2003,NA
 9885,NA,NA,2010,NA
