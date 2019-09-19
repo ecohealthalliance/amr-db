@@ -1,30 +1,32 @@
 Package: amr-db
 Title: AMR Database
 Version: 0.1
-Authors@R:
+Authors@R: c(
+    person("Emma", "Mendelsohn", , "mendelsohn@ecohealthalliance.org", role = c("aut")),
+    person("Karissa", "Whiting",  "needemail@getheremail.org", role = c("aut")),
+    person("Sonia", "Dattaray", , "dattaray@ecohealthalliance.org", role = c("aut")),
+    person("Samantha", "Maher", , "maher@ecohealthalliance.org", role = c("aut")))
+Maintainer: Emma Mendelsohn <mendelsohn@ecohealthalliance.org>
 Description: This repository contains code, data, and documentation for the AMR events database.
 Imports:
-  ggplot2,
-  tidyverse,
-  dplyr,
-  readr,
-  purrr, 
-  tibble,
-  rlang,
-  tidyr,
-  stringr,
-  stringi,
-  stats,
-  plyr,
-  here, 
-  readxl, 
-  magrittr, 
-  compare,
-  googledrive, 
-  ggmap, 
-  janitor,
-  ontologyIndex,
-  RSQLite
+        assertthat,
+        compare,
+        ggmap,
+        googlesheets,
+        here,
+        janitor,
+        lubridate,
+        magrittr,
+        maps,
+        ontologyIndex,
+        readxl,
+        stringdist,
+        stringi,
+        stringr,
+        textclean,
+        tidyverse
+
 Remotes: dkahle/ggmap
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 6.1.1
