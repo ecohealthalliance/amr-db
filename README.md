@@ -13,11 +13,12 @@ This repository contains code, data, and documentation for the AMR events databa
 	-	`card-ontology/` directory contains the Comprehensive Antibiotic Resistance Database ontology.
 	-	`mesh-ontology/` directory contains the Medical Subject Headings ontology.
 	-	`ncbi-ontology/` directory contains the National Center for Biotechnology Information ontology.
+	- `maxqda_code_index.csv` contains the schema used to code studies in MAXQDA.
+	- `geocode_locations_complete.csv` is a tracking list of all locations that have been geolocated.
 - `data/` contains all derived data including:
-	-	`coded_segments/` directory containing all exported segments from `.mex` files (exported using MAXQDA). These files are created via the applscript `scripts/01_export_segs_single_mex.scpt`.
-	-	`data_qa` directory containing outputs of QA checks.
-	-	`segments_raw.RData` is the raw segments database.
-	-	Resulting data files `articles_db.csv`, `segments.csv`, and `events_db.csv` are the three primary components of the amr database and are placed in this directory when the appropriate `make` commands are run.
+	-	`coded_segments/` directory containing all exported segments from `.mex` files (exported using MAXQDA). These files can be created via the applscript `scripts/01_export_segs_single_mex.scpt` or manually from MAXQDA.
+	-	`segments_raw.rds` is the raw database.
+	-	`events_db_full.csv` is the cleaned and standardized database and `events_db.csv` is the database containing only primary fields: study country, drug name, bacteria name, and date.
 	-	Remaining csv files are intermediate steps created in the data cleaning process.
 - `scripts/` contains all scripts used to derive outputs. These are formulated in a pipeline and should be run sequentially (or run using the `Makefile`).
 	-	`01_export_segs_single_mex.scpt` - an applescript that uses the raw `.mex` files to create `coded_segments/` `.xlsx` files.
