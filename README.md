@@ -20,6 +20,7 @@ This repository contains code, data, and documentation for the AMR events databa
 	-	`segments_raw.rds` is the raw database.
 	-	`events_db_full.csv` is the cleaned and standardized database and `events_db.csv` is the database containing only primary fields: study country, drug name, bacteria name, and date.
 	-	Remaining csv files are intermediate steps created in the data cleaning process.
+- `figures/` contains data summary figures and map.
 - `scripts/` contains all scripts used to derive outputs. These are formulated in a pipeline and should be run sequentially (or run using the `Makefile`).
 	-	`01_export_segs_single_mex.scpt` - an applescript that uses the raw `.mex` files to create `coded_segments/` `.xlsx` files.
 	-	`02_index_articles.R` - builds the `articles_db.csv` database using the `art_index_csvs/` files and `coded_text_mex/` files.
@@ -28,6 +29,9 @@ This repository contains code, data, and documentation for the AMR events databa
 	-	`05_clean_drugs.R` -  builds the `drugs.csv` file from `segments.csv` based on MeSH ontology. 
 	-	`06_clean_bacteria.R` -  builds the `bacteria_genus_species.csv` and  `bacteria_strains_and_resistance_markers.csv` file from `segments.csv` based on NCBI and CARD ontologies, respectively. 
 	-	`07_clean_dates.R` -  builds the `dates.csv` file from `segments.csv`. 
+	- `99_create_events_db.R` - combines outputs of locations, drugs, bacteria, and dates scripts to create the final database as `events_db_full.csv` and `events_db.csv`.
+	- `data_summary.R` - creates figures to summarize contents of events database.  Exports to `figures/`.
+	- `data_map.R` - creates leaflet map showing location of AMR events.  Exports to `figures/`.
 	-	`helper_scripts` contains functions to QA the data and to curate and clean the data outside the data generation pipeline. 
 
 ---
