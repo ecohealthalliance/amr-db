@@ -1221,6 +1221,7 @@ study_id,study_country,bacteria_preferred_label,drug_preferred_label,start_date
 3872,philippines,klebsiella pneumoniae,"trimethoprim, sulfamethoxazole drug combination",2013
 12905,poland,enterobacter cloacae,amikacin,2012-08
 12905,poland,enterobacter cloacae,aztreonam,2012-08
+3557,poland,enterobacteriaceae,carbapenems,2011
 12905,poland,enterobacter cloacae,cefepime,2012-08
 12905,poland,enterobacter cloacae,ceftazidime,2012-08
 12905,poland,enterobacter cloacae,ciprofloxacin,2012-08
@@ -1476,6 +1477,13 @@ study_id,study_country,bacteria_preferred_label,drug_preferred_label,start_date
 38,tanzania,cronobacter sakazakii,ampicillin,2009-12
 38,tanzania,cronobacter sakazakii,cefotaxime,2009-12
 38,tanzania,cronobacter sakazakii,gentamicins,2009-12
+18184,the united states,mycobacterium tuberculosis,amikacin,2015-09
+18184,the united states,mycobacterium tuberculosis,isoniazid,2015-09
+18184,the united states,mycobacterium tuberculosis,kanamycin,2015-09
+18184,the united states,mycobacterium tuberculosis,moxifloxacin,2015-09
+18184,the united states,mycobacterium tuberculosis,ofloxacin,2015-09
+18184,the united states,mycobacterium tuberculosis,rifabutin,2015-09
+18184,the united states,mycobacterium tuberculosis,rifampin,2015-09
 345,trinidad and tobago,pseudomonas aeruginosa,aztreonam,2009
 345,trinidad and tobago,pseudomonas aeruginosa,cefepime,2009
 345,trinidad and tobago,pseudomonas aeruginosa,ceftazidime,2009
@@ -1526,11 +1534,17 @@ study_id,study_country,bacteria_preferred_label,drug_preferred_label,start_date
 10125,turkey,escherichia coli,amikacin,2014
 10125,turkey,escherichia coli,amoxicillin-potassium clavulanate combination,2014
 5005,turkey,raoultella terrigena,amoxicillin-potassium clavulanate combination,2016
+1216,turkey,stenotrophomonas maltophilia,amoxicillin-potassium clavulanate combination,2008
 5005,turkey,raoultella terrigena,ampicillin,2016
+1216,turkey,stenotrophomonas maltophilia,ampicillin,2008
+1216,turkey,stenotrophomonas maltophilia,aztreonam,2008
 8591,turkey,acinetobacter baumannii,cefepime,2014-10-06
+1216,turkey,stenotrophomonas maltophilia,cefepime,2008
 5005,turkey,raoultella terrigena,cefixime,2016
 8591,turkey,acinetobacter baumannii,cefoperazone + sulbactam,2014-10-06
+1216,turkey,stenotrophomonas maltophilia,cefotaxime,2008
 10125,turkey,escherichia coli,cefotaxime + clavulanic acid,2014
+1216,turkey,stenotrophomonas maltophilia,cefoxitin,2008
 8591,turkey,acinetobacter baumannii,ceftazidime,2014-10-06
 5005,turkey,raoultella terrigena,ceftazidime,2016
 10125,turkey,escherichia coli,ceftazidime + clavulanic acid,2014
@@ -1547,11 +1561,13 @@ study_id,study_country,bacteria_preferred_label,drug_preferred_label,start_date
 5005,turkey,raoultella terrigena,gentamicins,2016
 8591,turkey,acinetobacter baumannii,imipenem,2014-10-06
 10125,turkey,escherichia coli,imipenem,2014
+1216,turkey,stenotrophomonas maltophilia,imipenem,2008
 8591,turkey,acinetobacter baumannii,levofloxacin,2014-10-06
 10125,turkey,escherichia coli,levofloxacin,2014
 172,turkey,enterococcus faecium,linezolid,2011-04
 8591,turkey,acinetobacter baumannii,meropenem,2014-10-06
 10125,turkey,escherichia coli,meropenem,2014
+1216,turkey,stenotrophomonas maltophilia,meropenem,2008
 8591,turkey,acinetobacter baumannii,netilmicin,2014-10-06
 10125,turkey,escherichia coli,ofloxacin,2014
 8591,turkey,acinetobacter baumannii,piperacillin,2014-10-06
@@ -1564,31 +1580,38 @@ study_id,study_country,bacteria_preferred_label,drug_preferred_label,start_date
 5005,turkey,raoultella terrigena,"trimethoprim, sulfamethoxazole drug combination",2016
 172,turkey,enterococcus faecium,vancomycin,2011-04
 68035,united kingdom,mycobacterium tuberculosis,amikacin,2008-01
+16438,united kingdom,cellulosimicrobium funkei,ampicillin,2011
 18778,united kingdom,staphylococcus aureus,ampicillin,2012
 3799,united kingdom,neisseria gonorrhoeae,azithromycin,2007
 68035,united kingdom,mycobacterium tuberculosis,capreomycin,2008-01
 8862,united kingdom,salmonella enterica,chloramphenicol,2001
+16438,united kingdom,cellulosimicrobium funkei,ciprofloxacin,2011
 8862,united kingdom,salmonella enterica,ciprofloxacin,2001
 3799,united kingdom,neisseria gonorrhoeae,clindamycin,2007
+16438,united kingdom,cellulosimicrobium funkei,erythromycin,2011
 3799,united kingdom,neisseria gonorrhoeae,erythromycin,2007
 68035,united kingdom,mycobacterium tuberculosis,fluoroquinolones,2008-01
 8862,united kingdom,salmonella enterica,gentamicins,2001
+16438,united kingdom,cellulosimicrobium funkei,imipenem,2011
 68035,united kingdom,mycobacterium tuberculosis,isoniazid,2008-01
 68035,united kingdom,mycobacterium tuberculosis,kanamycin,2008-01
 8862,united kingdom,salmonella enterica,kanamycin,2001
 8862,united kingdom,salmonella enterica,neomycin,2001
+16438,united kingdom,cellulosimicrobium funkei,penicillins,2011
 6454,united kingdom,corynebacterium diphtheriae,penicillins,2009
+16438,united kingdom,cellulosimicrobium funkei,rifampin,2011
 18818,united kingdom,mycobacterium marinum,rifampin,2013
 68035,united kingdom,mycobacterium tuberculosis,rifampin,2008-01
 8862,united kingdom,salmonella enterica,streptomycin,2001
 8862,united kingdom,salmonella enterica,sulfonamides,2001
+16438,united kingdom,cellulosimicrobium funkei,tetracycline,2011
 3799,united kingdom,neisseria gonorrhoeae,tetracycline,2007
 8862,united kingdom,salmonella enterica,tetracyclines,2001
+16438,united kingdom,cellulosimicrobium funkei,"trimethoprim, sulfamethoxazole drug combination",2011
 18818,united kingdom,mycobacterium marinum,"trimethoprim, sulfamethoxazole drug combination",2013
 18963,united states,aeromonas hydrophila,amikacin,2011
 5451,united states,chryseobacterium indologenes,amikacin,2010
 5804,united states,klebsiella pneumoniae,amikacin,2007-07
-18184,united states,mycobacterium tuberculosis,amikacin,2015-09
 11508,united states,rhodococcus equi,amikacin,2010
 6505,united states,staphylococcus aureus,amikacin,2006
 16267,united states,acinetobacter baumannii,aminoglycosides,2007
@@ -1677,8 +1700,6 @@ study_id,study_country,bacteria_preferred_label,drug_preferred_label,start_date
 11508,united states,rhodococcus equi,imipenem,2007-01
 17068,united states,serratia marcescens,imipenem,2006
 10081,united states,mycobacterium szulgai,isoniazid,2006
-18184,united states,mycobacterium tuberculosis,isoniazid,2015-09
-18184,united states,mycobacterium tuberculosis,kanamycin,2015-09
 1887,united states,pseudomonas putida,levofloxacin,2009
 19267,united states,staphylococcus aureus,levofloxacin,2002-06
 5265,united states,streptococcus mitis,levofloxacin,2009
@@ -1693,12 +1714,10 @@ study_id,study_country,bacteria_preferred_label,drug_preferred_label,start_date
 19093,united states,bacteroides fragilis,metronidazole,2009
 18073,united states,bacteroides thetaiotaomicron,metronidazole,2014
 5804,united states,klebsiella pneumoniae,moxifloxacin,2007-07
-18184,united states,mycobacterium tuberculosis,moxifloxacin,2015-09
 6505,united states,staphylococcus aureus,moxifloxacin,2006
 5560,united states,ureaplasma parvum,moxifloxacin,2002-01
 22574,united states,salmonella enterica,nalidixic acid,2007
 5804,united states,klebsiella pneumoniae,nitrofurantoin,2007-07
-18184,united states,mycobacterium tuberculosis,ofloxacin,2015-09
 19267,united states,staphylococcus aureus,oxacillin,2002-06
 19093,united states,bacteroides fragilis,penicillins,2009
 4251552,united states,escherichia coli,penicillins,2016-05-26
@@ -1711,9 +1730,7 @@ study_id,study_country,bacteria_preferred_label,drug_preferred_label,start_date
 3235,united states,raoultella planticola,"piperacillin, tazobactam drug combination",2008-05
 5804,united states,klebsiella pneumoniae,polymyxin b,2007-07
 10081,united states,mycobacterium szulgai,pyrazinamide,2006
-18184,united states,mycobacterium tuberculosis,rifabutin,2015-09
 10081,united states,mycobacterium szulgai,rifampin,2006
-18184,united states,mycobacterium tuberculosis,rifampin,2015-09
 19267,united states,staphylococcus aureus,rifampin,2002-06
 22703,united states,babesia microti,rituximab,2005-06
 11508,united states,rhodococcus equi,sulfamethoxazole,2006-10

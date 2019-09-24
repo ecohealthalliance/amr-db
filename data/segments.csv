@@ -781,7 +781,10 @@ study_id,segment,code_identifiers,code_main,code_identifiers_link
 1216,>8,h,mic,drug resisted; mic
 1216,cured,NA,outcome,NA
 1216,stenotrophomonas maltophilia,NA,binomial (genus species),NA
+1216,turkey,NA,country,NA
 1216,erythema,NA,symptoms/disease,NA
+1216,zonguldak,NA,city,NA
+1216,karaelmas university,NA,hospital name,NA
 1216,amoxicillin-clavulanate,a,drug resisted,drug resisted; mic
 1216,>16,a,mic,drug resisted; mic
 1216,ampicillin,b,drug resisted,drug resisted; mic
@@ -1311,6 +1314,7 @@ study_id,segment,code_identifiers,code_main,code_identifiers_link
 137,>256,c,mic,drug resisted; mic
 137,france,NA,country,NA
 137,"this case illustrates the first isolation from sputum of m. septicum, a member of the mycobacterium fortuitum group previously isolated once from bacteremia.",NA,article/study aim,NA
+137,marseille,NA,city,NA
 137,78-year-old,NA,age,NA
 137,woman,NA,sex,NA
 137,february,NA,event month,NA
@@ -2161,6 +2165,9 @@ study_id,segment,code_identifiers,code_main,code_identifiers_link
 16438,16 g/ml,h,mic,drug resisted; mic
 16438,"acute confusion,",NA,symptoms,NA
 16438,cellulosimicrobium funkei:,NA,binomial (genus species),NA
+16438,london,NA,city,NA
+16438,united kingdom,NA,country,NA
+16438,"st george's hospital,",NA,hospital name,NA
 16438,fever,NA,symptoms,NA
 16438,medtronic mosaic tissue aortic valve replacement,NA,comorbidities,NA
 16438,died,NA,outcome,NA
@@ -2525,11 +2532,12 @@ study_id,segment,code_identifiers,code_main,code_identifiers_link
 18184,2-,NA,age,NA
 18184,girl,NA,sex,NA
 18184,usa,NA,country of residence,NA
-18184,india,NA,place traveled to,NA
+18184,india; india,NA,place traveled to,NA
 18184,fevers,NA,symptoms,NA
 18184,2015,NA,event year,NA
 18184,sept,NA,event month,NA
 18184,mycobacterium tuberculosi,NA,binomial (genus species),NA
+18184,the usa,NA,country,NA
 18184,isoniazid,b,drug resisted,drug resisted; mic
 18184,2 1/2g/m,b,mic,drug resisted; mic
 18184,rifabutin,c,drug resisted,drug resisted; mic
@@ -4664,11 +4672,12 @@ study_id,segment,code_identifiers,code_main,code_identifiers_link
 3529,hypotension,NA,symptoms,NA
 3557,53,NA,age,NA
 3557,male,NA,sex,NA
-3557,congo,NA,place traveled to,NA
+3557,congo; congo,NA,place traveled to,NA
 3557,2011,NA,event year,NA
 3557,died,NA,outcome,NA
 3557,carbapenems,NA,drug resisted,NA
 3557,enterobacteriaceae,NA,binomial (genus species),NA
+3557,poland,NA,country,NA
 3596,guangzhou,NA,city,NA
 3596,tetracyclines,NA,drug resisted,NA
 3596,china,NA,country,NA
@@ -6528,7 +6537,11 @@ study_id,segment,code_identifiers,code_main,code_identifiers_link
 9340,9,NA,age,NA
 9340,salmonella enterica,NA,binomial (genus species),NA
 9340,pakistan,NA,country of residence,NA
+9340,pakistan,NA,country,NA
 9340,1,NA,age,NA
+9340,sindh,NA,city,NA
+9340,"aga khan hospital,",NA,hospital name,NA
+9340,karachi,NA,city,NA
 9628,74,a,age,age; comorbidities; event month; event year; outcome; sex; strain
 9628,diabetes,a,comorbidities,age; comorbidities; event month; event year; outcome; sex; strain
 9628,died,a,outcome,age; comorbidities; event month; event year; outcome; sex; strain
@@ -6569,6 +6582,8 @@ study_id,segment,code_identifiers,code_main,code_identifiers_link
 9669,>64 g/ml,f,mic,drug resisted; mic
 9669,52,NA,age,NA
 9669,worsened,NA,outcome,NA
+9669,south korea,NA,country,NA
+9669,seoul,NA,city,NA
 9669,woman,NA,sex,NA
 9669,productive cough,NA,symptoms/disease,NA
 9669,blood-tinged sputum,NA,symptoms/disease,NA
