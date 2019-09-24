@@ -124,7 +124,7 @@ missing_countries <- locations %>%
   left_join(articles_db %>% select(study_id, mex_name)) %>%
   arrange(mex_name)
 # articles with non-blank study_location need country lookup, others need to be evaluated in mex files
-# 7761 may need follow up.  18266, 23314 is ok because only a travel location
+# 8266, 23314 is ok because only a travel location; 9340 to be excluded for no drug
 
 locations %<>%
   mutate(study_location = ifelse(is.na(study_country_add), study_location, paste(study_location, study_country_add, sep = ", ")),
