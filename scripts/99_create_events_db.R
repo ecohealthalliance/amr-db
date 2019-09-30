@@ -170,14 +170,14 @@ events %<>%
 write_csv(events, here("data", "events_db_full.csv"))
 
 # select columns of interest
-events %<>%
+events2 <- events %>%
   select(study_id, study_country, bacteria_preferred_label, drug_preferred_label, start_date) %>%
   distinct() # some events have differences in other fields.  for now, just focusing on these fields.
 
 # for multiple events, select the most recent
 # first need to assume publication date for start_date NAs
 
-events_dates_na <- events %>%
+events_dates_na <- events2 %>%
   filter(is.na(start_date)) %>%
   left_join(articles_db %>% 
               select(study_id, year)) %>%
@@ -193,14 +193,14 @@ events_dates_na$start_date[events_dates_na$study_id == 1249316] <- "2012"
 events_dates_na$start_date[events_dates_na$study_id == 2203256] <- "2003"
 assertthat::assert_that(nrow(events_dates_na %>% filter(is.na(start_date)))==0)
 
-events %<>%
+events2 %<>%
   drop_na(start_date) %>%
   bind_rows(events_dates_na) %>%
   distinct() # some of the assigned pub dates are same as start_date, so these get filtered out
 
 # select most recent.  if two are identical, select first study.
 # note that there may be differences in strain or marker, which would mean some of these are in fact separate emergence events.  to be revisited.  
-events %<>%
+events2 %<>%
   group_by(study_country, drug_preferred_label, bacteria_preferred_label) %>%
   mutate(is_first = start_date == min(start_date, na.rm=T)) %>%
   filter(is_first) %>% # get first event for each unique combo (if there is only 1 event, it will be selected) 
@@ -209,3 +209,10 @@ events %<>%
   ungroup()
 
 write_csv(events, here("data", "events_db.csv"))
+
+events %>% 
+  filter(study_id %in% unique(events2$study_id)) %>%
+  select(study_id, study_location_basis) %>%
+  distinct() %>%
+  group_by(study_location_basis) %>%
+  count()
