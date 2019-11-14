@@ -4732,7 +4732,7 @@ study_id,segment,code_identifiers,code_main,code_identifiers_link
 3613,e mutations were not found,NA,outcome,NA
 3613,macrolide,NA,drug resisted,NA
 3613,china,NA,country,NA
-3613,campylobacter,NA,binomial (genus species),NA
+3613, campylobacter coli,NA,binomial (genus species),NA
 3613,campylobacter jejuni,NA,binomial (genus species),NA
 3613,3 cases of acute gastroenteritis caused by high-level macrolide-resistant campylobacter.,NA,article/study aim,NA
 3613,65,a,age,age; sex; symptoms
@@ -6026,7 +6026,6 @@ study_id,segment,code_identifiers,code_main,code_identifiers_link
 7968,linezolid,NA,drug resisted,NA
 7968,64 g/ml,a,mic,drug resisted; mic
 8089,25-week,NA,age,NA
-8089,robert debre hospital,NA,hospital name,NA
 8089,paris,NA,city,NA
 8089,france,NA,country,NA
 8089,cephalosporins,NA,drug resisted,NA
@@ -6045,21 +6044,21 @@ study_id,segment,code_identifiers,code_main,code_identifiers_link
 8089,septic shock,NA,symptoms/disease,NA
 8089,tobramycin,f,drug resisted,drug resisted; mic
 8089,3 mg/l,f,mic,drug resisted; mic
-8089,gastrointestinal perforation,NA,symptoms/disease,NA
 8089,gentamicin,g,drug resisted,drug resisted; mic
+8089,gastrointestinal perforation,NA,symptoms/disease,NA
 8089,12 mg/l,g,mic,drug resisted; mic
 8089,amikacin,h,drug resisted,drug resisted; mic
 8089,32 mg/l,h,mic,drug resisted; mic
 8089,ciprofloxacin,i,drug resisted,drug resisted; mic
-8089,chorioamnionitis,NA,comorbidities,NA
 8089,levofloxacin,j,drug resisted,drug resisted; mic
+8089,chorioamnionitis,NA,comorbidities,NA
 8089,afebrile,NA,outcome,NA
 8089,hemodynamically stable,NA,outcome,NA
 8089,we describe the first case of sepsis due to a yet unnamed species of dyella genus associated to gastrointestinal perforation in a premature newborn.,NA,article/study aim,NA
 8089,multiple organ failures,NA,comorbidities,NA
 8089,dyella genus,NA,binomial (genus species),NA
 8089,without significant homology with any already named species,NA,notes,NA
-8089,dyella sp. ld14149,NA,binomial (genus species),NA
+8089,robert debre hospital,NA,hospital name,NA
 8174,an outbreak of ndm-1-producing citrobacter freundii and possible secondary in vivo spread of blandm-1 to other enterobacteriaceae were investigated,NA,article/study aim,NA
 8174,"cmy-6,",NA,resistance marker,NA
 8174,oxa-1,NA,resistance marker,NA
