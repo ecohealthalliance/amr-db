@@ -6,6 +6,7 @@ library(googlesheets)
 library(tidyverse)
 library(here)
 library(assertthat)
+library(countrycode)
 
 # Structure Location Data -----------------
 segments <- read_csv(here("data", "segments.csv"), col_types = cols(
@@ -178,6 +179,17 @@ locations %<>%
          study_hospital = hospital,
          lon_study = lon,
          lat_study = lat)
+
+
+# Add ISO3C ---------------------------------------------------------------
+
+locations %<>%
+  mutate(study_iso3c = countrycode(sourcevar = study_country,
+                             origin = "country.name",
+                             destination = "iso3c")) %>%
+  mutate(study_country = countrycode(sourcevar = study_iso3c,
+                                origin = "iso3c",
+                                destination = "country.name"))
 
 # Final QA check on data cleaning-----------------
 
