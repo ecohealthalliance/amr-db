@@ -40,6 +40,11 @@ top_drugs <- events %>%
   mutate(lab = ifelse(n_events == max(n_events), paste(n_bacteria, "distinct resistant bacteria"), n_bacteria)) %>%
   slice(1:12)
 
+colistin <- events %>% 
+  filter(drug == "colistin")
+n_distinct(colistin$study_country)
+n_distinct(colistin$bacteria)
+
 top_bact <- events %>% 
   select(bacteria, drug) %>%
   group_by(bacteria) %>%
@@ -138,3 +143,52 @@ events %>%
         axis.text.y = element_text(color = "black"))
 ggsave(here("figures/pubs-over-time.png"))
 
+
+# Locations of common drug-bact combos ------------------------------------
+heatmap_mat_top <- heatmap_mat %>%
+  arrange(-n) %>%
+  slice(1)
+
+centroids <- CoordinateCleaner::countryref %>%
+  select(iso3, centroid.lon, centroid.lat) %>%
+  group_by(iso3) %>%
+  slice(1) %>%
+  ungroup()
+
+events_top <- events %>%
+  filter(drug %in% heatmap_mat_top$drug,
+         bacteria %in% heatmap_mat_top$bacteria
+  ) %>%
+  arrange(start_date) %>%
+  mutate(start_year = as.numeric(str_sub(start_date, 1, 4))) %>%
+  left_join(centroids, by = c("study_iso3c" = "iso3"))
+
+
+library(maps)
+library(ggthemes)
+library(gganimate)
+
+world <- ggplot() +
+  borders("world", colour = "gray85", fill = "gray80") +
+  theme_map() 
+
+p=world +
+  geom_point(aes(x = centroid.lon, y = centroid.lat),
+             data = events_top, 
+             alpha = .5, size = 5) +
+  transition_states(start_year,
+                    transition_length = 0,
+                    state_length = 1) +
+  ggtitle('{closest_state}')
+p 
+
+
+# Field specificity -------------------------------------------------------
+# imputed location, date
+# level of specificity in bacteria / drug
+
+# bar chart - 
+# drug (group/spec) 
+# bact (family, genus, species) 
+# location (county, state, city , hosp, impute)
+# date (year, month, day, impute)
