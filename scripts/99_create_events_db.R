@@ -19,12 +19,12 @@ locations <- read_csv(here("data", "locations.csv")) %>%
     study_location_basis,
     study_location,
     study_country,
+    study_iso3c,
     residence_location
   ) %>%
   summarize(travel_location = paste(unique(travel_location), collapse =
                                       "; ")) %>%
-  ungroup() %>%
-  mutate(study_country = ifelse(is.na(study_country), residence_location, study_country))
+  ungroup() 
 
 bacteria <- read_csv(here("data", "bacteria_genus_species.csv")) %>%
   select(
@@ -74,7 +74,7 @@ drugs %<>%
 
 dates <- read_csv(here("data", "dates.csv")) 
 
-#-----------------Make full DB (in progress)-----------------
+#-----------------Make full DB-----------------
 event_list <- list(locations, drugs, bacteria, dates)
 
 # Replace NA code IDs with "none"
@@ -124,7 +124,8 @@ events %<>%
 segments_id <- unique(segments$study_id)
 events_id <- unique(events$study_id)
 segments_id[!segments_id %in% events_id]
-#-----------------Dup checks-----------------
+
+#-----------------Dupe checks-----------------
 # Any duplicated titles?
 articles_dups <- articles_db %>%
   mutate(dup_title = duplicated(title) | 
@@ -148,7 +149,7 @@ articles_dups_fuzz <- expand.grid(articles_db$title, articles_db$title) %>%
   setNames(gsub("\\.x", "1", colnames(.) )) %>%
   setNames(gsub("\\.y", "2", colnames(.) ))
 
-#-----------------Check for unique events per country-----------------
+#-----------------Get unique events per country-----------------
 # first remove dups based on above review
 dups_remove <- gs_read(gs_title("amr_db_dups_titles"), ws = "exact_match") %>% # google spreadsheet with field cleanup
   as_tibble() %>% 
@@ -171,7 +172,10 @@ write_csv(events, here("data", "events_db_full.csv"))
 
 # select columns of interest
 events2 <- events %>%
-  select(study_id, study_country, bacteria_preferred_label, drug_preferred_label, start_date) %>%
+  select(study_id, study_country, study_iso3c, 
+         bacteria_preferred_label, bacteria_rank,
+         drug_preferred_label, drug_rank,
+         start_date) %>%
   distinct() # some events have differences in other fields.  for now, just focusing on these fields.
 
 # for multiple events, select the most recent
@@ -208,7 +212,8 @@ events2 %<>%
   select(-is_first) %>%
   ungroup()
 
-write_csv(events, here("data", "events_db.csv"))
+
+write_csv(events2, here("data", "events_db.csv"))
 
 events %>% 
   filter(study_id %in% unique(events2$study_id)) %>%
