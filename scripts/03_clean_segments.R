@@ -68,7 +68,8 @@ segments_raw %<>%
          !(study_id=="3799" & segment=="MIC"),
          !(study_id=="8619" & segment=="EM")) %>%
   mutate(segment = textclean::replace_non_ascii(segment),
-         code = replace(code, code == "Drug Resisted" & segment == "16", "MIC"))
+         code = replace(code, code == "Drug Resisted" & segment == "16", "MIC"),
+         segment = replace(segment, study_id=="3613" & segment ==  "Campylobacter", " Campylobacter coli"))
 
 # Find Offsets That Match (with tolerance = 50% on both sides of match) and Group  -----------------------------
 

@@ -6,7 +6,6 @@ library(leaflet)
 library(leaflet.extras)
 library(rnaturalearth)
 library(rnaturalearthdata)
-library(countrycode)
 library(mapview)
 
 events <- read_csv(here("data", "events_db.csv"))
@@ -27,22 +26,19 @@ admin <- ne_countries(type='countries', scale = 'large') %>%
   select(name, iso3c)
 
 events_sum <- events %>% 
-  mutate(iso3c = countrycode(sourcevar = study_country,
-                             origin = "country.name",
-                             destination = "iso3c")) %>%
-  group_by(iso3c) %>%
+  group_by(study_iso3c) %>%
   count(name = "AMR Events") %>%
   ungroup() 
   
-admin <- left_join(admin, events_sum, by = "iso3c") %>%
+admin <- left_join(admin, events_sum, by = c("iso3c" = "study_iso3c")) %>%
   mutate(`AMR Events` = replace_na(`AMR Events`, 0))
   
 pal <- colorNumeric("OrRd", domain = admin$`AMR Events`, na.color = "#e9e9f0")
 
 caption <- glue::glue(nrow(events), " AMR emergence events<br/>",
                       n_distinct(events$study_country), " countries<br/>",
-                      n_distinct(events$drug_preferred_label), " antimicrobial drugs<br/>",
-                      n_distinct(events$bacteria_preferred_label), " resistant bacteria<br/>",
+                      n_distinct(events$drug), " antimicrobial drugs<br/>",
+                      n_distinct(events$bacteria), " resistant bacteria<br/>",
                       str_sub(min(events$start_date), 1, 4), " - ",  str_sub(max(events$start_date), 1, 4))
 
 lf <- leaflet() %>%

@@ -214,7 +214,7 @@ study_id,segment,code_identifiers,code_main,code_identifiers_link,bacteria_id,ba
 3557,enterobacteriaceae,NA,binomial (genus species),NA,543,NA,family,bacteria,preferred_label,enterobacteriaceae,enterobacteriaceae,enterobacterales,order
 3596,klebsiella pneumoniae,NA,binomial (genus species),NA,573,NA,species,bacteria,preferred_label,klebsiella pneumoniae,k. pneumoniae,klebsiella,genus
 360,acinetobacter pittii,NA,binomial (genus species),NA,48296,NA,species,bacteria,preferred_label,acinetobacter pittii,a. pittii,acinetobacter calcoaceticus/baumannii complex,species group
-3613,campylobacter,NA,binomial (genus species),NA,194,NA,genus,bacteria,preferred_label,campylobacter,campylobacter,campylobacteraceae,family
+3613,campylobacter coli,NA,binomial (genus species),NA,195,NA,species,bacteria,preferred_label,campylobacter coli,c. coli,campylobacter,genus
 3613,campylobacter jejuni,NA,binomial (genus species),NA,197,NA,species,bacteria,preferred_label,campylobacter jejuni,c. jejuni,campylobacter,genus
 3622,proteus mirabilis,NA,binomial (genus species),NA,584,NA,species,bacteria,preferred_label,proteus mirabilis,p. mirabilis,proteus,genus
 3722,lactobacillus fermentum,NA,binomial (genus species),NA,1613,NA,species,bacteria,preferred_label,lactobacillus fermentum,l. fermentum,lactobacillus,genus
@@ -273,7 +273,6 @@ study_id,segment,code_identifiers,code_main,code_identifiers_link,bacteria_id,ba
 7945,brevundimonas vesicularis,NA,binomial (genus species),NA,41276,NA,species,bacteria,preferred_label,brevundimonas vesicularis,b. vesicularis,brevundimonas,genus
 7968,staphylococcus haemolyticus,NA,binomial (genus species),NA,1283,NA,species,bacteria,preferred_label,staphylococcus haemolyticus,s. haemolyticus,staphylococcus,genus
 8089,dyella,NA,binomial (genus species),NA,231454,NA,genus,bacteria,preferred_label,dyella,dyella,rhodanobacteraceae,family
-8089,dyella sp. ld14149,NA,binomial (genus species),NA,1230407,NA,species,bacteria,preferred_label,dyella sp. ld14149,d. sp. ld14149,dyella,genus
 8174,citrobacter freundii,NA,binomial (genus species),NA,546,NA,species,bacteria,preferred_label,citrobacter freundii,c. freundii,citrobacter freundii complex,species group
 8181,enterobacter cloacae,NA,binomial (genus species),NA,550,NA,species,bacteria,preferred_label,enterobacter cloacae,e. cloacae,enterobacter cloacae complex,species group
 8515,salmonella enterica,NA,binomial (genus species),NA,28901,NA,species,bacteria,preferred_label,salmonella enterica,s. enterica,salmonella,genus

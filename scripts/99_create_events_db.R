@@ -173,8 +173,8 @@ write_csv(events, here("data", "events_db_full.csv"))
 # select columns of interest
 events2 <- events %>%
   select(study_id, study_country, study_iso3c, 
-         bacteria_preferred_label, bacteria_rank,
-         drug_preferred_label, drug_rank,
+         bacteria = bacteria_preferred_label, bacteria_rank,
+         drug = drug_preferred_label, drug_rank,
          start_date) %>%
   distinct() # some events have differences in other fields.  for now, just focusing on these fields.
 
@@ -205,13 +205,12 @@ events2 %<>%
 # select most recent.  if two are identical, select first study.
 # note that there may be differences in strain or marker, which would mean some of these are in fact separate emergence events.  to be revisited.  
 events2 %<>%
-  group_by(study_country, drug_preferred_label, bacteria_preferred_label) %>%
+  group_by(study_country, drug, drug_rank, bacteria, bacteria_rank) %>%
   mutate(is_first = start_date == min(start_date, na.rm=T)) %>%
   filter(is_first) %>% # get first event for each unique combo (if there is only 1 event, it will be selected) 
   slice(1) %>% # if there is a tie (ie more than one event reported at same time) select first instance
   select(-is_first) %>%
   ungroup()
-
 
 write_csv(events2, here("data", "events_db.csv"))
 
