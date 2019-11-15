@@ -64,7 +64,7 @@ drugs_combos <- drugs %>%
            combo_key
   ) %>%
   summarize(drug_rank = paste(sort(drug_rank), collapse = " + "),
-            drug_preferred_label = paste(sort(drug_preferred_label), collapse = " + "),
+            drug = paste(sort(drug), collapse = " + "),
             drug_parent_name = paste(sort(drug_parent_name), collapse = " + "),
   ) %>%
   ungroup() 
@@ -118,7 +118,7 @@ events %<>%
 
 # Remove NAs in country, drug, bacteria 
 events %<>%
-  filter(!is.na(study_country), !is.na(drug_preferred_label), !is.na(bacteria_preferred_label))
+  filter(!is.na(study_country), !is.na(drug), !is.na(bacteria))
 #events <-  left_join(events, articles_db)
 
 # Check study IDs that did not make it into DB
