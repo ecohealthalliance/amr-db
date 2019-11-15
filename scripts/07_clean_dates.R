@@ -166,5 +166,12 @@ clean_dates %<>%
   spread(key = date_id, value = event_date) %>%
   rename(start_date = `1`, end_date = `2`)
 
+
+# Start date rank ---------------------------------------------------------
+clean_dates %<>%
+mutate(date_nchar = nchar(start_date),
+       start_date_rank = recode(date_nchar, '4' = "year", '7' = "month", '10' = "day")) %>%
+  select(-date_nchar)
+  
 write_csv(clean_dates, here("data/dates.csv"))
 
