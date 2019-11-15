@@ -32,8 +32,8 @@ bacteria <- read_csv(here("data", "bacteria_genus_species.csv")) %>%
     code_identifiers,
     code_identifiers_link,
     bacteria_rank,
-    bacteria_preferred_label,
-    bacteria_preferred_label_abbr,
+    bacteria = bacteria_preferred_label,
+    bacteria_abbreviation = bacteria_preferred_label_abbr,
     bacteria_parent_rank,
     bacteria_parent_name
   )
@@ -51,7 +51,8 @@ drugs <- read_csv(here("data", "drugs.csv")) %>%
   # collapse multiple parent names
   summarize(drug_parent_name = paste(unique(drug_parent_name), collapse = "; ")) %>%
   ungroup() %>%
-  filter(!is.na(drug_preferred_label))
+  filter(!is.na(drug_preferred_label)) %>%
+  rename(drug = drug_preferred_label)
 
 # collapse drug combos
 drugs_combos <- drugs %>%
@@ -167,21 +168,15 @@ fuzzy_dups_remove <- gs_read(gs_title("amr_db_dups_titles"), ws = "fuzzy_match")
 events %<>% 
   filter(!study_id %in% fuzzy_dups_remove)
 
-# save full db
-write_csv(events, here("data", "events_db_full.csv"))
-
-# select columns of interest
-events2 <- events %>%
-  select(study_id, study_country, study_iso3c, study_location_basis,
-         bacteria = bacteria_preferred_label, bacteria_rank,
-         drug = drug_preferred_label, drug_rank,
-         start_date) %>%
-  distinct() # some events have differences in other fields.  for now, just focusing on these fields.
+# remove code identifiers and combo keys
+events %<>% 
+  select(-code_identifiers, -code_identifiers_link, -combo_key) %>%
+  distinct()
 
 # for multiple events, select the most recent
 # first need to assume publication date for start_date NAs
 
-events_dates_na <- events2 %>%
+events_dates_na <- events %>%
   filter(is.na(start_date)) %>%
   left_join(articles_db %>% 
               select(study_id, year)) %>%
@@ -197,14 +192,14 @@ events_dates_na$start_date[events_dates_na$study_id == 1249316] <- "2012"
 events_dates_na$start_date[events_dates_na$study_id == 2203256] <- "2003"
 assertthat::assert_that(nrow(events_dates_na %>% filter(is.na(start_date)))==0)
 
-events2 %<>%
+events %<>%
   drop_na(start_date) %>%
   bind_rows(events_dates_na) %>%
   distinct() # some of the assigned pub dates are same as start_date, so these get filtered out
 
 # select most recent.  if two are identical, select first study.
 # note that there may be differences in strain or marker, which would mean some of these are in fact separate emergence events.  to be revisited.  
-events2 %<>%
+events %<>%
   group_by(study_country, drug, bacteria) %>%
   mutate(is_first = start_date == min(start_date, na.rm=T)) %>%
   filter(is_first) %>% # get first event for each unique combo (if there is only 1 event, it will be selected) 
@@ -212,5 +207,5 @@ events2 %<>%
   select(-is_first) %>%
   ungroup()
 
-write_csv(events2, here("data", "events_db.csv"))
+write_csv(events, here("data", "events_db.csv"))
 

@@ -1,14 +1,17 @@
- ,Classification,count
+ ,Classification,Count
 Drug,drug name,84
-Drug,drug group,35
-Drug,drug group/name combo,3
-Bacteria,species,106
+Drug,drug group,34
+Drug,drug group/name combo,2
+Drug,NA,1
+Bacteria,species,109
 Bacteria,genus,4
 Bacteria,family,1
-Location,hospital,123
-Location,city,77
-Location,state/province/district,21
-Location,country,73
-Date,day,47
-Date,month,122
-Date,year,134
+Bacteria,NA,1
+Location,hospital,127
+Location,city,79
+Location,state/province/district,23
+Location,country,75
+Date,day,49
+Date,month,123
+Date,year,45
+Date,NA,94
