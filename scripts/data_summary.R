@@ -5,7 +5,6 @@ library(cowplot)
 
 # Get data ----------------------------------------------------------------
 events <- read_csv(here("data", "events_db.csv")) %>%
-  rename(drug = drug_preferred_label, bacteria = bacteria_preferred_label) %>%
   mutate(drug = str_remove_all(drug, "drug|combination")) %>%
   mutate(drug = str_replace_all(drug, ",", " + ")) %>%
   mutate(drug = str_squish(drug)) %>%
@@ -14,11 +13,11 @@ events <- read_csv(here("data", "events_db.csv")) %>%
   mutate(bacteria = fct_infreq(bacteria))
 
 n_distinct(events$study_id)
-n_distinct(events$study_country)
+n_distinct(events$study_iso3c)
 nrow(events)
 
 events %>%
-  group_by(study_country) %>%
+  group_by(study_iso3c) %>%
   count(sort=T) 
 
 events %>%
@@ -143,52 +142,67 @@ events %>%
         axis.text.y = element_text(color = "black"))
 ggsave(here("figures/pubs-over-time.png"))
 
-
-# Locations of common drug-bact combos ------------------------------------
-heatmap_mat_top <- heatmap_mat %>%
-  arrange(-n) %>%
-  slice(1)
-
-centroids <- CoordinateCleaner::countryref %>%
-  select(iso3, centroid.lon, centroid.lat) %>%
-  group_by(iso3) %>%
-  slice(1) %>%
-  ungroup()
-
-events_top <- events %>%
-  filter(drug %in% heatmap_mat_top$drug,
-         bacteria %in% heatmap_mat_top$bacteria
-  ) %>%
-  arrange(start_date) %>%
-  mutate(start_year = as.numeric(str_sub(start_date, 1, 4))) %>%
-  left_join(centroids, by = c("study_iso3c" = "iso3"))
-
-
-library(maps)
-library(ggthemes)
-library(gganimate)
-
-world <- ggplot() +
-  borders("world", colour = "gray85", fill = "gray80") +
-  theme_map() 
-
-p=world +
-  geom_point(aes(x = centroid.lon, y = centroid.lat),
-             data = events_top, 
-             alpha = .5, size = 5) +
-  transition_states(start_year,
-                    transition_length = 0,
-                    state_length = 1) +
-  ggtitle('{closest_state}')
-p 
-
-
 # Field specificity -------------------------------------------------------
-# imputed location, date
-# level of specificity in bacteria / drug
-#
-# bar chart - 
+
 # drug (group/spec) 
+drug <- events %>%
+  select(drug, rank = drug_rank) %>%
+  distinct() %>%
+  mutate(rank = recode(rank, 
+                            "drug group + drug group" = "drug group",
+                            "drug name + drug name" = "drug name",
+                            "drug group + drug name" = "drug group/name combo")) %>%
+  group_by(rank) %>%
+  count() %>%
+  ungroup() %>%
+  mutate(rank = factor(rank, levels = c("drug name", "drug group", "drug group/name combo")),
+         cat = "Drug") %>%
+  arrange(rank)
+
 # bact (family, genus, species) 
+bact <- events %>%
+  select(bacteria, rank = bacteria_rank) %>%
+  distinct() %>%
+  group_by(rank) %>%
+  count() %>%
+  ungroup() %>%
+  mutate(rank = factor(rank, levels = c("species", "genus", "family")),
+         cat = "Bacteria") %>%
+  arrange(rank)
+
 # location (county, state, city , hosp, impute)
+loc <- events %>%
+  select(study_id, study_location_basis) %>%
+  distinct() %>%
+  mutate(rank = ifelse(grepl("hospital", study_location_basis), 
+                                      "hospital", ifelse(grepl("city", study_location_basis),
+                                                         "city", ifelse(grepl("state_province_district", study_location_basis),
+                                                                        "state/province/district", "country")))) %>%
+  group_by(rank) %>%
+  count() %>%
+  ungroup() %>%
+  mutate(rank = factor(rank, levels = c("hospital", "city", "state/province/district", "country")),
+         cat = "Location") %>%
+  arrange(rank)
+
+
 # date (year, month, day, impute)
+date <- events %>%
+  select(study_id, start_date) %>%
+  distinct() %>%
+  mutate(date_nchar = nchar(start_date),
+         rank = recode(date_nchar, '4' = "year", '7' = "month", '10' = "day")) %>%
+  group_by(rank) %>%
+  count() %>%
+  ungroup() %>%
+  mutate(rank = factor(rank, levels = c("day", "month", "year")),
+         cat = "Date") %>%
+  arrange(rank)
+
+
+ranks <- reduce(list(drug, bact, loc, date), rbind) %>%
+  select(" "=cat, "Classification" = rank, "Count" = n)
+
+write_csv(ranks, here::here("figures", "field_summary.csv"))
+
+
