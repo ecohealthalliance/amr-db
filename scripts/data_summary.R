@@ -188,10 +188,8 @@ loc <- events %>%
 
 # date (year, month, day, impute)
 date <- events %>%
-  select(study_id, start_date) %>%
+  select(study_id, start_date, rank = start_date_rank) %>%
   distinct() %>%
-  mutate(date_nchar = nchar(start_date),
-         rank = recode(date_nchar, '4' = "year", '7' = "month", '10' = "day")) %>%
   group_by(rank) %>%
   count() %>%
   ungroup() %>%
