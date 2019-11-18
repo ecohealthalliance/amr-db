@@ -170,7 +170,7 @@ events %<>%
 
 # remove code identifiers and combo keys
 events %<>% 
-  select(-code_identifiers, -code_identifiers_link, -combo_key) %>%
+  select(-code_identifiers, -code_identifiers_link, -combo_key, -bacteria_abbreviation) %>%
   distinct()
 
 # for multiple events, select the most recent
