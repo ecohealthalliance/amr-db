@@ -203,6 +203,7 @@ events %<>%
   group_by(study_country, drug, bacteria) %>%
   mutate(is_first = start_date == min(start_date, na.rm=T)) %>%
   filter(is_first) %>% # get first event for each unique combo (if there is only 1 event, it will be selected) 
+  slice(1) %>% # if there is a tie (ie more than one event reported at same time and same place) select first instance
   select(-is_first) %>%
   ungroup()
 
