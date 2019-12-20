@@ -197,13 +197,12 @@ events %<>%
   bind_rows(events_dates_na) %>%
   distinct() # some of the assigned pub dates are same as start_date, so these get filtered out
 
-# select most recent.  if two are identical, select first study.
+# select first report.  if two are identical, select first study.
 # note that there may be differences in strain or marker, which would mean some of these are in fact separate emergence events.  to be revisited.  
 events %<>%
   group_by(study_country, drug, bacteria) %>%
   mutate(is_first = start_date == min(start_date, na.rm=T)) %>%
   filter(is_first) %>% # get first event for each unique combo (if there is only 1 event, it will be selected) 
-  slice(1) %>% # if there is a tie (ie more than one event reported at same time) select first instance
   select(-is_first) %>%
   ungroup()
 
