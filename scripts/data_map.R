@@ -7,6 +7,7 @@ library(leaflet.extras)
 library(rnaturalearth)
 library(rnaturalearthdata)
 library(mapview)
+library(countrycode)
 
 events <- read_csv(here("data", "events_db.csv"))
 

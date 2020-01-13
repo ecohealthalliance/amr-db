@@ -191,6 +191,7 @@ events_dates_na$start_date[events_dates_na$study_id == 1224333] <- "2012"
 events_dates_na$start_date[events_dates_na$study_id == 1249316] <- "2012"
 events_dates_na$start_date[events_dates_na$study_id == 2203256] <- "2003"
 assertthat::assert_that(nrow(events_dates_na %>% filter(is.na(start_date)))==0)
+events_dates_na$start_date_rank <- "year"
 
 events %<>%
   drop_na(start_date) %>%

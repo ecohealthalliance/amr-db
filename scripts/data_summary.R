@@ -12,9 +12,17 @@ events <- read_csv(here("data", "events_db.csv")) %>%
   mutate(bacteria = str_to_sentence(bacteria)) %>%
   mutate(bacteria = fct_infreq(bacteria))
 
-n_distinct(events$study_id)
-n_distinct(events$study_iso3c)
-nrow(events)
+# summary counts
+# see amr-db.csv in AMR repo for all article abstracts reviewed - 23770
+# see link_tracking_current_07122018.xls for all promed abstracts reviewed - 1196
+23770 + 1196
+read_csv(here("data","articles_db.csv")) %>% filter(downloaded == "yes") %>% nrow() # number abstracts reviewed
+# promed_article_index.csv has number of promeds reviewed - 208
+1583 + 208
+  
+n_distinct(events$study_id) # count studies in database
+n_distinct(events$study_iso3c) # count countries
+nrow(events) # count events
 
 events %>%
   group_by(study_iso3c) %>%
