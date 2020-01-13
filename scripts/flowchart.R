@@ -17,10 +17,10 @@ flowchart <- grViz("digraph flowchart {
       tab1 -> tab2 -> tab3 -> tab4 -> tab5;
       }
 
-      [1]: 'Search relevant keywords in PubMed, Embase, and ProMed-mail (22,700 abstracts) '
-      [2]: 'Review abstracts to determine if article should be reviewed in-full (1,630 selected)'
-      [3]: 'Full article review and coding in MAXQDA (295 articles in database)'
-      [4]: 'Data cleaning and standardization in R'
+      [1]: 'Search relevant keywords in PubMed, Embase, and ProMED-mail (24,966 results) '
+      [2]: 'Review abstracts or first lines of ProMED-mail reports (1,791 selected)'
+      [3]: 'Full article review and coding in MAXQDA (294 articles in database)'
+      [4]: 'Data cleaning and standardization in R (1,773 total events)'
       [5]: 'Database published and publically available'
       ")
 flowchart

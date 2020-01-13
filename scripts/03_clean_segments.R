@@ -45,7 +45,7 @@ promed_raw <- segments_raw %>%
   filter(grepl("promed", mex_name)) %>%
   select(colnames(segments_raw)) %>%
   mutate(segment = str_replace(segment, "\r\n", " ")) # manual cleaning to help with merging codes at bottom of script
-
+n_distinct(promed_raw$study_id)
 # create offset range col
 segments_raw %<>%
   drop_na(segment) %>% # NAs id'd above
@@ -53,7 +53,7 @@ segments_raw %<>%
   filter(!grepl("promed", mex_name)) %>% # remove promeds
   select(colnames(segments_raw)) %>%
   mutate(range = map2(begin_off, end_off, function(x,y) x:y))
-
+n_distinct(segments_raw$study_id)
 # only one segment spans two pages. NOTE - this segment matching method is not robust to cases like this :(
 segments_raw %>%
   filter(begin_page != end_page)
