@@ -6,7 +6,11 @@ This repository contains code, data, and documentation for the AMR events databa
 
 ### Repo Structure
 
-
+-  `screening/` contains three folders related to the process of finding articles and medical reports:
+	- 	`literature/search-results.csv` contains the results of PubMed and Embase literature search (n = 23,770). This file contains full article abstracts, which were individually reviewed to determine whether the article should be downloaded for full text review. 
+	-	`promed-mail/search-results.csv` contains the results of the ProMED-mail search (n = 1,196). This file contains links to the ProMED-mail reports. The first lines of these reports were reviewed to determine whether they should be included in the full text review.
+	-	`selected/` contains `.csv` files listing the articles that were selected for full text review. The `downloaded` column indicates whether articles were successfully downloaded. 1,791 articles were downloaded for full-text review.
+	
 -  `data-raw/` contains raw data used in the creation of database files including:
 	-	`coded_text_mex/` directory that contains all coded article pdfs as `.mex` files. Note: `.mx12` or `mx.18` files are created as a byproduct of opening a `.mex` file. All `.mx12` and `.mx18` files can be cleared using `make clean_mx12` and `make clean_mx18`. 
 	-	`art_index_csvs/` directory contains all csvs used to index articles that were reviewed in the full text review phase of the project. There was one csv per review batch.
