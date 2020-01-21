@@ -27,7 +27,7 @@ segments_raw <- map_dfr(files, ~read_xlsx(.x, col_types = "text")) %>%
          end_off) %>%
   distinct()
 
-write_rds(segments_raw,  here("data-processed", "segments-raw.rds"))
+#write_rds(segments_raw,  here("data-processed", "segments-raw.rds"))
 
 # QA CHECK - these are all excluded articles or notes on articles, usually due to annotating the title of the article in the PDF. All have strange offsets
 # github issue 6
