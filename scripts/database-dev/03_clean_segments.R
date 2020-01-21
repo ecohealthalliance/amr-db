@@ -9,7 +9,7 @@ library(assertthat)
 
 # Import Data and Clean Segments -----------------------------
 articles_db <- read_csv(here("data-processed","articles-db.csv")) %>% mutate_all(as.character)
-files <- dir(path = here("data-processed", "coded-segments"), pattern = "*.xlsx", full.names = TRUE)
+files <- dir(path = here("data-raw", "coded-segments"), pattern = "*.xlsx", full.names = TRUE)
 
 # individual segment data (from MaxQDA exports) - each observation is an instance of an annotation (ungrouped)
 segments_raw <- map_dfr(files, ~read_xlsx(.x, col_types = "text")) %>%
