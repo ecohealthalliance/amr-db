@@ -59,7 +59,7 @@ This repository contains code, data, and documentation for the AMR events databa
 		-	`07_clean_dates.R`  builds the `dates.csv` file from `segments.csv`. 
 		- 	`99_create_events_db.R` combines outputs of locations, drugs, bacteria, and dates scripts to create the final database `events_db.csv`.
 		
-	- `figure-dev/` - contains scripts to make figures.	
+	- `figure-dev/` contains scripts to make figures.	
 		- 	`data_summary.R` creates figures to summarize contents of events database.  Exports to `figures/`.
 		-  	`data_map.R` creates leaflet map showing location of AMR events.  Exports to `figures/`.
 		-	`flowchart.R` makes a flowchart of the data pipeline for this project. 
