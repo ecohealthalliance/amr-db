@@ -50,9 +50,9 @@ This repository contains code, data, and documentation for the AMR events databa
 
 	- `database-dev/` contains scripts to process the data. These are formulated in a pipeline and should be run sequentially.
 	
-		-	`01_export_segs_single_mex.scpt` an applescript that uses the raw `.mex` files to create `coded_segments/` `.xlsx` files.
+		-	`01_export_segs_single_mex.scpt` an applescript that uses the raw `.mex` files to create `data-raw/coded-segments/` `.xlsx` files.
 		-	`02_index_articles.R` builds the `articles-db.csv` database using the `screening/selected/` files and `data-raw/coded-text-mex/` files.
-		-	`03_clean_segments.R` builds the `segments.csv` database using `articles-db.csv` and `data-processed/coded_segments/` `.xlsx` files.
+		-	`03_clean_segments.R` builds the `segments.csv` database using `articles-db.csv` and `data-raw/coded-segments/` `.xlsx` files.
 		-	`04_clean_locations.R` builds the `locations.csv` file from `segments.csv` using Google geocoding. 
 		-	`05_clean_drugs.R` builds the `drugs.csv` file from `segments.csv` based on MeSH ontology. 
 		-	`06_clean_bacteria.R` builds the `bacteria_genus_species.csv` and  `bacteria_strains_and_resistance_markers.csv` file from `segments.csv` based on NCBI and CARD ontologies, respectively. 
