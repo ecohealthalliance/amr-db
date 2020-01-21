@@ -8,8 +8,8 @@ library(textclean)
 library(assertthat)
 
 # Import Data and Clean Segments -----------------------------
-articles_db <- read_csv(here("data","articles_db.csv")) %>% mutate_all(as.character)
-files <- dir(path = here('data', 'coded_segments'), pattern = "*.xlsx", full.names = TRUE)
+articles_db <- read_csv(here("data-processed","articles_db.csv")) %>% mutate_all(as.character)
+files <- dir(path = here("data-processed", "coded_segments"), pattern = "*.xlsx", full.names = TRUE)
 
 # individual segment data (from MaxQDA exports) - each observation is an instance of an annotation (ungrouped)
 segments_raw <- map_dfr(files, ~read_xlsx(.x, col_types = "text")) %>%
@@ -27,7 +27,7 @@ segments_raw <- map_dfr(files, ~read_xlsx(.x, col_types = "text")) %>%
          end_off) %>%
   distinct()
 
-write_rds(segments_raw,  here("data", "segments_raw.rds"))
+write_rds(segments_raw,  here("data-processed", "segments_raw.rds"))
 
 # QA CHECK - these are all excluded articles or notes on articles, usually due to annotating the title of the article in the PDF. All have strange offsets
 # github issue 6
@@ -108,8 +108,6 @@ segments_grp <- segments_raw %>%
 segments_grp %>%
   mutate(segment_all_check = map_lgl(segment_all, ~length(unique(.x))==1)) %>%
   filter(segment_all_check==FALSE)
-#mutate_if(is.list, funs(from_ls_to_flat(.))) #%>%
-#write_csv(here("data", "data_qa",  "int_segments_check.csv"))
 
 # Split Codes from Code ID's -----------------------------
 
@@ -268,7 +266,7 @@ excluded_studies <- segments %>%
 
 # excluded segments export
 write_csv(segments %>%
-            filter(study_id %in% excluded_studies), path = here("data", "segments_excluded.csv"))
+            filter(study_id %in% excluded_studies), path = here("data-processed", "segments_excluded.csv"))
 
 # omit excluded study IDs from final database
 segments %<>%
@@ -313,5 +311,5 @@ segments %<>%
 segments %<>%
   distinct()
 # final segments db
-write_csv(segments, path = here("data", "segments.csv"))
+write_csv(segments, path = here("data-processed", "segments.csv"))
 

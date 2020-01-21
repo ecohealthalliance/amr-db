@@ -91,7 +91,7 @@ nd <- articles_db %>%
 assert_that(all(nd %in% c("no", "could not access", "not full text")))
 
 # Now, make sure exports (segments) match index
-files <- dir(path = here('data', 'coded_segments'), pattern = "*.xlsx", full.names = TRUE)
+files <- dir(path = here("data-processed", "coded_segments"), pattern = "*.xlsx", full.names = TRUE)
 segments_raw <- map_dfr(files, ~read_xlsx(.x, col_types = "text"))
 
 assert_that(
@@ -136,7 +136,7 @@ articles_db <- articles_db %>%
          article_type = case_when(grepl("promed", .$csv_name) ~ "promed", 
                                   TRUE ~ "journal"))
 
-write_csv(articles_db, path = here("data", "articles_db.csv"))
+write_csv(articles_db, path = here("data-raw", "articles_db.csv"))
 
 # count number of articles that were able to be downloaded
 fct_count(articles_db$downloaded)

@@ -11,7 +11,7 @@ library(assertthat)
 # Structure Date Data-----------------
 
 # read in data
-segments <- read_csv(here::here("data", "segments.csv"))
+segments <- read_csv(here::here("data-processed", "segments.csv"))
 
 # Quick QA response - fixed incorrectly coded segments
 dates <- segments %>% 
@@ -59,7 +59,7 @@ studies_missing_dates %<>% left_join(., missing_list)
 filter(studies_missing_dates, is.na(notes_review_1)) # 18812 is confirmed missing
 
 # also ID studies with missing year
-articles_db <- read_csv(here::here("data", "articles_db.csv"))
+articles_db <- read_csv(here::here("data-processed", "articles_db.csv"))
 
 has_year_id <- dates %>%
   filter(code_main %in% c("event year","event date")) %>%
@@ -173,5 +173,5 @@ mutate(date_nchar = nchar(start_date),
        start_date_rank = recode(date_nchar, '4' = "year", '7' = "month", '10' = "day")) %>%
   select(-date_nchar)
   
-write_csv(clean_dates, here("data/dates.csv"))
+write_csv(clean_dates, here("data-processed", "dates.csv"))
 
