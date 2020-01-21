@@ -48,20 +48,21 @@ This repository contains code, data, and documentation for the AMR events databa
 
 - `scripts/` contains all scripts used to derive outputs. 
 
-	- `database-dev/` - contains scripts to process the data. These are formulated in a pipeline and should be run sequentially.
+	- `database-dev/` contains scripts to process the data. These are formulated in a pipeline and should be run sequentially.
 	
-		-	`01_export_segs_single_mex.scpt` - an applescript that uses the raw `.mex` files to create `coded_segments/` `.xlsx` files.
-		-	`02_index_articles.R` - builds the `articles-db.csv` database using the `screening/selected/` files and `data-raw/coded-text-mex/` files.
-		-	`03_clean_segments.R` - builds the `segments.csv` database using `articles-db.csv` and `data-processed/coded_segments/` `.xlsx` files.
-		-	`04_clean_locations.R` -  builds the `locations.csv` file from `segments.csv` using Google geocoding. 
-		-	`05_clean_drugs.R` -  builds the `drugs.csv` file from `segments.csv` based on MeSH ontology. 
-		-	`06_clean_bacteria.R` -  builds the `bacteria_genus_species.csv` and  `bacteria_strains_and_resistance_markers.csv` file from `segments.csv` based on NCBI and CARD ontologies, respectively. 
-		-	`07_clean_dates.R` -  builds the `dates.csv` file from `segments.csv`. 
-		- 	`99_create_events_db.R` - combines outputs of locations, drugs, bacteria, and dates scripts to create the final database `events_db.csv`.
+		-	`01_export_segs_single_mex.scpt` an applescript that uses the raw `.mex` files to create `coded_segments/` `.xlsx` files.
+		-	`02_index_articles.R` builds the `articles-db.csv` database using the `screening/selected/` files and `data-raw/coded-text-mex/` files.
+		-	`03_clean_segments.R` builds the `segments.csv` database using `articles-db.csv` and `data-processed/coded_segments/` `.xlsx` files.
+		-	`04_clean_locations.R` builds the `locations.csv` file from `segments.csv` using Google geocoding. 
+		-	`05_clean_drugs.R` builds the `drugs.csv` file from `segments.csv` based on MeSH ontology. 
+		-	`06_clean_bacteria.R` builds the `bacteria_genus_species.csv` and  `bacteria_strains_and_resistance_markers.csv` file from `segments.csv` based on NCBI and CARD ontologies, respectively. 
+		-	`07_clean_dates.R`  builds the `dates.csv` file from `segments.csv`. 
+		- 	`99_create_events_db.R` combines outputs of locations, drugs, bacteria, and dates scripts to create the final database `events_db.csv`.
 		
 	- `figure-dev/` - contains scripts to make figures.	
-		- 	`data_summary.R` - creates figures to summarize contents of events database.  Exports to `figures/`.
-		-  	`data_map.R` - creates leaflet map showing location of AMR events.  Exports to `figures/`.
-		-	`flowchart.R` - makes a flowchart of the data pipeline for this project.
-	-`helper/` contains functions to QA the data and to curate and clean the data outside the data generation pipeline. 
+		- 	`data_summary.R` creates figures to summarize contents of events database.  Exports to `figures/`.
+		-  	`data_map.R` creates leaflet map showing location of AMR events.  Exports to `figures/`.
+		-	`flowchart.R` makes a flowchart of the data pipeline for this project. 
+		
+	- `helper/` contains functions to QA the data and to curate and clean the data outside the data generation pipeline. 
 ```
