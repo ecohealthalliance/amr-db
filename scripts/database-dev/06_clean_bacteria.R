@@ -42,7 +42,7 @@ bacteria <- segments %>%
 # clean 
 # dups (NA for bacteria)
 # missing 
-source(here("scripts", "helper_scripts", "functions_qa.R"))
+source(here("scripts", "helper", "functions_qa.R"))
 
 # Identify duplicate bacteria in studies 
 studies_with_dups <- qa_duplicate(bacteria, c("study_id", "code_main", "segment"))
@@ -136,7 +136,7 @@ missing_species <- bacteria_genspe %>%
 # CARD Ontology-----------------
 # for strains and markers
 
-source(here("scripts", "helper_scripts", "functions_card.R"))
+source(here("scripts", "helper", "functions_card.R"))
 
 # Get card id and parents + ancestors
 bacteria_strain_marker <- bacteria %>%

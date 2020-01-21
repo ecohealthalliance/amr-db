@@ -61,7 +61,7 @@ drugs %<>%
 # clean 
 # dups 
 # missing 
-source(here("scripts", "helper_scripts", "functions_qa.R"))
+source(here("scripts", "helper", "functions_qa.R"))
 
 # Identify duplicate drugs in studies
 studies_with_dups <- qa_duplicate(drugs, group_vars = c("study_id", "segment_drug_combo", "segment")) %>%
