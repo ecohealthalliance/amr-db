@@ -20,9 +20,10 @@ This repository contains code, data, and documentation for the AMR events databa
 	
 - `data-processed/` contains all derived data including:
 	-	`coded-segments/` directory contains all exported segments from `.mex` files (exported using MAXQDA). These files can be created via the applscript `scripts/01_export_segs_single_mex.scpt` or manually from MAXQDA.
+	-	`articles-db.csv` is a master list of all the articles that were selected for full-text review. It is the compilation of all csvs in `screening/selected/`.
 	-	`segments-raw.rds` is the raw database, before any data munging. 
-	-	`events-db.csv` is the cleaned and standardized database. It contains the following fields:
-		-        `study_id` - unique study identification number that can be joined with `articles_db` for study metadata.
+	-	`events-db.csv` is the cleaned and standardized database. It contains the following fields: 
+		-	`study_id` - unique study identification number that can be joined with `articles_db` for study metadata.
 		-	`study_country` - name of country where event occurred. Note that there are some studies that report on events in multiple countries.
 		-	`study_iso3c` - three letter International Organization for Standardization (ISO) code
 		-	`study_location` - full study location (including hospital, city, and state if available)
@@ -44,36 +45,23 @@ This repository contains code, data, and documentation for the AMR events databa
 	
 	
 - `figures/` contains data summary figures and map.
-- `scripts/` contains all scripts used to derive outputs. These are formulated in a pipeline and should be run sequentially (or run using the `Makefile`).
-	-	`01_export_segs_single_mex.scpt` - an applescript that uses the raw `.mex` files to create `coded_segments/` `.xlsx` files.
-	-	`02_index_articles.R` - builds the `articles_db.csv` database using the `art_index_csvs/` files and `coded_text_mex/` files.
-	-	`03_clean_segments.R` - builds the `segments.csv` database using the `articles_db.csv` database and derived `coded_segments/` `.xlsx` files.
-	-	`04_clean_locations.R` -  builds the `locations.csv` file from `segments.csv` using Google geocoding. 
-	-	`05_clean_drugs.R` -  builds the `drugs.csv` file from `segments.csv` based on MeSH ontology. 
-	-	`06_clean_bacteria.R` -  builds the `bacteria_genus_species.csv` and  `bacteria_strains_and_resistance_markers.csv` file from `segments.csv` based on NCBI and CARD ontologies, respectively. 
-	-	`07_clean_dates.R` -  builds the `dates.csv` file from `segments.csv`. 
-	- `99_create_events_db.R` - combines outputs of locations, drugs, bacteria, and dates scripts to create the final database as `events_db_full.csv` and `events_db.csv`.
-	- `data_summary.R` - creates figures to summarize contents of events database.  Exports to `figures/`.
-	- `data_map.R` - creates leaflet map showing location of AMR events.  Exports to `figures/`.
-	-	`helper_scripts` contains functions to QA the data and to curate and clean the data outside the data generation pipeline. 
 
----
+- `scripts/` contains all scripts used to derive outputs. 
 
-### Reproducing the Database
-
-First, if you have the package `devtools` installed, you can ensure you have the correct packages installed to run this repo's code by running the following R code: 
-
+	- `database-dev/` - contains scripts to process the data. These are formulated in a pipeline and should be run sequentially.
+	
+		-	`01_export_segs_single_mex.scpt` - an applescript that uses the raw `.mex` files to create `coded_segments/` `.xlsx` files.
+		-	`02_index_articles.R` - builds the `articles-db.csv` database using the `screening/selected/` files and `data-raw/coded-text-mex/` files.
+		-	`03_clean_segments.R` - builds the `segments.csv` database using `articles-db.csv` and `data-processed/coded_segments/` `.xlsx` files.
+		-	`04_clean_locations.R` -  builds the `locations.csv` file from `segments.csv` using Google geocoding. 
+		-	`05_clean_drugs.R` -  builds the `drugs.csv` file from `segments.csv` based on MeSH ontology. 
+		-	`06_clean_bacteria.R` -  builds the `bacteria_genus_species.csv` and  `bacteria_strains_and_resistance_markers.csv` file from `segments.csv` based on NCBI and CARD ontologies, respectively. 
+		-	`07_clean_dates.R` -  builds the `dates.csv` file from `segments.csv`. 
+		- 	`99_create_events_db.R` - combines outputs of locations, drugs, bacteria, and dates scripts to create the final database `events_db.csv`.
+		
+	- `figure-dev/` - contains scripts to make figures.	
+		- 	`data_summary.R` - creates figures to summarize contents of events database.  Exports to `figures/`.
+		-  	`data_map.R` - creates leaflet map showing location of AMR events.  Exports to `figures/`.
+		-	`flowchart.R` - makes a flowchart of the data pipeline for this project.
+	-`helper/` contains functions to QA the data and to curate and clean the data outside the data generation pipeline. 
 ```
-library(devtools)
-install_deps()
-```
-
-The `Makefile` will re-build the project. Before running the `Makefile` you can run `sh gittime.sh` in terminal (from within the repo) to ensure file time stamps represent the time the file was last committed to the repo, not the time the file was last checked out/ cloned from the repo. To run the applescripts, be sure your `Accessibility` settings allow the Terminal app to control your computer. You can set this in `System Preferences > Security & Privacy > Accessibility`.
-
-Main `Makefile` commands are:
-
-- `make aricles_db` 
-- `make segments_db`
-- `make events_db`
-- `clean_mx12` - cleans only `.mx12` files
-- `clean_all` - cleans all files including `.mx12` and `.csv` files 
