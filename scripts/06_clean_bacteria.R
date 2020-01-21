@@ -9,7 +9,7 @@ library(assertthat)
 # Structure Bacteria Data and Manual Corrections-----------------
 
 # Read in data
-segments <- read_csv(here("data", "segments.csv"))
+segments <- read_csv(here("data-processed", "segments.csv"))
 
 # Manual correction
 segments$code_main[segments$study_id==23761 & segments$segment=="klebsiella pneumoniae"] <- "binomial (genus species)"
@@ -115,7 +115,7 @@ bacteria_genspe %<>%
 no_match <- qa_match(bacteria_genspe, "bacteria_id")
 assert_that(nrow(no_match) == 0)
 # Compare with list of studies that were previously cleaned
-articles_db <- read_csv(here("data", "articles_db.csv"))  %>% 
+articles_db <- read_csv(here("data-processed", "articles_db.csv"))  %>% 
   select(study_id, mex_name) %>%
   mutate(study_id = as.character(study_id))
 # clean_list <- gs_read(gs_title("amr_db_clean_bacteria")) 
@@ -127,7 +127,7 @@ articles_db <- read_csv(here("data", "articles_db.csv"))  %>%
 #   filter(is.na(new))
 
 # ID studies that do not have species (only genus or higher)
-articles_db <- read_csv(here("data", "articles_db.csv")) %>% select(study_id, mex_name)
+articles_db <- read_csv(here("data-processed", "articles_db.csv")) %>% select(study_id, mex_name)
 missing_species <- bacteria_genspe %>% 
   filter(bacteria_rank!="species") %>%
   left_join(articles_db) %>%
@@ -183,6 +183,7 @@ bacteria_strain_marker %<>%
 no_match <- qa_match(bacteria_strain_marker, "card_select_id", group_vars = c("segment", "code_main"))
 
 # Separate DBs export-----------------
-write_csv(bacteria_genspe, here("data", "bacteria_genus_species.csv"))
+write_csv(bacteria_genspe, here("data-processed", "bacteria_genus_species.csv"))
 
-write_csv(bacteria_strain_marker, here("data", "bacteria_strains_and_resistance_markers.csv"))
+write_csv(bacteria_strain_marker, here("data-processed", "bacteria_strains_and_resistance_markers.csv"))
+

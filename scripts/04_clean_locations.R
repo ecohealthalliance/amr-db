@@ -9,9 +9,9 @@ library(assertthat)
 library(countrycode)
 
 # Structure Location Data -----------------
-segments <- read_csv(here("data", "segments.csv"), col_types = cols(
+segments <- read_csv(here("data-processed", "segments.csv"), col_types = cols(
   study_id = col_double()))
-articles_db <- read_csv(here("data","articles_db.csv"), col_types = cols(
+articles_db <- read_csv(here("data-processed","articles_db.csv"), col_types = cols(
   study_id = col_double()))
 
 # Structure segments database into location codes dataframe   
@@ -250,4 +250,4 @@ clean_list <- gs_read(gs_title("amr_db_locations_qa"), ws = "review_2_travel", s
 
 updated_studies <- anti_join(trav_locs, clean_list)
 
-write_csv(locations, here("data", "locations.csv"))
+write_csv(locations, here("data-processed", "locations.csv"))

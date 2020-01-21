@@ -9,7 +9,7 @@ library(assertthat)
 # Structure Drugs Data and Manual Corrections-----------------
 
 # Read in data
-segments <- read_csv(here("data", "segments.csv")) 
+segments <- read_csv(here("data-processed", "segments.csv")) 
 
 # Import corrections from manual checking
 cleaned_drug_codes <-
@@ -159,11 +159,11 @@ drugs %<>%
 
 no_match <- qa_match(drugs, "drug_id")
 
-articles_db <- read_csv(here("data", "articles_db.csv"))  %>%
+articles_db <- read_csv(here("data-processed", "articles_db.csv"))  %>%
   select(study_id, mex_name) %>%
   mutate(study_id = as.character(study_id))
 
 no_match %<>% left_join(articles_db)
 assert_that(nrow(no_match) == 0)
 
-write_csv(drugs, here("data", "drugs.csv"))
+write_csv(drugs, here("data-processed", "drugs.csv"))

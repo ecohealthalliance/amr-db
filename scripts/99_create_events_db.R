@@ -5,13 +5,13 @@ library(stringdist)
 library(googlesheets)
 
 #-----------------All data-----------------
-segments <- read_csv(here("data", "segments.csv"))
+segments <- read_csv(here("data-processed", "segments.csv"))
 
-articles_db <- read_csv(here("data", "articles_db.csv")) %>%
+articles_db <- read_csv(here("data-processed", "articles_db.csv")) %>%
   mutate(title = tolower(title)) %>%
   filter(study_id %in% unique(segments$study_id)) 
 
-locations <- read_csv(here("data", "locations.csv")) %>%
+locations <- read_csv(here("data-processed", "locations.csv")) %>%
   group_by(
     study_id,
     code_identifiers,
@@ -26,7 +26,7 @@ locations <- read_csv(here("data", "locations.csv")) %>%
                                       "; ")) %>%
   ungroup() 
 
-bacteria <- read_csv(here("data", "bacteria_genus_species.csv")) %>%
+bacteria <- read_csv(here("data-processed", "bacteria_genus_species.csv")) %>%
   select(
     study_id,
     code_identifiers,
@@ -38,7 +38,7 @@ bacteria <- read_csv(here("data", "bacteria_genus_species.csv")) %>%
     bacteria_parent_name
   )
 
-drugs <- read_csv(here("data", "drugs.csv")) %>%  
+drugs <- read_csv(here("data-processed", "drugs.csv")) %>%  
   group_by(
     study_id,
     code_identifiers,
@@ -73,7 +73,7 @@ drugs %<>%
   filter(segment_drug_combo == FALSE) %>%
   bind_rows(drugs_combos)
 
-dates <- read_csv(here("data", "dates.csv")) 
+dates <- read_csv(here("data-processed", "dates.csv")) 
 
 #-----------------Make full DB-----------------
 event_list <- list(locations, drugs, bacteria, dates)
@@ -208,5 +208,5 @@ events %<>%
   select(-is_first) %>%
   ungroup()
 
-write_csv(events, here("data", "events_db.csv"))
+write_csv(events, here("data-processed", "events_db.csv"))
 

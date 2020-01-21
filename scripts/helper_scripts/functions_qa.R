@@ -5,7 +5,7 @@ library(here)
 
 qa_duplicate <- function(df, group_vars = c("study_id", "segment")){
   
-  articles_db <- read_csv(here("data", "articles_db.csv"))
+  articles_db <- read_csv(here("data-processed", "articles_db.csv"))
   
   # identify duplicates with a letter code identifier and NA, or two of the same code identifiers
   dups <- df %>%
@@ -43,8 +43,8 @@ qa_event <- function(df){
 
 qa_missing <- function(df) {
   
-  articles_db <- read_csv(here("data", "articles_db.csv"))
-  segments <- read_csv(here("data", "segments.csv"))
+  articles_db <- read_csv(here("data-processed", "articles_db.csv"))
+  segments <- read_csv(here("data-processed", "segments.csv"))
   
   not_missing <- df %>% pull(study_id) %>% unique()
   
