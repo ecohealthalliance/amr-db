@@ -12,18 +12,18 @@ This repository contains code, data, and documentation for the AMR events databa
 	-	`selected/` contains `.csv` files listing the articles that were selected for full text review. The `downloaded` column indicates whether articles were successfully downloaded. There is one csv per review batch. 1,791 articles were downloaded for full-text review.
 	
 -  `data-raw/` contains raw data used in the creation of database files including:
-	-	`coded-text-mex/` directory that contains all coded article pdfs as `.mex` files. Note: `.mx12` or `mx.18` files are created as a byproduct of opening a `.mex` file. 
+	-	`coded-text-mex/` directory that contains all coded article pdfs as `.mex` files. Note: `.mx12` or `mx.18` files are created as a byproduct of opening a `.mex` file. These can be deleted. 
+	-	`coded-segments/` directory contains all exported segments from `.mex` files (exported using MAXQDA). These files can be created via the applscript `scripts/01_export_segs_single_mex.scpt` or manually from MAXQDA.
 	-	`card-ontology/` directory contains the Comprehensive Antibiotic Resistance Database ontology.
 	-	`mesh-ontology/` directory contains the Medical Subject Headings ontology.
 	-	`ncbi-ontology/` directory contains the National Center for Biotechnology Information ontology.
 	- 	`maxqda-code-index.csv` contains the schema used to code studies in MAXQDA.
 	
 - `data-processed/` contains all derived data including:
-	-	`coded-segments/` directory contains all exported segments from `.mex` files (exported using MAXQDA). These files can be created via the applscript `scripts/01_export_segs_single_mex.scpt` or manually from MAXQDA.
 	-	`articles-db.csv` is a master list of all the articles that were selected for full-text review. It is the compilation of all csvs in `screening/selected/`.
 	-	`segments-raw.rds` is the raw database, before any data munging. 
 	-	`events-db.csv` is the cleaned and standardized database. It contains the following fields: 
-		-	`study_id` - unique study identification number that can be joined with `articles_db` for study metadata.
+		-	`study_id` - unique study identification number that can be joined with `articles-db.csv` for study metadata.
 		-	`study_country` - name of country where event occurred. Note that there are some studies that report on events in multiple countries.
 		-	`study_iso3c` - three letter International Organization for Standardization (ISO) code
 		-	`study_location` - full study location (including hospital, city, and state if available)
