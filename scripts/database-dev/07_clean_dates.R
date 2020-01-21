@@ -39,7 +39,7 @@ dates %<>%
 # clean 
 # dups 
 # missing (amr_db_missing_dates - issue 12)
-source(here::here("scripts", "helper_scripts", "functions_qa.R"))
+source(here::here("scripts", "helper", "functions_qa.R"))
 
 # Identify duplicate dates in studies
 studies_with_dups <- qa_duplicate(dates) %>%
