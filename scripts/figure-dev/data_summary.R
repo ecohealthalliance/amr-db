@@ -4,7 +4,7 @@ library(cowplot)
 
 
 # Get data ----------------------------------------------------------------
-events <- read_csv(here("data-processed", "events_db.csv")) %>%
+events <- read_csv(here("data-processed", "events-db.csv")) %>%
   mutate(drug = str_remove_all(drug, "drug|combination")) %>%
   mutate(drug = str_replace_all(drug, ",", " + ")) %>%
   mutate(drug = str_squish(drug)) %>%
@@ -16,7 +16,7 @@ events <- read_csv(here("data-processed", "events_db.csv")) %>%
 # see amr-db.csv in AMR repo for all article abstracts reviewed - 23770
 # see link_tracking_current_07122018.xls for all promed abstracts reviewed - 1196
 23770 + 1196
-read_csv(here("data-processed","articles_db.csv")) %>% filter(downloaded == "yes") %>% nrow() # number abstracts reviewed
+read_csv(here("data-processed","articles-db.csv")) %>% filter(downloaded == "yes") %>% nrow() # number abstracts reviewed
 # promed_article_index.csv has number of promeds reviewed - 208
 1583 + 208
   

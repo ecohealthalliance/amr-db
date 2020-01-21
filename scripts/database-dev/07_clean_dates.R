@@ -59,7 +59,7 @@ studies_missing_dates %<>% left_join(., missing_list)
 filter(studies_missing_dates, is.na(notes_review_1)) # 18812 is confirmed missing
 
 # also ID studies with missing year
-articles_db <- read_csv(here::here("data-processed", "articles_db.csv"))
+articles_db <- read_csv(here::here("data-processed", "articles-db.csv"))
 
 has_year_id <- dates %>%
   filter(code_main %in% c("event year","event date")) %>%

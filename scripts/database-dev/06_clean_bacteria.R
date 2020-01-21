@@ -115,7 +115,7 @@ bacteria_genspe %<>%
 no_match <- qa_match(bacteria_genspe, "bacteria_id")
 assert_that(nrow(no_match) == 0)
 # Compare with list of studies that were previously cleaned
-articles_db <- read_csv(here("data-processed", "articles_db.csv"))  %>% 
+articles_db <- read_csv(here("data-processed", "articles-db.csv"))  %>% 
   select(study_id, mex_name) %>%
   mutate(study_id = as.character(study_id))
 # clean_list <- gs_read(gs_title("amr_db_clean_bacteria")) 
@@ -127,7 +127,7 @@ articles_db <- read_csv(here("data-processed", "articles_db.csv"))  %>%
 #   filter(is.na(new))
 
 # ID studies that do not have species (only genus or higher)
-articles_db <- read_csv(here("data-processed", "articles_db.csv")) %>% select(study_id, mex_name)
+articles_db <- read_csv(here("data-processed", "articles-db.csv")) %>% select(study_id, mex_name)
 missing_species <- bacteria_genspe %>% 
   filter(bacteria_rank!="species") %>%
   left_join(articles_db) %>%

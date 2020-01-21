@@ -7,7 +7,7 @@ library(googlesheets)
 #-----------------All data-----------------
 segments <- read_csv(here("data-processed", "segments.csv"))
 
-articles_db <- read_csv(here("data-processed", "articles_db.csv")) %>%
+articles_db <- read_csv(here("data-processed", "articles-db.csv")) %>%
   mutate(title = tolower(title)) %>%
   filter(study_id %in% unique(segments$study_id)) 
 
@@ -208,5 +208,5 @@ events %<>%
   select(-is_first) %>%
   ungroup()
 
-write_csv(events, here("data-processed", "events_db.csv"))
+write_csv(events, here("data-processed", "events-db.csv"))
 
