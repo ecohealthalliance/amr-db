@@ -21,7 +21,7 @@ This repository contains code, data, and documentation for the AMR events databa
 	
 - `data-processed/` contains all derived data including:
 	-	`articles-db.csv` is a master list of all the articles that were selected for full-text review. It is the compilation of all csvs in `screening/selected/`.
-	-	`segments-raw.rds` is the raw database, before any data munging. 
+	-	`segments.csv` is the raw database, before any data munging. 
 	-	`events-db.csv` is the cleaned and standardized database. It contains the following fields: 
 		-	`study_id` - unique study identification number that can be joined with `articles-db.csv` for study metadata.
 		-	`study_country` - name of country where event occurred. Note that there are some studies that report on events in multiple countries.
