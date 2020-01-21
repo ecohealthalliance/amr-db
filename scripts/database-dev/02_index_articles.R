@@ -20,7 +20,7 @@ read_article_csvs <- function(fileloc, filename){
   return(each_article_csv)
 }
 
-fileloc <- here("data-raw", "art_index_csvs")
+fileloc <- here("screening", "selected")
 files <- list.files(fileloc)
 
 articles_db <- map_df(files, ~read_article_csvs(fileloc, .x)) %>%
@@ -53,8 +53,8 @@ src_sqlite_mex <- function(fileloc, filename){
   return(table)
 }
 
-fileloc <- here("data-raw", "coded_text_mex")
-files <- list.files("data-raw/coded_text_mex/", pattern = "*.mex")
+fileloc <- here("data-raw", "coded-text-mex")
+files <- list.files("data-raw/coded-text-mex/", pattern = "*.mex")
 mex <- map_df(files, ~src_sqlite_mex(fileloc, .x)) 
 
 # Check for mex file dupes 
@@ -79,7 +79,7 @@ assert_that(
 assert_that(
   mex %>%
     filter(!study_id %in% articles_db$study_id) %>%
-    nrow() == 0 )
+    nrow() == 0 ) 
 
 # Join mex file names into index
 articles_db <- left_join(articles_db, mex)
@@ -136,9 +136,10 @@ articles_db <- articles_db %>%
          article_type = case_when(grepl("promed", .$csv_name) ~ "promed", 
                                   TRUE ~ "journal"))
 
-write_csv(articles_db, path = here("data-raw", "articles_db.csv"))
+write_csv(articles_db, path = here("data-processed", "articles-db.csv"))
 
 # count number of articles that were able to be downloaded
 fct_count(articles_db$downloaded)
 fct_count(articles_db$in_codes_db)
 fct_count(articles_db$include)
+

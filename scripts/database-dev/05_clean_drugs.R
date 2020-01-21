@@ -159,7 +159,7 @@ drugs %<>%
 
 no_match <- qa_match(drugs, "drug_id")
 
-articles_db <- read_csv(here("data-processed", "articles_db.csv"))  %>%
+articles_db <- read_csv(here("data-processed", "articles-db.csv"))  %>%
   select(study_id, mex_name) %>%
   mutate(study_id = as.character(study_id))
 

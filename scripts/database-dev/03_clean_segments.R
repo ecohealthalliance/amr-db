@@ -8,8 +8,8 @@ library(textclean)
 library(assertthat)
 
 # Import Data and Clean Segments -----------------------------
-articles_db <- read_csv(here("data-processed","articles_db.csv")) %>% mutate_all(as.character)
-files <- dir(path = here("data-processed", "coded_segments"), pattern = "*.xlsx", full.names = TRUE)
+articles_db <- read_csv(here("data-processed","articles-db.csv")) %>% mutate_all(as.character)
+files <- dir(path = here("data-processed", "coded-segments"), pattern = "*.xlsx", full.names = TRUE)
 
 # individual segment data (from MaxQDA exports) - each observation is an instance of an annotation (ungrouped)
 segments_raw <- map_dfr(files, ~read_xlsx(.x, col_types = "text")) %>%
@@ -27,7 +27,7 @@ segments_raw <- map_dfr(files, ~read_xlsx(.x, col_types = "text")) %>%
          end_off) %>%
   distinct()
 
-write_rds(segments_raw,  here("data-processed", "segments_raw.rds"))
+write_rds(segments_raw,  here("data-processed", "segments-raw.rds"))
 
 # QA CHECK - these are all excluded articles or notes on articles, usually due to annotating the title of the article in the PDF. All have strange offsets
 # github issue 6
@@ -266,7 +266,7 @@ excluded_studies <- segments %>%
 
 # excluded segments export
 write_csv(segments %>%
-            filter(study_id %in% excluded_studies), path = here("data-processed", "segments_excluded.csv"))
+            filter(study_id %in% excluded_studies), path = here("data-processed", "segments-excluded.csv"))
 
 # omit excluded study IDs from final database
 segments %<>%

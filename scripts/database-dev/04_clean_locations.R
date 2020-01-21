@@ -11,7 +11,7 @@ library(countrycode)
 # Structure Location Data -----------------
 segments <- read_csv(here("data-processed", "segments.csv"), col_types = cols(
   study_id = col_double()))
-articles_db <- read_csv(here("data-processed","articles_db.csv"), col_types = cols(
+articles_db <- read_csv(here("data-processed","articles-db.csv"), col_types = cols(
   study_id = col_double()))
 
 # Structure segments database into location codes dataframe   
@@ -144,8 +144,8 @@ geocode_locations <- tibble(geocode_loc = c(locations$study_location, locations$
 
 # If data has already been geocoded, load geocodes but identify if any new codes exist that need to be geocoded
 
-if (file.exists(here("data-raw", "geocode_locations_complete.csv"))) {
-  former_geocode_locations <- read_csv(here("data-raw", "geocode_locations_complete.csv"))
+if (file.exists(here("data-processed", "geocode-locations-complete.csv"))) {
+  former_geocode_locations <- read_csv(here("data-processed", "geocode-locations-complete.csv"))
   new_to_geocode <- anti_join(geocode_locations, former_geocode_locations) %>%
     unique()
   
@@ -167,7 +167,7 @@ if (file.exists(here("data-raw", "geocode_locations_complete.csv"))) {
     mutate_geocode(geocode_loc) 
 }
 
-write_csv(geocode_locations_to_use, here("data-raw", "geocode_locations_complete.csv")) 
+write_csv(geocode_locations_to_use, here("data-processed", "geocode-locations-complete.csv")) 
 
 locations %<>%
   left_join(geocode_locations_to_use, by = c("travel_location" = "geocode_loc")) %>%
