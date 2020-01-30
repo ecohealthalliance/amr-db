@@ -76,6 +76,7 @@ locations %<>%
             funs(stri_replace_all_regex(., cleaned_location_codes$old, cleaned_location_codes$new, 
                                         vectorize_all = FALSE))) %>%
   mutate_if(is_character, ~ifelse(. == ' ', NA, trimws(., "both"))) %>% # bring back NA's
+  mutate_if(is_character, ~gsub("ho\\^pital", "hospital",.)) %>%
   mutate_if(is_character, ~gsub(",$", "",.)) %>%
   mutate_if(is_character, ~gsub("  ", " ",.)) %>%
   mutate_if(is_character, ~gsub("`|\\'|\\~", "", iconv(., to="ASCII//TRANSLIT"))) %>% # remove accents
