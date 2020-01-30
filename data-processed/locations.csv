@@ -5,7 +5,7 @@ study_id,code_identifiers,code_identifiers_link,events_id,study_city,study_count
 137,NA,NA,137_1,marseille,France,NA,NA,NA,NA,travel_loc_1,"city, country","marseille, france",NA,NA,NA,NA,5.36978,43.296482,FRA
 172,NA,NA,172_1,NA,Turkey,NA,NA,NA,NA,travel_loc_1,country,turkey,NA,NA,NA,NA,35.243322,38.963745,TUR
 183,NA,NA,183_1,constantine,Algeria,NA,military hospital of constantine,tunisia,NA,travel_loc_1,"hospital, city, country","military hospital of constantine, constantine, algeria",9.537499,33.886917,NA,NA,6.6116171,36.3700086,DZA
-202,NA,NA,202_1,algiers,Algeria,NA,ho^pital central de larmee of algiers,NA,NA,travel_loc_1,"hospital, city, country","ho^pital central de larmee of algiers, algiers, algeria",NA,NA,NA,NA,3.0494823,36.794825,DZA
+202,NA,NA,202_1,algiers,Algeria,NA,hospital central de larmee of algiers,NA,NA,travel_loc_1,"hospital, city, country","hospital central de larmee of algiers, algiers, algeria",NA,NA,NA,NA,3.0494823,36.794825,DZA
 232,NA,NA,232_1,NA,Spain,NA,NA,NA,NA,travel_loc_1,country,spain,NA,NA,NA,NA,-3.74922,40.46366700000001,ESP
 261,NA,NA,261_1,edmonton,Canada,canada,NA,india,alberta,travel_loc_1,"city, state_province_district, country","edmonton, alberta, canada",78.96288,20.593684,-106.346771,56.130366,-113.4909267,53.544389,CAN
 267,NA,NA,267_1,NA,Palestinian Territories,NA,NA,NA,NA,travel_loc_1,country,palestine,NA,NA,NA,NA,35.233154,31.952162,PSE
