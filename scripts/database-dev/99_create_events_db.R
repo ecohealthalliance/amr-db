@@ -208,5 +208,5 @@ events %<>%
   select(-is_first) %>%
   ungroup()
 
-write_csv(events, here("data-processed", "events-db.csv"))
+write_csv(events, here("events-db.csv"))
 

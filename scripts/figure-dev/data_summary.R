@@ -4,7 +4,7 @@ library(cowplot)
 
 
 # Get data ----------------------------------------------------------------
-events <- read_csv(here("data-processed", "events-db.csv")) %>%
+events <- read_csv(here("events-db.csv")) %>%
   mutate(drug = str_remove_all(drug, "drug|combination")) %>%
   mutate(drug = str_replace_all(drug, ",", " + ")) %>%
   mutate(drug = str_squish(drug)) %>%

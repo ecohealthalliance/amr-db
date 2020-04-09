@@ -9,7 +9,7 @@ library(rnaturalearthdata)
 library(mapview)
 library(countrycode)
 
-events <- read_csv(here("data-processed", "events-db.csv"))
+events <- read_csv(here("events-db.csv"))
 
 locs <- read_csv(here("data-processed", "locations.csv")) %>%
   mutate(study_resolution = gsub(",.*$", "", study_location_basis)) %>%
