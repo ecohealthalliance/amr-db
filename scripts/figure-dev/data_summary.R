@@ -81,7 +81,7 @@ heatmap <- ggplot(heatmap_mat %>%
                     mutate(drug = fct_rev(drug)),
                   aes(bacteria, drug)) + 
   geom_tile(color = "black", aes(fill = n), alpha = 0.5) +
-  geom_text(aes(label = n), color = "black", size = 7) +
+  geom_text(aes(label = n), color = "black", size = 5) +
   scale_fill_viridis_c(guide = FALSE, alpha = 0.5, na.value="transparent") +
   scale_x_discrete(position = "top", expand = c(0, 0)) +
   scale_y_discrete(expand = c(0, 0)) +
@@ -127,9 +127,11 @@ bact_total <- top_bact %>%
         axis.ticks = element_blank())
 ggsave(here("figures/bacteria-barchart.png"), width = 12, height = 9)
 
-plot_grid(drugs_total, NULL, bact_total, nrow = 1,
+top_row <- plot_grid(drugs_total, NULL, bact_total, nrow = 1,
           rel_widths = c(1, 0.05, 1), labels = c('A', '', 'B'), label_size = 12)
-ggsave(here("figures/drug-bacteria-barchart.png"), width = 14, height = 7)
+bottom_row <- plot_grid(heatmap, labels = 'C', label_size = 12)
+plot_grid(top_row, bottom_row, nrow = 2)
+ggsave(here("figures/drug-bacteria-barchart.png"), width = 19.5, height = 12)
 
 # Publications over time --------------------------------------------------
 events %>%
