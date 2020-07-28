@@ -6904,64 +6904,70 @@ study_id,segment,code_identifiers,code_main,code_identifiers_link
 23314,austria,a,country,age; city; country; country of residence; event month; event year; hospital name; sex
 8982,cervical myelopathy,f,comorbidities,age; comorbidities; outcome; sex; symptoms/disease
 8982,cervical myelopathy,f,symptoms/disease,age; comorbidities; outcome; sex; symptoms/disease
-10209,64,d,mic,drug resisted; mic
+10209,64.0,d,mic,drug resisted; mic
 10443,ampicillin/sulbactam,h,drug resisted,drug resisted; mic
-10443,128,i,mic,drug resisted; mic
-10445,128,m,mic,drug resisted; mic
-11201,32,i,mic,drug resisted; mic
-11303,8,a,mic,drug resisted; mic
-11303,32,b,mic,drug resisted; mic
-11303,32,c,mic,drug resisted; mic
-11303,32,h,mic,drug resisted; mic
-11303,64,h,mic,drug resisted; mic
-11303,64,i,mic,drug resisted; mic
-11303,64,j,mic,drug resisted; mic
-11303,32,m,mic,drug resisted; mic
-11303,8,n,mic,drug resisted; mic
-11303,256,o,mic,drug resisted; mic
-11303,32,p,mic,drug resisted; mic
-11303,8,q,mic,drug resisted; mic
+10443,128.0,i,mic,drug resisted; mic
+10445,128.0,m,mic,drug resisted; mic
+11201,32.0,i,mic,drug resisted; mic
+11303,8.0,a,mic,drug resisted; mic
+11303,32.0,b,mic,drug resisted; mic
+11303,32.0,c,mic,drug resisted; mic
+11303,8.0,d,mic,drug resisted; mic
+11303,32.0,e,mic,drug resisted; mic
+11303,64.0,g,mic,drug resisted; mic
+11303,32.0,h,mic,drug resisted; mic
+11303,64.0,h,mic,drug resisted; mic
+11303,64.0,i,mic,drug resisted; mic
+11303,64.0,j,mic,drug resisted; mic
+11303,128.0,k,mic,drug resisted; mic
+11303,32.0,l,mic,drug resisted; mic
+11303,32.0,m,mic,drug resisted; mic
+11303,8.0,n,mic,drug resisted; mic
+11303,256.0,o,mic,drug resisted; mic
+11303,32.0,p,mic,drug resisted; mic
+11303,8.0,q,mic,drug resisted; mic
+11303,16.0,r,mic,drug resisted; mic
 11508,6 months,c,age,age; drug resisted; mic; sex; state/province/district; symptoms/disease
 11508,male,c,sex,age; drug resisted; mic; sex; state/province/district; symptoms/disease
 12065,≥64,k,mic,drug resisted; mic
-12359,16,o,mic,drug resisted; mic
-1288,32,b,mic,drug resisted; mic
-12887,128,e,mic,drug resisted; mic
-12887,64,f,mic,drug resisted; mic
-12905,64,f,mic,drug resisted; mic
+12359,16.0,o,mic,drug resisted; mic
+1288,32.0,b,mic,drug resisted; mic
+12887,128.0,e,mic,drug resisted; mic
+12887,64.0,f,mic,drug resisted; mic
+12905,64.0,f,mic,drug resisted; mic
 13223,≥16,e,mic,drug resisted; mic
 13772,amoxicillin,b,drug resisted,binomial (genus species); drug resisted
 13772,amoxicillin/clavulanic acid,b,drug resisted,binomial (genus species); drug resisted
 13772,ceftazidime,b,drug resisted,binomial (genus species); drug resisted
 13772,colistin,b,drug resisted,binomial (genus species); drug resisted
-13994,16,e,mic,drug resisted; mic
+13994,16.0,e,mic,drug resisted; mic
 15268,‡32,d,mic,drug resisted; mic
-15378,128,d,mic,drug resisted; mic
-15378,32,f,mic,drug resisted; mic
-16837,48,a,age,age; binomial (genus species); comorbidities; sex; symptoms/disease
+15378,128.0,d,mic,drug resisted; mic
+15378,32.0,f,mic,drug resisted; mic
+16837,48.0,a,age,age; binomial (genus species); comorbidities; sex; symptoms/disease
 16837,man,a,sex,age; binomial (genus species); comorbidities; sex; symptoms/disease
-1786,32,m,mic,drug resisted; mic
-19152,32,a,mic,drug resisted; mic
-19152,128,b,mic,drug resisted; mic
-19152,64,d,mic,drug resisted; mic
-19152,64,e,mic,drug resisted; mic
-19152,64,f,mic,drug resisted; mic
-19152,16,g,mic,drug resisted; mic
-19267,18,g,mic,drug resisted; mic
+1786,32.0,m,mic,drug resisted; mic
+19152,32.0,a,mic,drug resisted; mic
+19152,128.0,b,mic,drug resisted; mic
+19152,64.0,d,mic,drug resisted; mic
+19152,64.0,e,mic,drug resisted; mic
+19152,64.0,f,mic,drug resisted; mic
+19152,16.0,g,mic,drug resisted; mic
+19267,18.0,g,mic,drug resisted; mic
 19267,rif,g,drug resisted,drug resisted; mic
 21192,>1 [ns],e,mic,drug resisted; mic
 21192,o daptomycin,e,drug resisted,drug resisted; mic
-23107,32,l,mic,drug resisted; mic
+23107,32.0,l,mic,drug resisted; mic
 2389,> 64,b,mic,drug resisted; mic
-2419,8,n,mic,drug resisted; mic
-2419,4,o,mic,drug resisted; mic
-2419,8,q,mic,drug resisted; mic
+2419,8.0,n,mic,drug resisted; mic
+2419,4.0,o,mic,drug resisted; mic
+2419,8.0,q,mic,drug resisted; mic
 267,>512,a,mic,drug resisted; mic
 2889,256 mg/liter,b,mic,drug resisted; mic
-3235,8,f,mic,drug resisted; mic
+3235,8.0,f,mic,drug resisted; mic
 360,cmul332,f,strain,resistance marker; strain
 360,cmul334,g,strain,resistance marker; strain
-3799,4096,a,mic,drug resisted; mic
+3799,4096.0,a,mic,drug resisted; mic
 3799,azithromycin,a,drug resisted,drug resisted; mic
 3799,"erythromy
 cin",b,drug resisted,drug resisted; mic
@@ -6973,10 +6979,11 @@ cin",b,drug resisted,drug resisted; mic
 3882,>256,k,mic,drug resisted; mic
 3882,cefuroxime,k,drug resisted,drug resisted; mic
 5251,>256,b,mic,drug resisted; mic
-5560,32,c,mic,drug resisted; mic
+5560,32.0,c,mic,drug resisted; mic
+5560,128.0,NA,mic,NA
 5774,klebsiella pneumoniae,bb,binomial (genus species),binomial (genus species); drug resisted; mic; resistance marker
 5774,>32,bb,mic,binomial (genus species); drug resisted; mic; resistance marker
-580,128,d,mic,drug resisted; mic
+580,128.0,d,mic,drug resisted; mic
 6467,>256,b,mic,drug resisted; mic
 6467,>256,c,mic,drug resisted; mic
 6467,>256,d,mic,drug resisted; mic
@@ -6985,8 +6992,8 @@ cin",b,drug resisted,drug resisted; mic
 6467,>256,h,mic,drug resisted; mic
 6467,>256,i,mic,drug resisted; mic
 6467,>32,k,mic,drug resisted; mic
-6492,64,d,mic,drug resisted; mic
-6492,16,g,mic,drug resisted; mic
+6492,64.0,d,mic,drug resisted; mic
+6492,16.0,g,mic,drug resisted; mic
 7585,0.256,g,mic,drug resisted; mic
 7585,0.256,m,mic,drug resisted; mic
 7620,≥ 32,b,mic,drug resisted; mic
@@ -7001,20 +7008,21 @@ cin",b,drug resisted,drug resisted; mic
 8591,¢16,j,mic,drug resisted; mic
 8591,¢32,k,mic,drug resisted; mic
 8591,¢16,m,mic,drug resisted; mic
-8653,2,a,mic,drug resisted; mic
+8653,2.0,a,mic,drug resisted; mic
 9045,cefotetan,a,drug resisted,drug resisted; mic
-9075,256,a,mic,binomial (genus species); drug resisted; mic; resistance marker; strain
-9075,256,c,mic,binomial (genus species); drug resisted; mic; strain
-9075,256,e,mic,drug resisted; mic
-9075,64,aa,mic,binomial (genus species); drug resisted; mic; resistance marker; strain
-9075,64,f,mic,drug resisted; mic
-9075,64,g,mic,drug resisted; mic
-9075,64,h,mic,drug resisted; mic
-9075,64,i,mic,drug resisted; mic
-9075,256,j,mic,drug resisted; mic
-9075,256,b,mic,binomial (genus species); drug resisted; mic; strain
-9075,256,bb,mic,binomial (genus species); drug resisted; mic; resistance marker
-9075,64,bb,mic,binomial (genus species); drug resisted; mic; resistance marker
+9075,256.0,a,mic,binomial (genus species); drug resisted; mic; resistance marker; strain
+9075,256.0,aa,mic,binomial (genus species); drug resisted; mic; resistance marker; strain
+9075,256.0,c,mic,binomial (genus species); drug resisted; mic; strain
+9075,256.0,e,mic,drug resisted; mic
+9075,64.0,aa,mic,binomial (genus species); drug resisted; mic; resistance marker; strain
+9075,64.0,f,mic,drug resisted; mic
+9075,64.0,g,mic,drug resisted; mic
+9075,64.0,h,mic,drug resisted; mic
+9075,64.0,i,mic,drug resisted; mic
+9075,256.0,j,mic,drug resisted; mic
+9075,256.0,b,mic,binomial (genus species); drug resisted; mic; strain
+9075,256.0,bb,mic,binomial (genus species); drug resisted; mic; resistance marker
+9075,64.0,bb,mic,binomial (genus species); drug resisted; mic; resistance marker
 9075,gb661,c,strain,binomial (genus species); drug resisted; mic; strain
 9075,ampicillin,c,drug resisted,binomial (genus species); drug resisted; mic; strain
 9075,ampicillin,b,drug resisted,binomial (genus species); drug resisted; mic; strain
@@ -7040,13 +7048,14 @@ cin",b,drug resisted,drug resisted; mic
 9075,meropenem,c,drug resisted,binomial (genus species); drug resisted; mic; strain
 9075,meropenem,b,drug resisted,binomial (genus species); drug resisted; mic; strain
 9075,meropenem,a,drug resisted,binomial (genus species); drug resisted; mic; resistance marker; strain
-9075,256,cc,mic,binomial (genus species); drug resisted; mic; resistance marker; strain
-9075,256,k,mic,drug resisted; mic
-9075,256,d,mic,drug resisted; mic
-9075,256,f,mic,drug resisted; mic
+9075,256.0,cc,mic,binomial (genus species); drug resisted; mic; resistance marker; strain
+9075,64.0,cc,mic,binomial (genus species); drug resisted; mic; resistance marker; strain
+9075,256.0,k,mic,drug resisted; mic
+9075,256.0,d,mic,drug resisted; mic
+9075,256.0,f,mic,drug resisted; mic
 9885,63-,b,age,age; sex; strain
-9989,4096,c,mic,drug resisted; mic
-9989,64,g,mic,drug resisted; mic
+9989,4096.0,c,mic,drug resisted; mic
+9989,64.0,g,mic,drug resisted; mic
 1005663,isoniazid,NA,drug resisted,NA
 1005663,rifampicin,NA,drug resisted,NA
 1005663,ethambutol,NA,drug resisted,NA

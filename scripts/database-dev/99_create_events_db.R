@@ -2,7 +2,6 @@ library(tidyverse)
 library(magrittr)
 library(here)
 library(stringdist)
-library(googlesheets)
 
 #-----------------All data-----------------
 segments <- read_csv(here("data-processed", "segments.csv"))
@@ -152,7 +151,7 @@ articles_dups_fuzz <- expand.grid(articles_db$title, articles_db$title) %>%
 
 #-----------------Get unique events per country-----------------
 # first remove dups based on above review
-dups_remove <- gs_read(gs_title("amr_db_dups_titles"), ws = "exact_match") %>% # google spreadsheet with field cleanup
+dups_remove <- read_excel(here::here("manual-qa", "amr_db_dups_titles.xlsx"), sheet = "exact_match") %>% # google spreadsheet with field cleanup
   as_tibble() %>% 
   filter(NOTES=="delete") %>%
   pull(study_id) 
@@ -160,7 +159,7 @@ dups_remove <- gs_read(gs_title("amr_db_dups_titles"), ws = "exact_match") %>% #
 events %<>% filter(!study_id %in% dups_remove)
 
 # this isn't all the fuzzy dups, but they should be removed by the filtering for first events below
-fuzzy_dups_remove <- gs_read(gs_title("amr_db_dups_titles"), ws = "fuzzy_match") %>% # google spreadsheet with field cleanup
+fuzzy_dups_remove <- read_excel(here::here("manual-qa", "amr_db_dups_titles.xlsx"), sheet = "fuzzy_match") %>% # google spreadsheet with field cleanup
   as_tibble() %>% 
   filter(!is.na(delete)) %>%
   pull(delete) 

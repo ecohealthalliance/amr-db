@@ -1,9 +1,9 @@
 library(tidyverse)
 library(magrittr)
+library(readxl)
 library(stringi)
 library(here)
 library(janitor)
-library(googlesheets)
 library(assertthat)
 
 # Structure Bacteria Data and Manual Corrections-----------------
@@ -16,7 +16,7 @@ segments$code_main[segments$study_id==23761 & segments$segment=="klebsiella pneu
 
 # Import corrections from manual checking
 cleaned_bacteria_codes <-
-  gs_read(gs_title("amr_db_clean_bacteria")) %>% as.tibble() %>% filter(new != "--") %>% #google spreadsheet with field cleanup
+  read_excel(here("manual-qa", "amr_db_clean_bacteria.xlsx")) %>% as.tibble() %>% filter(new != "--") %>% #google spreadsheet with field cleanup
   mutate(segment = paste0("^", segment, "$")) %>%
   mutate(new = ifelse(is.na(new_new), new, new_new))
 
@@ -118,7 +118,7 @@ assert_that(nrow(no_match) == 0)
 articles_db <- read_csv(here("data-processed", "articles-db.csv"))  %>% 
   select(study_id, mex_name) %>%
   mutate(study_id = as.character(study_id))
-# clean_list <- gs_read(gs_title("amr_db_clean_bacteria")) 
+# clean_list <- read_excel(here("manual-qa", "amr_db_clean_bacteria.xlsx")) 
 # clean_list_with_mex <- clean_list %>%
 #   filter(is.na(`Confirm Y?`)) %>%
 #   left_join(articles_db)

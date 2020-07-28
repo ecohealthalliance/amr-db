@@ -1,9 +1,9 @@
 library(tidyverse)
+library(readxl)
 library(magrittr)
 library(stringi)
 library(here)
 library(janitor)
-library(googlesheets)
 library(assertthat)
 
 # Structure Drugs Data and Manual Corrections-----------------
@@ -13,7 +13,7 @@ segments <- read_csv(here("data-processed", "segments.csv"))
 
 # Import corrections from manual checking
 cleaned_drug_codes <-
-  gs_read(gs_title("amr_db_clean_drugs")) %>%  #google spreadsheet with field cleanup
+  read_excel(here("manual-qa", "amr_db_clean_drugs.xlsx")) %>%   #field cleanup
   mutate(segment = paste0("^", segment, "$"),
          new = ifelse(!is.na(new_correct), new_correct, new)) %>%
   filter(new != "--")
@@ -73,7 +73,7 @@ studies_missing_drugs <- qa_missing(drugs)
 #gs_new("amr_db_missing_drugs_study_id", input=studies_missing_drugs)
 
 # Compare with list of studies that were evaluated for missing drug codes (review 2)
-missing_list <- gs_read(gs_title("amr_db_missing_drugs_study_id"), ws = "review_2") 
+missing_list <- read_excel(here("manual-qa" ,"amr_db_missing_drugs_study_id.xlsx"), sheet = "review_2") 
 studies_missing_drugs %<>% left_join(., missing_list) # 18812 is confirmed missing
 
 # QA Response-----------------

@@ -1,7 +1,6 @@
 library(here)
 library(readxl)
 library(magrittr)
-library(googlesheets)
 library(stringi)
 library(tidyverse)
 library(textclean)
@@ -163,7 +162,7 @@ fixed_codes_mult %<>%
   bind_rows(review_codes_mult)
 
 # id orphan id codes (no main code) - these are checked manually 
-# amr_db_orphan_id_codes on google drive - github issue 5 
+# amr_db_orphan_id_codes on from qa folder - github issue 5 
 orphan_id_codes <- problem_id_codes %>% 
   filter(map_lgl(code_main, ~length(.x) == 0)) %>%
   mutate_if(is.list, funs(from_ls_to_flat(.))) %>%
@@ -171,10 +170,10 @@ orphan_id_codes <- problem_id_codes %>%
   left_join(select(articles_db, study_id, mex_name), by = "study_id") %>%
   distinct()
 
-# bring in orphan ids that have been fixed manually on google drive
-orphan_id_codes_review <- gs_read(gs_title("amr_db_orphan_id_codes"), ws = "review_1") %>%
-  bind_rows(gs_read(gs_title("amr_db_orphan_id_codes"), ws = "review_2")) %>%
-  bind_rows(gs_read(gs_title("amr_db_orphan_id_codes"), ws = "review_3")) %>%
+# bring in orphan ids that have been fixed manually
+orphan_id_codes_review <- read_excel(here("manual-qa", "amr_db_orphan_id_codes.xlsx"),sheet = "review_1") %>%
+  bind_rows(read_excel(here("manual-qa", "amr_db_orphan_id_codes.xlsx"),sheet = "review_2")) %>%
+  bind_rows(read_excel(here("manual-qa", "amr_db_orphan_id_codes.xlsx"),sheet = "review_3")) %>%
   mutate(study_id = as.character(study_id)) 
 
 fixed_codes_orphans <- orphan_id_codes_review %>% 
@@ -182,7 +181,7 @@ fixed_codes_orphans <- orphan_id_codes_review %>%
   select(-Notes, -mex_name, -code_main_cat, -new_segment, -comments) %>%
   distinct()
 
-# prep fixed codes (from google drive) and orphan id codes (generated on fly with latest data) for merging
+# prep fixed codes (from qa folder) and orphan id codes (generated on fly with latest data) for merging
 fixed_codes_orphans %<>%
   group_by(study_id, code_identifiers) %>%
   arrange(study_id, code_identifiers, segment) %>%
@@ -195,7 +194,7 @@ orphan_id_codes %<>%
 
 # remove from fixed_codes_orphans anything that is no longer current (b/c files have been updated post QA check)
 remove_orphan_ids <- anti_join(
-  # data frame 1 (all codes that have been manually fixed on google drive)
+  # data frame 1 (all codes that have been manually fixed)
   fixed_codes_orphans, 
   # data frame 2 (all orphan id codes)
   orphan_id_codes,

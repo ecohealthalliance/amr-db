@@ -100,7 +100,7 @@ study_id,code_identifiers,code_identifiers_link,events_id,study_city,study_count
 7108,NA,NA,7108_1,NA,Denmark,NA,NA,egypt,NA,travel_loc_1,country,denmark,30.802498,26.820553,NA,NA,9.501785,56.26392,DNK
 7108,NA,NA,7108_1,NA,Denmark,NA,NA,turkey,NA,travel_loc_2,country,denmark,35.243322,38.963745,NA,NA,9.501785,56.26392,DNK
 7369,NA,NA,7369_1,rome,Italy,NA,NA,NA,NA,travel_loc_1,"city, country","rome, italy",NA,NA,NA,NA,12.4963655,41.9027835,ITA
-7437,NA,NA,7437_1,otago,New Zealand,new zealand,NA,NA,NA,travel_loc_1,"city, country","otago, new zealand",NA,NA,174.885971,-40.900557,170.1547567,-45.47906709999999,NZL
+7437,NA,NA,7437_1,otago,New Zealand,he was born in burma myanmar but had emigrated to new zealand in 6,NA,NA,NA,travel_loc_1,"city, country","otago, new zealand",NA,NA,NA,NA,170.1547567,-45.47906709999999,NZL
 7440,NA,NA,7440_1,NA,Croatia,NA,split university hospital,NA,NA,travel_loc_1,"hospital, country","split university hospital, croatia",NA,NA,NA,NA,16.4579764,43.5037301,HRV
 7482,NA,NA,7482_1,NA,China,NA,NA,NA,NA,travel_loc_1,country,china,NA,NA,NA,NA,104.195397,35.86166,CHN
 7494,NA,NA,7494_1,buenos aires,Argentina,NA,NA,NA,NA,travel_loc_1,"city, country","buenos aires, argentina",NA,NA,NA,NA,-58.3815591,-34.6036844,ARG
@@ -262,7 +262,7 @@ study_id,code_identifiers,code_identifiers_link,events_id,study_city,study_count
 18438,NA,NA,18438_1,rawalpindi,Pakistan,NA,children ward of the military hospital,NA,NA,travel_loc_1,"hospital, city, country","children ward of the military hospital, rawalpindi, pakistan",NA,NA,NA,NA,73.0430098,33.5937311,PAK
 18469,NA,NA,18469_1,NA,Italy,NA,NA,NA,NA,travel_loc_1,country,italy,NA,NA,NA,NA,12.56738,41.87194,ITA
 18470,NA,NA,18470_1,NA,Italy,NA,NA,NA,NA,travel_loc_1,country,italy,NA,NA,NA,NA,12.56738,41.87194,ITA
-18631,NA,NA,18631_1,NA,Germany,NA,NA,NA,NA,travel_loc_1,country,germany,NA,NA,NA,NA,10.451526,51.165691,DEU
+18631,NA,NA,18631_1,NA,Germany,NA,NA,NA,NA,travel_loc_1,country,germany2,NA,NA,NA,NA,10.451526,51.165691,DEU
 18674,NA,NA,18674_1,tubarao,Brazil,NA,hospital nossa senhora da conceicao,NA,santa catarina,travel_loc_1,"hospital, city, state_province_district, country","hospital nossa senhora da conceicao, tubarao, santa catarina, brazil",NA,NA,NA,NA,-49.00294,-28.4804845,BRA
 18778,NA,NA,18778_1,NA,United Kingdom,united kingdom,alexandra hospital,NA,NA,travel_loc_1,"hospital, country","alexandra hospital, united kingdom",NA,NA,-3.435973,55.378051,-1.9129407,52.280084,GBR
 18818,NA,NA,18818_1,bournemouth,United Kingdom,NA,bournemouth hospital,NA,NA,travel_loc_1,"hospital, city, country","bournemouth hospital, bournemouth, united kingdom",NA,NA,NA,NA,-1.820774,50.745682,GBR
