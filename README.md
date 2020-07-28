@@ -3,13 +3,12 @@
 # Antimicrobial Resistance Emergence Events Database
 
 This repository contains code, data, and documentation used to genreate a database of antimicrobial
-resistance emergence events, described in XXX.XXX.
+resistance emergence events. 
 
 ___Authors___:  _Emma Mendelsohn, Noam Ross, Allison M. White, Karissa Whiting, 
 Cale Basaraba, Brooke Watson Madubuonwu, Mushtaq Dualeh, Zach Matson, Erica Johnson,
 Sonia Dattaray, Samantha Maher, Melanie Kirshenbaum, Jacob Kotcher, 
 Nchedo Ezekoli, Carlos Zambrana-Torrelio, Peter Daszak_
-
 
 ---
 
