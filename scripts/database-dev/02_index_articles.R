@@ -91,7 +91,7 @@ nd <- articles_db %>%
 assert_that(all(nd %in% c("no", "could not access", "not full text")))
 
 # Now, make sure exports (segments) match index
-files <- dir(path = here("data-processed", "coded_segments"), pattern = "*.xlsx", full.names = TRUE)
+files <- dir(path = here("data-raw", "coded-segments"), pattern = "*.xlsx", full.names = TRUE)
 segments_raw <- map_dfr(files, ~read_xlsx(.x, col_types = "text"))
 
 assert_that(
