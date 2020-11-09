@@ -1,9 +1,13 @@
 [![DOI](https://zenodo.org/badge/146802522.svg)](https://zenodo.org/badge/latestdoi/146802522)
+[![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Antimicrobial Resistance Emergence Events Database
 
 This repository contains code, data, and documentation used to genreate a database of antimicrobial
 resistance emergence events. 
+
+Data in this repository are licensed under CC0-1.0. Code in this repository is licensed under MIT.
 
 ___Authors___:  _Emma Mendelsohn, Noam Ross, Allison M. White, Karissa Whiting, 
 Cale Basaraba, Brooke Watson Madubuonwu, Mushtaq Dualeh, Zach Matson, Erica Johnson,
