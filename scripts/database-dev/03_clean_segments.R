@@ -1,7 +1,7 @@
 library(here)
 library(readxl)
 library(magrittr)
-library(googlesheets)
+library(googlesheets4)
 library(stringi)
 library(tidyverse)
 library(textclean)
@@ -172,9 +172,12 @@ orphan_id_codes <- problem_id_codes %>%
   distinct()
 
 # bring in orphan ids that have been fixed manually on google drive
-orphan_id_codes_review <- gs_read(gs_title("amr_db_orphan_id_codes"), ws = "review_1") %>%
-  bind_rows(gs_read(gs_title("amr_db_orphan_id_codes"), ws = "review_2")) %>%
-  bind_rows(gs_read(gs_title("amr_db_orphan_id_codes"), ws = "review_3")) %>%
+# amr_db_orphan_id_codes
+
+amr_db_orphan_id_codes <- "https://docs.google.com/spreadsheets/d/1rVDE5UJnc5Rc5Iu8KNZ8YTjgJPyPZAS7zkBkZ4QQRog/edit?usp=sharing"
+orphan_id_codes_review <- read_sheet(ss = amr_db_orphan_id_codes, sheet = "review_1") %>% 
+  bind_rows(read_sheet(ss = amr_db_orphan_id_codes, sheet = "review_2")) %>%
+  bind_rows(read_sheet(ss = amr_db_orphan_id_codes, sheet = "review_3")) %>%
   mutate(study_id = as.character(study_id)) 
 
 fixed_codes_orphans <- orphan_id_codes_review %>% 
@@ -245,7 +248,7 @@ promed <- promed_raw %>%
   filter(!code %in% LETTERS) %>%
   select(study_id, segment, code_main = code) %>%
   left_join(promed_code_ids) %>%
-  mutate_at(.vars = c("code_main", "code_identifiers"), ~as.list(.))
+  mutate_at(.vars = c("segment", "code_main", "code_identifiers"), ~as.list(.))
 
 # unnest so each code and id have their own observation (gets rid of list column)
 # separate code category from main code 

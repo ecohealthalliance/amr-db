@@ -6921,8 +6921,8 @@ study_id,segment,code_identifiers,code_main,code_identifiers_link
 11303,256,o,mic,drug resisted; mic
 11303,32,p,mic,drug resisted; mic
 11303,8,q,mic,drug resisted; mic
-11508,6 months,c,age,age; drug resisted; mic; sex; state/province/district; symptoms/disease
 11508,male,c,sex,age; drug resisted; mic; sex; state/province/district; symptoms/disease
+11508,6 months,c,age,age; drug resisted; mic; sex; state/province/district; symptoms/disease
 12065,≥64,k,mic,drug resisted; mic
 12359,16,o,mic,drug resisted; mic
 1288,32,b,mic,drug resisted; mic
@@ -6938,8 +6938,8 @@ study_id,segment,code_identifiers,code_main,code_identifiers_link
 15268,‡32,d,mic,drug resisted; mic
 15378,128,d,mic,drug resisted; mic
 15378,32,f,mic,drug resisted; mic
-16837,48,a,age,age; binomial (genus species); comorbidities; sex; symptoms/disease
 16837,man,a,sex,age; binomial (genus species); comorbidities; sex; symptoms/disease
+16837,48,a,age,age; binomial (genus species); comorbidities; sex; symptoms/disease
 1786,32,m,mic,drug resisted; mic
 19152,32,a,mic,drug resisted; mic
 19152,128,b,mic,drug resisted; mic
@@ -7016,6 +7016,8 @@ cin",b,drug resisted,drug resisted; mic
 9075,256,bb,mic,binomial (genus species); drug resisted; mic; resistance marker
 9075,64,bb,mic,binomial (genus species); drug resisted; mic; resistance marker
 9075,gb661,c,strain,binomial (genus species); drug resisted; mic; strain
+9075,ceftazidime,a,drug resisted,binomial (genus species); drug resisted; mic; resistance marker; strain
+9075,ceftazidime,b,drug resisted,binomial (genus species); drug resisted; mic; strain
 9075,ampicillin,c,drug resisted,binomial (genus species); drug resisted; mic; strain
 9075,ampicillin,b,drug resisted,binomial (genus species); drug resisted; mic; strain
 9075,cefotaxime,c,drug resisted,binomial (genus species); drug resisted; mic; strain
@@ -7023,8 +7025,6 @@ cin",b,drug resisted,drug resisted; mic
 9075,cefotaxime,b,drug resisted,binomial (genus species); drug resisted; mic; strain
 9075,cefoxitin,c,drug resisted,binomial (genus species); drug resisted; mic; strain
 9075,cefoxitin,a,drug resisted,binomial (genus species); drug resisted; mic; resistance marker; strain
-9075,ceftazidime,a,drug resisted,binomial (genus species); drug resisted; mic; resistance marker; strain
-9075,ceftazidime,b,drug resisted,binomial (genus species); drug resisted; mic; strain
 9075,aztreonam,c,drug resisted,binomial (genus species); drug resisted; mic; strain
 9075,aztreonam,b,drug resisted,binomial (genus species); drug resisted; mic; strain
 9075,aztreonam,a,drug resisted,binomial (genus species); drug resisted; mic; resistance marker; strain

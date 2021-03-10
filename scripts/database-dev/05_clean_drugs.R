@@ -3,7 +3,7 @@ library(magrittr)
 library(stringi)
 library(here)
 library(janitor)
-library(googlesheets)
+library(googlesheets4)
 library(assertthat)
 
 # Structure Drugs Data and Manual Corrections-----------------
@@ -12,8 +12,9 @@ library(assertthat)
 segments <- read_csv(here("data-processed", "segments.csv")) 
 
 # Import corrections from manual checking
+amr_db_clean_drugs <- "https://docs.google.com/spreadsheets/d/1u-Ae_xmRu9JPzSW4xEY_inx-eF7QYJQVByUNO-SfNsQ/edit?usp=sharing"
 cleaned_drug_codes <-
-  gs_read(gs_title("amr_db_clean_drugs")) %>%  #google spreadsheet with field cleanup
+  read_sheet(amr_db_clean_drugs) %>%  #google spreadsheet with field cleanup
   mutate(segment = paste0("^", segment, "$"),
          new = ifelse(!is.na(new_correct), new_correct, new)) %>%
   filter(new != "--")
@@ -73,7 +74,8 @@ studies_missing_drugs <- qa_missing(drugs)
 #gs_new("amr_db_missing_drugs_study_id", input=studies_missing_drugs)
 
 # Compare with list of studies that were evaluated for missing drug codes (review 2)
-missing_list <- gs_read(gs_title("amr_db_missing_drugs_study_id"), ws = "review_2") 
+amr_db_missing_drugs_study_id <- "https://docs.google.com/spreadsheets/d/1IRP0xfcs2cXP8ArxfmGTNL0rCs3EELu0iXDRef9xIVc/edit?usp=sharing"
+missing_list <- read_sheet(amr_db_missing_drugs_study_id, sheet = "review_2") 
 studies_missing_drugs %<>% left_join(., missing_list) # 18812 is confirmed missing
 
 # QA Response-----------------

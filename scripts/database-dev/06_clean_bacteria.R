@@ -3,7 +3,7 @@ library(magrittr)
 library(stringi)
 library(here)
 library(janitor)
-library(googlesheets)
+library(googlesheets4)
 library(assertthat)
 
 # Structure Bacteria Data and Manual Corrections-----------------
@@ -15,8 +15,9 @@ segments <- read_csv(here("data-processed", "segments.csv"))
 segments$code_main[segments$study_id==23761 & segments$segment=="klebsiella pneumoniae"] <- "binomial (genus species)"
 
 # Import corrections from manual checking
-cleaned_bacteria_codes <-
-  gs_read(gs_title("amr_db_clean_bacteria")) %>% as.tibble() %>% filter(new != "--") %>% #google spreadsheet with field cleanup
+amr_db_clean_bacteria <- "https://docs.google.com/spreadsheets/d/1EsuFItE8nvEsx4SdEG9h75WzpznrNYdIsU6l4j9AJvo/edit?usp=sharing"
+cleaned_bacteria_codes <- 
+  read_sheet(amr_db_clean_bacteria) %>% as.tibble() %>% filter(new != "--") %>% #google spreadsheet with field cleanup
   mutate(segment = paste0("^", segment, "$")) %>%
   mutate(new = ifelse(is.na(new_new), new, new_new))
 
