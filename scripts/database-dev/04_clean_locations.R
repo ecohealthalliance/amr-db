@@ -2,7 +2,7 @@ library(magrittr)
 library(stringi)
 library(ggmap)
 library(maps)
-library(googlesheets)
+library(googlesheets4)
 library(tidyverse)
 library(here)
 library(assertthat)
@@ -37,7 +37,8 @@ studies_with_mult_events <- qa_event(locations)
 studies_missing_locs <- qa_missing(locations)
 
 # Compare with list of studies that were evaluated for missing location codes (review 1)
-missing_list <- gs_read(gs_title("amr_db_missing_locations_study_id"), ws = "review_2") 
+amr_db_missing_locations_study_id <- "https://docs.google.com/spreadsheets/d/1t9tcyIRepsUeqOTDGm9Ryru_s3xf1UXe1RfG41EKUOY/edit?usp=sharing"
+missing_list <- read_sheet(ss = amr_db_missing_locations_study_id, sheet = "review_2") 
 studies_missing_locs %<>% left_join(., missing_list) # 18812 is ok - it's going to be excluded
 # ^ these are missing any location.  Eval for missing country below.  
 
@@ -67,7 +68,8 @@ locations %<>%
 # * Clean Main Locations ----
 
 # Import corrections from manual checking of strange fields and replace in events
-cleaned_location_codes <- gs_read(gs_title("amr_db_clean_locs")) %>% 
+amr_db_clean_locs <- "https://docs.google.com/spreadsheets/d/1P78Uug3b2RyQC53RiBYqZm-teYI0s2zDDgyJByjx-7A/edit?usp=sharing"
+cleaned_location_codes <- read_sheet(ss = amr_db_clean_locs) %>% 
   replace(is.na(.), "")
 
 locations %<>%
@@ -113,7 +115,8 @@ locations %<>%
   select(-ls)
 
 # Manually assign study country if missing
-add_country <- gs_read(gs_title("amr_db_add_country")) %>% 
+amr_db_add_country <- "https://docs.google.com/spreadsheets/d/1s3-3QEsUzlIlfoJtQtBolOPr-22xHzlE760bxfwTg0Q/edit?usp=sharing"
+add_country <- read_sheet(amr_db_add_country) %>% 
   rename(study_country_add = study_country) 
 
 locations %<>%
@@ -205,9 +208,10 @@ study_locs <- locations %>%
 filter(study_locs, is.na(study_locs$lat_study)) #these are study locations that were not geocoded
 
 # Find studies that were not checked in review_1 or review_2
-clean_list1 <- gs_read(gs_title("amr_db_locations_qa"), ws = "review_1")  %>%
+amr_db_locations_qa <- "https://docs.google.com/spreadsheets/d/1qgRlhqBGqD9wZyLPPXass7Wy5stJwWic6fRlLbNzxf0/edit?usp=sharing"
+clean_list1 <- read_sheet(ss = amr_db_locations_qa, sheet = "review_1")  %>%
   select(study_id, study_location) %>% slice(-1:-5)
-clean_list2 <- gs_read(gs_title("amr_db_locations_qa"), ws = "review_2_study", skip=1) %>%
+clean_list2 <-  read_sheet(ss = amr_db_locations_qa, sheet = "review_2_study", skip=1) %>%
   select(study_id, study_location)
 clean_list <- bind_rows(clean_list1, clean_list2)
 
@@ -230,7 +234,7 @@ res_locs <- locations %>%
 filter(res_locs, is.na(res_locs$lat_residence)) #these are study locations that were not geocoded
 
 # Find studies that were not checked in review_2
-clean_list <- gs_read(gs_title("amr_db_locations_qa"), ws = "review_2_residence", skip=1) %>%
+clean_list <- read_sheet(amr_db_locations_qa, sheet = "review_2_residence", skip=1) %>%
   select(residence_location)
 
 updated_studies <- anti_join(res_locs, clean_list)
@@ -246,7 +250,7 @@ trav_locs <- locations %>%
 filter(trav_locs, is.na(trav_locs$lat_travel)) #these are study locations that were not geocoded
 
 # Find studies that were not checked in review_2
-clean_list <- gs_read(gs_title("amr_db_locations_qa"), ws = "review_2_travel", skip=1) %>%
+clean_list <- read_sheet(amr_db_locations_qa, sheet = "review_2_travel", skip=1) %>%
   select(travel_location)
 
 updated_studies <- anti_join(trav_locs, clean_list)

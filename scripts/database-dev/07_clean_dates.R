@@ -1,10 +1,10 @@
 library(tidyverse)
 library(magrittr)
 library(stringi)
-library(googlesheets)
+library(googlesheets4)
 library(janitor)
 library(lubridate)
-library(googlesheets)
+library(googlesheets4)
 library(here) 
 library(assertthat)
 
@@ -54,7 +54,8 @@ assert_that(nrow(studies_with_dups)==0)
 studies_missing_dates <- qa_missing(dates)
 
 # Compare with list of studies that were evaluated for missing dates (review 2)
-missing_list <- gs_read(gs_title("amr_db_missing_dates"), ws = "review_1") 
+amr_db_missing_dates <- "https://docs.google.com/spreadsheets/d/1qHgXb6_taP436yQ87s78CtA8e9m5K4pShUpZo31AGUw/edit?usp=sharing"
+missing_list <- read_sheet(amr_db_missing_dates, sheet = "review_1") 
 studies_missing_dates %<>% left_join(., missing_list)
 filter(studies_missing_dates, is.na(notes_review_1)) # 18812 is confirmed missing
 
@@ -71,8 +72,8 @@ missing_year <- dates %>%
   left_join(., articles_db %>% select(study_id, mex_name))
 
 # Lookups for manual cleaning ----------------
-
-cleaned_date_codes <- gs_read(gs_title("amr_db_clean_dates")) 
+amr_db_clean_dates <- "https://docs.google.com/spreadsheets/d/1LAK-BFQv8KFXx4D_6Pd_4wwbOU-vo-ddAGBRKH43MVk/edit?usp=sharing"
+cleaned_date_codes <- read_sheet(amr_db_clean_dates)
 cleaned_years <- cleaned_date_codes %>% filter(field == "event_year")
 cleaned_months <- cleaned_date_codes %>% filter(field == "event_month")
 cleaned_month_regex <- paste(cleaned_months$old, collapse="|")
