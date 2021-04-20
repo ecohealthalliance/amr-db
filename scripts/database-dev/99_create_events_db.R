@@ -187,7 +187,7 @@ events_atc <- events %>%
   select(-is_first) %>%
   ungroup()
 
-write_csv(events_atc, here("events-db-atc.csv"))
+write_csv(events_atc, here("alt-db-atc/events-db-atc.csv"))
 
 events_mesh <- events %>%
   group_by(study_country, drug_mesh, bacteria) %>%
