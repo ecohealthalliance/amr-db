@@ -49,7 +49,6 @@ drugs %<>%
                                               "1/41/41/4g/ml",
                                               "nt to amik")))
 
-
 # Separate out drug combos that are not recognized combinations 
 # as id'd from no_match routine below
 # to run new data through no_match routine, this code chunk will need to be commented out after segment_drug_combo col is created
@@ -61,6 +60,12 @@ drugs %<>%
 # Warning message:
 #Expected 2 pieces. Missing pieces filled with `NA` in 2192 rows [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, ...].
 # ^ Ok
+
+# The following drugs do not have matches in MESH - remove after slash because these are not antibiotics (except cefotetan/cloxacillin )
+drugs %>% filter(stri_detect_regex(segment, "/")) %>% distinct(segment)
+
+drugs %<>% 
+  mutate(segment = str_remove(segment, "/clavulanic acid|/clavulanate|/sulbactam|/atovaquone"))
 
 # QA Checks-----------------
 # clean 
@@ -239,28 +244,15 @@ drugs %<>%
 
 
 # Dealing with unmatched drugs -------------------------------------------
-check_unmatch <- drugs %>% distinct(segment, mesh_drug_preferred_label, atc_drug_preferred_label) 
-check_unmatch[!complete.cases(check_unmatch),]
-
-# borrow from other ontology if available
-drugs %<>% 
-  mutate(mesh_drug_preferred_label_from_atc = is.na(mesh_drug_preferred_label) & !is.na(atc_drug_preferred_label),
-         atc_drug_preferred_label_from_mesh = !is.na(mesh_drug_preferred_label) & is.na(atc_drug_preferred_label),
-         mesh_drug_preferred_label = coalesce( mesh_drug_preferred_label, atc_drug_preferred_label),
-         atc_drug_preferred_label = coalesce(atc_drug_preferred_label, mesh_drug_preferred_label)) 
-
-# otherwise make unique label
-check_unmatch2 <- drugs %>% 
-  distinct(segment, mesh_drug_preferred_label, atc_drug_preferred_label) %>% 
-  filter(is.na(mesh_drug_preferred_label) | is.na(atc_drug_preferred_label)) %>% 
-  mutate(unique_name = paste0("drug-not-matched-", row_number())) %>% 
-  select(segment, unique_name)
+drugs %>% filter(is.na(mesh_drug_preferred_label)) %>% pull(segment)
+drugs$mesh_drug_rank[drugs$segment == "cefotetan/cloxacillin"] <- "drug name"
+drugs %>% filter(is.na(atc_drug_preferred_label)) %>% pull(segment)
 
 drugs %<>% 
-  left_join(check_unmatch2) %>% 
-  mutate(mesh_drug_preferred_label = coalesce(mesh_drug_preferred_label, unique_name),
-         atc_drug_preferred_label = coalesce(atc_drug_preferred_label, unique_name)) %>% 
-  select(-unique_name)
+  #  left_join(check_unmatch2) %>% 
+  mutate(mesh_drug_preferred_label = coalesce(mesh_drug_preferred_label, segment),
+         atc_drug_preferred_label = coalesce(atc_drug_preferred_label, segment)) #%>% 
+  # select(-unique_name)
 
 assert_that(all(!is.na(drugs$mesh_drug_preferred_label)))
 assert_that(all(!is.na(drugs$atc_drug_preferred_label)))
@@ -276,3 +268,4 @@ assert_that(all(!is.na(drugs$atc_drug_preferred_label)))
 # no_match %<>% left_join(articles_db)
 
 write_csv(drugs, here("data-processed", "drugs.csv"))
+

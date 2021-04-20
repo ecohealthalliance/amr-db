@@ -197,7 +197,13 @@ events_mesh <- events %>%
   select(-is_first) %>%
   ungroup()
 
-write_csv(events_mesh, here("events-db-mesh.csv"))
+write_csv(events_mesh, here("events-db.csv"))
+
+# compare MESH and ATC
+events_mesh %>% 
+  distinct(drug_mesh, drug_atc) %>% 
+  arrange(drug_mesh) %>%
+  write_csv(here("figures_and_tables/mesh_atc_comparison.csv"))
 
 # get overall study combo first events
 events_atc_study_combos <- events %>%

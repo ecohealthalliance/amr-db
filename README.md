@@ -65,7 +65,7 @@ Sub-folders contain components of the workflow that generated the database.
 	-	Remaining csv files are intermediate steps created in the data cleaning process.
 	
 	
-- `figures/` contains data summary figures and map.
+- `figures_and_tables/` contains data summary figures, tables, and map.
 
 - `scripts/` contains all scripts used to derive outputs. 
 
