@@ -1,0 +1,13 @@
+ ,Classification,Count
+Drug,drug name,83
+Drug,drug group,32
+Bacteria,species,106
+Bacteria,genus,4
+Bacteria,family,1
+Location,hospital,123
+Location,city,77
+Location,state/province/district,21
+Location,country,73
+Date,day,47
+Date,month,121
+Date,year,134

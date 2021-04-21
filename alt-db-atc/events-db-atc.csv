@@ -1119,7 +1119,7 @@ study_id,study_location_basis,study_location,study_country,study_iso3c,residence
 21348,country,norway,Norway,NOR,norway,"NA",cefixime,drug name,d002439,cefotaxime,cefixime,drug_name,j01dd,third-generation cephalosporins,species,neisseria gonorrhoeae,genus,neisseria,2010-07,NA,month
 18265,country,norway,Norway,NOR,NA,greece; israel,cefotaxime,drug group,d002505,cephacetrile,cefotaxime,drug_name,j01dd,third-generation cephalosporins,species,klebsiella pneumoniae,genus,klebsiella,2009,NA,year
 8515,country,norway,Norway,NOR,NA,philippines,cefotaxime,drug group,d002505,cephacetrile,cefotaxime,drug_name,j01dd,third-generation cephalosporins,species,salmonella enterica,genus,salmonella,2015,NA,year
-18265,country,norway,Norway,NOR,NA,greece; israel,cefotetan/cloxacillin,NA,NA,NA,cefotetan/cloxacillin,NA,NA,NA,species,klebsiella pneumoniae,genus,klebsiella,2009,NA,year
+18265,country,norway,Norway,NOR,NA,greece; israel,cefotetan/cloxacillin,drug name,NA,NA,cefotetan/cloxacillin,NA,NA,NA,species,klebsiella pneumoniae,genus,klebsiella,2009,NA,year
 18265,country,norway,Norway,NOR,NA,greece; israel,cefoxitin,drug name,d002513,cephamycins,cefoxitin,drug_name,j01dc,second-generation cephalosporins,species,klebsiella pneumoniae,genus,klebsiella,2009,NA,year
 18265,country,norway,Norway,NOR,NA,greece; israel,cefpodoxime,drug name,d015296/q000031,ceftizoxime,cefpodoxime,drug_name,j01dd,third-generation cephalosporins,species,klebsiella pneumoniae,genus,klebsiella,2009,NA,year
 8515,country,norway,Norway,NOR,NA,philippines,cefpodoxime,drug name,d015296/q000031,ceftizoxime,cefpodoxime,drug_name,j01dd,third-generation cephalosporins,species,salmonella enterica,genus,salmonella,2015,NA,year
@@ -1385,7 +1385,7 @@ study_id,study_location_basis,study_location,study_country,study_iso3c,residence
 23107,"city, country","o rebro, sweden",Sweden,SWE,sweden,india,cephalothin,drug name,d002505,cephacetrile,cefalotin,drug_name,j01db,first-generation cephalosporins,species,klebsiella pneumoniae,genus,klebsiella,2008-01-09,NA,day
 23107,"city, country","o rebro, sweden",Sweden,SWE,sweden,india,cefepime,drug name,d002511,cephalosporins,cefepime,drug_name,j01de,fourth-generation cephalosporins,species,klebsiella pneumoniae,genus,klebsiella,2008-01-09,NA,day
 23107,"city, country","o rebro, sweden",Sweden,SWE,sweden,india,cefotaxime,drug group,d002505,cephacetrile,cefotaxime,drug_name,j01dd,third-generation cephalosporins,species,klebsiella pneumoniae,genus,klebsiella,2008-01-09,NA,day
-18265,country,sweden,Sweden,SWE,NA,"NA",cefotetan/cloxacillin,NA,NA,NA,cefotetan/cloxacillin,NA,NA,NA,species,klebsiella pneumoniae,genus,klebsiella,2009,NA,year
+18265,country,sweden,Sweden,SWE,NA,"NA",cefotetan/cloxacillin,drug name,NA,NA,cefotetan/cloxacillin,NA,NA,NA,species,klebsiella pneumoniae,genus,klebsiella,2009,NA,year
 23107,"city, country","o rebro, sweden",Sweden,SWE,sweden,india,cefoxitin,drug name,d002513,cephamycins,cefoxitin,drug_name,j01dc,second-generation cephalosporins,species,klebsiella pneumoniae,genus,klebsiella,2008-01-09,NA,day
 18265,country,sweden,Sweden,SWE,NA,"NA",cefpodoxime,drug name,d015296/q000031,ceftizoxime,cefpodoxime,drug_name,j01dd,third-generation cephalosporins,species,klebsiella pneumoniae,genus,klebsiella,2009,NA,year
 23107,"city, country","o rebro, sweden",Sweden,SWE,sweden,india,ceftazidime,drug name,d002509,cephaloridine,ceftazidime,drug_name,j01dd,third-generation cephalosporins,species,klebsiella pneumoniae,genus,klebsiella,2008-01-09,NA,day

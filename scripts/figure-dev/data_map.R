@@ -58,4 +58,4 @@ lf <- leaflet() %>%
   addControl(caption)
             
 lf
-htmlwidgets::saveWidget(lf, here("figures/map.html"))
+htmlwidgets::saveWidget(lf, here("figures-and-tables/map.html"))

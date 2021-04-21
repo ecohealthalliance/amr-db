@@ -5,7 +5,7 @@ library(cowplot)
 
 # Get data ----------------------------------------------------------------
 events <- read_csv(here("events-db.csv")) %>%
-  mutate(drug = str_remove_all(drug_mesh, "drug|combination")) %>%
+  mutate(drug = str_remove_all(drug, "drug|combination")) %>%
   mutate(drug = str_replace_all(drug, ",", " + ")) %>%
   mutate(drug = str_squish(drug)) %>%
   mutate(drug = fct_infreq(drug)) %>%
@@ -90,7 +90,7 @@ heatmap <- ggplot(heatmap_mat %>%
   theme(axis.text.y = element_text(size = 14, color = "black"),
         axis.text.x = element_text(size = 14, face = "italic", color = "black"),
         axis.ticks = element_blank())
-ggsave(here("figures_and_tables/drug-bacteria-heatmap.png"), width = 19.5, height = 9)
+ggsave(here("figures-and-tables/drug-bacteria-heatmap.png"), width = 19.5, height = 9)
 
 drugs_total <- top_drugs %>% 
   mutate(drug = fct_rev(drug)) %>%
@@ -107,7 +107,7 @@ drugs_total <- top_drugs %>%
         axis.text.x = element_text(size = 14, color = "black"),
         axis.title.x = element_text(size = 14, hjust = 0, color = "black"),
         axis.ticks = element_blank())
-ggsave(here("figures_and_tables/drug-barchart.png"), width = 12, height = 9)
+ggsave(here("figures-and-tables/drug-barchart.png"), width = 12, height = 9)
 
 
 bact_total <- top_bact %>% 
@@ -125,13 +125,13 @@ bact_total <- top_bact %>%
         axis.text.x = element_text(size = 14, color = "black"),
         axis.title.x = element_text(size = 14, hjust = 0, color = "black"),
         axis.ticks = element_blank())
-ggsave(here("figures_and_tables/bacteria-barchart.png"), width = 12, height = 9)
+ggsave(here("figures-and-tables/bacteria-barchart.png"), width = 12, height = 9)
 
 top_row <- plot_grid(drugs_total, NULL, bact_total, nrow = 1,
           rel_widths = c(1, 0.05, 1), labels = c('A', '', 'B'), label_size = 12)
 bottom_row <- plot_grid(heatmap, labels = 'C', label_size = 12)
 plot_grid(top_row, bottom_row, nrow = 2)
-ggsave(here("figures_and_tables/drug-bacteria-barchart.png"), width = 19.5, height = 12)
+ggsave(here("figures-and-tables/drug-bacteria-barchart.png"), width = 19.5, height = 12)
 
 # Publications over time --------------------------------------------------
 events %>%
@@ -150,13 +150,13 @@ events %>%
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 60, vjust = 0.6, color = "black"),
         axis.text.y = element_text(color = "black"))
-ggsave(here("figures_and_tables/pubs-over-time.png"))
+ggsave(here("figures-and-tables/pubs-over-time.png"))
 
 # Field specificity -------------------------------------------------------
 
 # drug (group/spec) 
 drug <- events %>%
-  select(drug, rank = mesh_drug_rank) %>%
+  select(drug, rank = drug_rank) %>%
   distinct() %>%
   mutate(rank = recode(rank, 
                             "drug group + drug group" = "drug group",
@@ -211,6 +211,6 @@ date <- events %>%
 ranks <- reduce(list(drug, bact, loc, date), rbind) %>%
   select(" "=cat, "Classification" = rank, "Count" = n)
 
-write_csv(ranks, here::here("figures_and_tables", "field_summary.csv"))
+write_csv(ranks, here::here("figures-and-tables", "field_summary.csv"))
 
 
