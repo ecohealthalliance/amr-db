@@ -212,28 +212,16 @@ names(events_mesh) <- str_remove(names(events_mesh), "mesh_")
 write_csv(events_mesh, here("events-db.csv"))
 
 
-# get overall study combo first events
-# events_atc_study_combos <- events %>%
-#   select(-drug_mesh, -starts_with("mesh"), -starts_with("atc")) %>% 
-#   group_by_at(vars(-c("drug_atc"))) %>% 
-#   summarize(drug_combo = paste(sort(drug_atc), collapse = " + ")) %>% 
-#   ungroup() %>% 
-#   group_by(study_country, drug_combo, bacteria) %>%
-#   mutate(is_first = start_date == min(start_date, na.rm=T)) %>%
-#   filter(is_first) %>% # get first event for each unique combo (if there is only 1 event, it will be selected) 
-#   slice(1) %>% # if there is a tie (ie more than one event reported at same time and same place) select first instance
-#   select(-is_first) %>%
-#   ungroup()
-# 
-# events_mesh_study_combos <- events %>%
-#   select(-drug_atc, -starts_with("atc"), -starts_with("mesh")) %>% 
-#   group_by_at(vars(-c("drug_mesh"))) %>% 
-#   summarize(drug_combo = paste(sort(drug_mesh), collapse = " + ")) %>% 
-#   ungroup() %>% 
-#   group_by(study_country, drug_combo, bacteria) %>%
-#   mutate(is_first = start_date == min(start_date, na.rm=T)) %>%
-#   filter(is_first) %>% # get first event for each unique combo (if there is only 1 event, it will be selected) 
-#   slice(1) %>% # if there is a tie (ie more than one event reported at same time and same place) select first instance
-#   select(-is_first) %>%
-#   ungroup()
+# get overall study combo first events - most studies become first emergence
+events_mesh_study_combos <- events %>%
+  select(-drug_atc, -starts_with("atc"), -starts_with("mesh")) %>%
+  group_by_at(vars(-c("drug_mesh"))) %>%
+  summarize(drug_combo = paste(sort(drug_mesh), collapse = " + ")) %>%
+  ungroup() %>%
+  group_by(study_country, drug_combo, bacteria) %>%
+  mutate(is_first = start_date == min(start_date, na.rm=T)) %>%
+  filter(is_first) %>% # get first event for each unique combo (if there is only 1 event, it will be selected)
+  slice(1) %>% # if there is a tie (ie more than one event reported at same time and same place) select first instance
+  select(-is_first) %>%
+  ungroup()
 
