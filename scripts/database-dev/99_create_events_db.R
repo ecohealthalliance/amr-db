@@ -201,7 +201,7 @@ events_mesh <- events %>%
 events_mesh %>% 
   distinct(drug_mesh, drug_atc) %>% 
   arrange(drug_mesh) %>%
-  write_csv(here("figures-and-tables/mesh_atc_comparison.csv"))
+  write_csv(here("figures-and-tables/mesh-atc-comparison.csv"))
 
 # export MESH
 events_mesh %<>%
