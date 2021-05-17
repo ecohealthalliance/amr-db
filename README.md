@@ -71,6 +71,8 @@ Sub-folders contain components of the workflow that generated the database.
 
 - `scripts/` contains all scripts used to derive outputs. 
 
+	- `helper/` contains functions to QA the data and to curate and clean the data outside the data generation pipeline. __The scripts `clean_atc.R`, `clean_mesh.R` and `clean_ncbi.R` must be run once before running the pipeline in `database-dev/` in order to generate cleaned versions of the ontologies.__
+
 	- `database-dev/` contains scripts to process the data. These are formulated in a pipeline and should be run sequentially.
 	
 		-	`01_export_segs_single_mex.scpt` an applescript that uses the raw `.mex` files to create `data-raw/coded-segments/` `.xlsx` files.
@@ -87,5 +89,4 @@ Sub-folders contain components of the workflow that generated the database.
 		- `data_map.R` creates leaflet map showing location of AMR events.  Exports to `figures/`.
 		-	`flowchart.R` makes a flowchart of the data pipeline for this project. 
 		
-	- `helper/` contains functions to QA the data and to curate and clean the data outside the data generation pipeline. 
 ```
