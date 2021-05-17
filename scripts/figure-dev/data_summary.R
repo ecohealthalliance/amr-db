@@ -65,6 +65,13 @@ top_bact <- events %>%
   mutate(lab = ifelse(n_events == max(n_events), paste(n_drugs, "distinct drugs resisted"), n_drugs)) %>%
   slice(1:12)
 
+events %>% 
+  group_by(report_source) %>% 
+  summarize(n_events = n(),
+            n_articles = n_distinct(study_id),
+            min_date = min(start_date),
+            max_date = max(start_date)) 
+# promed has events in australia, SA, NA, Europe, Asia, Africa
 
 # Heatmaps -----------------------------------------------------------------
 
