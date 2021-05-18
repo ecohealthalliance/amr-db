@@ -37,9 +37,10 @@ articles and processing coded test.  Please see the manuscript for more detail.
 	-	`bacteria_rank` - taxonomic classification of bacteria name (e.g., “species”, “genus”)
 	-	`bacteria_parent_name` - name of the taxonomic parent of bacteria, standardized to NCBI Organismal Classification ontology
 	-	`bacteria_parent_rank` - - taxonomic classification of bacteria parent name (e.g., “species”, “genus”)
-	-	`start-date` - date that emergence was reported in format of yyyy-mm-dd
-	-	`end_date` - date that emergence was resolved, if reported, in format of yyyy-mm-dd
+	-	`start_date` - date that emergence was reported in format of yyyy-mm-dd
 	-	`start_date_rank` - specificity of the start date (i.e., year, month, day)
+	-	`end_date` - date that emergence was resolved, if reported, in format of yyyy-mm-dd
+	- `data_source` - whether data source is ‘peer-reviewed study’ or ‘promed-mail report’
 	
 -	An alternate version of the database containing drug names standardized to the Anatomical Therapeutic Chemical (ATC) ontology is available in `alt-db-atc/`.
 	

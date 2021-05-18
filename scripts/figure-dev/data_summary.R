@@ -66,7 +66,7 @@ top_bact <- events %>%
   slice(1:12)
 
 events %>% 
-  group_by(report_source) %>% 
+  group_by(data_source) %>% 
   summarize(n_events = n(),
             n_articles = n_distinct(study_id),
             min_date = min(start_date),

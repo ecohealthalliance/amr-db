@@ -180,7 +180,9 @@ events %<>%
 # bring in event report source (article or promed)
 events <- events %>% 
   left_join(articles_db %>% select(study_id, mex_name), by = "study_id") %>% 
-  mutate(report_source = factor(replace_na(str_extract(mex_name, "promed"), "article"), levels = c("article", "promed"))) %>% 
+  mutate(data_source = factor(replace_na(str_extract(mex_name, "promed"), "peer-reviewed study"), 
+                              levels = c("peer-reviewed study", "promed"),
+                              labels = c("peer-reviewed study", "promed-mail report"))) %>% 
   select(-mex_name)
 
 # select first report.  if two are identical, select first study (with pref for article > promed).
@@ -189,7 +191,7 @@ events_atc <- events %>%
   group_by(study_country, drug_atc, bacteria) %>%
   mutate(is_first = start_date == min(start_date, na.rm=T)) %>%
   filter(is_first) %>% # get first event for each unique combo (if there is only 1 event, it will be selected) 
-  arrange(report_source) %>% 
+  arrange(data_source) %>% 
   slice(1) %>% # if there is a tie (ie more than one event reported at same time and same place) select first instance
   select(-is_first) %>%
   ungroup()
@@ -200,7 +202,7 @@ events_mesh <- events %>%
   group_by(study_country, drug_mesh, bacteria) %>%
   mutate(is_first = start_date == min(start_date, na.rm=T)) %>%
   filter(is_first) %>% # get first event for each unique combo (if there is only 1 event, it will be selected) 
-  arrange(report_source) %>% 
+  arrange(data_source) %>% 
   slice(1) %>% # if there is a tie (ie more than one event reported at same time and same place) select first instance
   select(-is_first) %>%
   ungroup()
