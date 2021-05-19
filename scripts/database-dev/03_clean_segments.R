@@ -263,13 +263,21 @@ segments %<>%
 
 # get vector of excluded study IDs
 excluded_studies <- segments %>%
-  filter(code_main_cat == "exclusion"|str_detect(code_main, "surveillance")) %>% 
+  filter(code_main_cat == "exclusion"|str_detect(code_main, "surveillance")) 
+
+excluded_studies %>% 
+  distinct(study_id, code_main) %>% 
+  group_by(code_main) %>% 
+  count() %>% 
+  View()
+
+excluded_study_ids <- excluded_studies %>%
   pull(study_id) %>% 
   unique()
 
 # excluded segments export
 write_csv(segments %>%
-            filter(study_id %in% excluded_studies), path = here("data-processed", "segments-excluded.csv"))
+            filter(study_id %in% excluded_study_ids), path = here("data-processed", "segments-excluded.csv"))
 
 # omit excluded study IDs from final database
 segments %<>%
