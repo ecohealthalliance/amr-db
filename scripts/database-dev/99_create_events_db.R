@@ -11,6 +11,10 @@ articles_db <- read_csv(here("data-processed", "articles-db.csv")) %>%
   mutate(title = tolower(title)) %>%
   filter(study_id %in% unique(segments$study_id)) 
 
+articles_db %>% 
+  group_by(article_type) %>% 
+  count()
+
 locations <- read_csv(here("data-processed", "locations.csv")) %>%
   group_by(
     study_id,
@@ -39,39 +43,17 @@ bacteria <- read_csv(here("data-processed", "bacteria_genus_species.csv")) %>%
   )
 
 drugs <- read_csv(here("data-processed", "drugs.csv")) %>%  
-  group_by(
-    study_id,
-    code_identifiers,
-    code_identifiers_link,
-    segment_drug_combo,
-    combo_key,
-    drug_rank,
-    drug_preferred_label
-  ) %>%
-  # collapse multiple parent names
-  summarize(drug_parent_name = paste(unique(drug_parent_name), collapse = "; ")) %>%
-  ungroup() %>%
-  filter(!is.na(drug_preferred_label)) %>%
-  rename(drug = drug_preferred_label)
-
-# collapse drug combos
-drugs_combos <- drugs %>%
-  filter(segment_drug_combo == TRUE) %>%
-  group_by(study_id,
-           code_identifiers,
-           code_identifiers_link,
-           segment_drug_combo,
-           combo_key
-  ) %>%
-  summarize(drug_rank = paste(sort(drug_rank), collapse = " + "),
-            drug = paste(sort(drug), collapse = " + "),
-            drug_parent_name = paste(sort(drug_parent_name), collapse = " + "),
-  ) %>%
-  ungroup() 
-
-drugs %<>%
-  filter(segment_drug_combo == FALSE) %>%
-  bind_rows(drugs_combos)
+  select(study_id,
+         code_identifiers,
+         code_identifiers_link,
+         drug_mesh = mesh_drug_preferred_label,
+         mesh_drug_rank,
+         mesh_drug_parent_id,
+         mesh_drug_parent_name,
+         drug_atc = atc_drug_preferred_label,
+         atc_drug_rank,
+         atc_drug_parents_class_ids,
+         atc_drug_parent_name)
 
 dates <- read_csv(here("data-processed", "dates.csv")) 
 
@@ -116,9 +98,11 @@ events %<>%
   distinct() %>% 
   arrange(study_id, code_identifiers)
 
-# Remove NAs in country, drug, bacteria 
+# Remove NAs in country, drugs (atc or mesh), bacteria 
+n_distinct(events$study_id[is.na(events$drug_mesh)])
+n_distinct(events$study_id[is.na(events$bacteria)])
 events %<>%
-  filter(!is.na(study_country), !is.na(drug), !is.na(bacteria))
+  filter(!is.na(drug_mesh), !is.na(bacteria))
 #events <-  left_join(events, articles_db)
 
 # Check study IDs that did not make it into DB
@@ -157,6 +141,7 @@ dups_remove <- read_sheet(amr_db_dups_titles, sheet = "exact_match") %>% # googl
   as_tibble() %>% 
   filter(NOTES=="delete") %>%
   pull(study_id) 
+length(dups_remove)
 
 events %<>% filter(!study_id %in% dups_remove)
 
@@ -165,13 +150,15 @@ fuzzy_dups_remove <-read_sheet(amr_db_dups_titles, sheet = "fuzzy_match") %>% # 
   as_tibble() %>% 
   filter(!is.na(delete)) %>%
   pull(delete) 
+length(fuzzy_dups_remove)
 
 events %<>% 
   filter(!study_id %in% fuzzy_dups_remove)
 
+
 # remove code identifiers and combo keys
 events %<>% 
-  select(-code_identifiers, -code_identifiers_link, -combo_key, -bacteria_abbreviation) %>%
+  select(-code_identifiers, -code_identifiers_link, -bacteria_abbreviation) %>%
   distinct()
 
 # for multiple events, select the most recent
@@ -199,15 +186,67 @@ events %<>%
   bind_rows(events_dates_na) %>%
   distinct() # some of the assigned pub dates are same as start_date, so these get filtered out
 
-# select first report.  if two are identical, select first study.
+# bring in event report source (article or promed)
+events <- events %>% 
+  left_join(articles_db %>% select(study_id, article_type), by = "study_id") %>% 
+  mutate(article_type = factor(article_type, 
+                               levels = c("journal", "promed"),
+                               labels = c("peer-reviewed study", "promed-mail report"))) %>% 
+  rename(data_source = article_type)
+
+# select first report.  if two are identical, select first study (with pref for article > promed).
 # note that there may be differences in strain or marker, which would mean some of these are in fact separate emergence events.  to be revisited.  
-events %<>%
-  group_by(study_country, drug, bacteria) %>%
+events_atc <- events %>%
+  group_by(study_country, drug_atc, bacteria) %>%
   mutate(is_first = start_date == min(start_date, na.rm=T)) %>%
   filter(is_first) %>% # get first event for each unique combo (if there is only 1 event, it will be selected) 
+  arrange(data_source) %>% 
   slice(1) %>% # if there is a tie (ie more than one event reported at same time and same place) select first instance
   select(-is_first) %>%
   ungroup()
 
-write_csv(events, here("events-db.csv"))
+write_csv(events_atc, here("alt-db-atc/events-db-atc.csv"))
+
+events_mesh <- events %>%
+  group_by(study_country, drug_mesh, bacteria) %>%
+  mutate(is_first = start_date == min(start_date, na.rm=T)) %>%
+  filter(is_first)  # get first event for each unique combo (if there is only 1 event, it will be selected) 
+n_distinct(events$study_id) - n_distinct(events_mesh$study_id) # 9 removed for not being first
+n_distinct(events_mesh$study_id)
+
+events_mesh <- events_mesh %>% 
+  arrange(data_source) %>% 
+  slice(1) %>% # if there is a tie (ie more than one event reported at same time and same place) select first instance
+  select(-is_first) %>%
+  ungroup()
+n_distinct(events_mesh$study_id) # 5 removed for being dupes
+# plus removed 9 actual/fuzzy dupes above
+
+# compare MESH and ATC
+events_mesh %>% 
+  distinct(drug_mesh, drug_atc) %>% 
+  arrange(drug_mesh) %>%
+  write_csv(here("figures-and-tables/mesh-atc-comparison.csv"))
+
+# export MESH
+events_mesh %<>%
+  select(-starts_with("atc_"), -mesh_drug_parent_id, -drug_atc) %>% 
+  rename(drug = drug_mesh)
+names(events_mesh) <- str_remove(names(events_mesh), "mesh_")
+
+write_csv(events_mesh, here("events-db.csv"))
+
+
+# get overall study combo first events - most studies become first emergence
+events_mesh_study_combos <- events %>%
+  select(-drug_atc, -starts_with("atc"), -starts_with("mesh")) %>%
+  group_by_at(vars(-c("drug_mesh"))) %>%
+  summarize(drug_combo = paste(sort(drug_mesh), collapse = " + ")) %>%
+  ungroup() %>%
+  group_by(study_country, drug_combo, bacteria) %>%
+  mutate(is_first = start_date == min(start_date, na.rm=T)) %>%
+  filter(is_first) %>% # get first event for each unique combo (if there is only 1 event, it will be selected)
+  slice(1) %>% # if there is a tie (ie more than one event reported at same time and same place) select first instance
+  select(-is_first) %>%
+  ungroup()
 

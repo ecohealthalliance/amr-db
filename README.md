@@ -30,17 +30,19 @@ articles and processing coded test.  Please see the manuscript for more detail.
 	-	`study_location_basis` - spatial basis of study location (e.g., "hospital, city, state_province_district, country") 
 	-	`residence_location` - location of patient residence
 	-	`travel_location` - patient travel locations, if any reported. Multiple locations are separated by `;`.
-	-	`drug` - antimicrobial drug, standardized to the Medical Subject Headings (MeSH) ontology14. Drug combinations are concatenated by `+`.
+	-	`drug` - antimicrobial drug, standardized to the Medical Subject Headings (MeSH) ontology. 
 	-	`drug_rank` - taxonomic classification of drug (i.e., drug name or group)
-	-	` segment_drug_combo` - TRUE/FALSE resistance is to a combination of drugs
 	-	`drug_parent_name` - name of the taxonomic parent of antimicrobial drug, standardized to the Medical Subject Headings (MeSH) ontology.
 	-	`bacteria` - name of resistant bacteria, standardized to NCBI Organismal Classification ontology. 
 	-	`bacteria_rank` - taxonomic classification of bacteria name (e.g., “species”, “genus”)
 	-	`bacteria_parent_name` - name of the taxonomic parent of bacteria, standardized to NCBI Organismal Classification ontology
 	-	`bacteria_parent_rank` - - taxonomic classification of bacteria parent name (e.g., “species”, “genus”)
-	-	`start-date` - date that emergence was reported in format of yyyy-mm-dd
-	-	`end_date` - date that emergence was resolved, if reported, in format of yyyy-mm-dd
+	-	`start_date` - date that emergence was reported in format of yyyy-mm-dd
 	-	`start_date_rank` - specificity of the start date (i.e., year, month, day)
+	-	`end_date` - date that emergence was resolved, if reported, in format of yyyy-mm-dd
+	- `data_source` - whether data source is ‘peer-reviewed study’ or ‘promed-mail report’
+	
+-	An alternate version of the database containing drug names standardized to the Anatomical Therapeutic Chemical (ATC) ontology is available in `alt-db-atc/`.
 	
 Sub-folders contain components of the workflow that generated the database.
 
@@ -56,8 +58,9 @@ Sub-folders contain components of the workflow that generated the database.
 	-	`coded-segments/` directory contains all exported coded text segments from `.mex` files (exported using MAXQDA). These files can be created via the applscript `scripts/01_export_segs_single_mex.scpt` or manually from MAXQDA.
 	-	`card-ontology/` directory contains the Comprehensive Antibiotic Resistance Database ontology.
 	-	`mesh-ontology/` directory contains the Medical Subject Headings ontology.
+	- `atc-ontology/` directory contains the Anatomical Therapeutic Chemical ontology.
 	-	`ncbi-ontology/` directory contains the National Center for Biotechnology Information ontology.
-	- 	`maxqda-code-index.csv` contains the schema used to code studies in MAXQDA.
+	- `maxqda-code-index.csv` contains the schema used to code studies in MAXQDA.
 	
 - `data-processed/` contains all derived data including:
 	-	`articles-db.csv` is a master list of all the articles that were selected for full-text review. It is the compilation of all csvs in `screening/selected/`.
@@ -65,9 +68,11 @@ Sub-folders contain components of the workflow that generated the database.
 	-	Remaining csv files are intermediate steps created in the data cleaning process.
 	
 	
-- `figures/` contains data summary figures and map.
+- `figures-and-tables/` contains data summary figures, tables, and map.
 
 - `scripts/` contains all scripts used to derive outputs. 
+
+	- `helper/` contains functions to QA the data and to curate and clean the data outside the data generation pipeline. __The scripts `clean_atc.R`, `clean_mesh.R` and `clean_ncbi.R` must be run once before running the pipeline in `database-dev/` in order to generate cleaned versions of the ontologies.__
 
 	- `database-dev/` contains scripts to process the data. These are formulated in a pipeline and should be run sequentially.
 	
@@ -78,12 +83,11 @@ Sub-folders contain components of the workflow that generated the database.
 		-	`05_clean_drugs.R` builds the `drugs.csv` file from `segments.csv` based on MeSH ontology. 
 		-	`06_clean_bacteria.R` builds the `bacteria_genus_species.csv` and  `bacteria_strains_and_resistance_markers.csv` file from `segments.csv` based on NCBI and CARD ontologies, respectively. 
 		-	`07_clean_dates.R`  builds the `dates.csv` file from `segments.csv`. 
-		- 	`99_create_events_db.R` combines outputs of locations, drugs, bacteria, and dates scripts to create the final database `events_db.csv`.
+		- `99_create_events_db.R` combines outputs of locations, drugs, bacteria, and dates scripts to create the final database `events_db.csv`.
 		
 	- `figure-dev/` contains scripts to make figures.	
-		- 	`data_summary.R` creates figures to summarize contents of events database.  Exports to `figures/`.
-		-  	`data_map.R` creates leaflet map showing location of AMR events.  Exports to `figures/`.
+		- `data_summary.R` creates figures to summarize contents of events database.  Exports to `figures/`.
+		- `data_map.R` creates leaflet map showing location of AMR events.  Exports to `figures/`.
 		-	`flowchart.R` makes a flowchart of the data pipeline for this project. 
 		
-	- `helper/` contains functions to QA the data and to curate and clean the data outside the data generation pipeline. 
 ```
