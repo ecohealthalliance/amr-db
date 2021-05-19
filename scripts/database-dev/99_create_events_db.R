@@ -11,6 +11,10 @@ articles_db <- read_csv(here("data-processed", "articles-db.csv")) %>%
   mutate(title = tolower(title)) %>%
   filter(study_id %in% unique(segments$study_id)) 
 
+articles_db %>% 
+  group_by(article_type) %>% 
+  count()
+
 locations <- read_csv(here("data-processed", "locations.csv")) %>%
   group_by(
     study_id,
@@ -95,8 +99,10 @@ events %<>%
   arrange(study_id, code_identifiers)
 
 # Remove NAs in country, drugs (atc or mesh), bacteria 
+n_distinct(events$study_id[is.na(events$drug_mesh)])
+n_distinct(events$study_id[is.na(events$bacteria)])
 events %<>%
-  filter(!is.na(study_country), !is.na(drug_atc), !is.na(bacteria))
+  filter(!is.na(drug_mesh), !is.na(bacteria))
 #events <-  left_join(events, articles_db)
 
 # Check study IDs that did not make it into DB
@@ -135,6 +141,7 @@ dups_remove <- read_sheet(amr_db_dups_titles, sheet = "exact_match") %>% # googl
   as_tibble() %>% 
   filter(NOTES=="delete") %>%
   pull(study_id) 
+length(dups_remove)
 
 events %<>% filter(!study_id %in% dups_remove)
 
@@ -143,9 +150,11 @@ fuzzy_dups_remove <-read_sheet(amr_db_dups_titles, sheet = "fuzzy_match") %>% # 
   as_tibble() %>% 
   filter(!is.na(delete)) %>%
   pull(delete) 
+length(fuzzy_dups_remove)
 
 events %<>% 
   filter(!study_id %in% fuzzy_dups_remove)
+
 
 # remove code identifiers and combo keys
 events %<>% 
@@ -179,11 +188,11 @@ events %<>%
 
 # bring in event report source (article or promed)
 events <- events %>% 
-  left_join(articles_db %>% select(study_id, mex_name), by = "study_id") %>% 
-  mutate(data_source = factor(replace_na(str_extract(mex_name, "promed"), "peer-reviewed study"), 
-                              levels = c("peer-reviewed study", "promed"),
-                              labels = c("peer-reviewed study", "promed-mail report"))) %>% 
-  select(-mex_name)
+  left_join(articles_db %>% select(study_id, article_type), by = "study_id") %>% 
+  mutate(article_type = factor(article_type, 
+                               levels = c("journal", "promed"),
+                               labels = c("peer-reviewed study", "promed-mail report"))) %>% 
+  rename(data_source = article_type)
 
 # select first report.  if two are identical, select first study (with pref for article > promed).
 # note that there may be differences in strain or marker, which would mean some of these are in fact separate emergence events.  to be revisited.  
@@ -201,11 +210,17 @@ write_csv(events_atc, here("alt-db-atc/events-db-atc.csv"))
 events_mesh <- events %>%
   group_by(study_country, drug_mesh, bacteria) %>%
   mutate(is_first = start_date == min(start_date, na.rm=T)) %>%
-  filter(is_first) %>% # get first event for each unique combo (if there is only 1 event, it will be selected) 
+  filter(is_first)  # get first event for each unique combo (if there is only 1 event, it will be selected) 
+n_distinct(events$study_id) - n_distinct(events_mesh$study_id) # 9 removed for not being first
+n_distinct(events_mesh$study_id)
+
+events_mesh <- events_mesh %>% 
   arrange(data_source) %>% 
   slice(1) %>% # if there is a tie (ie more than one event reported at same time and same place) select first instance
   select(-is_first) %>%
   ungroup()
+n_distinct(events_mesh$study_id) # 5 removed for being dupes
+# plus removed 9 actual/fuzzy dupes above
 
 # compare MESH and ATC
 events_mesh %>% 
